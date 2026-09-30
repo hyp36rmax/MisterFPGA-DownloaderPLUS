@@ -2,7 +2,7 @@
 
 This interim navigation module derives a database from Coin-Op Collection's authoritative [official database](https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/db/db.json.zip). Coin-Op retains ownership and control of its content. DownloaderPLUS is independent and does not modify upstream.
 
-The approved contract renames `_Arcade/<suffix>` to `_Arcade/Coin-Op Collection/<suffix>` and the exact `_Arcade` folder record to `_Arcade/Coin-Op Collection`. Already-transformed keys are stable; double prefixes and collisions fail. Non-Arcade paths, including external games folders, remain unchanged.
+The approved contract renames `_Arcade/<suffix>` to `_Arcade/_Coin-Op Collection/<suffix>` and the exact `_Arcade` folder record to `_Arcade/_Coin-Op Collection`. Already-transformed keys are stable; double prefixes and collisions fail. Non-Arcade paths, including external games folders, remain unchanged.
 
 Rewritten files retain their original effective source through explicit URLs. The only other permitted change is the permanent derived `db_id` in `module.json`. All hashes, sizes, tags, tangles, timestamp, defaults, dictionary, base URL, root upstream database URL, and storage classifications stay identical.
 

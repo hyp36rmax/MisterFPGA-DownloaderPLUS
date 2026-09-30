@@ -2,7 +2,7 @@
 
 DownloaderPLUS provides modular derived MiSTer Downloader databases that make narrowly scoped organizational or compatibility changes while retaining authoritative upstream content.
 
-The first module, **Coin-Op Collection**, is an interim navigation/accessibility solution. It generates an additional installation under `_Arcade/Coin-Op Collection/` using the official Coin-Op database. Upstream owns the content and publishes its database; DownloaderPLUS validates and relocates destination records. It does not edit the upstream repository, maintain a separate content distribution, or modify your MiSTer configuration.
+The first module, **Coin-Op Collection**, is an interim navigation/accessibility solution. It generates an additional installation under `_Arcade/_Coin-Op Collection/` using the official Coin-Op database. Upstream owns the content and publishes its database; DownloaderPLUS validates and relocates destination records. It does not edit the upstream repository, maintain a separate content distribution, or modify your MiSTer configuration.
 
 This project is independent of Coin-Op Collection and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA) and the authors of its cores and MRAs. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
 
@@ -16,10 +16,10 @@ The module changes file and folder destination keys as follows, preserving the c
 
 ```text
 _Arcade/<existing path>
-  → _Arcade/Coin-Op Collection/<existing path>
+  → _Arcade/_Coin-Op Collection/<existing path>
 
 _Arcade                         (exact folder record)
-  → _Arcade/Coin-Op Collection
+  → _Arcade/_Coin-Op Collection
 ```
 
 Non-Arcade destinations stay identical. This includes the current `games`, `games/hbmame`, and `games/mame` folder records and their `path: pext` external-storage markers. The module preserves hashes, sizes, tags, tag dictionary, tangles, timestamp, format version, default filter, base URL, and folder metadata.
@@ -38,7 +38,7 @@ The upstream root `db_url` remains unchanged as provenance. Downloader fetches t
 ```text
 _Arcade/
 ├── <normal Coin-Op content>
-└── Coin-Op Collection/
+└── _Coin-Op Collection/
     └── <mirrored Coin-Op content>
 ```
 
@@ -46,10 +46,12 @@ After this repository is available on `main`, manually add this independent sect
 
 ```ini
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection]
-db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-collection/db.json.zip
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-collection/coinop-collection.json.zip
 ```
 
 The section must match the derived `db_id`. Do not replace the normal Coin-Op section. DownloaderPLUS does not disable, clean up, or replace the normal installation.
+
+If you installed the earlier database, update only the derived section's `db_url` to the `coinop-collection.json.zip` URL above. Keep its database ID unchanged. The corrected destination is `_Arcade/_Coin-Op Collection/`. Files previously tracked under the derived ID follow Downloader's ordinary update/removal settings; the normal Coin-Op installation remains independent.
 
 **Runtime dependency:** MiSTer's Arcade MRA loader derives its root from `_Arcade` and looks for RBFs in the normal `_Arcade/cores` directory. MRAs in the dedicated folder therefore depend on the normal Coin-Op installation. The derived database mirrors the upstream `cores/` suffix as requested, but those nested RBFs are not the normal loader's lookup location. ROMs continue to use the existing games locations. See the inspected [MiSTer loader](https://github.com/MiSTer-devel/Main_MiSTer/blob/master/support/arcade/mra_loader.cpp).
 
@@ -79,12 +81,12 @@ To reproduce the inspected snapshot without networking and independently compare
 
 ```sh
 python tools/build.py --module coinop-collection --upstream-file tests/fixtures/coinop-2026-09-30.db.json.zip
-python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated dist/coinop-collection/db.json.zip
+python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated dist/coinop-collection/coinop-collection.json.zip
 ```
 
 Use `--output-dir <directory>` to build elsewhere. Use `python tools/build.py --all` to discover and build all modules from their configured upstream URLs.
 
-Generated artifacts are `dist/<module>/db.json.zip` and `dist/<module>/manifest.json`. ZIPs contain exactly one `db.json` and use fixed metadata, sorted JSON keys, and stored compression for deterministic bytes across supported Python platforms. Input object ordering and upstream ZIP timestamps/compression do not produce needless changes. Content bytes are always fetched by MiSTer from upstream, not from DownloaderPLUS.
+Generated artifacts are `dist/<module>/<module>.json.zip` and `dist/<module>/manifest.json`. ZIPs contain exactly one `db.json` and use fixed metadata, sorted JSON keys, and stored compression for deterministic bytes across supported Python platforms. Input object ordering and upstream ZIP timestamps/compression do not produce needless changes. Content bytes are always fetched by MiSTer from upstream, not from DownloaderPLUS.
 
 ## Synchronization and safeguards
 

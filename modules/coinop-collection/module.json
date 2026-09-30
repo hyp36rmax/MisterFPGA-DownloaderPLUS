@@ -3,5 +3,5 @@
   "upstream_url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/db/db.json.zip",
   "upstream_db_id": "Coin-OpCollection/Distribution-MiSTerFPGA",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection",
-  "policy_version": 1
+  "policy_version": 2
 }

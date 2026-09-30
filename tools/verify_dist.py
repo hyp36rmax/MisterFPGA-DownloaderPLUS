@@ -13,7 +13,7 @@ def verify_distribution():
     for name in discover_modules():
         config, policy = load_module(name)
         directory = ROOT / "dist" / name
-        raw = (directory / "db.json.zip").read_bytes()
+        raw = (directory / f"{name}.json.zip").read_bytes()
         database = unpack(raw)
         manifest = parse_json((directory / "manifest.json").read_bytes())
         policy.validate_schema(database, config)

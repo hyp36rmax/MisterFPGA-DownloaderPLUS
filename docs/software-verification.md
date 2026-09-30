@@ -1,5 +1,7 @@
 # Software acceptance
 
+The current navigation policy (version 2) uses `_Arcade/_Coin-Op Collection/` and publishes `dist/coinop-collection/coinop-collection.json.zip`. The permanent derived database identity and all upstream sources are unchanged.
+
 The approved September 30, 2026 upstream fixture is preserved unchanged under `tests/fixtures/` with its SHA-256 checked by an acceptance test.
 
 Independent upstream/output comparison produces:
@@ -24,14 +26,14 @@ These counts are historical fixture assertions, not assumptions in the productio
 
 The regression suite covers root and nested destinations, alternatives, cores, exact root folder relocation, spaces and URL encoding, non-Arcade entries, external storage markers, Alpha/Beta metadata, tangles, explicit URLs, URL materialization, identity, idempotence, input immutability, path and metadata tampering, duplicate keys, invalid archives, collision detection, malformed input, deterministic packaging, dynamic counts, no-op builds, and preservation of previous output on validation failure.
 
-All 21 tests passed locally on Python 3.12. The generated ZIP was also accepted by the actual Downloader `DbEntity` parser from inspected revision `5d0771359ae396aaea64453e6791ac87781d78f4`; every one of its 332 materialized source URLs matched Downloader's own `calculate_url` result for the original key. A freshly fetched official snapshot matched the inspected fixture and produced an unchanged artifact on repeat build. Case-insensitive destination and file/directory collisions are rejected for MiSTer's filesystem.
+All 22 tests passed locally on Python 3.12, including corrected-prefix enforcement and rejection of the earlier folder name. The generated ZIP was also accepted by the actual Downloader `DbEntity` parser from inspected revision `5d0771359ae396aaea64453e6791ac87781d78f4`; every one of its 332 materialized source URLs matched Downloader's own `calculate_url` result for the original key. A freshly fetched official snapshot matched the inspected fixture and produced an unchanged artifact on repeat build. Case-insensitive destination and file/directory collisions are rejected for MiSTer's filesystem.
 
 Reproduction:
 
 ```sh
 python -m unittest discover -s tests -v
 python tools/build.py --module coinop-collection --upstream-file tests/fixtures/coinop-2026-09-30.db.json.zip
-python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated dist/coinop-collection/db.json.zip
+python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated dist/coinop-collection/coinop-collection.json.zip
 python tools/verify_dist.py
 ```
 

@@ -21,6 +21,6 @@ jobs:
       - name: Verify the inspected snapshot through both CLIs
         run: |
           python tools/build.py --module coinop-collection --upstream-file tests/fixtures/coinop-2026-09-30.db.json.zip --output-dir "$RUNNER_TEMP/coinop"
-          python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated "$RUNNER_TEMP/coinop/db.json.zip"
+          python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated "$RUNNER_TEMP/coinop/coinop-collection.json.zip"
       - name: Verify tracked distribution integrity
         run: python tools/verify_dist.py

@@ -33,7 +33,7 @@ def build(name, upstream_file=None, output_root=None):
     }
     directory = Path(output_root) if output_root else ROOT / "dist" / name
     # All checks finish before either last-known-good file is touched.
-    changed = atomic_write(directory / "db.json.zip", artifact)
+    changed = atomic_write(directory / f"{name}.json.zip", artifact)
     changed = atomic_write(directory / "manifest.json", canonical_json(manifest)) or changed
     return {"module": name, "changed": changed, **report}
 

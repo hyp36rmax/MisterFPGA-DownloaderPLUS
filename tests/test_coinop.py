@@ -34,15 +34,15 @@ class CoinOpTests(unittest.TestCase):
 
     def test_exact_paths_and_complete_suffix(self):
         pairs = {
-            "_Arcade/foo.mra": "_Arcade/Coin-Op Collection/foo.mra",
-            "_Arcade/_alternatives/_A Game/foo.mra": "_Arcade/Coin-Op Collection/_alternatives/_A Game/foo.mra",
-            "_Arcade/cores/a_20260101.rbf": "_Arcade/Coin-Op Collection/cores/a_20260101.rbf",
+            "_Arcade/foo.mra": "_Arcade/_Coin-Op Collection/foo.mra",
+            "_Arcade/_alternatives/_A Game/foo.mra": "_Arcade/_Coin-Op Collection/_alternatives/_A Game/foo.mra",
+            "_Arcade/cores/a_20260101.rbf": "_Arcade/_Coin-Op Collection/cores/a_20260101.rbf",
             "_ArcadeExtra/foo.mra": "_ArcadeExtra/foo.mra",
         }
         for original, target in pairs.items():
             with self.subTest(path=original):
                 self.assertEqual(self.policy.destination(original, "files"), target)
-        self.assertEqual(self.policy.destination("_Arcade", "folders"), "_Arcade/Coin-Op Collection")
+        self.assertEqual(self.policy.destination("_Arcade", "folders"), "_Arcade/_Coin-Op Collection")
 
     def test_non_arcade_records_are_identical(self):
         for path in ("games", "games/hbmame", "games/mame"):
@@ -86,6 +86,18 @@ class CoinOpTests(unittest.TestCase):
         self.assertEqual(self.upstream, untouched)
         self.assertEqual(transform(self.generated, self.config, self.policy), self.generated)
 
+    def test_corrected_prefix_used_for_every_arcade_destination(self):
+        for category in ("files", "folders"):
+            for path in self.generated[category]:
+                if path.startswith("_Arcade/"):
+                    self.assertTrue(path == "_Arcade/_Coin-Op Collection"
+                                    or path.startswith("_Arcade/_Coin-Op Collection/"))
+        path = next(iter(self.generated["files"]))
+        old_path = path.replace("_Arcade/_Coin-Op Collection/", "_Arcade/Coin-Op Collection/", 1)
+        self.generated["files"][old_path] = self.generated["files"].pop(path)
+        with self.assertRaises(ValidationError):
+            validate_output(self.upstream, self.generated, self.config, self.policy)
+
     def test_unique_derived_identity(self):
         self.assertEqual(self.generated["db_id"], "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection")
         self.assertNotEqual(self.generated["db_id"], self.upstream["db_id"])
@@ -104,7 +116,7 @@ class CoinOpTests(unittest.TestCase):
             transform(self.upstream, self.config, self.policy)
 
     def test_folder_collision(self):
-        self.upstream["folders"]["_Arcade/Coin-Op Collection"] = {"tags": [18]}
+        self.upstream["folders"]["_Arcade/_Coin-Op Collection"] = {"tags": [18]}
         with self.assertRaisesRegex(ValidationError, "collision"):
             transform(self.upstream, self.config, self.policy)
 
@@ -116,7 +128,7 @@ class CoinOpTests(unittest.TestCase):
                 transform(data, self.config, self.policy)
 
     def test_double_prefix_rejected(self):
-        for path in ("_Arcade/Coin-Op Collection/Coin-Op Collection", "_Arcade/Coin-Op Collection/Coin-Op Collection/foo.mra"):
+        for path in ("_Arcade/_Coin-Op Collection/_Coin-Op Collection", "_Arcade/_Coin-Op Collection/_Coin-Op Collection/foo.mra"):
             with self.subTest(path=path), self.assertRaises(ValidationError):
                 self.policy.destination(path, "folders")
 
@@ -196,6 +208,8 @@ class CoinOpTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)
             self.assertTrue(build("coinop-collection", FIXTURE, directory)["changed"])
+            self.assertTrue((directory / "coinop-collection.json.zip").is_file())
+            self.assertFalse((directory / "db.json.zip").exists())
             before = {path.name: path.read_bytes() for path in directory.iterdir()}
             self.assertFalse(build("coinop-collection", FIXTURE, directory)["changed"])
             self.assertEqual(before, {path.name: path.read_bytes() for path in directory.iterdir()})

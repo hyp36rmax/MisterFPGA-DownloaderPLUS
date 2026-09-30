@@ -4,7 +4,7 @@ from urllib.parse import urlsplit
 
 from tools.common.database import ValidationError
 
-PREFIX = "_Arcade/Coin-Op Collection"
+PREFIX = "_Arcade/_Coin-Op Collection"
 ROOT_FIELDS = {"v", "timestamp", "db_id", "db_url", "base_files_url", "default_options",
                "files", "folders", "tag_dictionary"}
 
@@ -39,7 +39,7 @@ def destination(path, category):
     safe_path(path)
     if path == PREFIX or path.startswith(PREFIX + "/"):
         suffix = path[len(PREFIX):]
-        require(not (suffix == "/Coin-Op Collection" or suffix.startswith("/Coin-Op Collection/")),
+        require(not (suffix == "/_Coin-Op Collection" or suffix.startswith("/_Coin-Op Collection/")),
                 f"Double Coin-Op prefix: {path}")
         return path
     if path == "_Arcade" and category == "folders":
