@@ -1,0 +1,118 @@
+"""Module discovery, schema-preserving transform, and independent comparison."""
+import copy
+import importlib.util
+import re
+from pathlib import Path
+from urllib.parse import quote
+
+from tools.common.database import ValidationError, parse_json
+
+ROOT = Path(__file__).resolve().parents[2]
+
+
+def discover_modules(root=ROOT):
+    names = sorted(path.parent.name for path in (Path(root) / "modules").glob("*/module.json"))
+    identities = set()
+    for name in names:
+        config, _ = load_module(name, root)
+        identity = config["derived_db_id"].lower()
+        if identity in identities:
+            raise ValidationError("Modules must have distinct database identities")
+        identities.add(identity)
+    if not names:
+        raise ValidationError("No modules found")
+    return names
+
+
+def load_module(name, root=ROOT):
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name):
+        raise ValidationError("Invalid module name")
+    directory = Path(root) / "modules" / name
+    config = parse_json((directory / "module.json").read_bytes())
+    if set(config) != {"name", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version"}:
+        raise ValidationError("Unrecognized module configuration")
+    if config["name"] != name or config["derived_db_id"].lower() == config["upstream_db_id"].lower():
+        raise ValidationError("Module must have a unique derived identity")
+    if type(config["policy_version"]) is not int or config["policy_version"] < 1:
+        raise ValidationError("Invalid policy version")
+    if not config["upstream_url"].startswith("https://"):
+        raise ValidationError("Upstream must use HTTPS")
+    spec = importlib.util.spec_from_file_location(f"module_{name}", directory / "transforms.py")
+    policy = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(policy)
+    return config, policy
+
+
+def effective_url(database, path, record):
+    return record["url"] if "url" in record else database["base_files_url"] + quote(path)
+
+
+def destinations(database, category, policy):
+    mapping = {}
+    targets = set()
+    for original in database[category]:
+        target = policy.destination(original, category)
+        if target.casefold() in targets:
+            raise ValidationError(f"Destination collision in {category}: {target}")
+        targets.add(target.casefold())
+        mapping[original] = target
+    return mapping
+
+
+def transform(database, config, policy):
+    policy.validate_schema(database, config)
+    result = copy.deepcopy(database)
+    result["db_id"] = config["derived_db_id"]
+    for category in ("files", "folders"):
+        mapping = destinations(database, category, policy)
+        result[category] = {}
+        for original, target in mapping.items():
+            record = copy.deepcopy(database[category][original])
+            if category == "files" and original != target and "url" not in record:
+                record["url"] = effective_url(database, original, record)
+            result[category][target] = record
+    validate_output(database, result, config, policy)
+    return result
+
+
+def validate_output(upstream, generated, config, policy):
+    """Compare every field; never validate merely by rerunning the transformer."""
+    policy.validate_schema(upstream, config)
+    policy.validate_schema(generated, config)
+    if generated["db_id"] != config["derived_db_id"]:
+        raise ValidationError("Wrong derived database identity")
+    if set(upstream) != set(generated):
+        raise ValidationError("Root fields changed")
+    for key in upstream.keys() - {"db_id", "files", "folders"}:
+        if upstream[key] != generated[key]:
+            raise ValidationError(f"Unexpected root metadata difference: {key}")
+    report = {
+        "upstream_files": len(upstream["files"]), "generated_files": len(generated["files"]),
+        "upstream_folders": len(upstream["folders"]), "generated_folders": len(generated["folders"]),
+        "file_destinations_changed": 0, "folder_destinations_changed": 0,
+        "non_arcade_destinations_changed": 0, "effective_source_urls_changed": 0,
+        "url_fields_materialized": 0, "hashes_changed": 0, "sizes_changed": 0,
+        "tags_changed": 0, "tangles_changed": 0, "unexpected_metadata_differences": 0,
+        "approved_db_id_changes": int(upstream["db_id"] != generated["db_id"]),
+    }
+    for category in ("files", "folders"):
+        mapping = destinations(upstream, category, policy)
+        if set(mapping.values()) != set(generated[category]):
+            raise ValidationError(f"Missing or unexpected {category} destinations")
+        for original, target in mapping.items():
+            before, after = upstream[category][original], generated[category][target]
+            permitted = set(before)
+            if category == "files":
+                original_url = effective_url(upstream, original, before)
+                if effective_url(generated, target, after) != original_url:
+                    raise ValidationError(f"Effective source URL changed: {original}")
+                if original != target and "url" not in before:
+                    permitted.add("url")
+                    if after.get("url") != original_url:
+                        raise ValidationError(f"Missing materialized source URL: {target}")
+                    report["url_fields_materialized"] += 1
+            if set(after) != permitted or any(after[key] != value for key, value in before.items()):
+                raise ValidationError(f"Unexpected record metadata difference: {original}")
+            if original != target:
+                report["file_destinations_changed" if category == "files" else "folder_destinations_changed"] += 1
+    return report

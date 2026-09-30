@@ -1,0 +1,26 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Run offline regression and safety tests
+        run: python -m unittest discover -s tests -v
+      - name: Verify the inspected snapshot through both CLIs
+        run: |
+          python tools/build.py --module coinop-collection --upstream-file tests/fixtures/coinop-2026-09-30.db.json.zip --output-dir "$RUNNER_TEMP/coinop"
+          python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated "$RUNNER_TEMP/coinop/db.json.zip"
+      - name: Verify tracked distribution integrity
+        run: python tools/verify_dist.py
