@@ -10,6 +10,7 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 |---|---|---|---|
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
 | PGM (Ezio) | Repository distribution | `_Arcade/_PGM (EZIO)/` | `pgm-ezio.json.zip` |
+| PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
 | SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 16/` | `sega-system16.json.zip` |
 | SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 18/` | `sega-system18.json.zip` |
 | IREM M62 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M62/` | `irem-m62.json.zip` |
@@ -133,6 +134,7 @@ _Arcade/_Arcade Systems/
 ├── IREM M90/
 ├── IREM M92/
 ├── NAMCO SYSTEM 11/
+├── PGM (EZIO)/
 ├── TAITO FX1B/
 ├── TAITO F2/
 ├── CAPCOM CPS1/
@@ -178,6 +180,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-f2/taito-f2.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio-arcade-systems]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/pgm-ezio-arcade-systems/pgm-ezio-arcade-systems.json.zip
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system11/namco-system11.json.zip
@@ -227,6 +232,10 @@ The CPS modules provide additional navigation only. Keep the normal JTCORES inst
 System 16 combines the authoritative 16 and 16B classifications in one navigation folder. System 18 stays independent. TECHNOSOFT follows the `hyprduel` hardware family, including Magical Error through its classification. These seven modules include no core records; keep their normal JTCORES or official MiSTer installation enabled. System C-2 is not enabled because the current official database has no confirmed authoritative selector. See [batch inspection](docs/next-batch-inspection.md).
 
 TAITO F2 follows the official `arcadetaitof2` classification, preserving complete alternatives and upstream payload sources. Keep the normal official installation enabled for its core. Credit belongs to the [Taito F2 MiSTer project](https://github.com/MiSTer-devel/Arcade-TaitoF2_MiSTer) and its contributors. See [TAITO F2 inspection](docs/taito-f2-inspection.md).
+
+### Optional PGM presentation
+
+PGM (Ezio) offers two navigation choices: the existing standalone `_Arcade/_PGM (EZIO)/` and the optional Arcade Systems `_Arcade/_Arcade Systems/PGM (EZIO)/`. Both follow the same authoritative distribution and install the same required cores in `_Arcade/cores/`, so either subscription works alone. Most users need one presentation; both can coexist if you want both locations. Neither removes the other view. Existing PGM configuration and installation instructions remain unchanged. See [optional PGM module](modules/pgm-ezio-arcade-systems/README.md).
 
 ## Build and verify
 

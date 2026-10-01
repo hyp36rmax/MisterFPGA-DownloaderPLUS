@@ -26,6 +26,12 @@ def discover_modules(root=ROOT):
     return names
 
 
+def update_group(name):
+    config, _ = load_module(name)
+    owner = config.get('source_module', name)
+    return [owner] + [n for n in discover_modules() if load_module(n)[0].get('source_module') == owner]
+
+
 def load_module(name, root=ROOT):
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name):
         raise ValidationError("Invalid module name")
@@ -62,7 +68,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "repository":
         fields = {"name", "display_name", "source_mode", "repository", "ref", "distribution_root",
                   "target_folder", "preserve_arcade_cores", "allow_external_repository", "derived_db_id", "policy_version"}
-        if set(config) - {"core_layout", "core_naming", "release_assets"} != fields or config["name"] != name:
+        if set(config) - {"core_layout", "core_naming", "release_assets", "source_module"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized repository module configuration")
         if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", config["repository"]):
             raise ValidationError("Invalid source repository")
@@ -83,6 +89,19 @@ def load_module(name, root=ROOT):
         if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name:
             raise ValidationError("Invalid derived repository database identity")
         config["upstream_db_id"] = config["repository"]
+        if 'source_module' in config:
+            owner = config['source_module']
+            if not isinstance(owner, str) or owner == name:
+                raise ValidationError('Invalid presentation source module')
+            raw_owner = parse_json((Path(root)/'modules'/owner/'module.json').read_bytes()) if re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', owner) else {}
+            if raw_owner.get('source_mode') != 'repository' or 'source_module' in raw_owner:
+                raise ValidationError('Presentation source must be a direct repository module')
+            parent, _ = load_module(owner, root)
+            exempt = {'name','display_name','derived_db_id','target_folder','source_module'}
+            if {k:v for k,v in config.items() if k not in exempt} != {k:v for k,v in parent.items() if k not in exempt}:
+                raise ValidationError('Presentation must share the exact source policy')
+            if config['target_folder'] == parent['target_folder']:
+                raise ValidationError('Presentation needs distinct navigation')
         return config, RepositoryPolicy(config)
     if set(config) != {"name", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version"}:
         raise ValidationError("Unrecognized module configuration")

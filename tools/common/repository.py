@@ -144,7 +144,7 @@ class RepositoryPolicy:
                 if path.endswith(".rbf"):
                     require(path.startswith("_Arcade/cores/"), "Core beneath navigation folder")
                     family, _ = core_identity(path, config)
-                    require(record.get("tangle") == [config["name"] + ":" + family.casefold()], "Invalid core replacement identity")
+                    require(record.get("tangle") == [config.get("source_module", config["name"]) + ":" + family.casefold()], "Invalid core replacement identity")
                 else:
                     require(path.endswith(".mra") and "tangle" not in record, "Unexpected payload type/metadata")
                     require(not path.startswith("_Arcade/cores/"), "Navigation content inside core directory")
@@ -173,7 +173,7 @@ def source_database(config, commit, timestamp, records, source_folders=()):
             relative = "_Arcade/cores/" + PurePosixPath(path).name
             family, _ = core_identity(path, config)
             families.add(family.casefold())
-            record["tangle"] = [config["name"] + ":" + family.casefold()]
+            record["tangle"] = [config.get("source_module", config["name"]) + ":" + family.casefold()]
         else:
             require(path.endswith(".mra") and isinstance(entry.get("rbf"), str), "Missing MRA core reference")
             references.append(entry["rbf"].casefold())

@@ -7,12 +7,13 @@ if __package__ in (None, ""):
 
 from tools.common.database import ValidationError, canonical_json, digest, parse_json, unpack
 from tools.common.engine import ROOT, discover_modules, load_module, transform, validate_module_collisions, validate_output
-from tools.common.repository import source_database
+from tools.common.repository import source_database, navigation_inventory
 from tools.common.selection import select_database
 
 
 def verify_distribution():
     databases = []
+    views = {}
     for name in discover_modules():
         config, policy = load_module(name)
         directory = ROOT / "dist" / name
@@ -32,7 +33,8 @@ def verify_distribution():
             if digest(canonical_json(source)) != manifest["upstream_semantic_sha256"]:
                 raise ValidationError("Source inventory digest mismatch")
             entries = [{key: entry[key] for key in ("path", "size", "sha")} for entry in manifest["source_files"]]
-            if digest(canonical_json({"policy": config, "files": entries, "folders": manifest.get("source_folders", [])})) != manifest["source_fingerprint"]:
+            source_config = load_module(config['source_module'])[0] if 'source_module' in config else config
+            if digest(canonical_json({"policy": source_config, "files": entries, "folders": manifest.get("source_folders", [])})) != manifest["source_fingerprint"]:
                 raise ValidationError("Source fingerprint mismatch")
             if validate_output(source, database, config, policy) != manifest["validation"]:
                 raise ValidationError("Source/output comparison mismatch")
@@ -60,6 +62,21 @@ def verify_distribution():
                 raise ValidationError(f"Distribution has failed validation: {field}")
         print(f"Verified {name}: {len(database['files'])} files, {len(database['folders'])} folders")
         databases.append(database)
+        views[name] = (config, database, manifest)
+    for name, (config, database, manifest) in views.items():
+        if 'source_module' not in config: continue
+        parent_config, parent_database, parent_manifest = views[config['source_module']]
+        for key in ('source_repository','source_commit','source_timestamp','source_fingerprint','source_files','source_folders','upstream_semantic_sha256'):
+            if manifest.get(key) != parent_manifest.get(key):
+                raise ValidationError('Presentation source inventory differs from its source module')
+        if navigation_inventory(database, '_Arcade/'+config['target_folder']) != navigation_inventory(parent_database, '_Arcade/'+parent_config['target_folder']):
+            raise ValidationError('Presentation navigation parity mismatch')
+        for category in ('files','folders'):
+            child_cores={p:r for p,r in database[category].items() if p == '_Arcade/cores' or p.startswith('_Arcade/cores/')}
+            parent_cores={p:r for p,r in parent_database[category].items() if p == '_Arcade/cores' or p.startswith('_Arcade/cores/')}
+            if child_cores != parent_cores:
+                raise ValidationError('Presentation shared core metadata mismatch')
+        print(f'Verified presentation parity: {name}')
     validate_module_collisions(databases)
     print("Verified cross-module destination compatibility")
 

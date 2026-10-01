@@ -33,7 +33,12 @@ def audit(live=False):
             if live: verify_payloads(upstream, core_database=authoritative, config=config)
             basis = {'source_commit': None}
         elif live:
-            upstream, basis = inspect_repository(config, manifest)
+            owner = config.get('source_module', name)
+            key = ('repository', owner)
+            if key not in source_cache:
+                parent = parse_json((ROOT/'dist'/owner/'manifest.json').read_bytes())
+                source_cache[key] = inspect_repository(load_module(owner)[0], parent)
+            upstream, basis = source_cache[key]
         else:
             upstream = source_database(config, manifest['source_commit'], manifest['source_timestamp'],
                                        manifest['source_files'], manifest.get('source_folders', ()))

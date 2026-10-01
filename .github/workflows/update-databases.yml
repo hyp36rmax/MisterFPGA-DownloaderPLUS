@@ -25,7 +25,7 @@ jobs:
       - id: discover
         name: Discover independent modules
         run: |
-          names=$(python tools/build.py --list-modules)
+          names=$(python tools/build.py --list-update-modules)
           echo "names=$names" >> "$GITHUB_OUTPUT"
   update:
     needs: modules
@@ -51,14 +51,15 @@ jobs:
       - name: Build and validate this module independently
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python tools/build.py --module "${{ matrix.module }}"
+        run: python tools/build.py --module "${{ matrix.module }}" --with-presentations
       - name: Verify all distribution artifacts
         run: python tools/verify_dist.py
       - name: Audit recursive alternatives parity
         run: python tools/audit_alternatives.py
       - name: Publish only validated changes
         run: |
-          git add -- "dist/${{ matrix.module }}"
+          mapfile -t paths < <(python tools/build.py --module "${{ matrix.module }}" --publication-paths)
+          git add -- "${paths[@]}"
           if git diff --cached --quiet; then
             echo "No material changes; no commit."
             exit 0

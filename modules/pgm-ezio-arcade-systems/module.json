@@ -1,0 +1,16 @@
+{
+  "name": "pgm-ezio-arcade-systems",
+  "display_name": "PGM (Ezio) \u2014 Arcade Systems",
+  "source_mode": "repository",
+  "repository": "hyp36rmax/PGM-Mister-EZIOCHIU",
+  "ref": "main",
+  "distribution_root": "_PGM",
+  "target_folder": "_Arcade Systems/PGM (EZIO)",
+  "preserve_arcade_cores": true,
+  "allow_external_repository": false,
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio-arcade-systems",
+  "policy_version": 1,
+  "core_naming": "stable-or-dated",
+  "release_assets": "ignore",
+  "source_module": "pgm-ezio"
+}
