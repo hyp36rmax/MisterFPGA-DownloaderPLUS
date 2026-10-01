@@ -53,7 +53,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "repository":
         fields = {"name", "display_name", "source_mode", "repository", "ref", "distribution_root",
                   "target_folder", "preserve_arcade_cores", "allow_external_repository", "derived_db_id", "policy_version"}
-        if set(config) - {"core_layout", "core_naming"} != fields or config["name"] != name:
+        if set(config) - {"core_layout", "core_naming", "release_assets"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized repository module configuration")
         if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", config["repository"]):
             raise ValidationError("Invalid source repository")
@@ -65,6 +65,8 @@ def load_module(name, root=ROOT):
             raise ValidationError("Invalid navigation folder")
         if config.get("core_layout", "cores") not in {"cores", "root"} or config.get("core_naming", "dated") not in {"dated", "stable-or-dated"}:
             raise ValidationError("Invalid upstream core layout/naming policy")
+        if config.get("release_assets", "review") not in {"review", "ignore"}:
+            raise ValidationError("Invalid release asset policy")
         if config["preserve_arcade_cores"] is not True or not isinstance(config["ref"], str) or not config["ref"]:
             raise ValidationError("Invalid repository source policy")
         if type(config["policy_version"]) is not int or config["policy_version"] < 1:

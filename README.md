@@ -9,6 +9,7 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 | Module | Source mode | Navigation destination | Artifact |
 |---|---|---|---|
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
+| PGM (Ezio) | Repository distribution | `_Arcade/_PGM (EZIO)/` | `pgm-ezio.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/TAITO FX1B/` | `taito-fx1b.json.zip` |
 | CAPCOM ZN-1 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN-1/` | `capcom-zn1.json.zip` |
@@ -76,6 +77,19 @@ Software verification is automated. Actual navigation and game launching on MiST
 
 DownloaderPLUS preserves the upstream database's filter configuration, tags, and associated Downloader behavior. Users may configure supported filters through their normal MiSTer Downloader configuration. [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md)
 
+## PGM (Ezio)
+
+PGM MiSTer work is credited to **Ezio Chiu**. DownloaderPLUS monitors the public distribution at [hyp36rmax/PGM-Mister-EZIOCHIU](https://github.com/hyp36rmax/PGM-Mister-EZIOCHIU), using only `_PGM/`. Primary MRAs and the complete recursive `_alternatives/` hierarchy install beneath `_Arcade/_PGM (EZIO)/`; the three current core families keep their filenames in `_Arcade/cores/`. MRA contents stay unchanged. Payloads download directly from commit-pinned upstream GitHub URLs.
+
+Add this section once to your normal Downloader configuration, then run Update_All normally:
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/pgm-ezio/pgm-ezio.json.zip
+```
+
+Scheduled checks automatically publish validated distribution changes. Game ROMs are supplied separately by the user. See [PGM inspection and validation](docs/pgm-inspection.md).
+
 ## Arcade Systems
 
 Authoritative distributions:
@@ -89,7 +103,7 @@ Authoritative distributions:
 
 For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against the selected cores, and MRA contents are never rewritten.
 
-The repository adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
+The repository adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets without an explicit tree-only source policy, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
 
 Seibu SPI publishes `SeibuSPI.rbf` directly under `releases/`; its declared core policy supports stable filenames and dated replacements, and maps the unchanged filename to `_Arcade/cores/`. MiSTer's loader supports that name. Credit belongs to zakk4223 and the contributors credited upstream, including nand2mario. XelaNotPu's four projects retain their own upstream attribution.
 
@@ -139,7 +153,7 @@ DownloaderPLUS does not edit your configuration or remove files installed by oth
 
 The existing three modules keep their permanent database IDs and artifact URLs during consolidation. Downloader installs navigation at the new destination under the same database IDs. Its normal deletion policy removes obsolete tracked MRAs and empty folders when `allow_delete` permits all deletions (the inspected Downloader default). A policy restricted to old cores or no deletions can leave old navigation copies; DownloaderPLUS does not override that preference. Corrected Capcom display folders also retain the same subscriptions. Core destinations and upstream payload URLs stay unchanged; DownloaderPLUS performs no manual cleanup of other installations.
 
-See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and authoritative MeatCores selection. PGM remains paused. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
+See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and authoritative MeatCores selection. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
 
 ## Build and verify
 

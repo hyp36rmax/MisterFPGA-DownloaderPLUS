@@ -205,7 +205,7 @@ def inspect_repository(config, previous=None, fetcher=fetch):
                             if entry.get("type") == "tree" and entry["path"].startswith(config["distribution_root"] + "/")
                             and "_alternatives" in entry["path"][len(config["distribution_root"]) + 1:].split("/"))
     releases = parse_json(fetcher(api + "/releases?per_page=1"))
-    require(type(releases) is list and not any(release.get("assets") for release in releases), "GitHub release assets introduced; distribution policy requires review")
+    require(type(releases) is list and (config.get("release_assets", "review") == "ignore" or not any(release.get("assets") for release in releases)), "GitHub release assets introduced; distribution policy requires review")
     fingerprint = digest(canonical_json({"policy": config, "files": entries, "folders": source_folders}))
     timestamp = int(datetime.datetime.fromisoformat(commit["commit"]["committer"]["date"].replace("Z", "+00:00")).timestamp())
     revision = head

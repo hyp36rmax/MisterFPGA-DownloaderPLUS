@@ -1,0 +1,15 @@
+{
+  "name": "pgm-ezio",
+  "display_name": "PGM (Ezio)",
+  "source_mode": "repository",
+  "repository": "hyp36rmax/PGM-Mister-EZIOCHIU",
+  "ref": "main",
+  "distribution_root": "_PGM",
+  "target_folder": "_PGM (EZIO)",
+  "preserve_arcade_cores": true,
+  "allow_external_repository": false,
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio",
+  "policy_version": 1,
+  "core_naming": "stable-or-dated",
+  "release_assets": "ignore"
+}

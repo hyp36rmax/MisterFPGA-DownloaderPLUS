@@ -4,6 +4,7 @@ Inspected September 30, 2026. Counts below come from authoritative source invent
 
 | System | Primary MRAs | Alternative MRAs | Alternative folders | Cores | Total files | Generated alternative MRAs | Status |
 |---|---:|---:|---:|---:|---:|---:|---|
+| PGM (Ezio) | 32 | 105 | 27 | 3 | 140 | 105 | PASS |
 | NAMCO SYSTEM 11 | 11 | 24 | 9 | 1 | 36 | 24 | PASS |
 | TAITO FX1B | 5 | 7 | 4 | 1 | 13 | 7 | PASS |
 | CAPCOM ZN-1 | 5 | 12 | 6 | 1 | 18 | 12 | PASS |
@@ -34,7 +35,7 @@ The consolidated specification resolves the earlier Sega hold: both systems use 
 
 ## Migration and scope
 
-The three existing Arcade Systems IDs and artifact URLs remain permanent. Their navigation moves under `_Arcade/_Arcade Systems/`, while core destinations, file metadata, and upstream URLs stay identical. Downloader’s default `allow_delete` policy removes obsolete tracked MRAs and empty folders. Restricted deletion policies can retain old navigation copies; no manual deletion or changes to other database installations are performed. Coin-Op’s database, manifest, policy, fixtures, and configuration remain untouched. PGM remains paused. No aggregate/master database is created.
+The three existing Arcade Systems IDs and artifact URLs remain permanent. Their navigation moves under `_Arcade/_Arcade Systems/`, while core destinations, file metadata, and upstream URLs stay identical. Downloader’s default `allow_delete` policy removes obsolete tracked MRAs and empty folders. Restricted deletion policies can retain old navigation copies; no manual deletion or changes to other database installations are performed. Coin-Op’s database, manifest, policy, fixtures, and configuration remain untouched. PGM (Ezio) is enabled separately at `_Arcade/_PGM (EZIO)/`; its verified inventory is 32 primary MRAs, 105 alternatives, 27 alternative folders and three cores. See [PGM inspection](pgm-inspection.md). No aggregate/master database is created.
 
 ## Software verification
 
@@ -42,7 +43,7 @@ The full suite covers absent, flat, nested, deeply located and multiple-game alt
 
 All seven Arcade Systems databases also pass the actual MiSTer Downloader `DbEntity` parser. Direct comparison with the previous three artifacts confirms that migration retains every file URL, hash, size, and core destination. A live parity audit passes for all seven, and a second complete build reports `changed: false` for every module, including Coin-Op.
 
-The consolidated suite has 67 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
+The consolidated suite has 73 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
 
 ```sh
 python -m unittest discover -s tests -v

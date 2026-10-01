@@ -11,7 +11,7 @@ from tools.common.database import ValidationError, package
 from tools.common.engine import load_module, transform, validate_output
 from tools.common.repository import discover, inspect_repository, validate_navigation
 
-MODULES = ('namco-system11', 'taito-fx1b', 'capcom-zn1', 'capcom-zn2', 'seibu-spi')
+MODULES = ('namco-system11', 'taito-fx1b', 'capcom-zn1', 'capcom-zn2', 'seibu-spi', 'pgm-ezio')
 MRA = b'<misterromdescription><rbf>TestCore</rbf></misterromdescription>'
 
 
