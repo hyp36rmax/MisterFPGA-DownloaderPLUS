@@ -80,6 +80,7 @@ def validate_archives(database, config):
 
 def select_archives(database,config,selected_ids):
     result={}
+    group_ids={database['tag_dictionary'][t] for t in config['exclusive_group_tags'] if t in database['tag_dictionary']}
     for name in config['selection_archives']:
         require(name in database['archives'],'Authoritative archive disappeared')
         original=database['archives'][name]
@@ -87,6 +88,7 @@ def select_archives(database,config,selected_ids):
         summary=original['summary_inline']; files={};folder_paths=set()
         for path,record in summary['files'].items():
             if not selected_ids & set(record['tags']):continue
+            require(set(record['tags']) & group_ids <= selected_ids, 'Ambiguous cross-system archive classification')
             safe_path(path)
             require(path.startswith(config['source_navigation_root']+'/') and path.endswith('.mra'),'Unknown selected archive payload')
             require(original['target_folder']+record['arc_at']==path,'Archive member/destination mismatch')
@@ -95,6 +97,7 @@ def select_archives(database,config,selected_ids):
             folder_paths.update('/'.join(parts[:i]) for i in range(1,len(parts)))
         for path,record in summary['folders'].items():
             if selected_ids & set(record['tags']):
+                require(set(record['tags']) & group_ids <= selected_ids, 'Ambiguous cross-system archive classification')
                 safe_path(path)
                 require(path.startswith(config['source_navigation_root']+'/'),'Unknown classified archive folder')
                 parts=path.split('/');folder_paths.update('/'.join(parts[:i]) for i in range(1,len(parts)+1))

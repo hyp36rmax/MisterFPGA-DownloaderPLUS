@@ -17,6 +17,7 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 | IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M90/` | `irem-m90.json.zip` |
 | IREM M92 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M92/` | `irem-m92.json.zip` |
 | TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/TECHNOSOFT/` | `technosoft.json.zip` |
+| TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/TAITO F2/` | `taito-f2.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/TAITO FX1B/` | `taito-fx1b.json.zip` |
 | CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS1/` | `capcom-cps1.json.zip` |
@@ -111,7 +112,7 @@ Authoritative distributions:
 - [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
 - [CAPCOM ZN-2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
 - [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
-- [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): its hardware classifications supply SEGA ST-V, IREM M62/M72/M90/M92, and TECHNOSOFT navigation, including only their classified archive alternatives.
+- [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): its hardware classifications supply SEGA ST-V, IREM M62/M72/M90/M92, TECHNOSOFT and TAITO F2 navigation, including only their classified archive alternatives.
 - [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies the CPS family and SEGA SYSTEM 16/18 navigation modules.
 - [Meathax MeatCores](https://github.com/meathax/meatcores): its authoritative [Downloader database](https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip) feeds the two Sega modules.
 
@@ -133,6 +134,7 @@ _Arcade/_Arcade Systems/
 ├── IREM M92/
 ├── NAMCO SYSTEM 11/
 ├── TAITO FX1B/
+├── TAITO F2/
 ├── CAPCOM CPS1/
 ├── CAPCOM CPS1.5/
 ├── CAPCOM CPS2/
@@ -173,6 +175,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/technosoft]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/technosoft/technosoft.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-f2/taito-f2.json.zip
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system11/namco-system11.json.zip
@@ -220,6 +225,8 @@ See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarc
 The CPS modules provide additional navigation only. Keep the normal JTCORES installation enabled: it owns and updates the cores in `_Arcade/cores/`. DownloaderPLUS includes no CPS core records and preserves upstream filter configuration and tags. CPS1.5 remains independent from CPS1. See [CPS inspection](docs/cps-inspection.md). ST-V likewise depends on the normal official MiSTer/Update_All installation for its core. Its alternatives use selective extraction from the unchanged official archive, installing only ST-V members. See [ST-V inspection](docs/stv-inspection.md).
 
 System 16 combines the authoritative 16 and 16B classifications in one navigation folder. System 18 stays independent. TECHNOSOFT follows the `hyprduel` hardware family, including Magical Error through its classification. These seven modules include no core records; keep their normal JTCORES or official MiSTer installation enabled. System C-2 is not enabled because the current official database has no confirmed authoritative selector. See [batch inspection](docs/next-batch-inspection.md).
+
+TAITO F2 follows the official `arcadetaitof2` classification, preserving complete alternatives and upstream payload sources. Keep the normal official installation enabled for its core. Credit belongs to the [Taito F2 MiSTer project](https://github.com/MiSTer-devel/Arcade-TaitoF2_MiSTer) and its contributors. See [TAITO F2 inspection](docs/taito-f2-inspection.md).
 
 ## Build and verify
 
