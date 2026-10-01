@@ -42,3 +42,11 @@ jobs:
         run: |
           python tools/build.py --module sega-stv --upstream-file tests/fixtures/mister-2026-09-30.db.json.zip --output-dir "$RUNNER_TEMP/stv"
           python tools/validate.py --module sega-stv --upstream tests/fixtures/mister-2026-09-30.db.json.zip --generated "$RUNNER_TEMP/stv/sega-stv.json.zip"
+      - name: Verify the confirmed Sega, IREM and Technosoft batch offline
+        run: |
+          for module in sega-system16 sega-system18 irem-m62 irem-m72 irem-m90 irem-m92 technosoft; do
+            fixture=tests/fixtures/mister-2026-09-30.db.json.zip
+            case "$module" in sega-system16|sega-system18) fixture=tests/fixtures/jtcores-2026-09-30.db.json.zip ;; esac
+            python tools/build.py --module "$module" --upstream-file "$fixture" --output-dir "$RUNNER_TEMP/$module"
+            python tools/validate.py --module "$module" --upstream "$fixture" --generated "$RUNNER_TEMP/$module/$module.json.zip"
+          done

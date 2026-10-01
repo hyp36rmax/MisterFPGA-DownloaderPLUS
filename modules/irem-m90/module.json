@@ -1,0 +1,26 @@
+{
+  "name": "irem-m90",
+  "display_name": "IREM M90",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/main/db.json.zip",
+  "upstream_db_id": "distribution_mister",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m90",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadeiremm90"
+  ],
+  "exclusive_group_tags": [
+    "arcadeiremm62",
+    "arcadeiremm72",
+    "arcadeiremm90",
+    "arcadeiremm92",
+    "arcadehyprduel"
+  ],
+  "source_navigation_root": "_Arcade",
+  "target_folder": "_Arcade Systems/IREM M90",
+  "core_ownership": "upstream",
+  "selection_archives": [
+    "mra_alternatives"
+  ],
+  "require_all_group_tags": false
+}

@@ -4,6 +4,13 @@ Inspected September 30, 2026. Counts below come from authoritative source invent
 
 | System | Primary MRAs | Alternative MRAs | Alternative folders | Cores | Total files | Generated alternative MRAs | Status |
 |---|---:|---:|---:|---:|---:|---:|---|
+| SEGA SYSTEM 16 | 36 | 78 | 27 | 0 | 114 | 78 | PASS |
+| SEGA SYSTEM 18 | 11 | 19 | 10 | 0 | 30 | 19 | PASS |
+| IREM M62 | 11 | 8 | 6 | 0 | 19 | 8 | PASS |
+| IREM M72 | 11 | 12 | 7 | 0 | 23 | 12 | PASS |
+| IREM M90 | 3 | 6 | 4 | 0 | 9 | 6 | PASS |
+| IREM M92 | 12 | 17 | 12 | 0 | 29 | 17 | PASS |
+| TECHNOSOFT | 2 | 1 | 2 | 0 | 3 | 1 | PASS |
 | PGM (Ezio) | 32 | 105 | 27 | 3 | 140 | 105 | PASS |
 | NAMCO SYSTEM 11 | 11 | 24 | 9 | 1 | 36 | 24 | PASS |
 | TAITO FX1B | 5 | 7 | 4 | 1 | 13 | 7 | PASS |
@@ -48,7 +55,7 @@ The full suite covers absent, flat, nested, deeply located and multiple-game alt
 
 All seven Arcade Systems databases also pass the actual MiSTer Downloader `DbEntity` parser. Direct comparison with the previous three artifacts confirms that migration retains every file URL, hash, size, and core destination. A live parity audit passes for all seven, and a second complete build reports `changed: false` for every module, including Coin-Op.
 
-The consolidated suite has 94 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
+The consolidated suite has 103 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
 
 ```sh
 python -m unittest discover -s tests -v
@@ -61,3 +68,5 @@ python tools/build.py --all
 The audit command reads all enabled Arcade Systems modules dynamically and skips Coin-Op. Without `--live` it reconstructs the verified source inventory from each manifest. With `--live` it fetches and validates current authoritative distributions and compares them to the generated databases. Hosted validation and independent updates also run the offline parity audit. Actual MiSTer navigation/game launch acceptance remains a separate hardware milestone.
 
 CPS inventories use the live JTCORES classifications; ST-V uses the official MiSTer classification and verified alternatives index. These five navigation-only modules include no cores. ST-V uses selective extraction of only its eight classified alternatives from the unchanged upstream archive. See [CPS inspection](cps-inspection.md) and [ST-V inspection](stv-inspection.md).
+
+The seven confirmed Sega/IREM/Technosoft modules use classified database inventories and the existing selective archive policy. System C-2 remains held pending an authoritative official selector. See [batch inspection](next-batch-inspection.md).

@@ -1,0 +1,23 @@
+{
+  "name": "sega-system16",
+  "display_name": "SEGA SYSTEM 16",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/jotego/jtcores_mister/main/jtbindb.json.zip",
+  "upstream_db_id": "jtcores",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system16",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadejts16",
+    "arcadejts16b"
+  ],
+  "exclusive_group_tags": [
+    "arcadejts16",
+    "arcadejts16b",
+    "arcadejts18"
+  ],
+  "source_navigation_root": "_Arcade",
+  "target_folder": "_Arcade Systems/SEGA SYSTEM 16",
+  "database_member": "jtbindb.json",
+  "core_ownership": "upstream",
+  "require_all_group_tags": false
+}

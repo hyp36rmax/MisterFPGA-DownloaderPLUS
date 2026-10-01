@@ -10,6 +10,13 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 |---|---|---|---|
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
 | PGM (Ezio) | Repository distribution | `_Arcade/_PGM (EZIO)/` | `pgm-ezio.json.zip` |
+| SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 16/` | `sega-system16.json.zip` |
+| SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 18/` | `sega-system18.json.zip` |
+| IREM M62 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M62/` | `irem-m62.json.zip` |
+| IREM M72 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M72/` | `irem-m72.json.zip` |
+| IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M90/` | `irem-m90.json.zip` |
+| IREM M92 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M92/` | `irem-m92.json.zip` |
+| TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/TECHNOSOFT/` | `technosoft.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/TAITO FX1B/` | `taito-fx1b.json.zip` |
 | CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS1/` | `capcom-cps1.json.zip` |
@@ -104,8 +111,8 @@ Authoritative distributions:
 - [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
 - [CAPCOM ZN-2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
 - [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
-- [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): the `arcadestv` classification supplies SEGA ST-V navigation, including only its classified archive alternatives.
-- [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies four independently classified CPS navigation modules.
+- [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): its hardware classifications supply SEGA ST-V, IREM M62/M72/M90/M92, and TECHNOSOFT navigation, including only their classified archive alternatives.
+- [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies the CPS family and SEGA SYSTEM 16/18 navigation modules.
 - [Meathax MeatCores](https://github.com/meathax/meatcores): its authoritative [Downloader database](https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip) feeds the two Sega modules.
 
 For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against its authoritative core family, and MRA contents are never rewritten.
@@ -120,6 +127,10 @@ The two Sega modules resolve the authoritative `arcadearcadesegasystem32` and `a
 
 ```text
 _Arcade/_Arcade Systems/
+├── IREM M62/
+├── IREM M72/
+├── IREM M90/
+├── IREM M92/
 ├── NAMCO SYSTEM 11/
 ├── TAITO FX1B/
 ├── CAPCOM CPS1/
@@ -129,9 +140,12 @@ _Arcade/_Arcade Systems/
 ├── CAPCOM ZN-1/
 ├── CAPCOM ZN-2/
 ├── SEIBU SPI/
+├── SEGA SYSTEM 16/
+├── SEGA SYSTEM 18/
 ├── SEGA SYSTEM 32/
 ├── SEGA SYSTEM 32 MULTI/
-└── SEGA ST-V/
+├── SEGA ST-V/
+└── TECHNOSOFT/
 ```
 
 ROMs and required BIOS/audio firmware are supplied separately by the user; follow each upstream project's requirements. DownloaderPLUS does not provide those files. These cores derive from work credited upstream, including Robert Peip's PSX_MiSTer and the MiSTer framework; consult the upstream READMEs for full attribution.
@@ -139,6 +153,27 @@ ROMs and required BIOS/audio firmware are supplied separately by the user; follo
 Add only the independent modules you want to your normal Downloader configuration:
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system16]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system16/sega-system16.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system18]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system18/sega-system18.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m62]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m62/irem-m62.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m72]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m72/irem-m72.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m90]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m90/irem-m90.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m92]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m92/irem-m92.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/technosoft]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/technosoft/technosoft.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system11/namco-system11.json.zip
 
@@ -183,6 +218,8 @@ The existing three modules keep their permanent database IDs and artifact URLs d
 See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and authoritative MeatCores selection. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
 
 The CPS modules provide additional navigation only. Keep the normal JTCORES installation enabled: it owns and updates the cores in `_Arcade/cores/`. DownloaderPLUS includes no CPS core records and preserves upstream filter configuration and tags. CPS1.5 remains independent from CPS1. See [CPS inspection](docs/cps-inspection.md). ST-V likewise depends on the normal official MiSTer/Update_All installation for its core. Its alternatives use selective extraction from the unchanged official archive, installing only ST-V members. See [ST-V inspection](docs/stv-inspection.md).
+
+System 16 combines the authoritative 16 and 16B classifications in one navigation folder. System 18 stays independent. TECHNOSOFT follows the `hyprduel` hardware family, including Magical Error through its classification. These seven modules include no core records; keep their normal JTCORES or official MiSTer installation enabled. System C-2 is not enabled because the current official database has no confirmed authoritative selector. See [batch inspection](docs/next-batch-inspection.md).
 
 ## Build and verify
 

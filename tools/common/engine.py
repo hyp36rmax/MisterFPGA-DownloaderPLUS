@@ -34,7 +34,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "database":
         fields = {"name", "display_name", "source_mode", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version",
                   "selection_tags", "exclusive_group_tags", "source_navigation_root", "target_folder"}
-        if set(config) - {"database_member", "core_ownership", "selection_archives"} != fields or config["name"] != name:
+        if set(config) - {"database_member", "core_ownership", "selection_archives", "require_all_group_tags"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized database-selection configuration")
         if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name or config["derived_db_id"] == config["upstream_db_id"]:
             raise ValidationError("Invalid selected database identity")
@@ -53,6 +53,8 @@ def load_module(name, root=ROOT):
             raise ValidationError("Invalid core ownership policy")
         if not re.fullmatch(r"[A-Za-z0-9_-]+\.json", config.get("database_member", "db.json")):
             raise ValidationError("Invalid database archive member")
+        if type(config.get("require_all_group_tags", True)) is not bool:
+            raise ValidationError("Invalid classification dependency policy")
         archives = config.get("selection_archives", [])
         if type(archives) is not list or not all(isinstance(a, str) and re.fullmatch('[a-z0-9_]+', a) for a in archives) or len(set(archives)) != len(archives):
             raise ValidationError("Invalid archive selection policy")

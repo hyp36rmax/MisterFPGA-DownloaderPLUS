@@ -117,15 +117,18 @@ def select_database(database, config, policy):
     require(database['db_id'] == config['upstream_db_id'], 'Selection requires authoritative upstream')
     dictionary = database['tag_dictionary']
     groups = config['exclusive_group_tags']
-    require(all(tag in dictionary for tag in groups), 'Authoritative classification disappeared')
-    group_ids = {dictionary[tag] for tag in groups}
-    require(len(group_ids) == len(groups), 'Ambiguous classification aliases')
+    require(all(tag in dictionary for tag in config['selection_tags']), 'Authoritative classification disappeared')
+    if config.get('require_all_group_tags', True):
+        require(all(tag in dictionary for tag in groups), 'Authoritative classification disappeared')
+    available_groups = [tag for tag in groups if tag in dictionary]
+    group_ids = {dictionary[tag] for tag in available_groups}
+    require(len(group_ids) == len(available_groups), 'Ambiguous classification aliases')
     selected_ids = {dictionary[tag] for tag in config['selection_tags']}
     require(bool(selected_ids) and selected_ids <= group_ids, 'Invalid selected classification')
     files = {}
     for path, record in database['files'].items():
         classifications = set(record['tags']) & group_ids
-        require(len(classifications) <= 1, 'Ambiguous cross-system classification')
+        require(len(classifications) <= 1 or classifications <= selected_ids, 'Ambiguous cross-system classification')
         if not classifications & selected_ids:
             continue
         if path.endswith('.mra'):
