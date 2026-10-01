@@ -57,7 +57,7 @@ The full suite covers absent, flat, nested, deeply located and multiple-game alt
 
 All seven Arcade Systems databases also pass the actual MiSTer Downloader `DbEntity` parser. Direct comparison with the previous three artifacts confirms that migration retains every file URL, hash, size, and core destination. A live parity audit passes for all seven, and a second complete build reports `changed: false` for every module, including Coin-Op.
 
-The consolidated suite has 125 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
+The consolidated suite has 135 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
 
 ```sh
 python -m unittest discover -s tests -v

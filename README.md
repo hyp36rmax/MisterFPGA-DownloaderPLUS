@@ -89,7 +89,7 @@ Software verification is automated. Actual navigation and game launching on MiST
 
 ## Filters
 
-DownloaderPLUS preserves the upstream database's filter configuration, tags, and associated Downloader behavior. Users may configure supported filters through their normal MiSTer Downloader configuration. [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md)
+DownloaderPLUS preserves upstream tags and classification metadata. Hardware modules retain compatible upstream defaults; an approved complete-inventory policy removes only conflicting exclusions from a derived default. User-defined filters remain configurable through normal MiSTer Downloader settings. Coin-Op's upstream defaults remain unchanged. See [derived filter policy](docs/derived-filter-policy.md) and [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md).
 
 ## PGM (Ezio)
 

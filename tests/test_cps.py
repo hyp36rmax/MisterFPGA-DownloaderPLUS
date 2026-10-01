@@ -34,7 +34,10 @@ class CpsTests(unittest.TestCase):
             self.assertEqual(report['current_cores'],0)
             self.assertEqual(report['unexpected_metadata_differences'],0)
             self.assertEqual(report['effective_source_urls_changed'],0)
-            self.assertEqual(database['default_options'],generated['default_options'])
+            if name=='capcom-cps3':
+                self.assertEqual(generated['default_options'],{'filter':'[MiSTer]'})
+            else:
+                self.assertEqual(database['default_options'],generated['default_options'])
             self.assertEqual(database['tag_dictionary'],generated['tag_dictionary'])
             self.assertFalse(any(p.startswith('_Arcade/cores') for p in generated['folders']))
             self.assertEqual(package(generated),package(transform(generated,config,policy)))

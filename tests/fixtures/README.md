@@ -14,4 +14,6 @@ It contains database metadata only, referencing Coin-Op's authoritative content 
 
 `jtcores-2026-09-30.db.json.zip` is an unmodified authoritative JTCORES metadata snapshot. It contains no payloads or ROMs. Required upstream filter literals are preserved for functional compatibility.
 
+`cps3-filter-conflict.db.json.zip` is a selected CPS3 metadata projection from that snapshot, retaining the original inherited default and classification tags to reproduce the confirmed default-installation conflict. It contains six primary and eleven alternative MRA records and no payload bytes or ROMs. Production counts and tag IDs remain dynamic.
+
 `mister-2026-09-30.db.json.zip` and `mra_alternatives_summary.json.zip` are unmodified official metadata snapshots used together for ST-V offline reproduction. No content archive, payloads or ROMs are included.

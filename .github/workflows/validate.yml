@@ -32,6 +32,8 @@ jobs:
           done
       - name: Audit recursive alternatives parity
         run: python tools/audit_alternatives.py
+      - name: Audit hardware-module default filters
+        run: python tools/audit_filters.py
       - name: Verify all CPS selections through both CLIs
         run: |
           for module in capcom-cps1 capcom-cps15 capcom-cps2 capcom-cps3; do

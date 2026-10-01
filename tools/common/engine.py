@@ -8,6 +8,7 @@ from urllib.parse import quote
 from tools.common.database import ValidationError, parse_json
 from tools.common.repository import RepositoryPolicy, safe_path, validate_navigation, validate_system_navigation
 from tools.common.selection import DatabasePolicy
+from tools.common.filters import derived_default_options, filter_counts, validate_filter_policy
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -40,7 +41,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "database":
         fields = {"name", "display_name", "source_mode", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version",
                   "selection_tags", "exclusive_group_tags", "source_navigation_root", "target_folder"}
-        if set(config) - {"database_member", "core_ownership", "selection_archives", "require_all_group_tags"} != fields or config["name"] != name:
+        if set(config) - {"database_member", "core_ownership", "selection_archives", "require_all_group_tags", "filter_policy"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized database-selection configuration")
         if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name or config["derived_db_id"] == config["upstream_db_id"]:
             raise ValidationError("Invalid selected database identity")
@@ -62,6 +63,7 @@ def load_module(name, root=ROOT):
         if type(config.get("require_all_group_tags", True)) is not bool:
             raise ValidationError("Invalid classification dependency policy")
         archives = config.get("selection_archives", [])
+        if 'filter_policy' in config:validate_filter_policy(config['filter_policy'])
         if type(archives) is not list or not all(isinstance(a, str) and re.fullmatch('[a-z0-9_]+', a) for a in archives) or len(set(archives)) != len(archives):
             raise ValidationError("Invalid archive selection policy")
         return config, DatabasePolicy(config)
@@ -158,6 +160,8 @@ def transform(database, config, policy):
     policy.validate_schema(database, config)
     result = copy.deepcopy(database)
     result["db_id"] = config["derived_db_id"]
+    options=derived_default_options(database,config)
+    if options is not None:result['default_options']=options
     for category in ("files", "folders"):
         mapping = destinations(database, category, policy)
         result[category] = {}
@@ -200,7 +204,10 @@ def validate_output(upstream, generated, config, policy):
             if after['target_folder'] != policy.destination(before['target_folder'].rstrip('/'), 'folders') + '/':
                 raise ValidationError('Archive navigation root changed unexpectedly')
             validate_output(summary_database(upstream,before),summary_database(generated,after),config,policy)
-    for key in upstream.keys() - {"db_id", "files", "folders", "archives"}:
+    expected_options=derived_default_options(upstream,config)
+    if generated.get('default_options') != expected_options:
+        raise ValidationError('Unexpected derived default filter change')
+    for key in upstream.keys() - {"db_id", "files", "folders", "archives", "default_options"}:
         if upstream[key] != generated[key]:
             raise ValidationError(f"Unexpected root metadata difference: {key}")
     report = {
@@ -244,4 +251,7 @@ def validate_output(upstream, generated, config, policy):
             report['archive_url_fields_materialized'] += child_report['url_fields_materialized']
     if config.get("source_mode") in {"repository", "database"}:
         report.update(validate_navigation(upstream, generated, config))
+    if 'filter_policy' in config:
+        report.update(filter_counts(generated))
+        report['approved_default_filter_changes']=int(upstream.get('default_options')!=generated.get('default_options'))
     return report

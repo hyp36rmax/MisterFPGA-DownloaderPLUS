@@ -13,11 +13,11 @@ The ZIP contains exactly `jtbindb.json`. Schema version is 1; database ID is `jt
 
 These are the live dictionary spellings. Numeric IDs are resolved dynamically and are never configured as selector constants. Counts are snapshot evidence, recalculated during every build. Mixed CPS classifications, missing selectors or classification aliases fail closed. Selected inventories are disjoint.
 
-MRAs and complete relative alternative hierarchies move beneath `_Arcade/_Arcade Systems/_<CPS SYSTEM>/`. The builder retains authoritative parent folder metadata and classified alternative directories. It adds original effective URLs explicitly before relocation. Hashes, sizes, tags, the entire tag dictionary, timestamp, default options and other supported root metadata are preserved. No MRA bytes or ROM definitions are changed.
+MRAs and complete relative alternative hierarchies move beneath `_Arcade/_Arcade Systems/_<CPS SYSTEM>/`. The builder retains authoritative parent folder metadata and classified alternative directories. It adds original effective URLs explicitly before relocation. Hashes, sizes, tags, the entire tag dictionary, timestamp and other supported root metadata are preserved. Compatible default options remain unchanged; CPS3 uses the approved filter correction described below. No MRA bytes or ROM definitions are changed.
 
 ## Filters
 
-DownloaderPLUS preserves the upstream database's filter configuration, tags, and associated Downloader behavior. Users may configure supported filters through their normal MiSTer Downloader configuration.
+DownloaderPLUS preserves upstream tags and compatible default filters. CPS3 uses `[MiSTer]` to prevent an inherited exclusion from suppressing its selected inventory. Users may configure supported filters through their normal MiSTer Downloader configuration. See [derived filter policy](derived-filter-policy.md).
 
 ## Core ownership and verification
 
