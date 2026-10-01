@@ -15,6 +15,12 @@ from tools.common.filters import filter_counts
 
 
 class ArcadeSystemsTests(unittest.TestCase):
+    def coinop_fixture(self):
+        source=unpack((ROOT/'tests/fixtures/coinop-2026-09-30.db.json.zip').read_bytes())
+        refs=json.loads((ROOT/'tests/fixtures/coinop-family-references-2026-09-30.json').read_text())
+        self.assertEqual(digest(canonical_json(source)),refs['source_semantic_sha256'])
+        return {'source_database':source,'source_references':refs['references']}
+
     def config(self):return load_module('arcade-systems-complete')[0]
 
     def database(self, root='_TEST SYSTEM'):
@@ -112,7 +118,7 @@ class ArcadeSystemsTests(unittest.TestCase):
         self.assertEqual(set(result['folders']),{root});self.assertEqual(len(result['files']),3)
 
     def test_coinop_states_union_alternatives_and_url_preservation(self):
-        n='coinop-toaplan-2';c=load_module(n)[0];m=json.loads((ROOT/'dist'/n/'manifest.json').read_text());source=m['source_database'];refs=m['source_references']
+        n='coinop-toaplan-2';c=load_module(n)[0];m=self.coinop_fixture();source=m['source_database'];refs=m['source_references']
         result,resources,report=family_database(c,source,refs)
         self.assertEqual(report['state'],'managed');self.assertEqual(report['filtered_primary_mras'],0)
         self.assertFalse(resources);item=families()[c['family']];state,selected,_=family_state(source,item,refs)
@@ -135,7 +141,7 @@ class ArcadeSystemsTests(unittest.TestCase):
         self.assertEqual(report['state'],'absent');self.assertFalse(empty['files']);self.assertFalse(empty['folders']);self.assertFalse(resources)
 
     def test_coinop_manual_promotion_preserves_access_defaults(self):
-        c=load_module('coinop-nmk16')[0];m=json.loads((ROOT/'dist/coinop-nmk16/manifest.json').read_text());source=m['source_database'];refs=m['source_references']
+        c=load_module('coinop-nmk16')[0];m=self.coinop_fixture();source=m['source_database'];refs=m['source_references']
         before,_,report=family_database(c,source,refs);self.assertEqual(report['state'],'manual')
         public=copy.deepcopy(source);public['default_options']['filter']='[MiSTer]'
         after,_,report=family_database(c,public,refs);self.assertEqual(report['state'],'managed')
@@ -143,7 +149,7 @@ class ArcadeSystemsTests(unittest.TestCase):
         self.assertEqual(before['default_options'],source['default_options'])
 
     def test_unknown_classification_stays_outside_family_views(self):
-        c=load_module('coinop-toaplan-2')[0];m=json.loads((ROOT/'dist/coinop-toaplan-2/manifest.json').read_text());source=copy.deepcopy(m['source_database'])
+        c=load_module('coinop-toaplan-2')[0];m=self.coinop_fixture();source=copy.deepcopy(m['source_database'])
         source['tag_dictionary']['arcadeunreviewed']=777;source['files']['_Arcade/New.mra']={'hash':'0'*32,'size':1,'tags':[777]}
         result,_,_=family_database(c,source,m['source_references'])
         self.assertFalse(any(p.endswith('/New.mra') for p in result['files']))
@@ -161,8 +167,8 @@ class ArcadeSystemsTests(unittest.TestCase):
         self.assertEqual(cps['default_options']['filter'],'[MiSTer]')
 
     def test_complete_archive_member_sources_and_hierarchy_are_preserved(self):
-        d=unpack((ROOT/'dist/arcade-systems-complete/arcade-systems-complete.json.zip').read_bytes())
         source=unpack((ROOT/'dist/sega-stv/sega-stv.json.zip').read_bytes())
+        d,_=merge_complete(self.config(),{'sega-stv':source},registry()['modules'])
         for name,desc in source['archives'].items():
             after=d['archives']['sega-stv_'+name]
             for k in ('archive_file','base_files_url','target_folder','extract','format'):self.assertEqual(after[k],desc[k])
@@ -172,7 +178,7 @@ class ArcadeSystemsTests(unittest.TestCase):
                     self.assertEqual(after['summary_inline']['files'][p].get(k),r.get(k))
 
     def test_structural_mapping_changes_fail_closed(self):
-        c=load_module('coinop-toaplan-2')[0];m=json.loads((ROOT/'dist/coinop-toaplan-2/manifest.json').read_text());source=copy.deepcopy(m['source_database'])
+        c=load_module('coinop-toaplan-2')[0];m=self.coinop_fixture();source=copy.deepcopy(m['source_database'])
         del source['tag_dictionary']['arcadetekipaki']
         with self.assertRaisesRegex(ValidationError,'classification disappeared'):family_database(c,source,m['source_references'])
 
@@ -203,7 +209,7 @@ class ArcadeSystemsTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError,'outside approved system'):merge_complete(self.config(),{'a':a},{'a':approval})
 
     def test_unknown_additional_classification_and_cross_family_contamination_fail(self):
-        c=load_module('coinop-toaplan-2')[0];m=json.loads((ROOT/'dist/coinop-toaplan-2/manifest.json').read_text());d=copy.deepcopy(m['source_database'])
+        c=load_module('coinop-toaplan-2')[0];m=self.coinop_fixture();d=copy.deepcopy(m['source_database'])
         path=next(p for p,r in d['files'].items() if p.endswith('.mra') and d['tag_dictionary']['arcadetekipaki'] in r['tags'])
         d['tag_dictionary']['arcadenewhardware']=777;d['files'][path]['tags'].append(777)
         with self.assertRaisesRegex(ValidationError,'Unreviewed selected'):family_database(c,d,m['source_references'])
@@ -211,7 +217,7 @@ class ArcadeSystemsTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError,'cross-family'):family_database(c,d,m['source_references'])
 
     def test_confirmed_external_pair_qualifies_but_roadmap_does_not(self):
-        c=load_module('coinop-toaplan-2')[0];m=json.loads((ROOT/'dist/coinop-toaplan-2/manifest.json').read_text())
+        c=load_module('coinop-toaplan-2')[0];m=self.coinop_fixture()
         item=copy.deepcopy(families()[c['family']]);item['classifications']=[];item['core_classifications']=[]
         self.assertEqual(family_state(m['source_database'],item,m['source_references'])[0],'absent')
         item['confirmed_releases']=[{'platform':'MiSTerFPGA','core_filename':'Confirmed_20261001.rbf','mra_filename':'Confirmed.mra','compatible':True,'evidence':'Reviewed released inventory'}]
@@ -234,7 +240,7 @@ class ArcadeSystemsTests(unittest.TestCase):
     def test_coinop_source_normalization_and_reference_verification_are_shared(self):
         from tools.build import build
         from tools.common.coinop_families import URL
-        m=json.loads((ROOT/'dist/coinop-toaplan-2/manifest.json').read_text());source=m['source_database']
+        m=self.coinop_fixture();source=m['source_database']
         cache={URL:package(source)}
         with tempfile.TemporaryDirectory() as tmp,patch('tools.common.coinop_families.references',return_value=m['source_references']) as refs,patch('tools.common.coinop_families.fetch',side_effect=AssertionError('redundant fetch')):
             build('coinop-collection',output_root=Path(tmp)/'standalone',source_cache=cache)
