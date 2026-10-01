@@ -21,6 +21,61 @@ Database transformation remains the default. Direct repository generation is per
 
 This project is independent of its upstream projects and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), [Meathax](https://github.com/meathax/meatcores), and the authors and contributors credited by each upstream project. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
 
+## Coin-Op module
+
+Authoritative database:
+
+<https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/db/db.json.zip>
+
+The module changes file and folder destination keys as follows, preserving the complete suffix:
+
+```text
+_Arcade/<existing path>
+  → _Arcade/_Coin-Op Collection/<existing path>
+
+_Arcade                         (exact folder record)
+  → _Arcade/_Coin-Op Collection
+```
+
+Non-Arcade destinations stay identical. This includes the current `games`, `games/hbmame`, and `games/mame` folder records and their `path: pext` external-storage markers. The module preserves hashes, sizes, tags, tag dictionary, tangles, timestamp, format version, default filter, base URL, and folder metadata.
+
+Two deliberate representation changes are necessary:
+
+1. Rewritten files without explicit source URLs receive `url = base_files_url + urllib.parse.quote(original_destination)`. This is the same calculation Downloader uses. Existing explicit URLs remain identical. Effective content sources do not change.
+2. The derived database uses the permanent ID `hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection` so its configuration and installed-file state are separate from Coin-Op's normal database.
+
+The upstream root `db_url` remains unchanged as provenance. Downloader fetches the derived database using the URL in your INI section. Additional provenance and validation results live beside the artifact in `manifest.json`.
+
+## Install manually on MiSTer
+
+**Keep the normal Coin-Op database enabled.** Both installations are intentional:
+
+```text
+_Arcade/
+├── <normal Coin-Op content>
+└── _Coin-Op Collection/
+    └── <mirrored Coin-Op content>
+```
+
+After this repository is available on `main`, manually add this independent section to your Downloader configuration:
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-collection/coinop-collection.json.zip
+```
+
+The section must match the derived `db_id`. Do not replace the normal Coin-Op section. DownloaderPLUS does not disable, clean up, or replace the normal installation.
+
+If you installed the earlier database, update only the derived section's `db_url` to the `coinop-collection.json.zip` URL above. Keep its database ID unchanged. The corrected destination is `_Arcade/_Coin-Op Collection/`. Files previously tracked under the derived ID follow Downloader's ordinary update/removal settings; the normal Coin-Op installation remains independent.
+
+**Runtime dependency:** MiSTer's Arcade MRA loader derives its root from `_Arcade` and looks for RBFs in the normal `_Arcade/cores` directory. MRAs in the dedicated folder therefore depend on the normal Coin-Op installation. The derived database mirrors the upstream `cores/` suffix as requested, but those nested RBFs are not the normal loader's lookup location. ROMs continue to use the existing games locations. See the inspected [MiSTer loader](https://github.com/MiSTer-devel/Main_MiSTer/blob/master/support/arcade/mra_loader.cpp).
+
+Software verification is automated. Actual navigation and game launching on MiSTer hardware still require final acceptance verification; no hardware verification is claimed.
+
+## Filters
+
+DownloaderPLUS preserves the upstream database's filter configuration, tags, and associated Downloader behavior. Users may configure supported filters through their normal MiSTer Downloader configuration. [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md)
+
 ## Arcade Systems
 
 Authoritative distributions:
@@ -85,61 +140,6 @@ DownloaderPLUS does not edit your configuration or remove files installed by oth
 The existing three modules keep their permanent database IDs and artifact URLs during consolidation. Downloader installs navigation at the new destination under the same database IDs. Its normal deletion policy removes obsolete tracked MRAs and empty folders when `allow_delete` permits all deletions (the inspected Downloader default). A policy restricted to old cores or no deletions can leave old navigation copies; DownloaderPLUS does not override that preference. Corrected Capcom display folders also retain the same subscriptions. Core destinations and upstream payload URLs stay unchanged; DownloaderPLUS performs no manual cleanup of other installations.
 
 See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and authoritative MeatCores selection. PGM remains paused. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
-
-## Coin-Op module
-
-Authoritative database:
-
-<https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/db/db.json.zip>
-
-The module changes file and folder destination keys as follows, preserving the complete suffix:
-
-```text
-_Arcade/<existing path>
-  → _Arcade/_Coin-Op Collection/<existing path>
-
-_Arcade                         (exact folder record)
-  → _Arcade/_Coin-Op Collection
-```
-
-Non-Arcade destinations stay identical. This includes the current `games`, `games/hbmame`, and `games/mame` folder records and their `path: pext` external-storage markers. The module preserves hashes, sizes, tags, tag dictionary, tangles, timestamp, format version, default filter, base URL, and folder metadata.
-
-Two deliberate representation changes are necessary:
-
-1. Rewritten files without explicit source URLs receive `url = base_files_url + urllib.parse.quote(original_destination)`. This is the same calculation Downloader uses. Existing explicit URLs remain identical. Effective content sources do not change.
-2. The derived database uses the permanent ID `hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection` so its configuration and installed-file state are separate from Coin-Op's normal database.
-
-The upstream root `db_url` remains unchanged as provenance. Downloader fetches the derived database using the URL in your INI section. Additional provenance and validation results live beside the artifact in `manifest.json`.
-
-## Install manually on MiSTer
-
-**Keep the normal Coin-Op database enabled.** Both installations are intentional:
-
-```text
-_Arcade/
-├── <normal Coin-Op content>
-└── _Coin-Op Collection/
-    └── <mirrored Coin-Op content>
-```
-
-After this repository is available on `main`, manually add this independent section to your Downloader configuration:
-
-```ini
-[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection]
-db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-collection/coinop-collection.json.zip
-```
-
-The section must match the derived `db_id`. Do not replace the normal Coin-Op section. DownloaderPLUS does not disable, clean up, or replace the normal installation.
-
-If you installed the earlier database, update only the derived section's `db_url` to the `coinop-collection.json.zip` URL above. Keep its database ID unchanged. The corrected destination is `_Arcade/_Coin-Op Collection/`. Files previously tracked under the derived ID follow Downloader's ordinary update/removal settings; the normal Coin-Op installation remains independent.
-
-**Runtime dependency:** MiSTer's Arcade MRA loader derives its root from `_Arcade` and looks for RBFs in the normal `_Arcade/cores` directory. MRAs in the dedicated folder therefore depend on the normal Coin-Op installation. The derived database mirrors the upstream `cores/` suffix as requested, but those nested RBFs are not the normal loader's lookup location. ROMs continue to use the existing games locations. See the inspected [MiSTer loader](https://github.com/MiSTer-devel/Main_MiSTer/blob/master/support/arcade/mra_loader.cpp).
-
-Software verification is automated. Actual navigation and game launching on MiSTer hardware still require final acceptance verification; no hardware verification is claimed.
-
-## Filters
-
-DownloaderPLUS preserves the upstream database's filter configuration, tags, and associated Downloader behavior. Users may configure supported filters through their normal MiSTer Downloader configuration. [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md)
 
 ## Build and verify
 
