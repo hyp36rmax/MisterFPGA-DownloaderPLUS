@@ -1,0 +1,11 @@
+{
+  "name": "coinop-nmk16",
+  "display_name": "NMK16",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "nmk16",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-nmk16",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

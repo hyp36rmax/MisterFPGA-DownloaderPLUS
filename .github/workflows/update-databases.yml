@@ -56,6 +56,8 @@ jobs:
         run: python tools/verify_dist.py
       - name: Audit recursive alternatives parity
         run: python tools/audit_alternatives.py
+      - name: Audit Arcade Systems registry and ownership
+        run: python tools/audit_arcade_systems.py
       - name: Audit hardware-module default filters
         run: python tools/audit_filters.py
       - name: Publish only validated changes
@@ -69,4 +71,35 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Update validated ${{ matrix.module }} database'
+          git push origin HEAD:"${{ github.event.repository.default_branch }}"
+
+  complete:
+    needs: update
+    if: needs.update.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Build complete aggregate after every source group succeeds
+        run: python tools/build.py --module arcade-systems-complete
+      - name: Verify complete distribution and filters
+        run: |
+          python tools/verify_dist.py
+          python tools/audit_filters.py
+      - name: Publish only complete validated changes
+        run: |
+          git add -- dist/arcade-systems-complete
+          if git diff --cached --quiet; then
+            echo "No material changes; no commit."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update validated Arcade Systems Complete database'
           git push origin HEAD:"${{ github.event.repository.default_branch }}"

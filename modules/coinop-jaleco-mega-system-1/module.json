@@ -1,0 +1,11 @@
+{
+  "name": "coinop-jaleco-mega-system-1",
+  "display_name": "JALECO MEGA SYSTEM 1",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "jaleco-mega-system-1",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-jaleco-mega-system-1",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

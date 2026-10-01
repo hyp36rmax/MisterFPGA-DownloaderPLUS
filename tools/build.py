@@ -14,6 +14,16 @@ from tools.common.selection import select_database, verify_payloads
 
 def build(name, upstream_file=None, output_root=None, source_cache=None):
     config, policy = load_module(name)
+    if config.get("source_mode")=="coinop-family":
+        from tools.common.coinop_families import build_family
+        return build_family(config,upstream_file,output_root,source_cache)
+    if config.get("source_mode")=="documentation":
+        from tools.common.arcade_systems import documentation_database, publish_assembly
+        database,resources=documentation_database(config,config["systems"])
+        return publish_assembly(config,database,{"source_mode":"documentation","systems":config["systems"]},{"restricted_payload_records":0},resources,output_root)
+    if config.get("source_mode")=="complete":
+        from tools.common.arcade_systems import build_complete
+        return build_complete(config,output_root)
     directory = Path(output_root) if output_root else ROOT / "dist" / name
     basis = {}
     if config.get("source_mode") == "repository":
@@ -40,7 +50,11 @@ def build(name, upstream_file=None, output_root=None, source_cache=None):
             raw = fetch(url)
             if source_cache is not None:
                 source_cache[url] = raw
-        upstream = unpack(raw, config.get("database_member", "db.json"))
+        normalized_key=('database',url,config.get("database_member","db.json"))
+        if source_cache is not None and normalized_key in source_cache:upstream=source_cache[normalized_key]
+        else:
+            upstream=unpack(raw,config.get("database_member","db.json"))
+            if source_cache is not None:source_cache[normalized_key]=upstream
         if config.get("source_mode") == "database":
             from tools.common.archives import hydrate_archives
             authoritative = hydrate_archives(upstream,config,source_cache,Path(upstream_file).parent if upstream_file else None)
@@ -93,7 +107,7 @@ def main():
         print(canonical_json(discover_modules()).decode(), end="")
         return
     if args.list_update_modules:
-        print(canonical_json([n for n in discover_modules() if 'source_module' not in load_module(n)[0]]).decode(), end="")
+        print(canonical_json([n for n in discover_modules() if 'source_module' not in load_module(n)[0] and load_module(n)[0].get('source_mode') != 'complete']).decode(), end="")
         return
     if args.publication_paths:
         if not args.module: parser.error('--publication-paths requires --module')
@@ -104,7 +118,7 @@ def main():
     if args.all and (args.upstream_file or args.output_dir):
         parser.error("Offline input/output overrides require --module")
     try:
-        names = discover_modules() if args.all else update_group(args.module) if args.with_presentations else [args.module]
+        names = sorted(discover_modules(),key=lambda n: load_module(n)[0].get("source_mode")=="complete") if args.all else update_group(args.module) if args.with_presentations else [args.module]
         source_cache = {}
         for name in names:
             print(canonical_json(build(name, args.upstream_file, args.output_dir, source_cache)).decode(), end="")

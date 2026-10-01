@@ -1,0 +1,36 @@
+{
+  "name": "arcade-systems-reserve",
+  "display_name": "Arcade Systems Reserve",
+  "source_mode": "documentation",
+  "authority": "DownloaderPLUS",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-reserve",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "systems": [
+    {
+      "display_name": "CAVE CV1000",
+      "destination": "_Arcade/_Arcade Systems/_CAVE CV1000",
+      "state": "reserve"
+    },
+    {
+      "display_name": "KANEKO SUPER NOVA SYSTEM",
+      "destination": "_Arcade/_Arcade Systems/_KANEKO SUPER NOVA SYSTEM",
+      "state": "reserve"
+    },
+    {
+      "display_name": "NAMCO SYSTEM 12",
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12",
+      "state": "reserve"
+    },
+    {
+      "display_name": "PGM2 (EZIO)",
+      "destination": "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
+      "state": "reserve"
+    },
+    {
+      "display_name": "PSIKYO SH2",
+      "destination": "_Arcade/_Arcade Systems/_PSIKYO SH2",
+      "state": "reserve"
+    }
+  ]
+}

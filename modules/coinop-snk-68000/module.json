@@ -1,0 +1,11 @@
+{
+  "name": "coinop-snk-68000",
+  "display_name": "SNK 68000",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "snk-68000",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-snk-68000",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

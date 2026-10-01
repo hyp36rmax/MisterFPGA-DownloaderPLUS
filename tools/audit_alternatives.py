@@ -17,6 +17,13 @@ def audit(live=False):
     source_cache = {}
     for name in discover_modules():
         config, policy = load_module(name)
+        if config.get('source_mode')=='coinop-family':
+            from tools.verify_dist import verify_one
+            generated,manifest=verify_one(name,verbose=False)
+            report=manifest['validation']
+            rows.append({'module':name,'display_name':config['display_name'],'repository':config['authority'],
+                         'source_commit':None,'status':'PASS',**report})
+            continue
         if config.get('source_mode') not in {'repository', 'database'}:
             continue
         directory = ROOT / 'dist' / name

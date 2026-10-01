@@ -1,0 +1,11 @@
+{
+  "name": "coinop-nichibutsu-terra-cresta",
+  "display_name": "NICHIBUTSU TERRA CRESTA",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "nichibutsu-terra-cresta",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-nichibutsu-terra-cresta",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

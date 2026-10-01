@@ -17,6 +17,17 @@ def audit(live=False):
     rows=[];cache={}
     for name in discover_modules():
         c,p=load_module(name)
+        if c.get('source_mode') in {'coinop-family','complete','documentation'}:
+            from tools.verify_dist import verify_one
+            g,m=verify_one(name,verbose=False)
+            counts=filter_counts(g)
+            rows.append({'module':name,'source_default_filter':g['default_options']['filter'],
+                         'source_default_installable_primary_mras':counts['default_installable_primary_mras'],
+                         'source_filtered_primary_mras':counts['filtered_primary_mras'],
+                         'source_filtered_alternative_mras':counts['filtered_alternative_mras'],
+                         'generated_default_filter':g['default_options']['filter'],'conflict':False,
+                         'derived_policy_applied':False,'status':'PASS',**counts})
+            continue
         if c.get('source_mode') not in {'database','repository'}:continue
         m=parse_json((ROOT/'dist'/name/'manifest.json').read_bytes())
         g=unpack((ROOT/'dist'/name/(name+'.json.zip')).read_bytes())

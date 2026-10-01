@@ -1,0 +1,9 @@
+{
+  "name": "arcade-systems-complete",
+  "display_name": "Arcade Systems Complete",
+  "source_mode": "complete",
+  "authority": "DownloaderPLUS",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-complete",
+  "policy_version": 1,
+  "include_required_cores": true
+}

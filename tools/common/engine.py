@@ -38,6 +38,19 @@ def load_module(name, root=ROOT):
         raise ValidationError("Invalid module name")
     directory = Path(root) / "modules" / name
     config = parse_json((directory / "module.json").read_bytes())
+    if config.get("source_mode") in {"coinop-family", "documentation", "complete"}:
+        from tools.common.arcade_systems import AssemblyPolicy
+        fields={"name","display_name","source_mode","authority","derived_db_id","policy_version","include_required_cores"}
+        mode=config["source_mode"]
+        if mode=="coinop-family":fields.update({"family","source_module"})
+        if mode=="documentation":fields.add("systems")
+        if set(config)!=fields or config["name"]!=name or config["derived_db_id"]!="hyp36rmax/MisterFPGA-DownloaderPLUS/"+name:
+            raise ValidationError("Invalid Arcade Systems configuration")
+        if mode=="coinop-family":
+            from tools.common.coinop_families import AUTHORITY, families
+            if config["authority"]!=AUTHORITY or config["family"] not in families(Path(root)):
+                raise ValidationError("Invalid Coin-Op authority/family")
+        return config, AssemblyPolicy()
     if config.get("source_mode") == "database":
         fields = {"name", "display_name", "source_mode", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version",
                   "selection_tags", "exclusive_group_tags", "source_navigation_root", "target_folder"}

@@ -1,0 +1,11 @@
+{
+  "name": "coinop-snk-alpha-68k",
+  "display_name": "SNK ALPHA-68K",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "snk-alpha-68k",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-snk-alpha-68k",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

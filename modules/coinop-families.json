@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "families": {
+    "data-east-deco-8": {
+      "display_name": "DATA EAST DECO-8",
+      "destination": "_Arcade/_Arcade Systems/_DATA EAST DECO-8",
+      "classifications": [
+        "arcadeoscarmister",
+        "arcadecobracommister"
+      ],
+      "core_classifications": [
+        "arcadeoscarmister",
+        "arcadecobracommister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "data-east-deco-16": {
+      "display_name": "DATA EAST DECO-16",
+      "destination": "_Arcade/_Arcade Systems/_DATA EAST DECO-16",
+      "classifications": [
+        "arcadeboogwingmister",
+        "arcadecbustermister",
+        "arcadecninjamister",
+        "arcadedarksealmister",
+        "arcadedblewing",
+        "arcadedietgo",
+        "arcadeedrandymister",
+        "arcademutantfmister",
+        "arcadenitrobalmister",
+        "arcaderobocop2mister",
+        "arcaderohgamister",
+        "arcadesupbtimemister",
+        "arcadethndzonemister",
+        "arcadetumblepmister",
+        "arcadevaportramister",
+        "arcadewizdfiremister"
+      ],
+      "core_classifications": [
+        "arcadeboogwingmister",
+        "arcadecbustermister",
+        "arcadecninjamister",
+        "arcadedarksealmister",
+        "arcadedblewing",
+        "arcadedietgo",
+        "arcadeedrandymister",
+        "arcademutantfmister",
+        "arcadenitrobalmister",
+        "arcaderobocop2mister",
+        "arcaderohgamister",
+        "arcadesupbtimemister",
+        "arcadethndzonemister",
+        "arcadetumblepmister",
+        "arcadevaportramister",
+        "arcadewizdfiremister",
+        "arcadedblewingmister",
+        "arcadedietgomister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "data-east-deco-32": {
+      "display_name": "DATA EAST DECO-32",
+      "destination": "_Arcade/_Arcade Systems/_DATA EAST DECO-32",
+      "classifications": [
+        "arcadecaptaven"
+      ],
+      "core_classifications": [
+        "arcadecaptaven",
+        "arcadecaptavenmister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "data-east-deco-6280": {
+      "display_name": "DATA EAST DECO-6280",
+      "destination": "_Arcade/_Arcade Systems/_DATA EAST DECO-6280",
+      "classifications": [],
+      "core_classifications": [],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "eighting-raizing": {
+      "display_name": "EIGHTING RAIZING",
+      "destination": "_Arcade/_Arcade Systems/_EIGHTING RAIZING",
+      "classifications": [
+        "arcadebatridermister",
+        "arcadebbakraidmister",
+        "arcadebgareggamister",
+        "arcadekingdmgpmister",
+        "arcadesstrikermister"
+      ],
+      "core_classifications": [
+        "arcadebatridermister",
+        "arcadebbakraidmister",
+        "arcadebgareggamister",
+        "arcadekingdmgpmister",
+        "arcadesstrikermister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "jaleco-mega-system-1": {
+      "display_name": "JALECO MEGA SYSTEM 1",
+      "destination": "_Arcade/_Arcade Systems/_JALECO MEGA SYSTEM 1",
+      "classifications": [
+        "arcademegasys1a"
+      ],
+      "core_classifications": [
+        "arcademegasys1a"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "nichibutsu-terra-cresta": {
+      "display_name": "NICHIBUTSU TERRA CRESTA",
+      "destination": "_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA",
+      "classifications": [
+        "arcadeterracresta"
+      ],
+      "core_classifications": [
+        "arcadeterracresta"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "nichibutsu-terra-force": {
+      "display_name": "NICHIBUTSU TERRA FORCE",
+      "destination": "_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE",
+      "classifications": [
+        "arcadearmedf"
+      ],
+      "core_classifications": [
+        "arcadearmedf"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "nmk16": {
+      "display_name": "NMK16",
+      "destination": "_Arcade/_Arcade Systems/_NMK16",
+      "classifications": [
+        "arcadeblkheart",
+        "arcadetdragon"
+      ],
+      "core_classifications": [
+        "arcadeblkheart",
+        "arcadetdragon",
+        "arcadeblkheartmister",
+        "arcadetdragonmister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "snk-alpha-68k": {
+      "display_name": "SNK ALPHA-68K",
+      "destination": "_Arcade/_Arcade Systems/_SNK ALPHA-68K",
+      "classifications": [
+        "arcadealpha68k"
+      ],
+      "core_classifications": [
+        "arcadealpha68k"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "snk-68000": {
+      "display_name": "SNK 68000",
+      "destination": "_Arcade/_Arcade Systems/_SNK 68000",
+      "classifications": [
+        "arcadesnk68",
+        "arcadenextspace",
+        "arcadeprehisle"
+      ],
+      "core_classifications": [
+        "arcadesnk68",
+        "arcadenextspace",
+        "arcadeprehisle"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "technos16": {
+      "display_name": "TECHNOS16",
+      "destination": "_Arcade/_Arcade Systems/_TECHNOS16",
+      "classifications": [],
+      "core_classifications": [],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "tecmo16": {
+      "display_name": "TECMO16",
+      "destination": "_Arcade/_Arcade Systems/_TECMO16",
+      "classifications": [],
+      "core_classifications": [],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "toaplan-1": {
+      "display_name": "TOAPLAN 1",
+      "destination": "_Arcade/_Arcade Systems/_TOAPLAN 1",
+      "classifications": [
+        "arcadedemonwldmister",
+        "arcadefsharkmister",
+        "arcaderallybike",
+        "arcadetwincobrmister",
+        "arcadevimana",
+        "arcadewardnermister",
+        "arcadezerowing20240404",
+        "arcadezerowingmister"
+      ],
+      "core_classifications": [
+        "arcadedemonwldmister",
+        "arcadefsharkmister",
+        "arcaderallybike",
+        "arcadetwincobrmister",
+        "arcadevimana",
+        "arcadewardnermister",
+        "arcadezerowing20240404",
+        "arcadezerowingmister",
+        "arcadezerowing"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "toaplan-2": {
+      "display_name": "TOAPLAN 2",
+      "destination": "_Arcade/_Arcade Systems/_TOAPLAN 2",
+      "classifications": [
+        "arcadepipibibs",
+        "arcadesnowbro2",
+        "arcadetekipaki",
+        "arcadetruxton2"
+      ],
+      "core_classifications": [
+        "arcadepipibibs",
+        "arcadesnowbro2",
+        "arcadetekipaki",
+        "arcadetruxton2"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "midway-z-unit": {
+      "display_name": "MIDWAY Z-UNIT",
+      "destination": "_Arcade/_Arcade Systems/_MIDWAY Z-UNIT",
+      "classifications": [],
+      "core_classifications": [],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "midway-y-unit": {
+      "display_name": "MIDWAY Y-UNIT",
+      "destination": "_Arcade/_Arcade Systems/_MIDWAY Y-UNIT",
+      "classifications": [],
+      "core_classifications": [],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "midway-t-unit": {
+      "display_name": "MIDWAY T-UNIT",
+      "destination": "_Arcade/_Arcade Systems/_MIDWAY T-UNIT",
+      "classifications": [],
+      "core_classifications": [],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "midway-wolf-unit": {
+      "display_name": "MIDWAY WOLF UNIT",
+      "destination": "_Arcade/_Arcade Systems/_MIDWAY WOLF UNIT",
+      "classifications": [],
+      "core_classifications": [],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    }
+  }
+}

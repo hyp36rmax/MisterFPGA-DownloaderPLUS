@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "modules": {
+    "capcom-cps1": {
+      "authority": "jtcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM CPS1"
+      ],
+      "include_required_cores": false
+    },
+    "capcom-cps15": {
+      "authority": "jtcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM CPS1.5"
+      ],
+      "include_required_cores": false
+    },
+    "capcom-cps2": {
+      "authority": "jtcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM CPS2"
+      ],
+      "include_required_cores": false
+    },
+    "capcom-cps3": {
+      "authority": "jtcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM CPS3"
+      ],
+      "include_required_cores": false
+    },
+    "capcom-zn1": {
+      "authority": "XelaNotPu/ZN1-Capcom_MiSTer",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM ZN-1"
+      ],
+      "include_required_cores": true
+    },
+    "capcom-zn2": {
+      "authority": "XelaNotPu/ZN2-Capcom_MiSTer",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM ZN-2"
+      ],
+      "include_required_cores": true
+    },
+    "coinop-collection": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": false,
+      "destination_roots": [
+        "_Arcade/_Coin-Op Collection"
+      ],
+      "include_required_cores": false
+    },
+    "irem-m62": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_IREM M62"
+      ],
+      "include_required_cores": false
+    },
+    "irem-m72": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_IREM M72"
+      ],
+      "include_required_cores": false
+    },
+    "irem-m90": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_IREM M90"
+      ],
+      "include_required_cores": false
+    },
+    "irem-m92": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_IREM M92"
+      ],
+      "include_required_cores": false
+    },
+    "namco-system11": {
+      "authority": "XelaNotPu/SYSTEM11_MiSTer",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 11"
+      ],
+      "include_required_cores": true
+    },
+    "pgm-ezio": {
+      "authority": "hyp36rmax/PGM-Mister-EZIOCHIU",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": false,
+      "destination_roots": [
+        "_Arcade/_PGM (EZIO)"
+      ],
+      "include_required_cores": false
+    },
+    "pgm-ezio-arcade-systems": {
+      "authority": "hyp36rmax/PGM-Mister-EZIOCHIU",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_PGM (EZIO)"
+      ],
+      "include_required_cores": true
+    },
+    "sega-stv": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA ST-V"
+      ],
+      "include_required_cores": false
+    },
+    "sega-system16": {
+      "authority": "jtcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA SYSTEM 16"
+      ],
+      "include_required_cores": false
+    },
+    "sega-system18": {
+      "authority": "jtcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA SYSTEM 18"
+      ],
+      "include_required_cores": false
+    },
+    "sega-system32": {
+      "authority": "meathax/meatcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA SYSTEM 32"
+      ],
+      "include_required_cores": true
+    },
+    "sega-system32-multi": {
+      "authority": "meathax/meatcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA SYSTEM 32 MULTI"
+      ],
+      "include_required_cores": true
+    },
+    "seibu-spi": {
+      "authority": "zakk4223/Arcade-SeibuSPI_MiSTer",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEIBU SPI"
+      ],
+      "include_required_cores": true
+    },
+    "taito-f2": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO F2"
+      ],
+      "include_required_cores": false
+    },
+    "taito-fx1b": {
+      "authority": "XelaNotPu/ZN1-TaitoFX1B_MiSTer",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO FX1B"
+      ],
+      "include_required_cores": true
+    },
+    "technosoft": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TECHNOSOFT"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-data-east-deco-8": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_DATA EAST DECO-8"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-data-east-deco-16": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_DATA EAST DECO-16"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-data-east-deco-32": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_DATA EAST DECO-32"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-eighting-raizing": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_EIGHTING RAIZING"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-jaleco-mega-system-1": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_JALECO MEGA SYSTEM 1"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-nichibutsu-terra-cresta": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-nichibutsu-terra-force": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-nmk16": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "manual",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NMK16"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-snk-alpha-68k": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SNK ALPHA-68K"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-snk-68000": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SNK 68000"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-toaplan-1": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TOAPLAN 1"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-toaplan-2": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TOAPLAN 2"
+      ],
+      "include_required_cores": false
+    },
+    "arcade-systems-reserve": {
+      "authority": "DownloaderPLUS",
+      "management_state": "reserve",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAVE CV1000",
+        "_Arcade/_Arcade Systems/_KANEKO SUPER NOVA SYSTEM",
+        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12",
+        "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
+        "_Arcade/_Arcade Systems/_PSIKYO SH2"
+      ],
+      "include_required_cores": false
+    }
+  },
+  "reserved_authorities": {
+    "_PGM (EZIO)": "hyp36rmax/PGM-Mister-EZIOCHIU",
+    "_PGM2 (EZIO)": "ezio",
+    "_DATA EAST DECO-8": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_DATA EAST DECO-16": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_DATA EAST DECO-32": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_DATA EAST DECO-6280": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_EIGHTING RAIZING": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_JALECO MEGA SYSTEM 1": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_NICHIBUTSU TERRA CRESTA": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_NICHIBUTSU TERRA FORCE": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_NMK16": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_SNK ALPHA-68K": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_SNK 68000": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TECHNOS16": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TECMO16": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TOAPLAN 1": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TOAPLAN 2": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_MIDWAY Z-UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_MIDWAY Y-UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_MIDWAY T-UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_MIDWAY WOLF UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA"
+  }
+}

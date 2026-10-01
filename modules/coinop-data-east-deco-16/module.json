@@ -1,0 +1,11 @@
+{
+  "name": "coinop-data-east-deco-16",
+  "display_name": "DATA EAST DECO-16",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "data-east-deco-16",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-data-east-deco-16",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

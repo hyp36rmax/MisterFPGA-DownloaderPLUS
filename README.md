@@ -9,6 +9,8 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 | Module | Source mode | Navigation destination | Artifact |
 |---|---|---|---|
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
+| Arcade Systems Complete | Approved Arcade Systems aggregate | `_Arcade/_Arcade Systems/` | `arcade-systems-complete.json.zip` |
+| Arcade Systems Reserve | Navigation guidance | `_Arcade/_Arcade Systems/` | `arcade-systems-reserve.json.zip` |
 | PGM (Ezio) | Repository distribution | `_Arcade/_PGM (EZIO)/` | `pgm-ezio.json.zip` |
 | PGM (Ezio) â€” Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
 | SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 16/` | `sega-system16.json.zip` |
@@ -60,6 +62,28 @@ Two deliberate representation changes are necessary:
 2. The derived database uses the permanent ID `hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection` so its configuration and installed-file state are separate from Coin-Op's normal database.
 
 The upstream root `db_url` remains unchanged as provenance. Downloader fetches the derived database using the URL in your INI section. Additional provenance and validation results live beside the artifact in `manifest.json`.
+
+## Arcade Systems installation
+
+Choose **Arcade Systems Complete** for all currently approved presentations beneath `_Arcade/_Arcade Systems/`, including Reserve guidance folders:
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-complete]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-systems-complete/arcade-systems-complete.json.zip
+```
+
+For selective installation, use individual system subscriptions. Use Complete **or** overlapping individual modules, since separate database identities would manage the same destinations. Keep normal upstream core subscriptions enabled in Update_All; required Arcade cores use `_Arcade/cores/`.
+
+For guidance folders only:
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-reserve]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-systems-reserve/arcade-systems-reserve.json.zip
+```
+
+Reserve creates organized locations for selected systems whose payloads DownloaderPLUS does not currently distribute. Compatible files obtained from an authorized source may be placed in the corresponding system folder. DownloaderPLUS does not provide ROMs.
+
+Coin-Op Collection and standalone PGM remain separate optional subscriptions. Their destinations differ from the Arcade Systems views. “Complete” means all currently approved DownloaderPLUS Arcade Systems presentations; it does not include every platform or a ROM collection. See [Arcade Systems](docs/arcade-systems.md) for the supported Coin-Op family views and [architecture contract](docs/arcade-systems-architecture.md) for validation details.
 
 ## Install manually on MiSTer
 
