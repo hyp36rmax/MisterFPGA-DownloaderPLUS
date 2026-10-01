@@ -13,7 +13,7 @@ The ZIP contains exactly `jtbindb.json`. Schema version is 1; database ID is `jt
 
 These are the live dictionary spellings. Numeric IDs are resolved dynamically and are never configured as selector constants. Counts are snapshot evidence, recalculated during every build. Mixed CPS classifications, missing selectors or classification aliases fail closed. Selected inventories are disjoint.
 
-MRAs and complete relative alternative hierarchies move beneath `_Arcade/_Arcade Systems/<CPS SYSTEM>/`. The builder retains authoritative parent folder metadata and classified alternative directories. It adds original effective URLs explicitly before relocation. Hashes, sizes, tags, the entire tag dictionary, timestamp, default options and other supported root metadata are preserved. No MRA bytes or ROM definitions are changed.
+MRAs and complete relative alternative hierarchies move beneath `_Arcade/_Arcade Systems/_<CPS SYSTEM>/`. The builder retains authoritative parent folder metadata and classified alternative directories. It adds original effective URLs explicitly before relocation. Hashes, sizes, tags, the entire tag dictionary, timestamp, default options and other supported root metadata are preserved. No MRA bytes or ROM definitions are changed.
 
 ## Filters
 

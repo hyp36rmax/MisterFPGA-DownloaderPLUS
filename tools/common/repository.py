@@ -23,6 +23,17 @@ def safe_path(path):
     require(not any(part.endswith((".", " ")) for part in path.split("/")), "Ambiguous filesystem path")
 
 
+def validate_system_navigation(folder):
+    """Require a navigation underscore only on the created system directory."""
+    safe_path(folder)
+    parent = '_Arcade Systems/'
+    require(folder != parent.rstrip('/'), 'Arcade Systems navigation needs a system directory')
+    if folder.startswith(parent):
+        system = folder[len(parent):].split('/', 1)[0]
+        require(system.startswith('_') and len(system)>1 and system not in {'_cores','_alternatives'},
+                'Arcade Systems navigation directory must begin with an underscore and identify a system')
+
+
 def core_version(path):
     match = re.fullmatch(r"Arcade-(.+)_(\d{8})\.rbf", PurePosixPath(path).name)
     require(match is not None, "Unrecognized core filename/version convention")
@@ -98,6 +109,7 @@ def discover(config, tree):
 
 class RepositoryPolicy:
     def __init__(self, config):
+        validate_system_navigation(config['target_folder'])
         self.config = config
         self.prefix = "_Arcade/" + config["target_folder"]
 

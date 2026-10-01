@@ -5,7 +5,7 @@
   "repository": "XelaNotPu/SYSTEM11_MiSTer",
   "ref": "main",
   "distribution_root": "releases/_Arcade",
-  "target_folder": "_Arcade Systems/NAMCO SYSTEM 11",
+  "target_folder": "_Arcade Systems/_NAMCO SYSTEM 11",
   "preserve_arcade_cores": true,
   "allow_external_repository": true,
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11",

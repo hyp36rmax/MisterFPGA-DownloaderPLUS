@@ -16,7 +16,7 @@ The deterministic selector is `arcadestv`. Its numeric ID is resolved through th
 | Effective payload source differences | 0 |
 | Unexpected metadata differences | 0 |
 
-Snapshot counts are computed dynamically during every build. All selected navigation installs beneath `_Arcade/_Arcade Systems/SEGA ST-V/`. MRA contents and ROM references remain unchanged. Keep the normal official MiSTer/Update_All installation enabled to manage the ST-V core in `_Arcade/cores/`. Users supply their own ROM sets.
+Snapshot counts are computed dynamically during every build. All selected navigation installs beneath `_Arcade/_Arcade Systems/_SEGA ST-V/`. MRA contents and ROM references remain unchanged. Keep the normal official MiSTer/Update_All installation enabled to manage the ST-V core in `_Arcade/cores/`. Users supply their own ROM sets.
 
 ## Selected archive alternatives
 

@@ -2,12 +2,12 @@
 
 PGM MiSTer work is credited to **Ezio Chiu**. The authoritative public distribution is [hyp36rmax/PGM-Mister-EZIOCHIU](https://github.com/hyp36rmax/PGM-Mister-EZIOCHIU), using `_PGM/` only.
 
-This optional subscription installs the same primary MRAs and full recursive alternatives as `pgm-ezio` under `_Arcade/_Arcade Systems/PGM (EZIO)/`. Both views include the same three current core families in `_Arcade/cores/`, with identical payloads and replacement identities, so either subscription works independently. No nested cores directory is created. Users supply required ROMs separately.
+This optional subscription installs the same primary MRAs and full recursive alternatives as `pgm-ezio` under `_Arcade/_Arcade Systems/_PGM (EZIO)/`. Both views include the same three current core families in `_Arcade/cores/`, with identical payloads and replacement identities, so either subscription works independently. No nested cores directory is created. Users supply required ROMs separately.
 
 Choose your preferred presentation:
 
 - Standalone: `_Arcade/_PGM (EZIO)/`, using the existing `pgm-ezio` subscription.
-- Arcade Systems: `_Arcade/_Arcade Systems/PGM (EZIO)/`, using this subscription.
+- Arcade Systems: `_Arcade/_Arcade Systems/_PGM (EZIO)/`, using this subscription.
 
 Most users need one presentation. Both can coexist if you want both navigation locations. Neither subscription removes the other view. Shared cores occupy the same standard paths; their download/update/removal settings follow normal Downloader behavior.
 

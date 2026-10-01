@@ -201,7 +201,7 @@ class SelectionTests(unittest.TestCase):
         for name,display in (('capcom-zn1','CAPCOM ZN-1'),('capcom-zn2','CAPCOM ZN-2'),('sega-system32','SEGA SYSTEM 32'),('sega-system32-multi','SEGA SYSTEM 32 MULTI')):
             config,_=load_module(name)
             self.assertEqual(config['display_name'],display)
-            self.assertEqual(config['target_folder'],'_Arcade Systems/'+display)
+            self.assertEqual(config['target_folder'],'_Arcade Systems/_'+display)
             self.assertEqual(config['derived_db_id'],'hyp36rmax/MisterFPGA-DownloaderPLUS/'+name)
 
 

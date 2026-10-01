@@ -6,11 +6,12 @@ import re
 from urllib.parse import quote, urlsplit
 
 from tools.common.database import ValidationError, fetch
-from tools.common.repository import require, safe_path, mra_reference
+from tools.common.repository import require, safe_path, mra_reference, validate_system_navigation
 
 
 class DatabasePolicy:
     def __init__(self, config):
+        validate_system_navigation(config['target_folder'])
         self.config = config
         self.prefix = '_Arcade/' + config['target_folder']
         self.source_prefix = config['source_navigation_root']

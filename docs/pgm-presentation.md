@@ -5,7 +5,7 @@ The authoritative distribution is `hyp36rmax/PGM-Mister-EZIOCHIU`, rooted at `_P
 | Module | Navigation | Primary MRAs | Alternative MRAs | Alternative folders | Cores |
 |---|---|---:|---:|---:|---:|
 | `pgm-ezio` | `_Arcade/_PGM (EZIO)/` | 32 | 105 | 27 | 3 |
-| `pgm-ezio-arcade-systems` | `_Arcade/_Arcade Systems/PGM (EZIO)/` | 32 | 105 | 27 | 3 |
+| `pgm-ezio-arcade-systems` | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | 32 | 105 | 27 | 3 |
 
 Counts are the September 30, 2026 snapshot, calculated dynamically from the distribution. Source filenames, complete recursive alternatives hierarchy, MRA bytes, hashes, sizes and commit-pinned payload URLs are identical. Only navigation destinations and permanent database identity differ. The existing module configuration, README, artifact and provenance manifest remain unchanged in this addition.
 

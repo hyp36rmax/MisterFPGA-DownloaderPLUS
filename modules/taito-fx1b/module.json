@@ -5,7 +5,7 @@
   "repository": "XelaNotPu/ZN1-TaitoFX1B_MiSTer",
   "ref": "main",
   "distribution_root": "releases/_Arcade",
-  "target_folder": "_Arcade Systems/TAITO FX1B",
+  "target_folder": "_Arcade Systems/_TAITO FX1B",
   "preserve_arcade_cores": true,
   "allow_external_repository": true,
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b",

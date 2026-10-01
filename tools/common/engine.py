@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 from tools.common.database import ValidationError, parse_json
-from tools.common.repository import RepositoryPolicy, safe_path, validate_navigation
+from tools.common.repository import RepositoryPolicy, safe_path, validate_navigation, validate_system_navigation
 from tools.common.selection import DatabasePolicy
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -52,7 +52,7 @@ def load_module(name, root=ROOT):
         if not set(config["selection_tags"]) <= set(config["exclusive_group_tags"]):
             raise ValidationError("Invalid selected classification")
         safe_path(config["source_navigation_root"])
-        safe_path(config["target_folder"])
+        validate_system_navigation(config["target_folder"])
         if not (config["source_navigation_root"] == '_Arcade' or config["source_navigation_root"].startswith('_Arcade/')) or not config["target_folder"].startswith('_Arcade Systems/'):
             raise ValidationError("Invalid selected navigation layout")
         if config.get("core_ownership", "included") not in {"included", "upstream"}:
@@ -75,7 +75,7 @@ def load_module(name, root=ROOT):
         if config["repository"].split("/")[0].lower() != "hyp36rmax" and config["allow_external_repository"] is not True:
             raise ValidationError("Direct generation from external repositories requires an explicit exception")
         safe_path(config["distribution_root"])
-        safe_path(config["target_folder"])
+        validate_system_navigation(config["target_folder"])
         if not config["target_folder"].startswith("_"):
             raise ValidationError("Invalid navigation folder")
         if config.get("core_layout", "cores") not in {"cores", "root"} or config.get("core_naming", "dated") not in {"dated", "stable-or-dated"}:
@@ -181,6 +181,10 @@ def validate_output(upstream, generated, config, policy):
     """Compare every field; never validate merely by rerunning the transformer."""
     policy.validate_schema(upstream, config)
     policy.validate_schema(generated, config)
+    for category in ('files','folders'):
+        for path in generated[category]:
+            if path.startswith('_Arcade/_Arcade Systems/'):
+                validate_system_navigation(path[len('_Arcade/'):])
     if generated["db_id"] != config["derived_db_id"]:
         raise ValidationError("Wrong derived database identity")
     if set(upstream) != set(generated):

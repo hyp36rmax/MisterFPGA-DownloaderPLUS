@@ -32,7 +32,7 @@ class TaitoF2Tests(unittest.TestCase):
         self.assertEqual(report['current_cores'],0)
         self.assertEqual(generated['tag_dictionary'],self.source['tag_dictionary'])
         self.assertEqual(generated['db_id'],'hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2')
-        self.assertTrue(all(p.startswith('_Arcade/_Arcade Systems/TAITO F2/') for p in expanded_inventory(generated)['files']))
+        self.assertTrue(all(p.startswith('_Arcade/_Arcade Systems/_TAITO F2/') for p in expanded_inventory(generated)['files']))
         self.assertFalse(any('/cores/' in p for p in expanded_inventory(generated)['files']))
         self.assertEqual(self.source,original)
         self.assertFalse((ROOT/'modules/taito-f1').exists())

@@ -16,7 +16,7 @@ The `mra_alternatives` descriptor contains `archive_file`, `base_files_url`, `de
 
 ## Transformation contract
 
-The existing tagged selector chooses only F2-classified MRAs and authoritative parent/classified folders. Destination suffixes move unchanged from `_Arcade/` to `_Arcade/_Arcade Systems/TAITO F2/`. Full recursive alternatives paths are preserved. The permanent database ID is `hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2`; the independent artifact is `taito-f2.json.zip`.
+The existing tagged selector chooses only F2-classified MRAs and authoritative parent/classified folders. Destination suffixes move unchanged from `_Arcade/` to `_Arcade/_Arcade Systems/_TAITO F2/`. Full recursive alternatives paths are preserved. The permanent database ID is `hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2`; the independent artifact is `taito-f2.json.zip`.
 
 Original implicit effective URLs are materialized before destination changes. Primary bytes, hashes, sizes, tags and other supported metadata remain unchanged. Alternatives use the existing selective archive projection: the original archive URL, hash, size, member paths and payload bytes remain unchanged, while a filtered inline index limits extraction to F2. Only required destination/identity/source representation and selective index changes are permitted. Unrelated archives, Linux metadata and core records are excluded from this navigation module.
 

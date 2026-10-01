@@ -71,7 +71,7 @@ class CpsTests(unittest.TestCase):
         for p in list(d['folders']):
             if '_alternatives' in p and tid in d['folders'][p]['tags']:d['folders'].pop(p)
         source=select_database(d,config,policy);g=transform(source,config,policy)
-        self.assertIn('_Arcade/_Arcade Systems/CAPCOM CPS1/New CPS Game.mra',g['files'])
+        self.assertIn('_Arcade/_Arcade Systems/_CAPCOM CPS1/New CPS Game.mra',g['files'])
         self.assertNotIn(primary,source['files'])
         self.assertEqual(validate_output(source,g,config,policy)['alternative_mras'],0)
 

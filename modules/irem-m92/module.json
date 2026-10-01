@@ -17,7 +17,7 @@
     "arcadehyprduel"
   ],
   "source_navigation_root": "_Arcade",
-  "target_folder": "_Arcade Systems/IREM M92",
+  "target_folder": "_Arcade Systems/_IREM M92",
   "core_ownership": "upstream",
   "selection_archives": [
     "mra_alternatives"

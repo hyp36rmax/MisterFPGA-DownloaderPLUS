@@ -10,27 +10,27 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 |---|---|---|---|
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
 | PGM (Ezio) | Repository distribution | `_Arcade/_PGM (EZIO)/` | `pgm-ezio.json.zip` |
-| PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
-| SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 16/` | `sega-system16.json.zip` |
-| SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 18/` | `sega-system18.json.zip` |
-| IREM M62 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M62/` | `irem-m62.json.zip` |
-| IREM M72 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M72/` | `irem-m72.json.zip` |
-| IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M90/` | `irem-m90.json.zip` |
-| IREM M92 | Official MiSTer database selection | `_Arcade/_Arcade Systems/IREM M92/` | `irem-m92.json.zip` |
-| TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/TECHNOSOFT/` | `technosoft.json.zip` |
-| TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/TAITO F2/` | `taito-f2.json.zip` |
-| NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
-| TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/TAITO FX1B/` | `taito-fx1b.json.zip` |
-| CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS1/` | `capcom-cps1.json.zip` |
-| CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
-| CAPCOM CPS2 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS2/` | `capcom-cps2.json.zip` |
-| CAPCOM CPS3 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS3/` | `capcom-cps3.json.zip` |
-| CAPCOM ZN-1 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN-1/` | `capcom-zn1.json.zip` |
-| CAPCOM ZN-2 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN-2/` | `capcom-zn2.json.zip` |
-| SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/SEIBU SPI/` | `seibu-spi.json.zip` |
-| SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/SEGA ST-V/` | `sega-stv.json.zip` |
-| SEGA SYSTEM 32 | MeatCores database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 32/` | `sega-system32.json.zip` |
-| SEGA SYSTEM 32 MULTI | MeatCores database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 32 MULTI/` | `sega-system32-multi.json.zip` |
+| PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
+| SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 16/` | `sega-system16.json.zip` |
+| SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 18/` | `sega-system18.json.zip` |
+| IREM M62 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M62/` | `irem-m62.json.zip` |
+| IREM M72 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M72/` | `irem-m72.json.zip` |
+| IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M90/` | `irem-m90.json.zip` |
+| IREM M92 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M92/` | `irem-m92.json.zip` |
+| TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TECHNOSOFT/` | `technosoft.json.zip` |
+| TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO F2/` | `taito-f2.json.zip` |
+| NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/_NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
+| TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/_TAITO FX1B/` | `taito-fx1b.json.zip` |
+| CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1/` | `capcom-cps1.json.zip` |
+| CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
+| CAPCOM CPS2 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS2/` | `capcom-cps2.json.zip` |
+| CAPCOM CPS3 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS3/` | `capcom-cps3.json.zip` |
+| CAPCOM ZN-1 | Repository distribution | `_Arcade/_Arcade Systems/_CAPCOM ZN-1/` | `capcom-zn1.json.zip` |
+| CAPCOM ZN-2 | Repository distribution | `_Arcade/_Arcade Systems/_CAPCOM ZN-2/` | `capcom-zn2.json.zip` |
+| SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/_SEIBU SPI/` | `seibu-spi.json.zip` |
+| SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA ST-V/` | `sega-stv.json.zip` |
+| SEGA SYSTEM 32 | MeatCores database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 32/` | `sega-system32.json.zip` |
+| SEGA SYSTEM 32 MULTI | MeatCores database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 32 MULTI/` | `sega-system32-multi.json.zip` |
 
 Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The five repository-derived Arcade Systems modules are explicit exceptions, with declarative `allow_external_repository` authorization.
 
@@ -117,7 +117,7 @@ Authoritative distributions:
 - [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies the CPS family and SEGA SYSTEM 16/18 navigation modules.
 - [Meathax MeatCores](https://github.com/meathax/meatcores): its authoritative [Downloader database](https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip) feeds the two Sega modules.
 
-For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against its authoritative core family, and MRA contents are never rewritten.
+For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/_<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against its authoritative core family, and MRA contents are never rewritten.
 
 The repository adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets without an explicit tree-only source policy, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
 
@@ -128,28 +128,32 @@ Repository payloads are downloaded transiently to verify their Git blob identity
 The two Sega modules resolve the authoritative `arcadearcadesegasystem32` and `arcadearcadesegasystem32multi` classification tags through the current MeatCores tag dictionary. Each selects only its classified MRAs and core records, plus their authoritative parent folders. MeatCores decides current cores, fixed MRAs, alternatives, and payload sources; DownloaderPLUS does not reconstruct releases from separate Sega repositories. Tags, tangles, folder metadata, filters when present, and the complete tag dictionary are preserved. Original implicit URLs are materialized before destinations move. Selected payload hashes, sizes, reachability, and MRA core references are verified before publication.
 
 ```text
-_Arcade/_Arcade Systems/
-├── IREM M62/
-├── IREM M72/
-├── IREM M90/
-├── IREM M92/
-├── NAMCO SYSTEM 11/
-├── PGM (EZIO)/
-├── TAITO FX1B/
-├── TAITO F2/
-├── CAPCOM CPS1/
-├── CAPCOM CPS1.5/
-├── CAPCOM CPS2/
-├── CAPCOM CPS3/
-├── CAPCOM ZN-1/
-├── CAPCOM ZN-2/
-├── SEIBU SPI/
-├── SEGA SYSTEM 16/
-├── SEGA SYSTEM 18/
-├── SEGA SYSTEM 32/
-├── SEGA SYSTEM 32 MULTI/
-├── SEGA ST-V/
-└── TECHNOSOFT/
+_Arcade/
+├── _Coin-Op Collection/
+├── _PGM (EZIO)/
+├── cores/
+└── _Arcade Systems/
+    ├── _CAPCOM CPS1/
+    ├── _CAPCOM CPS1.5/
+    ├── _CAPCOM CPS2/
+    ├── _CAPCOM CPS3/
+    ├── _CAPCOM ZN-1/
+    ├── _CAPCOM ZN-2/
+    ├── _IREM M62/
+    ├── _IREM M72/
+    ├── _IREM M90/
+    ├── _IREM M92/
+    ├── _NAMCO SYSTEM 11/
+    ├── _PGM (EZIO)/
+    ├── _SEGA ST-V/
+    ├── _SEGA SYSTEM 16/
+    ├── _SEGA SYSTEM 18/
+    ├── _SEGA SYSTEM 32/
+    ├── _SEGA SYSTEM 32 MULTI/
+    ├── _SEIBU SPI/
+    ├── _TAITO F2/
+    ├── _TAITO FX1B/
+    └── _TECHNOSOFT/
 ```
 
 ROMs and required BIOS/audio firmware are supplied separately by the user; follow each upstream project's requirements. DownloaderPLUS does not provide those files. These cores derive from work credited upstream, including Robert Peip's PSX_MiSTer and the MiSTer framework; consult the upstream READMEs for full attribution.
@@ -235,7 +239,9 @@ TAITO F2 follows the official `arcadetaitof2` classification, preserving complet
 
 ### Optional PGM presentation
 
-PGM (Ezio) offers two navigation choices: the existing standalone `_Arcade/_PGM (EZIO)/` and the optional Arcade Systems `_Arcade/_Arcade Systems/PGM (EZIO)/`. Both follow the same authoritative distribution and install the same required cores in `_Arcade/cores/`, so either subscription works alone. Most users need one presentation; both can coexist if you want both locations. Neither removes the other view. Existing PGM configuration and installation instructions remain unchanged. See [optional PGM module](modules/pgm-ezio-arcade-systems/README.md).
+PGM (Ezio) offers two navigation choices: the existing standalone `_Arcade/_PGM (EZIO)/` and the optional Arcade Systems `_Arcade/_Arcade Systems/_PGM (EZIO)/`. Both follow the same authoritative distribution and install the same required cores in `_Arcade/cores/`, so either subscription works alone. Most users need one presentation; both can coexist if you want both locations. Neither removes the other view. Existing PGM configuration and installation instructions remain unchanged. See [optional PGM module](modules/pgm-ezio-arcade-systems/README.md).
+
+Arcade Systems folders now require a leading underscore. Existing database IDs and URLs stay unchanged. Run Update_All normally to install the corrected paths; old tracked copies are removed only when your Downloader deletion policy permits it. See [navigation migration](docs/navigation-migration.md).
 
 ## Build and verify
 

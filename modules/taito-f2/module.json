@@ -9,7 +9,7 @@
   "selection_tags": ["arcadetaitof2"],
   "exclusive_group_tags": ["arcadetaitof2", "arcadetaitoasuka", "arcadetaitosj", "arcadestv", "arcadeiremm62", "arcadeiremm72", "arcadeiremm90", "arcadeiremm92", "arcadehyprduel"],
   "source_navigation_root": "_Arcade",
-  "target_folder": "_Arcade Systems/TAITO F2",
+  "target_folder": "_Arcade Systems/_TAITO F2",
   "core_ownership": "upstream",
   "selection_archives": ["mra_alternatives"],
   "require_all_group_tags": false

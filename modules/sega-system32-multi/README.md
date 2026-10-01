@@ -3,7 +3,7 @@
 Source: [Meathax MeatCores](https://github.com/meathax/meatcores), using its authoritative [Downloader database](https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip).
 
 - Selection: resolve `arcadearcadesegasystem32multi` through the upstream tag dictionary.
-- Navigation: `_Arcade/_Arcade Systems/SEGA SYSTEM 32 MULTI/`.
+- Navigation: `_Arcade/_Arcade Systems/_SEGA SYSTEM 32 MULTI/`.
 - Cores: `_Arcade/cores/`, selected exactly as published in the database.
 - Artifact: `dist/sega-system32-multi/sega-system32-multi.json.zip`.
 - Permanent database ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32-multi`.

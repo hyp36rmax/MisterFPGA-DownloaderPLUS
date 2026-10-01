@@ -52,7 +52,7 @@ class NextBatchTests(unittest.TestCase):
         s=select_database(d,config,policy)
         self.assertEqual(set(s['files']),expected)
         g=transform(s,config,policy)
-        self.assertTrue(all(p.startswith('_Arcade/_Arcade Systems/SEGA SYSTEM 16/') for p in g['files']))
+        self.assertTrue(all(p.startswith('_Arcade/_Arcade Systems/_SEGA SYSTEM 16/') for p in g['files']))
 
     def test_system16_and18_mixed_classification_rejected(self):
         for name in ('sega-system16','sega-system18'):
@@ -69,7 +69,7 @@ class NextBatchTests(unittest.TestCase):
         self.assertIn(d['tag_dictionary']['arcadehyprduel'],s['files'][reference]['tags'])
         d['files']['_Arcade/New authoritative family game.mra']=copy.deepcopy(d['files'][reference])
         g=transform(select_database(d,config,policy),config,policy)
-        self.assertIn('_Arcade/_Arcade Systems/TECHNOSOFT/New authoritative family game.mra',g['files'])
+        self.assertIn('_Arcade/_Arcade Systems/_TECHNOSOFT/New authoritative family game.mra',g['files'])
         self.assertNotIn('_Arcade/New authoritative family game.mra',g['files'])
 
     def test_additions_removals_and_dynamic_tag_renumbering(self):

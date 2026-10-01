@@ -86,7 +86,7 @@ class ArchiveSelectionTests(unittest.TestCase):
             elif kind=='flatten':f[p.rsplit('/',1)[-1]]=f.pop(p)
             elif kind=='folder':a['summary_inline']['folders'].pop(next(iter(a['summary_inline']['folders'])))
             else:
-                r=copy.deepcopy(next(iter(f.values())));r['tags']=[];f['_Arcade/_Arcade Systems/SEGA ST-V/Unrelated.mra']=r
+                r=copy.deepcopy(next(iter(f.values())));r['tags']=[];f['_Arcade/_Arcade Systems/_SEGA ST-V/Unrelated.mra']=r
             with self.subTest(kind=kind),self.assertRaises(ValidationError):validate_output(s,g,self.config,self.policy)
 
     def test_archive_members_participate_in_cross_module_collision_checks(self):

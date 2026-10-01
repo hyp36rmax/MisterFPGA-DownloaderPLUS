@@ -2,7 +2,7 @@
 
 Authoritative source: [zakk4223/Arcade-SeibuSPI_MiSTer](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), distributed under `releases/`.
 
-- Navigation: `_Arcade/_Arcade Systems/SEIBU SPI/`, preserving the complete MRA and alternatives hierarchy recursively.
+- Navigation: `_Arcade/_Arcade Systems/_SEIBU SPI/`, preserving the complete MRA and alternatives hierarchy recursively.
 - Cores: `_Arcade/cores/`, never beneath navigation.
 - Artifact: `dist/seibu-spi/seibu-spi.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/seibu-spi`.

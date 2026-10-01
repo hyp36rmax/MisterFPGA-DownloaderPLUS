@@ -5,7 +5,7 @@
   "repository": "XelaNotPu/ZN2-Capcom_MiSTer",
   "ref": "main",
   "distribution_root": "releases/_Arcade",
-  "target_folder": "_Arcade Systems/CAPCOM ZN-2",
+  "target_folder": "_Arcade Systems/_CAPCOM ZN-2",
   "preserve_arcade_cores": true,
   "allow_external_repository": true,
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn2",

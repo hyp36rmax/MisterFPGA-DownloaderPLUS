@@ -2,7 +2,7 @@
 
 Authoritative source: [XelaNotPu/ZN1-Capcom_MiSTer](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer), distributed under `releases/_Arcade/`.
 
-- Navigation: `_Arcade/_Arcade Systems/CAPCOM ZN-1/`, preserving MRA suffixes and alternatives recursively.
+- Navigation: `_Arcade/_Arcade Systems/_CAPCOM ZN-1/`, preserving MRA suffixes and alternatives recursively.
 - Cores: `_Arcade/cores/`, never beneath the navigation folder.
 - Artifact: `dist/capcom-zn1/capcom-zn1.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1`.

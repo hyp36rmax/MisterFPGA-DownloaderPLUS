@@ -31,7 +31,7 @@ Repository modules use their pinned distribution inventories. The two Sega inven
 
 ## Preservation contract
 
-Active navigation uses `_Arcade/_Arcade Systems/<SYSTEM>/`. Every upstream MRA suffix is preserved exactly, including alternatives found at any depth, game directories, region/revision names, spaces, and parentheses. Discovered alternatives directories are recorded separately and preserved even when they contain no selected MRAs. If upstream has no alternatives files or directories, none are invented. All RBFs install to `_Arcade/cores/`.
+Active navigation uses `_Arcade/_Arcade Systems/_<SYSTEM>/`. Every upstream MRA suffix is preserved exactly, including alternatives found at any depth, game directories, region/revision names, spaces, and parentheses. Discovered alternatives directories are recorded separately and preserved even when they contain no selected MRAs. If upstream has no alternatives files or directories, none are invented. All RBFs install to `_Arcade/cores/`.
 
 The generic validator compares complete primary and alternative file maps and alternative folder maps after removing the source/destination navigation prefix. It compares URLs, hashes, sizes, and all file metadata as well as paths. Missing, extra, renamed, flattened, collided, unsafe, or misplaced navigation records fail validation before output replacement. Each manifest records exact counts and `alternatives_parity: true` after successful validation. Cross-module core collisions are checked before hosted publication.
 
@@ -57,7 +57,7 @@ The full suite covers absent, flat, nested, deeply located and multiple-game alt
 
 All seven Arcade Systems databases also pass the actual MiSTer Downloader `DbEntity` parser. Direct comparison with the previous three artifacts confirms that migration retains every file URL, hash, size, and core destination. A live parity audit passes for all seven, and a second complete build reports `changed: false` for every module, including Coin-Op.
 
-The consolidated suite has 119 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
+The consolidated suite has 125 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
 
 ```sh
 python -m unittest discover -s tests -v

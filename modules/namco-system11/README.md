@@ -2,7 +2,7 @@
 
 Authoritative source: [XelaNotPu/SYSTEM11_MiSTer](https://github.com/XelaNotPu/SYSTEM11_MiSTer), distributed under `releases/_Arcade/`.
 
-- Navigation: `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/`, preserving MRA suffixes and alternatives recursively.
+- Navigation: `_Arcade/_Arcade Systems/_NAMCO SYSTEM 11/`, preserving MRA suffixes and alternatives recursively.
 - Cores: `_Arcade/cores/`, never beneath the navigation folder.
 - Artifact: `dist/namco-system11/namco-system11.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11`.

@@ -13,7 +13,7 @@
     "arcadestv"
   ],
   "source_navigation_root": "_Arcade",
-  "target_folder": "_Arcade Systems/SEGA ST-V",
+  "target_folder": "_Arcade Systems/_SEGA ST-V",
   "core_ownership": "upstream",
   "selection_archives": [
     "mra_alternatives"

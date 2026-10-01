@@ -32,7 +32,7 @@ class PgmPresentationTests(unittest.TestCase):
     def assert_views(self,source):
         parent=transform(source,self.parent,self.parent_policy)
         view=transform(source,self.view,self.view_policy)
-        self.assertEqual(navigation_inventory(parent,'_Arcade/_PGM (EZIO)'),navigation_inventory(view,'_Arcade/_Arcade Systems/PGM (EZIO)'))
+        self.assertEqual(navigation_inventory(parent,'_Arcade/_PGM (EZIO)'),navigation_inventory(view,'_Arcade/_Arcade Systems/_PGM (EZIO)'))
         self.assertNotEqual(parent['db_id'],view['db_id'])
         self.assertEqual(parent['files']['_Arcade/cores/PGM.rbf'],view['files']['_Arcade/cores/PGM.rbf'])
         self.assertFalse(any('/PGM (EZIO)/cores' in p for p in view['files']))
@@ -56,7 +56,7 @@ class PgmPresentationTests(unittest.TestCase):
         expected=transform(source,self.parent,self.parent_policy)
         self.assertEqual(package(expected),(ROOT/'dist'/OWNER/(OWNER+'.json.zip')).read_bytes())
         generated=transform(source,self.view,self.view_policy)
-        self.assertEqual(navigation_inventory(expected,'_Arcade/_PGM (EZIO)'),navigation_inventory(generated,'_Arcade/_Arcade Systems/PGM (EZIO)'))
+        self.assertEqual(navigation_inventory(expected,'_Arcade/_PGM (EZIO)'),navigation_inventory(generated,'_Arcade/_Arcade Systems/_PGM (EZIO)'))
         self.assertEqual(source,source_database(self.view,manifest['source_commit'],manifest['source_timestamp'],manifest['source_files'],manifest['source_folders']))
 
     def test_single_discovery_shared_cache_unique_artifacts_and_repeat_no_op(self):
