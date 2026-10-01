@@ -57,15 +57,9 @@ If you installed the earlier database, update only the derived section's `db_url
 
 Software verification is automated. Actual navigation and game launching on MiSTer hardware still require final acceptance verification; no hardware verification is claimed.
 
-## Alpha, Beta, and filters
+## Filters
 
-Upstream's default filter is preserved exactly:
-
-```text
-[MiSTer] !coinop-collection-beta !coinop-collection-alpha
-```
-
-All tags and aliases remain unchanged. Alpha/Beta behavior follows upstream and Downloader. `[MiSTer]` inherits global filter terms. An explicit filter in the derived section overrides the database default; for example, `filter = [MiSTer]` does not retain the default Alpha/Beta exclusions automatically. Choose overrides according to the upstream project's guidance. The module adds no filter rules. [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md)
+DownloaderPLUS preserves the upstream database's filter configuration, tags, and associated Downloader behavior. Users may configure supported filters through their normal MiSTer Downloader configuration. [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md)
 
 ## Build and verify
 

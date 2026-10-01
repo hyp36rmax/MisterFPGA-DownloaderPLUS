@@ -8,7 +8,7 @@ All 332 file destinations were `_Arcade` dictionary keys: 80 root MRAs, 198 alte
 
 There were 76 folder records: 73 Arcade records (including `_Arcade` itself), and `games`, `games/hbmame`, `games/mame`. The latter three had `path: pext`, which is an external-storage classification, not a pathname. All folders had tags.
 
-The dictionary had 96 names including aliases. `coinopcollectionalpha` was ID 102 (5 MRAs, 1 RBF, 1 folder); `coinopcollectionbeta` was ID 103 (12 MRAs, 2 RBFs, 3 folders). The exact default filter was `[MiSTer] !coinop-collection-beta !coinop-collection-alpha`. Tags, aliases, defaults, and entanglement identifiers must be retained.
+The dictionary had 96 names including aliases. DownloaderPLUS preserves the upstream filter configuration, tags, aliases, defaults, and entanglement identifiers exactly, retaining normal MiSTer Downloader filter behavior.
 
 Content URLs used the immutable revision `7c653a72655455522c2fff8a4e6030ce67785d30`. Downloader constructs missing URLs using `base_files_url + urllib.parse.quote(destination)`. This requires materializing original-source URLs before destination relocation. Its INI section must match `db_id`, and installed-file state is database-scoped; independent coexistence requires a distinct derived identity.
 

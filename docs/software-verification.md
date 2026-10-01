@@ -24,9 +24,9 @@ Independent upstream/output comparison produces:
 
 These counts are historical fixture assertions, not assumptions in the production builder. `dist/coinop-collection/manifest.json` records the current build's dynamically computed comparison and content digests.
 
-The regression suite covers root and nested destinations, alternatives, cores, exact root folder relocation, spaces and URL encoding, non-Arcade entries, external storage markers, Alpha/Beta metadata, tangles, explicit URLs, URL materialization, identity, idempotence, input immutability, path and metadata tampering, duplicate keys, invalid archives, collision detection, malformed input, deterministic packaging, dynamic counts, no-op builds, and preservation of previous output on validation failure.
+The regression suite covers root and nested destinations, alternatives, cores, exact root folder relocation, spaces and URL encoding, non-Arcade entries, external storage markers, filter metadata and tag aliases, tangles, explicit URLs, URL materialization, identity, idempotence, input immutability, path and metadata tampering, duplicate keys, invalid archives, collision detection, malformed input, deterministic packaging, dynamic counts, no-op builds, and preservation of previous output on validation failure.
 
-All 22 tests passed locally on Python 3.12, including corrected-prefix enforcement and rejection of the earlier folder name. The generated ZIP was also accepted by the actual Downloader `DbEntity` parser from inspected revision `5d0771359ae396aaea64453e6791ac87781d78f4`; every one of its 332 materialized source URLs matched Downloader's own `calculate_url` result for the original key. A freshly fetched official snapshot matched the inspected fixture and produced an unchanged artifact on repeat build. Case-insensitive destination and file/directory collisions are rejected for MiSTer's filesystem.
+All 23 tests passed locally on Python 3.12, including corrected-prefix enforcement, rejection of the earlier folder name, and neutral synthetic filter-preservation coverage. The generated ZIP was also accepted by the actual Downloader `DbEntity` parser from inspected revision `5d0771359ae396aaea64453e6791ac87781d78f4`; every one of its 332 materialized source URLs matched Downloader's own `calculate_url` result for the original key. A freshly fetched official snapshot matched the inspected fixture and produced an unchanged artifact on repeat build. Case-insensitive destination and file/directory collisions are rejected for MiSTer's filesystem.
 
 Reproduction:
 
@@ -39,4 +39,4 @@ python tools/verify_dist.py
 
 ## Remaining hardware acceptance
 
-With the normal Coin-Op installation enabled, verify the dedicated navigation folder, representative root and alternative MRAs, successful core lookup and ROM loading, and the intended Alpha/Beta filter selections. Confirm both installations remain accessible after a normal Downloader update. Software checks do not claim to establish these on-device results. The module is not considered fully hardware-verified until that acceptance is completed.
+With the normal Coin-Op installation enabled, verify the dedicated navigation folder, representative root and alternative MRAs, successful core lookup and ROM loading, and the intended filter selections. Confirm both installations remain accessible after a normal Downloader update. Software checks do not claim to establish these on-device results. The module is not considered fully hardware-verified until that acceptance is completed.

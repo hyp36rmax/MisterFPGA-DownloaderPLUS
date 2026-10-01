@@ -71,14 +71,25 @@ class CoinOpTests(unittest.TestCase):
 
     def test_filter_tags_tangles_and_all_metadata_preserved(self):
         self.assertEqual(self.generated["default_options"]["filter"],
-                         "[MiSTer] !coinop-collection-beta !coinop-collection-alpha")
-        self.assertEqual(self.generated["tag_dictionary"]["coinopcollectionalpha"], 102)
-        self.assertEqual(self.generated["tag_dictionary"]["coinopcollectionbeta"], 103)
+                         self.upstream["default_options"]["filter"])
         for key in ("v", "timestamp", "tag_dictionary", "base_files_url", "db_url", "default_options"):
             self.assertEqual(self.generated[key], self.upstream[key])
         for path, before in self.upstream["files"].items():
             after = self.generated["files"][self.policy.destination(path, "files")]
             self.assertEqual({key: after[key] for key in before}, before)
+
+    def test_synthetic_filter_terms_and_tag_aliases_preserved(self):
+        source = copy.deepcopy(self.upstream)
+        source["default_options"]["filter"] = "[MiSTer] !sample-group-one !sample-group-two"
+        source["tag_dictionary"].update(samplegroupone=104, samplealias=104, samplegrouptwo=105)
+        file_path = next(iter(source["files"]))
+        source["files"][file_path]["tags"] = [104, 105]
+        source["folders"]["_Arcade"]["tags"] = [104, 105]
+        result = transform(source, self.config, self.policy)
+        self.assertEqual(result["default_options"], source["default_options"])
+        self.assertEqual(result["tag_dictionary"], source["tag_dictionary"])
+        self.assertEqual(result["files"][self.policy.destination(file_path, "files")]["tags"], [104, 105])
+        self.assertEqual(result["folders"]["_Arcade/_Coin-Op Collection"]["tags"], [104, 105])
 
     def test_idempotent_and_input_not_mutated(self):
         untouched = copy.deepcopy(self.upstream)
