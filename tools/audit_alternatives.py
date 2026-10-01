@@ -25,11 +25,12 @@ def audit(live=False):
         if config.get('source_mode') == 'database':
             if live:
                 url = config['upstream_url']
-                if url not in source_cache: source_cache[url] = unpack(fetch(url))
-                authoritative = source_cache[url]
+                if url not in source_cache: source_cache[url] = unpack(fetch(url), config.get("database_member", "db.json"))
+                from tools.common.archives import hydrate_archives
+                authoritative = hydrate_archives(source_cache[url],config,source_cache)
             else: authoritative = manifest['source_database']
             upstream = select_database(authoritative, config, policy)
-            if live: verify_payloads(upstream)
+            if live: verify_payloads(upstream, core_database=authoritative, config=config)
             basis = {'source_commit': None}
         elif live:
             upstream, basis = inspect_repository(config, manifest)

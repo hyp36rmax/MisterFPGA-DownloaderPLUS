@@ -32,12 +32,13 @@ def build(name, upstream_file=None, output_root=None, source_cache=None):
             raw = fetch(url)
             if source_cache is not None:
                 source_cache[url] = raw
-        upstream = unpack(raw)
+        upstream = unpack(raw, config.get("database_member", "db.json"))
         if config.get("source_mode") == "database":
-            authoritative = upstream
+            from tools.common.archives import hydrate_archives
+            authoritative = hydrate_archives(upstream,config,source_cache,Path(upstream_file).parent if upstream_file else None)
             upstream = select_database(authoritative, config, policy)
             if not upstream_file:
-                verify_payloads(upstream)
+                verify_payloads(upstream, core_database=authoritative, config=config)
             basis = {"source_mode": "database", "source_database": authoritative,
                      "source_semantic_sha256": digest(canonical_json(authoritative)),
                      "selection_tags": config["selection_tags"]}

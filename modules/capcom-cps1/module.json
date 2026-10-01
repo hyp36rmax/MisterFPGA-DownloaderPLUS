@@ -1,0 +1,22 @@
+{
+  "name": "capcom-cps1",
+  "display_name": "CAPCOM CPS1",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/jotego/jtcores_mister/main/jtbindb.json.zip",
+  "upstream_db_id": "jtcores",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps1",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadejtcps1"
+  ],
+  "exclusive_group_tags": [
+    "arcadejtcps1",
+    "arcadejtcps15",
+    "arcadejtcps2",
+    "arcadejtcps3"
+  ],
+  "source_navigation_root": "_Arcade",
+  "target_folder": "_Arcade Systems/CAPCOM CPS1",
+  "database_member": "jtbindb.json",
+  "core_ownership": "upstream"
+}

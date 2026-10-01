@@ -249,10 +249,12 @@ def mra_reference(payload, path):
 
 
 def navigation_inventory(database, prefix):
-    files = {path[len(prefix) + 1:]: record for path, record in database["files"].items()
+    from tools.common.archives import expanded_inventory
+    inventory = expanded_inventory(database)
+    files = {path[len(prefix) + 1:]: record for path, record in inventory["files"].items()
              if path.startswith(prefix + "/") and path.endswith(".mra")}
     alternatives = {path: record for path, record in files.items() if "_alternatives" in path.split("/")}
-    folders = {path[len(prefix) + 1:]: record for path, record in database["folders"].items()
+    folders = {path[len(prefix) + 1:]: record for path, record in inventory["folders"].items()
                if path.startswith(prefix + "/") and "_alternatives" in path[len(prefix) + 1:].split("/")}
     return files, alternatives, folders
 
@@ -263,7 +265,11 @@ def validate_navigation(upstream, generated, config):
     before, alternatives, folders = navigation_inventory(upstream, source_prefix)
     after, generated_alternatives, generated_folders = navigation_inventory(generated, "_Arcade/" + config["target_folder"])
     def normalized(files, database, prefix):
-        return {path: {**record, "url": record.get("url", database.get("base_files_url", "") + quote(prefix + "/" + path))}
+        def original_url(path,record):
+            if 'arc_id' in record and database.get('archives'):
+                return database['archives'][record['arc_id']]['base_files_url'] + quote(prefix + '/' + path)
+            return database.get('base_files_url', '') + quote(prefix + '/' + path)
+        return {path: {**record, "url": record.get("url", original_url(path,record))}
                 for path, record in files.items()}
     # Explicit URLs may be added to preserve an original implicit effective URL.
     target_prefix = "_Arcade/" + config["target_folder"]
@@ -273,5 +279,5 @@ def validate_navigation(upstream, generated, config):
     return {"primary_mras": len(before) - len(alternatives), "alternative_mras": len(alternatives),
             "alternative_folders": len(folders), "total_mras": len(before),
             "current_cores": sum(path.endswith(".rbf") for path in generated["files"]),
-            "total_distributable_files": len(generated["files"]),
+            "total_distributable_files": len(after) + sum(path.endswith(".rbf") for path in generated["files"]),
             "generated_alternative_mras": len(generated_alternatives), "alternatives_parity": True}

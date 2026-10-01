@@ -12,15 +12,20 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 | PGM (Ezio) | Repository distribution | `_Arcade/_PGM (EZIO)/` | `pgm-ezio.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/TAITO FX1B/` | `taito-fx1b.json.zip` |
+| CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS1/` | `capcom-cps1.json.zip` |
+| CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
+| CAPCOM CPS2 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS2/` | `capcom-cps2.json.zip` |
+| CAPCOM CPS3 | JTCORES database selection | `_Arcade/_Arcade Systems/CAPCOM CPS3/` | `capcom-cps3.json.zip` |
 | CAPCOM ZN-1 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN-1/` | `capcom-zn1.json.zip` |
 | CAPCOM ZN-2 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN-2/` | `capcom-zn2.json.zip` |
 | SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/SEIBU SPI/` | `seibu-spi.json.zip` |
+| SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/SEGA ST-V/` | `sega-stv.json.zip` |
 | SEGA SYSTEM 32 | MeatCores database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 32/` | `sega-system32.json.zip` |
 | SEGA SYSTEM 32 MULTI | MeatCores database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 32 MULTI/` | `sega-system32-multi.json.zip` |
 
 Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The five repository-derived Arcade Systems modules are explicit exceptions, with declarative `allow_external_repository` authorization.
 
-This project is independent of its upstream projects and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), [Meathax](https://github.com/meathax/meatcores), and the authors and contributors credited by each upstream project. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
+This project is independent of its upstream projects and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), [Meathax](https://github.com/meathax/meatcores), [Jotego](https://github.com/jotego/jtcores_mister), [MiSTer-devel](https://github.com/MiSTer-devel), and the authors and contributors credited by each upstream project. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
 
 ## Coin-Op module
 
@@ -99,9 +104,11 @@ Authoritative distributions:
 - [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
 - [CAPCOM ZN-2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
 - [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
+- [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): the `arcadestv` classification supplies SEGA ST-V navigation, including only its classified archive alternatives.
+- [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies four independently classified CPS navigation modules.
 - [Meathax MeatCores](https://github.com/meathax/meatcores): its authoritative [Downloader database](https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip) feeds the two Sega modules.
 
-For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against the selected cores, and MRA contents are never rewritten.
+For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against its authoritative core family, and MRA contents are never rewritten.
 
 The repository adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets without an explicit tree-only source policy, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
 
@@ -115,11 +122,16 @@ The two Sega modules resolve the authoritative `arcadearcadesegasystem32` and `a
 _Arcade/_Arcade Systems/
 ├── NAMCO SYSTEM 11/
 ├── TAITO FX1B/
+├── CAPCOM CPS1/
+├── CAPCOM CPS1.5/
+├── CAPCOM CPS2/
+├── CAPCOM CPS3/
 ├── CAPCOM ZN-1/
 ├── CAPCOM ZN-2/
 ├── SEIBU SPI/
 ├── SEGA SYSTEM 32/
-└── SEGA SYSTEM 32 MULTI/
+├── SEGA SYSTEM 32 MULTI/
+└── SEGA ST-V/
 ```
 
 ROMs and required BIOS/audio firmware are supplied separately by the user; follow each upstream project's requirements. DownloaderPLUS does not provide those files. These cores derive from work credited upstream, including Robert Peip's PSX_MiSTer and the MiSTer framework; consult the upstream READMEs for full attribution.
@@ -133,6 +145,18 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1b/taito-fx1b.json.zip
 
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps1/capcom-cps1.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps15]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps15/capcom-cps15.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps2/capcom-cps2.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps3]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps3/capcom-cps3.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-zn1/capcom-zn1.json.zip
 
@@ -141,6 +165,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/seibu-spi]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/seibu-spi/seibu-spi.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-stv]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-stv/sega-stv.json.zip
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system32/sega-system32.json.zip
@@ -154,6 +181,8 @@ DownloaderPLUS does not edit your configuration or remove files installed by oth
 The existing three modules keep their permanent database IDs and artifact URLs during consolidation. Downloader installs navigation at the new destination under the same database IDs. Its normal deletion policy removes obsolete tracked MRAs and empty folders when `allow_delete` permits all deletions (the inspected Downloader default). A policy restricted to old cores or no deletions can leave old navigation copies; DownloaderPLUS does not override that preference. Corrected Capcom display folders also retain the same subscriptions. Core destinations and upstream payload URLs stay unchanged; DownloaderPLUS performs no manual cleanup of other installations.
 
 See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and authoritative MeatCores selection. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
+
+The CPS modules provide additional navigation only. Keep the normal JTCORES installation enabled: it owns and updates the cores in `_Arcade/cores/`. DownloaderPLUS includes no CPS core records and preserves upstream filter configuration and tags. CPS1.5 remains independent from CPS1. See [CPS inspection](docs/cps-inspection.md). ST-V likewise depends on the normal official MiSTer/Update_All installation for its core. Its alternatives use selective extraction from the unchanged official archive, installing only ST-V members. See [ST-V inspection](docs/stv-inspection.md).
 
 ## Build and verify
 
@@ -199,6 +228,7 @@ tools/common/database.py           strict IO, fetch, packaging, atomic writes
 tools/common/engine.py             discovery, transform, structural comparison
 tools/common/repository.py         shared repository adapter and navigation policy
 tools/common/selection.py          declarative tagged database selection
+tools/common/archives.py           verified indexes and selective archive projection
 tools/build.py                     build entry point
 tools/validate.py                  independent upstream/output comparison
 tools/verify_dist.py               distribution integrity check

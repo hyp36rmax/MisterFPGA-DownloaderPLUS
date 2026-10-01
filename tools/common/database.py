@@ -35,14 +35,14 @@ def parse_json(data):
         raise ValidationError(f"Invalid JSON: {exc}") from exc
 
 
-def unpack(data):
+def unpack(data, member_name="db.json"):
     if len(data) > MAX_ARCHIVE:
         raise ValidationError("Database archive exceeds size limit")
     try:
         with zipfile.ZipFile(io.BytesIO(data)) as archive:
             members = archive.infolist()
-            if len(members) != 1 or members[0].filename != "db.json":
-                raise ValidationError("Archive must contain exactly one db.json")
+            if len(members) != 1 or members[0].filename != member_name:
+                raise ValidationError("Archive must contain exactly one " + member_name)
             member = members[0]
             if member.file_size > MAX_JSON or member.flag_bits & 1:
                 raise ValidationError("Oversized or encrypted database member")

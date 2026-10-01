@@ -31,8 +31,10 @@ def main():
             else:
                 raise ValueError("Inventory manifests require a selected database or repository module")
         else:
-            upstream = unpack(args.upstream.read_bytes())
+            upstream = unpack(args.upstream.read_bytes(), config.get("database_member", "db.json"))
             if config.get("source_mode") == "database":
+                from tools.common.archives import hydrate_archives
+                upstream = hydrate_archives(upstream,config,offline_directory=args.upstream.parent)
                 upstream = select_database(upstream, config, policy)
         if upstream["db_id"] != config["upstream_db_id"]:
             raise ValueError("Expected authoritative upstream identity")

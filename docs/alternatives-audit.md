@@ -7,6 +7,11 @@ Inspected September 30, 2026. Counts below come from authoritative source invent
 | PGM (Ezio) | 32 | 105 | 27 | 3 | 140 | 105 | PASS |
 | NAMCO SYSTEM 11 | 11 | 24 | 9 | 1 | 36 | 24 | PASS |
 | TAITO FX1B | 5 | 7 | 4 | 1 | 13 | 7 | PASS |
+| CAPCOM CPS1 | 33 | 126 | 27 | 0 | 159 | 126 | PASS |
+| CAPCOM CPS1.5 | 6 | 13 | 6 | 0 | 19 | 13 | PASS |
+| CAPCOM CPS2 | 40 | 280 | 40 | 0 | 320 | 280 | PASS |
+| CAPCOM CPS3 | 6 | 11 | 6 | 0 | 17 | 11 | PASS |
+| SEGA ST-V | 43 | 8 | 8 | 0 | 51 | 8 | PASS |
 | CAPCOM ZN-1 | 5 | 12 | 6 | 1 | 18 | 12 | PASS |
 | CAPCOM ZN-2 | 11 | 17 | 8 | 1 | 29 | 17 | PASS |
 | SEIBU SPI | 6 | 43 | 6 | 1 | 50 | 43 | PASS |
@@ -43,7 +48,7 @@ The full suite covers absent, flat, nested, deeply located and multiple-game alt
 
 All seven Arcade Systems databases also pass the actual MiSTer Downloader `DbEntity` parser. Direct comparison with the previous three artifacts confirms that migration retains every file URL, hash, size, and core destination. A live parity audit passes for all seven, and a second complete build reports `changed: false` for every module, including Coin-Op.
 
-The consolidated suite has 73 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
+The consolidated suite has 94 passing tests. Every active module reports zero effective payload source changes and zero unexpected metadata differences. Both Capcom naming corrections also preserve their existing file records and permanent IDs exactly. One shared MeatCores fetch feeds both selected modules during an all-module build.
 
 ```sh
 python -m unittest discover -s tests -v
@@ -54,3 +59,5 @@ python tools/build.py --all
 ```
 
 The audit command reads all enabled Arcade Systems modules dynamically and skips Coin-Op. Without `--live` it reconstructs the verified source inventory from each manifest. With `--live` it fetches and validates current authoritative distributions and compares them to the generated databases. Hosted validation and independent updates also run the offline parity audit. Actual MiSTer navigation/game launch acceptance remains a separate hardware milestone.
+
+CPS inventories use the live JTCORES classifications; ST-V uses the official MiSTer classification and verified alternatives index. These five navigation-only modules include no cores. ST-V uses selective extraction of only its eight classified alternatives from the unchanged upstream archive. See [CPS inspection](cps-inspection.md) and [ST-V inspection](stv-inspection.md).

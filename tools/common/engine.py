@@ -34,7 +34,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "database":
         fields = {"name", "display_name", "source_mode", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version",
                   "selection_tags", "exclusive_group_tags", "source_navigation_root", "target_folder"}
-        if set(config) != fields or config["name"] != name:
+        if set(config) - {"database_member", "core_ownership", "selection_archives"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized database-selection configuration")
         if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name or config["derived_db_id"] == config["upstream_db_id"]:
             raise ValidationError("Invalid selected database identity")
@@ -47,8 +47,15 @@ def load_module(name, root=ROOT):
             raise ValidationError("Invalid selected classification")
         safe_path(config["source_navigation_root"])
         safe_path(config["target_folder"])
-        if not config["source_navigation_root"].startswith('_Arcade/') or not config["target_folder"].startswith('_Arcade Systems/'):
+        if not (config["source_navigation_root"] == '_Arcade' or config["source_navigation_root"].startswith('_Arcade/')) or not config["target_folder"].startswith('_Arcade Systems/'):
             raise ValidationError("Invalid selected navigation layout")
+        if config.get("core_ownership", "included") not in {"included", "upstream"}:
+            raise ValidationError("Invalid core ownership policy")
+        if not re.fullmatch(r"[A-Za-z0-9_-]+\.json", config.get("database_member", "db.json")):
+            raise ValidationError("Invalid database archive member")
+        archives = config.get("selection_archives", [])
+        if type(archives) is not list or not all(isinstance(a, str) and re.fullmatch('[a-z0-9_]+', a) for a in archives) or len(set(archives)) != len(archives):
+            raise ValidationError("Invalid archive selection policy")
         return config, DatabasePolicy(config)
     if config.get("source_mode") == "repository":
         fields = {"name", "display_name", "source_mode", "repository", "ref", "distribution_root",
@@ -93,13 +100,15 @@ def validate_module_collisions(databases):
     """Check independent module destinations without creating an aggregate DB."""
     files, folders = {}, set()
     for database in databases:
-        for path, record in database["files"].items():
+        from tools.common.archives import expanded_inventory
+        inventory = expanded_inventory(database)
+        for path, record in inventory["files"].items():
             key = path.casefold()
             identity = (record["hash"], record["size"])
             if key in files and files[key] != identity:
                 raise ValidationError(f"Conflicting module payload destination: {path}")
             files[key] = identity
-        folders.update(path.casefold() for path in database["folders"])
+        folders.update(path.casefold() for path in inventory["folders"])
     if set(files) & folders:
         raise ValidationError("Cross-module file/folder collision")
     for path in set(files) | folders:
@@ -136,6 +145,13 @@ def transform(database, config, policy):
             if category == "files" and original != target and "url" not in record:
                 record["url"] = effective_url(database, original, record)
             result[category][target] = record
+    if database.get("archives"):
+        from tools.common.archives import summary_database
+        for name, descriptor in database['archives'].items():
+            child = transform(summary_database(database, descriptor), config, policy)
+            result['archives'][name]['summary_inline'] = {key: child[key] for key in ('v', 'files', 'folders')}
+            folder = descriptor['target_folder'].rstrip('/')
+            result['archives'][name]['target_folder'] = policy.destination(folder, 'folders') + '/'
     validate_output(database, result, config, policy)
     return result
 
@@ -148,7 +164,18 @@ def validate_output(upstream, generated, config, policy):
         raise ValidationError("Wrong derived database identity")
     if set(upstream) != set(generated):
         raise ValidationError("Root fields changed")
-    for key in upstream.keys() - {"db_id", "files", "folders"}:
+    if 'archives' in upstream:
+        from tools.common.archives import summary_database
+        if set(upstream['archives']) != set(generated['archives']):
+            raise ValidationError('Archive inventory changed')
+        for name, before in upstream['archives'].items():
+            after = generated['archives'][name]
+            if set(before) != set(after) or any(before[k] != after[k] for k in before.keys() - {'summary_inline', 'target_folder'}):
+                raise ValidationError('Archive payload/metadata changed')
+            if after['target_folder'] != policy.destination(before['target_folder'].rstrip('/'), 'folders') + '/':
+                raise ValidationError('Archive navigation root changed unexpectedly')
+            validate_output(summary_database(upstream,before),summary_database(generated,after),config,policy)
+    for key in upstream.keys() - {"db_id", "files", "folders", "archives"}:
         if upstream[key] != generated[key]:
             raise ValidationError(f"Unexpected root metadata difference: {key}")
     report = {
@@ -180,6 +207,16 @@ def validate_output(upstream, generated, config, policy):
                 raise ValidationError(f"Unexpected record metadata difference: {original}")
             if original != target:
                 report["file_destinations_changed" if category == "files" else "folder_destinations_changed"] += 1
+    if upstream.get('archives'):
+        from tools.common.archives import summary_database
+        report['archived_files'] = 0
+        report['archived_file_destinations_changed'] = 0
+        report['archive_url_fields_materialized'] = 0
+        for name,before in upstream['archives'].items():
+            child_report = validate_output(summary_database(upstream,before),summary_database(generated,generated['archives'][name]),config,policy)
+            report['archived_files'] += child_report['generated_files']
+            report['archived_file_destinations_changed'] += child_report['file_destinations_changed']
+            report['archive_url_fields_materialized'] += child_report['url_fields_materialized']
     if config.get("source_mode") in {"repository", "database"}:
         report.update(validate_navigation(upstream, generated, config))
     return report

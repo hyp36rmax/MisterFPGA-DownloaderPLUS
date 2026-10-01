@@ -1,28 +1,37 @@
-# SEGA ST-V source inspection
+# Official MiSTer SEGA ST-V inspection
 
-Inspected on 2026-09-30. Module publication is blocked because the requested authoritative database does not distribute ST-V MRAs.
+Inspected on 2026-09-30. Authoritative source: [MiSTer-devel/Distribution_MiSTer](https://github.com/MiSTer-devel/Distribution_MiSTer), [current Downloader database](https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/main/db.json.zip). Credit belongs to MiSTer-devel and upstream developers. The retired updater investigation is [superseded historical evidence](stv-retired-updater-inspection.md).
 
-## Authoritative source
+The live database uses version 1, ID `distribution_mister`, and a single ZIP member `db.json`. Root fields are `archives`, `base_files_url`, `db_id`, `db_url`, `files`, `folders`, `linux`, `tag_dictionary`, `timestamp`, and `v`. It contains 1,603 direct files, 326 folders and 21 archive descriptors. No default filter is present. File metadata includes hashes, sizes, tags, core tangles, storage markers and, on unrelated system files, installation flags. Folder records contain tags and optional storage markers. Those unrelated system, Linux and archive records are not included in the ST-V artifact.
 
-[Updater repository](https://github.com/davewongillies/MiSTer-update_stv), [published database](https://raw.githubusercontent.com/davewongillies/MiSTer-update_stv/db/db.json.zip), and [current script](https://github.com/davewongillies/MiSTer-update_stv/blob/2947b4da0ce10363c3a3acf2c86dffc756efda83/Scripts/update_stv.sh).
+The deterministic selector is `arcadestv`. Its numeric ID is resolved through the current dictionary. No filename-based game list is used. The main file map classifies 43 primary MRAs and one core. The normal official installation owns the core; DownloaderPLUS includes zero core records.
 
-The inspected database branch revision is `452bcb25a0c8018d97295c9e0a5e7a96adcfa3bc`. The ZIP contains exactly `db.json`. Root fields are `base_files_url`, `db_id`, `db_url`, `files`, `folders`, `tag_dictionary`, and `timestamp`; no explicit format version is present. Database ID is `update_stv`; timestamp is `1758933790`.
-
-The sole file is `Scripts/update_stv.sh`: MD5 `7347de76f94924704fff309199507c85`, size 921 bytes, tags `[22, 23]`. The sole folder is `Scripts`, with tags `[22]`. The tag dictionary is `scripts: 22`, `updatestv: 23`. No default filters, tangles, explicit file URLs, external-storage markers, archive metadata, or install metadata are present.
-
-The base URL is `https://raw.githubusercontent.com/davewongillies/MISTer-update_stv/2947b4da0ce10363c3a3acf2c86dffc756efda83/`. The effective file URL appends `Scripts/update_stv.sh` to that base. The script prints a notice that it is no longer needed and does nothing. It has no current MRA download operation.
-
-| Inventory | Count |
+| Selected navigation inventory | Count |
 |---|---:|
-| Primary MRAs | 0 |
-| Alternative MRAs | 0 |
-| Alternative folders | 0 |
-| Core records | 0 |
-| Non-Arcade files | 1 |
-| Generated files | 0 (no module published) |
+| Primary MRAs | 43 |
+| Alternative MRAs | 8 |
+| Alternative folders, including root | 8 |
+| Included core records | 0 |
+| Total distributable files | 51 |
+| Effective payload source differences | 0 |
+| Unexpected metadata differences | 0 |
 
-## Decision
+Snapshot counts are computed dynamically during every build. All selected navigation installs beneath `_Arcade/_Arcade Systems/SEGA ST-V/`. MRA contents and ROM references remain unchanged. Keep the normal official MiSTer/Update_All installation enabled to manage the ST-V core in `_Arcade/cores/`. Users supply their own ROM sets.
 
-Relocating this database cannot create ST-V navigation: it would only install the retired script at its existing non-Arcade destination. No derived artifact, subscription, or module configuration was created. URL and metadata difference checks for a generated ST-V module are therefore not applicable.
+## Selected archive alternatives
 
-A currently maintained authoritative MRA database must be identified before implementation resumes. The requested source is insufficient, but selecting a substitute distribution would require a new source decision. No development repository was reconstructed and no core or ROM archive was added. Existing modules and automation remain unchanged.
+The official `mra_alternatives` archive index contains 1,080 MRAs across multiple systems. Exactly eight currently carry the ST-V classification; the other 1,072 are excluded. The builder verifies the authoritative summary ZIP against its published MD5 and size before parsing its single summary JSON member. It preserves each selected member's hash, size, tags, `arc_id`, `arc_at`, and parent folder metadata.
+
+The approved archive-selection policy changes whole-archive extraction to `extract: selective` and replaces the remote full index with a filtered `summary_inline` in the derived database. The original archive URL, hash, size, base URL and member paths remain identical. No archive is rebuilt or mirrored. Inline destinations and the archive target folder move to the navigation root. Explicit original raw URLs are materialized for selected members so Downloader's per-file recovery retains the authoritative source when archive extraction fails. Archive transport sources also remain identical.
+
+Before publication, the builder downloads the authoritative archive transiently, verifies its published MD5 and size, and verifies the selected members' bytes, sizes, MRA structure and upstream core references. No unrelated archive members are installed. Unrelated archives and the Linux installation record are excluded from the generated database. Full source metadata and the verified source index remain in the provenance manifest for offline comparison.
+
+## Filters
+
+DownloaderPLUS preserves applicable upstream tags, the full tag dictionary, and associated Downloader behavior. Users may configure supported filters through their normal MiSTer Downloader configuration.
+
+## Validation and updates
+
+The shared database-selection engine and archive adapter provide selection, recursive parity, collision checks and deterministic packaging. Unsafe paths, unknown schema, changed index identities, archive/member mismatches, differing shared-folder metadata, missing parent folders or unresolved core references fail closed before replacing the last-good output. All archive members participate in cross-module destination checks.
+
+Normal tagged additions, updates and removals flow through independent scheduled/manual update jobs. Offline reproduction uses the unmodified main database fixture and its adjacent verified `mra_alternatives_summary.json.zip`. The actual MiSTer Downloader parser accepts the generated database and its selective inline index. Current validation proves 43 direct files plus eight archive members; both inventories preserve authoritative URLs and metadata.
