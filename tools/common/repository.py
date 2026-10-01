@@ -222,18 +222,7 @@ def inspect_repository(config, previous=None, fetcher=fetch):
         require(blob == entry["sha"], "Downloaded payload differs from pinned repository blob")
         result = {**entry, "md5": hashlib.md5(payload).hexdigest()}
         if entry["path"].endswith(".mra"):
-            require(not re.search(br"<!\s*(DOCTYPE|ENTITY)", payload, re.I), "Unsupported XML declaration")
-            try:
-                # MiSTer's sxmlc treats comment bodies as opaque, including '--'.
-                # Ignore comments only in this validation view; hashed/downloaded bytes stay intact.
-                view = re.sub(br"<!--[\s\S]*?-->|<!\[CDATA\[[\s\S]*?\]\]>",
-                              lambda match: match.group() if match.group().startswith(b"<![CDATA[") else b"", payload)
-                xml = ET.fromstring(view)
-            except ET.ParseError as exc:
-                raise ValidationError("Malformed MRA XML: " + entry["path"]) from exc
-            refs = xml.findall(".//rbf")
-            require(xml.tag == "misterromdescription" and len(refs) == 1 and bool(refs[0].text), "Invalid MRA core reference")
-            result["rbf"] = refs[0].text.strip()
+            result["rbf"] = mra_reference(payload, entry["path"])
         return result
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
@@ -243,6 +232,20 @@ def inspect_repository(config, previous=None, fetcher=fetch):
              "source_commit": revision, "source_timestamp": timestamp,
              "source_fingerprint": fingerprint, "source_files": records, "source_folders": source_folders}
     return source, basis
+
+
+def mra_reference(payload, path):
+    require(not re.search(br"<!\s*(DOCTYPE|ENTITY)", payload, re.I), "Unsupported XML declaration")
+    try:
+        # MiSTer treats comment bodies as opaque. This parsing view never changes payload bytes.
+        view = re.sub(br"<!--[\s\S]*?-->|<!\[CDATA\[[\s\S]*?\]\]>",
+                      lambda match: match.group() if match.group().startswith(b"<![CDATA[") else b"", payload)
+        xml = ET.fromstring(view)
+    except ET.ParseError as exc:
+        raise ValidationError("Malformed MRA XML: " + path) from exc
+    refs = xml.findall(".//rbf")
+    require(xml.tag == "misterromdescription" and len(refs) == 1 and bool(refs[0].text), "Invalid MRA core reference")
+    return refs[0].text.strip()
 
 
 def navigation_inventory(database, prefix):
@@ -256,13 +259,19 @@ def navigation_inventory(database, prefix):
 
 def validate_navigation(upstream, generated, config):
     """Prove recursive navigation parity independently of destination mapping."""
-    source_prefix = "_Arcade/" + config["target_folder"] if upstream["db_id"] == config["derived_db_id"] else "_Arcade"
+    source_prefix = "_Arcade/" + config["target_folder"] if upstream["db_id"] == config["derived_db_id"] else config.get("source_navigation_root", "_Arcade")
     before, alternatives, folders = navigation_inventory(upstream, source_prefix)
     after, generated_alternatives, generated_folders = navigation_inventory(generated, "_Arcade/" + config["target_folder"])
-    require(before == after, "Primary/alternative relative path or payload metadata parity mismatch")
-    require(alternatives == generated_alternatives, "Alternative MRA parity mismatch")
+    def normalized(files, database, prefix):
+        return {path: {**record, "url": record.get("url", database.get("base_files_url", "") + quote(prefix + "/" + path))}
+                for path, record in files.items()}
+    # Explicit URLs may be added to preserve an original implicit effective URL.
+    target_prefix = "_Arcade/" + config["target_folder"]
+    require(normalized(before, upstream, source_prefix) == normalized(after, generated, target_prefix), "Primary/alternative relative path or payload metadata parity mismatch")
+    require(normalized(alternatives, upstream, source_prefix) == normalized(generated_alternatives, generated, target_prefix), "Alternative MRA parity mismatch")
     require(folders == generated_folders, "Alternative folder hierarchy parity mismatch")
     return {"primary_mras": len(before) - len(alternatives), "alternative_mras": len(alternatives),
             "alternative_folders": len(folders), "total_mras": len(before),
             "current_cores": sum(path.endswith(".rbf") for path in generated["files"]),
+            "total_distributable_files": len(generated["files"]),
             "generated_alternative_mras": len(generated_alternatives), "alternatives_parity": True}

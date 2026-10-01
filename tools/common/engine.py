@@ -7,6 +7,7 @@ from urllib.parse import quote
 
 from tools.common.database import ValidationError, parse_json
 from tools.common.repository import RepositoryPolicy, safe_path, validate_navigation
+from tools.common.selection import DatabasePolicy
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -30,6 +31,25 @@ def load_module(name, root=ROOT):
         raise ValidationError("Invalid module name")
     directory = Path(root) / "modules" / name
     config = parse_json((directory / "module.json").read_bytes())
+    if config.get("source_mode") == "database":
+        fields = {"name", "display_name", "source_mode", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version",
+                  "selection_tags", "exclusive_group_tags", "source_navigation_root", "target_folder"}
+        if set(config) != fields or config["name"] != name:
+            raise ValidationError("Unrecognized database-selection configuration")
+        if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name or config["derived_db_id"] == config["upstream_db_id"]:
+            raise ValidationError("Invalid selected database identity")
+        if not config["upstream_url"].startswith("https://") or type(config["policy_version"]) is not int or config["policy_version"] < 1:
+            raise ValidationError("Invalid database source policy")
+        for key in ("selection_tags", "exclusive_group_tags"):
+            if type(config[key]) is not list or not config[key] or not all(isinstance(tag,str) and re.fullmatch('[a-z0-9]+',tag) for tag in config[key]) or len(set(config[key])) != len(config[key]):
+                raise ValidationError("Invalid classification policy")
+        if not set(config["selection_tags"]) <= set(config["exclusive_group_tags"]):
+            raise ValidationError("Invalid selected classification")
+        safe_path(config["source_navigation_root"])
+        safe_path(config["target_folder"])
+        if not config["source_navigation_root"].startswith('_Arcade/') or not config["target_folder"].startswith('_Arcade Systems/'):
+            raise ValidationError("Invalid selected navigation layout")
+        return config, DatabasePolicy(config)
     if config.get("source_mode") == "repository":
         fields = {"name", "display_name", "source_mode", "repository", "ref", "distribution_root",
                   "target_folder", "preserve_arcade_cores", "allow_external_repository", "derived_db_id", "policy_version"}
@@ -158,6 +178,6 @@ def validate_output(upstream, generated, config, policy):
                 raise ValidationError(f"Unexpected record metadata difference: {original}")
             if original != target:
                 report["file_destinations_changed" if category == "files" else "folder_destinations_changed"] += 1
-    if config.get("source_mode") == "repository":
+    if config.get("source_mode") in {"repository", "database"}:
         report.update(validate_navigation(upstream, generated, config))
     return report

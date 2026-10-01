@@ -11,31 +11,47 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/TAITO FX1B/` | `taito-fx1b.json.zip` |
-| CAPCOM ZN1 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN1/` | `capcom-zn1.json.zip` |
-| CAPCOM SYSTEM ZN2 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM SYSTEM ZN2/` | `capcom-zn2.json.zip` |
+| CAPCOM ZN-1 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN-1/` | `capcom-zn1.json.zip` |
+| CAPCOM ZN-2 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN-2/` | `capcom-zn2.json.zip` |
 | SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/SEIBU SPI/` | `seibu-spi.json.zip` |
+| SEGA SYSTEM 32 | MeatCores database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 32/` | `sega-system32.json.zip` |
+| SEGA SYSTEM 32 MULTI | MeatCores database selection | `_Arcade/_Arcade Systems/SEGA SYSTEM 32 MULTI/` | `sega-system32-multi.json.zip` |
 
-Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The Arcade Systems modules are explicit exceptions, with declarative `allow_external_repository` authorization.
+Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The five repository-derived Arcade Systems modules are explicit exceptions, with declarative `allow_external_repository` authorization.
 
-This project is independent of its upstream projects and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [XelaNotPu](https://github.com/XelaNotPu), and the authors and contributors credited by each upstream project. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
+This project is independent of its upstream projects and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), [Meathax](https://github.com/meathax/meatcores), and the authors and contributors credited by each upstream project. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
 
-## Arcade Systems repository modules
+## Arcade Systems
 
 Authoritative distributions:
 
 - [NAMCO SYSTEM 11](https://github.com/XelaNotPu/SYSTEM11_MiSTer): `releases/_Arcade/`.
 - [TAITO FX1B](https://github.com/XelaNotPu/ZN1-TaitoFX1B_MiSTer): `releases/_Arcade/`.
-- [CAPCOM ZN1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
-- [CAPCOM SYSTEM ZN2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
+- [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
+- [CAPCOM ZN-2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
 - [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
+- [Meathax MeatCores](https://github.com/meathax/meatcores): its authoritative [Downloader database](https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip) feeds the two Sega modules.
 
 For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against the selected cores, and MRA contents are never rewritten.
 
-The shared adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
+The repository adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
 
 Seibu SPI publishes `SeibuSPI.rbf` directly under `releases/`; its declared core policy supports stable filenames and dated replacements, and maps the unchanged filename to `_Arcade/cores/`. MiSTer's loader supports that name. Credit belongs to zakk4223 and the contributors credited upstream, including nand2mario. XelaNotPu's four projects retain their own upstream attribution.
 
-Every selected payload is downloaded transiently to verify its Git blob identity, size, and MD5. Generated URLs are pinned to an upstream commit; the payloads remain hosted solely by upstream. Manifests contain source inventory metadata and verification digests, never payload bytes. Unrelated repository commits reuse the previous verified payload revision when the selected inventory and policy are unchanged, preventing unnecessary commits. Normal additions, removals, content updates, and dated core replacements are discovered automatically without changing end-user configuration.
+Repository payloads are downloaded transiently to verify their Git blob identity, size, and MD5. Their URLs are pinned to an upstream commit; the payloads remain hosted solely by upstream. Manifests contain source inventory metadata and verification digests, never payload bytes. Unrelated repository commits reuse the previous verified payload revision when the selected inventory and policy are unchanged, preventing unnecessary commits. Normal additions, removals, content updates, and dated core replacements are discovered automatically without changing end-user configuration.
+
+The two Sega modules resolve the authoritative `arcadearcadesegasystem32` and `arcadearcadesegasystem32multi` classification tags through the current MeatCores tag dictionary. Each selects only its classified MRAs and core records, plus their authoritative parent folders. MeatCores decides current cores, fixed MRAs, alternatives, and payload sources; DownloaderPLUS does not reconstruct releases from separate Sega repositories. Tags, tangles, folder metadata, filters when present, and the complete tag dictionary are preserved. Original implicit URLs are materialized before destinations move. Selected payload hashes, sizes, reachability, and MRA core references are verified before publication.
+
+```text
+_Arcade/_Arcade Systems/
+├── NAMCO SYSTEM 11/
+├── TAITO FX1B/
+├── CAPCOM ZN-1/
+├── CAPCOM ZN-2/
+├── SEIBU SPI/
+├── SEGA SYSTEM 32/
+└── SEGA SYSTEM 32 MULTI/
+```
 
 ROMs and required BIOS/audio firmware are supplied separately by the user; follow each upstream project's requirements. DownloaderPLUS does not provide those files. These cores derive from work credited upstream, including Robert Peip's PSX_MiSTer and the MiSTer framework; consult the upstream READMEs for full attribution.
 
@@ -56,13 +72,19 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/seibu-spi]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/seibu-spi/seibu-spi.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system32/sega-system32.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32-multi]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system32-multi/sega-system32-multi.json.zip
 ```
 
 DownloaderPLUS does not edit your configuration or remove files installed by other databases. Shared destination checks reject differing payloads at the same path; identical hashes and sizes are compatible for future validated deduplication. No aggregate database is generated.
 
-The existing three modules keep their permanent database IDs and artifact URLs during consolidation. Downloader moves their tracked navigation files through its ordinary update/removal settings. Core destinations and upstream payload URLs stay unchanged; DownloaderPLUS performs no manual cleanup of other installations.
+The existing three modules keep their permanent database IDs and artifact URLs during consolidation. Downloader installs navigation at the new destination under the same database IDs. Its normal deletion policy removes obsolete tracked MRAs and empty folders when `allow_delete` permits all deletions (the inspected Downloader default). A policy restricted to old cores or no deletions can leave old navigation copies; DownloaderPLUS does not override that preference. Corrected Capcom display folders also retain the same subscriptions. Core destinations and upstream payload URLs stay unchanged; DownloaderPLUS performs no manual cleanup of other installations.
 
-See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and the two Sega systems held pending source research. PGM remains paused. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
+See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and authoritative MeatCores selection. PGM remains paused. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
 
 ## Coin-Op module
 
@@ -151,7 +173,7 @@ Unknown fields or versions, duplicate JSON keys, unexpected archive members, mal
 
 All build validation completes before local output replacement. A failed validation leaves that module's previous files intact. Each job pushes only after its build and distribution checks succeed; a conflicting shared destination blocks publication. Git pushes are ordinary fast-forward pushes; concurrent default-branch edits cause a safe failure and require a rerun. Branch protection may require an alternative reviewed publication workflow; this implementation does not bypass it.
 
-`verify_dist.py` checks artifact/manifest integrity and cross-module destinations without networking. For repository modules it also reconstructs the normalized source database from the verified inventory and compares every field. Live payload reachability and bytes are verified by the builder. For database-source modules the full upstream-versus-generated proof is performed by the builder and `validate.py`.
+`verify_dist.py` checks artifact/manifest integrity and cross-module destinations without networking. For repository modules it also reconstructs the normalized source database from the verified inventory and compares every field. Live payload reachability and bytes are verified by the builder. Selected database manifests retain the authoritative metadata snapshot so offline verification can repeat tag selection and compare every selected field. For database-source modules the full upstream-versus-generated proof is performed by the builder and `validate.py`.
 
 ## Framework layout and future modules
 
@@ -162,6 +184,7 @@ modules/<module>/README.md         module behavior and exceptions
 tools/common/database.py           strict IO, fetch, packaging, atomic writes
 tools/common/engine.py             discovery, transform, structural comparison
 tools/common/repository.py         shared repository adapter and navigation policy
+tools/common/selection.py          declarative tagged database selection
 tools/build.py                     build entry point
 tools/validate.py                  independent upstream/output comparison
 tools/verify_dist.py               distribution integrity check

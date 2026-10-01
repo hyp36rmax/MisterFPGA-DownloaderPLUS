@@ -8,6 +8,7 @@ if __package__ in (None, ""):
 from tools.common.database import ValidationError, canonical_json, digest, parse_json, unpack
 from tools.common.engine import ROOT, discover_modules, load_module, transform, validate_module_collisions, validate_output
 from tools.common.repository import source_database
+from tools.common.selection import select_database
 
 
 def verify_distribution():
@@ -39,6 +40,13 @@ def verify_distribution():
             expected.update({"upstream_url": config["upstream_url"], "upstream_db_id": config["upstream_db_id"],
                              "upstream_db_url": database["db_url"], "upstream_base_files_url": database["base_files_url"],
                              "upstream_timestamp": database["timestamp"]})
+            if config.get("source_mode") == "database":
+                authoritative = manifest["source_database"]
+                expected.update({"source_mode": "database", "selection_tags": config["selection_tags"],
+                                 "source_semantic_sha256": digest(canonical_json(authoritative))})
+                source = select_database(authoritative, config, policy)
+                if digest(canonical_json(source)) != manifest["upstream_semantic_sha256"] or validate_output(source, database, config, policy) != manifest["validation"]:
+                    raise ValidationError("Selected database source/output comparison mismatch")
         if any(manifest.get(key) != value for key, value in expected.items()):
             raise ValidationError(f"Distribution manifest mismatch: {name}")
         if database["db_id"] != config["derived_db_id"] or transform(database, config, policy) != database:

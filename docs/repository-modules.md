@@ -8,7 +8,7 @@ Inspection on September 30, 2026 found the same authoritative layout in all thre
 |---|---|---:|---:|---:|
 | NAMCO SYSTEM 11 | `cb0fe4040b9c9479140d9de6ce9ca4015df19549` | 11 | 24 | 1 |
 | TAITO FX1B | `4711fa53317a25e21f0101f37e49640829ddf60d` | 5 | 7 | 1 |
-| CAPCOM ZN1 | `42afa7b3c17c5e5e76e05c3187916afeef6202a1` | 5 | 12 | 1 |
+| CAPCOM ZN-1 | `42afa7b3c17c5e5e76e05c3187916afeef6202a1` | 5 | 12 | 1 |
 
 The actual System 11 tree has 35 MRAs; its README's game-title wording is not used as an inventory count. Counts are acceptance values for these inspected snapshots, not production assumptions.
 
@@ -55,6 +55,6 @@ Authoritative installation/attribution sources:
 
 - [NAMCO SYSTEM 11](https://github.com/XelaNotPu/SYSTEM11_MiSTer/blob/cb0fe4040b9c9479140d9de6ce9ca4015df19549/README.md).
 - [TAITO FX1B](https://github.com/XelaNotPu/ZN1-TaitoFX1B_MiSTer/blob/4711fa53317a25e21f0101f37e49640829ddf60d/README.md).
-- [CAPCOM ZN1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer/blob/42afa7b3c17c5e5e76e05c3187916afeef6202a1/README.md).
+- [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer/blob/42afa7b3c17c5e5e76e05c3187916afeef6202a1/README.md).
 
 Credit belongs to XelaNotPu and the contributors named by those projects. DownloaderPLUS claims neither ownership nor affiliation.

@@ -1,8 +1,8 @@
-# CAPCOM SYSTEM ZN2
+# CAPCOM ZN-2
 
 Authoritative source: [XelaNotPu/ZN2-Capcom_MiSTer](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer), distributed under `releases/_Arcade/`.
 
-- Navigation: `_Arcade/_Arcade Systems/CAPCOM SYSTEM ZN2/`, preserving the complete MRA and alternatives hierarchy recursively.
+- Navigation: `_Arcade/_Arcade Systems/CAPCOM ZN-2/`, preserving the complete MRA and alternatives hierarchy recursively.
 - Cores: `_Arcade/cores/`, never beneath navigation.
 - Artifact: `dist/capcom-zn2/capcom-zn2.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn2`.

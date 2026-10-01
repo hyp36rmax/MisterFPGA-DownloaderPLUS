@@ -1,0 +1,18 @@
+{
+  "name": "sega-system32",
+  "display_name": "SEGA SYSTEM 32",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip",
+  "upstream_db_id": "meathax/meatcores",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadearcadesegasystem32"
+  ],
+  "exclusive_group_tags": [
+    "arcadearcadesegasystem32",
+    "arcadearcadesegasystem32multi"
+  ],
+  "source_navigation_root": "_Arcade/_MeatCores",
+  "target_folder": "_Arcade Systems/SEGA SYSTEM 32"
+}

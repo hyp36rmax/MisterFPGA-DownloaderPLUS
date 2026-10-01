@@ -9,6 +9,7 @@ if __package__ in (None, ""):
 from tools.common.database import canonical_json, parse_json, unpack
 from tools.common.engine import load_module, validate_output
 from tools.common.repository import source_database
+from tools.common.selection import select_database
 
 
 def main():
@@ -22,12 +23,17 @@ def main():
     try:
         config, policy = load_module(args.module)
         if args.manifest:
-            if config.get("source_mode") != "repository":
-                raise ValueError("Inventory manifests require a repository module")
             manifest = parse_json(args.manifest.read_bytes())
-            upstream = source_database(config, manifest["source_commit"], manifest["source_timestamp"], manifest["source_files"], manifest.get("source_folders", ()))
+            if config.get("source_mode") == "database":
+                upstream = select_database(manifest["source_database"], config, policy)
+            elif config.get("source_mode") == "repository":
+                upstream = source_database(config, manifest["source_commit"], manifest["source_timestamp"], manifest["source_files"], manifest.get("source_folders", ()))
+            else:
+                raise ValueError("Inventory manifests require a selected database or repository module")
         else:
             upstream = unpack(args.upstream.read_bytes())
+            if config.get("source_mode") == "database":
+                upstream = select_database(upstream, config, policy)
         if upstream["db_id"] != config["upstream_db_id"]:
             raise ValueError("Expected authoritative upstream identity")
         report = validate_output(upstream, unpack(args.generated.read_bytes()), config, policy)
