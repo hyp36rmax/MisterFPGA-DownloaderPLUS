@@ -7,6 +7,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 from urllib.request import Request, urlopen
+from urllib.parse import urlsplit
 
 MAX_ARCHIVE = 16 * 1024 * 1024
 MAX_JSON = 64 * 1024 * 1024
@@ -74,7 +75,10 @@ def package(database):
 
 
 def fetch(url):
-    request = Request(url, headers={"User-Agent": "MiSTer-DownloaderPLUS/1"})
+    headers = {"User-Agent": "MiSTer-DownloaderPLUS/1"}
+    if urlsplit(url).hostname == "api.github.com" and os.environ.get("GITHUB_TOKEN"):
+        headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
+    request = Request(url, headers=headers)
     with urlopen(request, timeout=60) as response:
         if not response.geturl().startswith("https://"):
             raise ValidationError("Upstream redirected away from HTTPS")

@@ -6,15 +6,37 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: downloaderplus-database-publish
   cancel-in-progress: false
 
 jobs:
+  modules:
+    runs-on: ubuntu-latest
+    outputs:
+      names: ${{ steps.discover.outputs.names }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - id: discover
+        name: Discover independent modules
+        run: |
+          names=$(python tools/build.py --list-modules)
+          echo "names=$names" >> "$GITHUB_OUTPUT"
   update:
+    needs: modules
     if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        module: ${{ fromJSON(needs.modules.outputs.names) }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -26,18 +48,20 @@ jobs:
           python-version: '3.12'
       - name: Test safety contract
         run: python -m unittest discover -s tests -v
-      - name: Fetch, validate, transform, and compare every module
-        run: python tools/build.py --all
+      - name: Build and validate this module independently
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/build.py --module "${{ matrix.module }}"
       - name: Verify all distribution artifacts
         run: python tools/verify_dist.py
       - name: Publish only validated changes
         run: |
-          git add -- dist
+          git add -- "dist/${{ matrix.module }}"
           if git diff --cached --quiet; then
             echo "No material changes; no commit."
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update validated derived databases'
+          git commit -m 'Update validated ${{ matrix.module }} database'
           git push origin HEAD:"${{ github.event.repository.default_branch }}"

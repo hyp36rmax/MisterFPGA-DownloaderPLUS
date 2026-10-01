@@ -1,0 +1,13 @@
+{
+  "name": "capcom-zn1",
+  "display_name": "CAPCOM ZN1",
+  "source_mode": "repository",
+  "repository": "XelaNotPu/ZN1-Capcom_MiSTer",
+  "ref": "main",
+  "distribution_root": "releases/_Arcade",
+  "target_folder": "_CAPCOM ZN1",
+  "preserve_arcade_cores": true,
+  "allow_external_repository": true,
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1",
+  "policy_version": 1
+}

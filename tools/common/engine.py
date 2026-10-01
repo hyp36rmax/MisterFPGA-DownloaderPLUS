@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 from tools.common.database import ValidationError, parse_json
+from tools.common.repository import RepositoryPolicy, safe_path
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -29,6 +30,27 @@ def load_module(name, root=ROOT):
         raise ValidationError("Invalid module name")
     directory = Path(root) / "modules" / name
     config = parse_json((directory / "module.json").read_bytes())
+    if config.get("source_mode") == "repository":
+        fields = {"name", "display_name", "source_mode", "repository", "ref", "distribution_root",
+                  "target_folder", "preserve_arcade_cores", "allow_external_repository", "derived_db_id", "policy_version"}
+        if set(config) != fields or config["name"] != name:
+            raise ValidationError("Unrecognized repository module configuration")
+        if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", config["repository"]):
+            raise ValidationError("Invalid source repository")
+        if config["repository"].split("/")[0].lower() != "hyp36rmax" and config["allow_external_repository"] is not True:
+            raise ValidationError("Direct generation from external repositories requires an explicit exception")
+        safe_path(config["distribution_root"])
+        safe_path(config["target_folder"])
+        if "/" in config["target_folder"] or not config["target_folder"].startswith("_"):
+            raise ValidationError("Invalid navigation folder")
+        if config["preserve_arcade_cores"] is not True or not isinstance(config["ref"], str) or not config["ref"]:
+            raise ValidationError("Invalid repository source policy")
+        if type(config["policy_version"]) is not int or config["policy_version"] < 1:
+            raise ValidationError("Invalid policy version")
+        if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name:
+            raise ValidationError("Invalid derived repository database identity")
+        config["upstream_db_id"] = config["repository"]
+        return config, RepositoryPolicy(config)
     if set(config) != {"name", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version"}:
         raise ValidationError("Unrecognized module configuration")
     if config["name"] != name or config["derived_db_id"].lower() == config["upstream_db_id"].lower():
@@ -41,6 +63,25 @@ def load_module(name, root=ROOT):
     policy = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(policy)
     return config, policy
+
+
+def validate_module_collisions(databases):
+    """Check independent module destinations without creating an aggregate DB."""
+    files, folders = {}, set()
+    for database in databases:
+        for path, record in database["files"].items():
+            key = path.casefold()
+            identity = (record["hash"], record["size"])
+            if key in files and files[key] != identity:
+                raise ValidationError(f"Conflicting module payload destination: {path}")
+            files[key] = identity
+        folders.update(path.casefold() for path in database["folders"])
+    if set(files) & folders:
+        raise ValidationError("Cross-module file/folder collision")
+    for path in set(files) | folders:
+        parts = path.split("/")
+        if any("/".join(parts[:index]) in files for index in range(1, len(parts))):
+            raise ValidationError("Cross-module file used as parent directory")
 
 
 def effective_url(database, path, record):

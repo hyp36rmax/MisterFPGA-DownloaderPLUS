@@ -4,7 +4,51 @@ DownloaderPLUS provides modular derived MiSTer Downloader databases that make na
 
 The first module, **Coin-Op Collection**, is an interim navigation/accessibility solution. It generates an additional installation under `_Arcade/_Coin-Op Collection/` using the official Coin-Op database. Upstream owns the content and publishes its database; DownloaderPLUS validates and relocates destination records. It does not edit the upstream repository, maintain a separate content distribution, or modify your MiSTer configuration.
 
-This project is independent of Coin-Op Collection and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA) and the authors of its cores and MRAs. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
+## Available modules
+
+| Module | Source mode | Navigation destination | Artifact |
+|---|---|---|---|
+| Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
+| NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
+| TAITO FX1B | Repository distribution | `_Arcade/_TAITO FX1B/` | `taito-fx1b.json.zip` |
+| CAPCOM ZN1 | Repository distribution | `_Arcade/_CAPCOM ZN1/` | `capcom-zn1.json.zip` |
+
+Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The three XelaNotPu modules are explicit exceptions, with declarative `allow_external_repository` authorization.
+
+This project is independent of its upstream projects and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [XelaNotPu](https://github.com/XelaNotPu), and the authors and contributors credited by each upstream project. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
+
+## XelaNotPu repository modules
+
+Authoritative distributions:
+
+- [NAMCO SYSTEM 11](https://github.com/XelaNotPu/SYSTEM11_MiSTer): `releases/_Arcade/`.
+- [TAITO FX1B](https://github.com/XelaNotPu/ZN1-TaitoFX1B_MiSTer): `releases/_Arcade/`.
+- [CAPCOM ZN1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
+
+For these modules, MRAs retain their filenames and complete relative structure beneath the dedicated navigation folder. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against the selected cores, and MRA contents are never rewritten.
+
+The shared adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
+
+Every selected payload is downloaded transiently to verify its Git blob identity, size, and MD5. Generated URLs are pinned to an upstream commit; the payloads remain hosted solely by upstream. Manifests contain source inventory metadata and verification digests, never payload bytes. Unrelated repository commits reuse the previous verified payload revision when the selected inventory and policy are unchanged, preventing unnecessary commits. Normal additions, removals, content updates, and dated core replacements are discovered automatically without changing end-user configuration.
+
+ROMs and required BIOS/audio firmware are supplied separately by the user; follow each upstream project's requirements. DownloaderPLUS does not provide those files. These cores derive from work credited upstream, including Robert Peip's PSX_MiSTer and the MiSTer framework; consult the upstream READMEs for full attribution.
+
+Add only the independent modules you want to your normal Downloader configuration:
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system11/namco-system11.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1b/taito-fx1b.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-zn1/capcom-zn1.json.zip
+```
+
+DownloaderPLUS does not edit your configuration or remove files installed by other databases. Shared destination checks reject differing payloads at the same path; identical hashes and sizes are compatible for future validated deduplication. No aggregate database is generated.
+
+See [repository inspection and verification](docs/repository-modules.md) for the initial installable sets and validation results.
 
 ## Coin-Op module
 
@@ -86,13 +130,13 @@ Generated artifacts are `dist/<module>/<module>.json.zip` and `dist/<module>/man
 
 GitHub Actions checks upstream every six hours and supports **Actions → Update databases → Run workflow**. Scheduled runs happen on the default branch; manual publishing runs also require that branch. Actions must be enabled. GitHub scheduling may be delayed. Forks may need to enable scheduled workflows explicitly.
 
-Every update runs tests, fetches current upstream databases, validates supported schemas, transforms, compares every field and effective URL, checks idempotence, packages and reopens the ZIP, and verifies artifact integrity. Only changed `dist/` files are committed. A changed upstream timestamp or source revision is preserved and can legitimately require a commit even if filenames are unchanged. No fetch time is written into committed manifests.
+Each discovered module runs as an independent workflow job. A failed module does not prevent another module from updating. Jobs run sequentially to reduce publication races, with matrix fail-fast disabled. Database-source jobs fetch and validate the authoritative database; repository-source jobs discover and verify the current installable set. All jobs run tests, compare metadata and effective URLs, check idempotence, package and reopen the ZIP, and verify artifact integrity and cross-module compatibility. Only changed files in that module's `dist/` directory are committed. Database timestamps are preserved; repository timestamps come from the pinned source commit. No fetch time is written into committed manifests.
 
 Unknown fields or versions, duplicate JSON keys, unexpected archive members, malformed hashes/tags, unsafe paths, double prefixes, destination collisions, changed effective sources, or unexplained metadata differences stop the run. Explicit upstream file URLs are a supported schema variation. Counts and tag IDs are inspected dynamically, not fixed in the builder. New schema features require review before support is added; unknown fields are never silently discarded.
 
-All validation completes before local output replacement. A failed validation leaves that module's previous files intact. Nothing is pushed unless the entire workflow succeeds. Git pushes are ordinary fast-forward pushes; concurrent default-branch edits cause a safe failure and require a rerun. Branch protection may require an alternative reviewed publication workflow; this implementation does not bypass it.
+All build validation completes before local output replacement. A failed validation leaves that module's previous files intact. Each job pushes only after its build and distribution checks succeed; a conflicting shared destination blocks publication. Git pushes are ordinary fast-forward pushes; concurrent default-branch edits cause a safe failure and require a rerun. Branch protection may require an alternative reviewed publication workflow; this implementation does not bypass it.
 
-`verify_dist.py` checks packaged artifact and manifest integrity without networking. The full upstream-versus-generated semantic proof is performed by the builder and `validate.py`; manifest verification alone is not that proof.
+`verify_dist.py` checks artifact/manifest integrity and cross-module destinations without networking. For repository modules it also reconstructs the normalized source database from the verified inventory and compares every field. Live payload reachability and bytes are verified by the builder. For database-source modules the full upstream-versus-generated proof is performed by the builder and `validate.py`.
 
 ## Framework layout and future modules
 
@@ -102,6 +146,7 @@ modules/<module>/transforms.py     supported schema and destination policy
 modules/<module>/README.md         module behavior and exceptions
 tools/common/database.py           strict IO, fetch, packaging, atomic writes
 tools/common/engine.py             discovery, transform, structural comparison
+tools/common/repository.py         shared repository adapter and navigation policy
 tools/build.py                     build entry point
 tools/validate.py                  independent upstream/output comparison
 tools/verify_dist.py               distribution integrity check
@@ -110,6 +155,6 @@ dist/<module>/                    independently consumable artifacts
 .github/workflows/                validation and synchronization
 ```
 
-Add a module directory with `module.json`, `validate_schema(database, config)`, and `destination(path, category)`. Each module defines its schema and narrow relocation rule; shared code preserves records, materializes unchanged source URLs where needed, assigns identity, validates, and packages. Each derived ID must be unique and permanent. Add module tests and documentation. The `--all` workflow discovers new modules automatically. Policies requiring changes beyond this engine's explicit allowlist need a separately reviewed engine extension rather than broadening Coin-Op's rules.
+Database modules use `module.json`, `validate_schema(database, config)`, and `destination(path, category)`. Repository modules use declarative `source_mode: repository` configuration and the shared adapter, without per-module scripts. Each derived ID must be unique and permanent. Add module tests and documentation. `--all` builds all modules locally; `--list-modules` supplies the independent automation matrix. Policies requiring changes beyond the engine's explicit allowlist need a separately reviewed extension rather than broadening Coin-Op's rules. Repository discovery is bounded to complete trees and payloads up to 16 MiB each; larger files or Git LFS require a reviewed policy extension.
 
 See [Phase 1 evidence](docs/phase-1.md) and [software acceptance](docs/software-verification.md).

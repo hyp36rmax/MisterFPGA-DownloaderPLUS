@@ -6,14 +6,24 @@ from pathlib import Path
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from tools.common.database import ValidationError, atomic_write, canonical_json, digest, fetch, package, unpack
+from tools.common.database import ValidationError, atomic_write, canonical_json, digest, fetch, package, parse_json, unpack
 from tools.common.engine import ROOT, discover_modules, load_module, transform, validate_output
+from tools.common.repository import inspect_repository
 
 
 def build(name, upstream_file=None, output_root=None):
     config, policy = load_module(name)
-    raw = Path(upstream_file).read_bytes() if upstream_file else fetch(config["upstream_url"])
-    upstream = unpack(raw)
+    directory = Path(output_root) if output_root else ROOT / "dist" / name
+    basis = {}
+    if config.get("source_mode") == "repository":
+        if upstream_file:
+            raise ValidationError("Repository modules require repository inventory, not an upstream database ZIP")
+        previous_path = directory / "manifest.json"
+        previous = parse_json(previous_path.read_bytes()) if previous_path.exists() else None
+        upstream, basis = inspect_repository(config, previous)
+    else:
+        raw = Path(upstream_file).read_bytes() if upstream_file else fetch(config["upstream_url"])
+        upstream = unpack(raw)
     policy.validate_schema(upstream, config)
     if upstream["db_id"] != config["upstream_db_id"]:
         raise ValidationError("Build input must be the authoritative upstream database")
@@ -24,14 +34,16 @@ def build(name, upstream_file=None, output_root=None):
         raise ValidationError("Transformation is not idempotent")
     manifest = {
         "module": name, "policy_version": config["policy_version"],
-        "upstream_url": config["upstream_url"], "upstream_db_id": upstream["db_id"],
-        "upstream_db_url": upstream["db_url"], "upstream_base_files_url": upstream["base_files_url"],
-        "upstream_timestamp": upstream["timestamp"],
         "upstream_semantic_sha256": digest(canonical_json(upstream)),
         "generated_semantic_sha256": digest(canonical_json(generated)),
         "generated_zip_sha256": digest(artifact), "validation": report,
     }
-    directory = Path(output_root) if output_root else ROOT / "dist" / name
+    if config.get("source_mode") == "repository":
+        manifest.update(basis)
+    else:
+        manifest.update({"upstream_url": config["upstream_url"], "upstream_db_id": upstream["db_id"],
+                         "upstream_db_url": upstream["db_url"], "upstream_base_files_url": upstream["base_files_url"],
+                         "upstream_timestamp": upstream["timestamp"]})
     # All checks finish before either last-known-good file is touched.
     changed = atomic_write(directory / f"{name}.json.zip", artifact)
     changed = atomic_write(directory / "manifest.json", canonical_json(manifest)) or changed
@@ -43,9 +55,13 @@ def main():
     selection = parser.add_mutually_exclusive_group(required=True)
     selection.add_argument("--module")
     selection.add_argument("--all", action="store_true", help="Build every discovered module")
+    selection.add_argument("--list-modules", action="store_true", help="Print module names for independent automation")
     parser.add_argument("--upstream-file", type=Path, help="Offline official db.json.zip snapshot")
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
+    if args.list_modules:
+        print(canonical_json(discover_modules()).decode(), end="")
+        return
     if args.all and (args.upstream_file or args.output_dir):
         parser.error("Offline input/output overrides require --module")
     try:
