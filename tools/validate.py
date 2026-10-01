@@ -25,7 +25,7 @@ def main():
             if config.get("source_mode") != "repository":
                 raise ValueError("Inventory manifests require a repository module")
             manifest = parse_json(args.manifest.read_bytes())
-            upstream = source_database(config, manifest["source_commit"], manifest["source_timestamp"], manifest["source_files"])
+            upstream = source_database(config, manifest["source_commit"], manifest["source_timestamp"], manifest["source_files"], manifest.get("source_folders", ()))
         else:
             upstream = unpack(args.upstream.read_bytes())
         if upstream["db_id"] != config["upstream_db_id"]:

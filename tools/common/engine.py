@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 from tools.common.database import ValidationError, parse_json
-from tools.common.repository import RepositoryPolicy, safe_path
+from tools.common.repository import RepositoryPolicy, safe_path, validate_navigation
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -33,7 +33,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "repository":
         fields = {"name", "display_name", "source_mode", "repository", "ref", "distribution_root",
                   "target_folder", "preserve_arcade_cores", "allow_external_repository", "derived_db_id", "policy_version"}
-        if set(config) != fields or config["name"] != name:
+        if set(config) - {"core_layout", "core_naming"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized repository module configuration")
         if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", config["repository"]):
             raise ValidationError("Invalid source repository")
@@ -41,8 +41,10 @@ def load_module(name, root=ROOT):
             raise ValidationError("Direct generation from external repositories requires an explicit exception")
         safe_path(config["distribution_root"])
         safe_path(config["target_folder"])
-        if "/" in config["target_folder"] or not config["target_folder"].startswith("_"):
+        if not config["target_folder"].startswith("_"):
             raise ValidationError("Invalid navigation folder")
+        if config.get("core_layout", "cores") not in {"cores", "root"} or config.get("core_naming", "dated") not in {"dated", "stable-or-dated"}:
+            raise ValidationError("Invalid upstream core layout/naming policy")
         if config["preserve_arcade_cores"] is not True or not isinstance(config["ref"], str) or not config["ref"]:
             raise ValidationError("Invalid repository source policy")
         if type(config["policy_version"]) is not int or config["policy_version"] < 1:
@@ -156,4 +158,6 @@ def validate_output(upstream, generated, config, policy):
                 raise ValidationError(f"Unexpected record metadata difference: {original}")
             if original != target:
                 report["file_destinations_changed" if category == "files" else "folder_destinations_changed"] += 1
+    if config.get("source_mode") == "repository":
+        report.update(validate_navigation(upstream, generated, config))
     return report

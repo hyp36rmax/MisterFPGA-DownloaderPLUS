@@ -9,25 +9,31 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 | Module | Source mode | Navigation destination | Artifact |
 |---|---|---|---|
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
-| NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
-| TAITO FX1B | Repository distribution | `_Arcade/_TAITO FX1B/` | `taito-fx1b.json.zip` |
-| CAPCOM ZN1 | Repository distribution | `_Arcade/_CAPCOM ZN1/` | `capcom-zn1.json.zip` |
+| NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
+| TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/TAITO FX1B/` | `taito-fx1b.json.zip` |
+| CAPCOM ZN1 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM ZN1/` | `capcom-zn1.json.zip` |
+| CAPCOM SYSTEM ZN2 | Repository distribution | `_Arcade/_Arcade Systems/CAPCOM SYSTEM ZN2/` | `capcom-zn2.json.zip` |
+| SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/SEIBU SPI/` | `seibu-spi.json.zip` |
 
-Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The three XelaNotPu modules are explicit exceptions, with declarative `allow_external_repository` authorization.
+Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The Arcade Systems modules are explicit exceptions, with declarative `allow_external_repository` authorization.
 
 This project is independent of its upstream projects and does not claim affiliation or ownership. Credit belongs to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [XelaNotPu](https://github.com/XelaNotPu), and the authors and contributors credited by each upstream project. This repository distributes derived database metadata referencing upstream files; it does not bundle those content files. Upstream content retains its own licensing.
 
-## XelaNotPu repository modules
+## Arcade Systems repository modules
 
 Authoritative distributions:
 
 - [NAMCO SYSTEM 11](https://github.com/XelaNotPu/SYSTEM11_MiSTer): `releases/_Arcade/`.
 - [TAITO FX1B](https://github.com/XelaNotPu/ZN1-TaitoFX1B_MiSTer): `releases/_Arcade/`.
 - [CAPCOM ZN1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
+- [CAPCOM SYSTEM ZN2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
+- [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
 
-For these modules, MRAs retain their filenames and complete relative structure beneath the dedicated navigation folder. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against the selected cores, and MRA contents are never rewritten.
+For these modules, MRAs retain their filenames and complete relative structure beneath `_Arcade/_Arcade Systems/<SYSTEM>/`. Upstream `_alternatives` directories are preserved recursively wherever they appear inside the distribution, including all game/region/revision subfolders. Projects without alternatives receive no artificial alternatives folder. File and folder inventories must match exactly after removing the navigation prefix. RBFs stay in `_Arcade/cores/`; no nested core directory is generated. Each MRA's core reference is checked against the selected cores, and MRA contents are never rewritten.
 
 The shared adapter includes only MRAs and RBFs from the declared distribution root. It selects the newest `Arcade-<family>_<YYYYMMDD>.rbf` in each core family, retaining distinct families when present. Git history and older dated versions are not treated as additional current releases. Stable per-family `tangle` identities allow Downloader to retain an older managed core when a replacement download fails. Documentation, artwork, development sources, licenses, and utilities are excluded. New database/updater metadata, GitHub Release assets, unresolved MRA references, unknown runtime files, invalid version conventions, and ambiguous layouts require review rather than publication.
+
+Seibu SPI publishes `SeibuSPI.rbf` directly under `releases/`; its declared core policy supports stable filenames and dated replacements, and maps the unchanged filename to `_Arcade/cores/`. MiSTer's loader supports that name. Credit belongs to zakk4223 and the contributors credited upstream, including nand2mario. XelaNotPu's four projects retain their own upstream attribution.
 
 Every selected payload is downloaded transiently to verify its Git blob identity, size, and MD5. Generated URLs are pinned to an upstream commit; the payloads remain hosted solely by upstream. Manifests contain source inventory metadata and verification digests, never payload bytes. Unrelated repository commits reuse the previous verified payload revision when the selected inventory and policy are unchanged, preventing unnecessary commits. Normal additions, removals, content updates, and dated core replacements are discovered automatically without changing end-user configuration.
 
@@ -44,11 +50,19 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-zn1/capcom-zn1.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-zn2/capcom-zn2.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/seibu-spi]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/seibu-spi/seibu-spi.json.zip
 ```
 
 DownloaderPLUS does not edit your configuration or remove files installed by other databases. Shared destination checks reject differing payloads at the same path; identical hashes and sizes are compatible for future validated deduplication. No aggregate database is generated.
 
-See [repository inspection and verification](docs/repository-modules.md) for the initial installable sets and validation results.
+The existing three modules keep their permanent database IDs and artifact URLs during consolidation. Downloader moves their tracked navigation files through its ordinary update/removal settings. Core destinations and upstream payload URLs stay unchanged; DownloaderPLUS performs no manual cleanup of other installations.
+
+See [alternatives audit](docs/alternatives-audit.md) for current counts, hierarchy verification, and the two Sega systems held pending source research. PGM remains paused. The earlier [repository inspection](docs/repository-modules.md) records the initial three-module snapshots.
 
 ## Coin-Op module
 
@@ -113,6 +127,7 @@ Python 3.11 or newer is sufficient; no third-party Python dependencies are neede
 python -m unittest discover -s tests -v
 python tools/build.py --module coinop-collection
 python tools/verify_dist.py
+python tools/audit_alternatives.py --live
 ```
 
 To reproduce the inspected snapshot without networking and independently compare every field:
@@ -150,6 +165,7 @@ tools/common/repository.py         shared repository adapter and navigation poli
 tools/build.py                     build entry point
 tools/validate.py                  independent upstream/output comparison
 tools/verify_dist.py               distribution integrity check
+tools/audit_alternatives.py        recursive navigation parity audit (offline/live)
 tests/                            offline acceptance and safety tests
 dist/<module>/                    independently consumable artifacts
 .github/workflows/                validation and synchronization

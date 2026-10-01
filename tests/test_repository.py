@@ -20,7 +20,7 @@ def mock_source(config, payloads=None, head="a" * 40):
         mra = b'<misterromdescription><rbf>TestCore</rbf><rom zip="user-supplied.zip" /></misterromdescription>'
         payloads = {root + "/Game (World) - One.mra": mra,
                     root + "/_alternatives/_Game/Variant.mra": mra,
-                    root + "/cores/Arcade-TestCore_20260102.rbf": b"synthetic-core"}
+                    root + ("/" if config.get("core_layout") == "root" else "/cores/") + "Arcade-TestCore_20260102.rbf": b"synthetic-core"}
     entries = [{"path": path, "type": "blob", "mode": "100644", "size": len(data),
                 "sha": hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()}
                for path, data in payloads.items()]

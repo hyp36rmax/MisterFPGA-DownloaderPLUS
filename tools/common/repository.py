@@ -34,6 +34,16 @@ def core_version(path):
     return family, date
 
 
+def core_identity(path, config):
+    name = PurePosixPath(path).name
+    if re.fullmatch(r"Arcade-.+_\d{8}\.rbf", name):
+        return core_version(path)
+    require(config.get("core_naming", "dated") == "stable-or-dated", "Unrecognized core filename/version convention")
+    match = re.fullmatch(r"(?:Arcade-)?([A-Za-z0-9][A-Za-z0-9_-]*)\.rbf", name)
+    require(match is not None, "Invalid stable core filename")
+    return match.group(1), ""
+
+
 def discover(config, tree):
     require(type(tree) is dict and tree.get("truncated") is False, "Incomplete repository tree")
     require(type(tree.get("tree")) is list, "Invalid repository inventory")
@@ -66,14 +76,18 @@ def discover(config, tree):
         if extension == ".mra":
             require(not suffix.startswith("cores/"), "Navigation content inside core directory")
         else:
-            require(suffix.startswith("cores/") and "/" not in suffix[len("cores/"):], "Core outside standard core directory")
+            location = config.get("core_layout", "cores")
+            require((location == "root" and "/" not in suffix) or
+                    (location == "cores" and suffix.startswith("cores/") and "/" not in suffix[len("cores/"):]),
+                    "Core outside declared upstream core location")
         entries.append({"path": path, "size": entry["size"], "sha": entry["sha"]})
     require(any(e["path"].endswith(".mra") for e in entries), "No navigation payloads; distribution layout changed")
     versions = {}
     for entry in entries:
         if entry["path"].endswith(".rbf"):
-            family, date = core_version(entry["path"])
+            family, date = core_identity(entry["path"], config)
             key = family.casefold()
+            require(key not in versions or date != versions[key][0], "Ambiguous core version for family")
             if key not in versions or date > versions[key][0]:
                 versions[key] = (date, entry)
     require(bool(versions), "No installable cores")
@@ -129,10 +143,11 @@ class RepositoryPolicy:
                 require(not any(c.isspace() for c in url) and "?" not in url and "#" not in url, "Invalid source URL")
                 if path.endswith(".rbf"):
                     require(path.startswith("_Arcade/cores/"), "Core beneath navigation folder")
-                    family, _ = core_version(path)
+                    family, _ = core_identity(path, config)
                     require(record.get("tangle") == [config["name"] + ":" + family.casefold()], "Invalid core replacement identity")
                 else:
                     require(path.endswith(".mra") and "tangle" not in record, "Unexpected payload type/metadata")
+                    require(not path.startswith("_Arcade/cores/"), "Navigation content inside core directory")
         files = {path.casefold() for path in database["files"]}
         for path in paths:
             parts = path.split("/")
@@ -143,7 +158,7 @@ def raw_url(config, commit, path):
     return "https://raw.githubusercontent.com/" + config["repository"] + "/" + commit + "/" + quote(path)
 
 
-def source_database(config, commit, timestamp, records):
+def source_database(config, commit, timestamp, records, source_folders=()):
     require(re.fullmatch(r"[0-9a-f]{40}", commit) is not None, "Invalid source commit")
     root = config["distribution_root"]
     files, folders = {}, {}
@@ -155,7 +170,8 @@ def source_database(config, commit, timestamp, records):
         relative = "_Arcade/" + path[len(root) + 1:]
         record = {"hash": entry["md5"], "size": entry["size"], "url": raw_url(config, commit, path)}
         if path.endswith(".rbf"):
-            family, _ = core_version(path)
+            relative = "_Arcade/cores/" + PurePosixPath(path).name
+            family, _ = core_identity(path, config)
             families.add(family.casefold())
             record["tangle"] = [config["name"] + ":" + family.casefold()]
         else:
@@ -165,6 +181,14 @@ def source_database(config, commit, timestamp, records):
         files[relative] = record
         parts = relative.split("/")
         for index in range(1, len(parts)):
+            folders["/".join(parts[:index])] = {}
+    for path in source_folders:
+        safe_path(path)
+        require(path.startswith(root + "/") and "_alternatives" in path[len(root) + 1:].split("/"),
+                "Unexpected alternative folder inventory")
+        relative = "_Arcade/" + path[len(root) + 1:]
+        parts = relative.split("/")
+        for index in range(1, len(parts) + 1):
             folders["/".join(parts[:index])] = {}
     require(bool(references) and all(reference in families for reference in references), "MRA references missing core family")
     return {"v": 1, "db_id": config["upstream_db_id"], "timestamp": timestamp, "files": files, "folders": folders}
@@ -177,9 +201,12 @@ def inspect_repository(config, previous=None, fetcher=fetch):
     require(re.fullmatch(r"[0-9a-f]{40}", head) is not None, "Invalid repository revision")
     tree = parse_json(fetcher(api + "/git/trees/" + head + "?recursive=1"))
     entries = discover(config, tree)
+    source_folders = sorted(entry["path"] for entry in tree["tree"]
+                            if entry.get("type") == "tree" and entry["path"].startswith(config["distribution_root"] + "/")
+                            and "_alternatives" in entry["path"][len(config["distribution_root"]) + 1:].split("/"))
     releases = parse_json(fetcher(api + "/releases?per_page=1"))
     require(type(releases) is list and not any(release.get("assets") for release in releases), "GitHub release assets introduced; distribution policy requires review")
-    fingerprint = digest(canonical_json({"policy": config, "files": entries}))
+    fingerprint = digest(canonical_json({"policy": config, "files": entries, "folders": source_folders}))
     timestamp = int(datetime.datetime.fromisoformat(commit["commit"]["committer"]["date"].replace("Z", "+00:00")).timestamp())
     revision = head
     if previous and previous.get("source_fingerprint") == fingerprint:
@@ -197,9 +224,13 @@ def inspect_repository(config, previous=None, fetcher=fetch):
         if entry["path"].endswith(".mra"):
             require(not re.search(br"<!\s*(DOCTYPE|ENTITY)", payload, re.I), "Unsupported XML declaration")
             try:
-                xml = ET.fromstring(payload)
+                # MiSTer's sxmlc treats comment bodies as opaque, including '--'.
+                # Ignore comments only in this validation view; hashed/downloaded bytes stay intact.
+                view = re.sub(br"<!--[\s\S]*?-->|<!\[CDATA\[[\s\S]*?\]\]>",
+                              lambda match: match.group() if match.group().startswith(b"<![CDATA[") else b"", payload)
+                xml = ET.fromstring(view)
             except ET.ParseError as exc:
-                raise ValidationError("Malformed MRA XML") from exc
+                raise ValidationError("Malformed MRA XML: " + entry["path"]) from exc
             refs = xml.findall(".//rbf")
             require(xml.tag == "misterromdescription" and len(refs) == 1 and bool(refs[0].text), "Invalid MRA core reference")
             result["rbf"] = refs[0].text.strip()
@@ -207,8 +238,31 @@ def inspect_repository(config, previous=None, fetcher=fetch):
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         records = list(pool.map(verify, entries))
-    source = source_database(config, revision, timestamp, records)
+    source = source_database(config, revision, timestamp, records, source_folders)
     basis = {"source_mode": "repository", "source_repository": config["repository"],
              "source_commit": revision, "source_timestamp": timestamp,
-             "source_fingerprint": fingerprint, "source_files": records}
+             "source_fingerprint": fingerprint, "source_files": records, "source_folders": source_folders}
     return source, basis
+
+
+def navigation_inventory(database, prefix):
+    files = {path[len(prefix) + 1:]: record for path, record in database["files"].items()
+             if path.startswith(prefix + "/") and path.endswith(".mra")}
+    alternatives = {path: record for path, record in files.items() if "_alternatives" in path.split("/")}
+    folders = {path[len(prefix) + 1:]: record for path, record in database["folders"].items()
+               if path.startswith(prefix + "/") and "_alternatives" in path[len(prefix) + 1:].split("/")}
+    return files, alternatives, folders
+
+
+def validate_navigation(upstream, generated, config):
+    """Prove recursive navigation parity independently of destination mapping."""
+    source_prefix = "_Arcade/" + config["target_folder"] if upstream["db_id"] == config["derived_db_id"] else "_Arcade"
+    before, alternatives, folders = navigation_inventory(upstream, source_prefix)
+    after, generated_alternatives, generated_folders = navigation_inventory(generated, "_Arcade/" + config["target_folder"])
+    require(before == after, "Primary/alternative relative path or payload metadata parity mismatch")
+    require(alternatives == generated_alternatives, "Alternative MRA parity mismatch")
+    require(folders == generated_folders, "Alternative folder hierarchy parity mismatch")
+    return {"primary_mras": len(before) - len(alternatives), "alternative_mras": len(alternatives),
+            "alternative_folders": len(folders), "total_mras": len(before),
+            "current_cores": sum(path.endswith(".rbf") for path in generated["files"]),
+            "generated_alternative_mras": len(generated_alternatives), "alternatives_parity": True}

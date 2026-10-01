@@ -24,3 +24,5 @@ jobs:
           python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated "$RUNNER_TEMP/coinop/coinop-collection.json.zip"
       - name: Verify tracked distribution integrity
         run: python tools/verify_dist.py
+      - name: Audit recursive alternatives parity
+        run: python tools/audit_alternatives.py

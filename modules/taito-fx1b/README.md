@@ -2,7 +2,7 @@
 
 Authoritative source: [XelaNotPu/ZN1-TaitoFX1B_MiSTer](https://github.com/XelaNotPu/ZN1-TaitoFX1B_MiSTer), distributed under `releases/_Arcade/`.
 
-- Navigation: `_Arcade/_TAITO FX1B/`, preserving MRA suffixes and alternatives.
+- Navigation: `_Arcade/_Arcade Systems/TAITO FX1B/`, preserving MRA suffixes and alternatives recursively.
 - Cores: `_Arcade/cores/`, never beneath the navigation folder.
 - Artifact: `dist/taito-fx1b/taito-fx1b.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b`.

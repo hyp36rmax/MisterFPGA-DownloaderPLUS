@@ -1,5 +1,7 @@
 # Repository module inspection and software verification
 
+This document records the initial three-module inspection. Current Arcade Systems consolidation and recursive alternatives verification are documented in [the alternatives audit](alternatives-audit.md). Current navigation destinations use `_Arcade/_Arcade Systems/<SYSTEM>/`; the permanent IDs and artifact names remain unchanged.
+
 Inspection on September 30, 2026 found the same authoritative layout in all three sources: `releases/_Arcade/` contains primary MRAs, `_alternatives/` contains alternate MRAs, and `cores/` contains the current dated RBF. No Downloader database/updater metadata or GitHub Release assets were found. No additional distributable runtime files were present. Repository history and README release notes describe older versions, but each inspected current tree contains one core.
 
 | Module | Source commit | Primary MRAs | Alternate MRAs | Cores |
@@ -22,7 +24,7 @@ All 64 MRAs and 3 RBFs were fetched from pinned public upstream URLs, checked ag
 
 The repository adapter produces a normalized source inventory database, then uses the existing shared transform/comparison engine. The normalized schema is `v`, `timestamp`, `db_id`, `files`, `folders`; file records contain MD5, size, explicit URL, and a stable replacement `tangle` for cores. Folders carry empty metadata. No filter metadata is present in the source distributions, and none is invented.
 
-`releases/_Arcade/<MRA suffix>` maps beneath the module's `_Arcade/_<navigation folder>/`, preserving the complete suffix. `releases/_Arcade/cores/<RBF>` maps to `_Arcade/cores/<RBF>` unchanged. There are no nested core directories. URLs always point to the original source repository/path at a verified commit, never to DownloaderPLUS content storage.
+`releases/_Arcade/<MRA suffix>` maps beneath the module's `_Arcade/_Arcade Systems/<SYSTEM>/`, preserving the complete suffix. `releases/_Arcade/cores/<RBF>` maps to `_Arcade/cores/<RBF>` unchanged. There are no nested core directories. URLs always point to the original source repository/path at a verified commit, never to DownloaderPLUS content storage.
 
 The default remains authoritative database transformation. Direct repository generation for these external sources is explicitly authorized by this task and recorded by `allow_external_repository: true`. Future external sources need their own explicit authorization.
 

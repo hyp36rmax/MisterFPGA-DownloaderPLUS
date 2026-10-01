@@ -27,11 +27,11 @@ def verify_distribution():
         if config.get("source_mode") == "repository":
             expected.update({"source_mode": "repository", "source_repository": config["repository"],
                              "source_timestamp": database["timestamp"]})
-            source = source_database(config, manifest["source_commit"], manifest["source_timestamp"], manifest["source_files"])
+            source = source_database(config, manifest["source_commit"], manifest["source_timestamp"], manifest["source_files"], manifest.get("source_folders", ()))
             if digest(canonical_json(source)) != manifest["upstream_semantic_sha256"]:
                 raise ValidationError("Source inventory digest mismatch")
             entries = [{key: entry[key] for key in ("path", "size", "sha")} for entry in manifest["source_files"]]
-            if digest(canonical_json({"policy": config, "files": entries})) != manifest["source_fingerprint"]:
+            if digest(canonical_json({"policy": config, "files": entries, "folders": manifest.get("source_folders", [])})) != manifest["source_fingerprint"]:
                 raise ValidationError("Source fingerprint mismatch")
             if validate_output(source, database, config, policy) != manifest["validation"]:
                 raise ValidationError("Source/output comparison mismatch")

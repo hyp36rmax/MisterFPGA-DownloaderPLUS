@@ -1,0 +1,15 @@
+{
+  "name": "seibu-spi",
+  "display_name": "SEIBU SPI",
+  "source_mode": "repository",
+  "repository": "zakk4223/Arcade-SeibuSPI_MiSTer",
+  "ref": "main",
+  "distribution_root": "releases",
+  "target_folder": "_Arcade Systems/SEIBU SPI",
+  "preserve_arcade_cores": true,
+  "allow_external_repository": true,
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/seibu-spi",
+  "policy_version": 1,
+  "core_layout": "root",
+  "core_naming": "stable-or-dated"
+}
