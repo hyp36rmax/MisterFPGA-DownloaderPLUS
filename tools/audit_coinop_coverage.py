@@ -11,6 +11,7 @@ if __package__ in (None, ''):
 
 from tools.common.arcade_systems import ROOT, registry
 from tools.common.coinop_families import families, family_state, references, URL
+from tools.common.file_types import is_mra
 from tools.common.database import ValidationError, canonical_json, fetch, unpack
 from tools.common.engine import discover_modules, load_module
 from tools.common.filters import filter_counts, installable, parse_filter
@@ -40,7 +41,7 @@ def coverage(database, reference_map, root=ROOT, verify_published=True):
             owners[key]=module
     parsed = parse_filter(database['default_options']['filter'], database['tag_dictionary'])
     for path, record in sorted(database['files'].items()):
-        if not path.startswith('_Arcade/') or not path.endswith('.mra'):
+        if not path.startswith('_Arcade/') or not is_mra(path):
             continue
         classifications = sorted({term for t in record['tags'] for term in aliases.get(t, [])
                                   if term.startswith('arcade') and term not in {'arcade','arcadecores','arcaderbfsonly'}})
@@ -100,7 +101,7 @@ def coverage(database, reference_map, root=ROOT, verify_published=True):
                 for path, record in selected.items():
                     target = item['destination']+'/'+path[len('_Arcade/'):]
                     expected[target] = {**copy.deepcopy(record), 'url':record.get('url',database['base_files_url']+quote(path))}
-                actual = {p:r for p,r in generated['files'].items() if p.endswith('.mra')}
+                actual = {p:r for p,r in generated['files'].items() if is_mra(p)}
                 if actual != expected:
                     issues.append('Public inventory/payload metadata or effective URL mismatch: '+name)
                 if manifest['validation']['excluded_distribution_records']:

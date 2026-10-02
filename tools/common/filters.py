@@ -2,6 +2,7 @@
 import copy
 import re
 
+from tools.common.file_types import is_mra
 from tools.common.database import ValidationError
 from tools.common.archives import expanded_inventory
 
@@ -38,8 +39,8 @@ def filter_counts(database, value=None):
     inventory=expanded_inventory(database)
     value=database.get('default_options',{}).get('filter','') if value is None else value
     parsed=parse_filter(value,database.get('tag_dictionary',{}))
-    primary={p:r for p,r in inventory['files'].items() if p.endswith('.mra') and '_alternatives' not in p.split('/')}
-    alternatives={p:r for p,r in inventory['files'].items() if p.endswith('.mra') and '_alternatives' in p.split('/')}
+    primary={p:r for p,r in inventory['files'].items() if is_mra(p) and '_alternatives' not in p.split('/')}
+    alternatives={p:r for p,r in inventory['files'].items() if is_mra(p) and '_alternatives' in p.split('/')}
     installed=sum(installable(r,parsed) for r in primary.values())
     alt_installed=sum(installable(r,parsed) for r in alternatives.values())
     return {'selected_primary_mras':len(primary),'default_installable_primary_mras':installed,

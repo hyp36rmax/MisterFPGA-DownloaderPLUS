@@ -8,6 +8,7 @@ from urllib.parse import quote
 from urllib.parse import urlsplit
 
 from tools.common.arcade_systems import ROOT, NAMESPACE, documentation_database, publish_assembly
+from tools.common.file_types import is_mra
 from tools.common.database import parse_json, fetch, unpack, digest, canonical_json
 from tools.common.repository import require, mra_reference
 from tools.common.filters import parse_filter, installable, filter_counts
@@ -56,7 +57,7 @@ def confirmed_releases(item):
         require(isinstance(release['evidence'],str) and release['evidence'].strip(),'Missing release inventory evidence')
         for key,suffix in (('core_filename','.rbf'),('mra_filename','.mra')):
             value=release[key]
-            require(isinstance(value,str) and '/' not in value and '\\' not in value and value.endswith(suffix),'Missing actual released core/MRA filename')
+            require(isinstance(value,str) and '/' not in value and '\\' not in value and (is_mra(value) if key=='mra_filename' else value.endswith(suffix)),'Missing actual released core/MRA filename')
         eligible.append(release)
     return eligible
 
@@ -68,7 +69,7 @@ def references(database,fetcher=fetch):
         require(len(payload)==r['size'] and hashlib.md5(payload).hexdigest()==r['hash'],'Coin-Op MRA hash/size mismatch: '+path)
         return path,mra_reference(payload,path)
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        return dict(pool.map(verify,[(p,r) for p,r in database['files'].items() if p.endswith('.mra')]))
+        return dict(pool.map(verify,[(p,r) for p,r in database['files'].items() if is_mra(p)]))
 
 
 def family_state(database,item,reference_map):
@@ -76,7 +77,7 @@ def family_state(database,item,reference_map):
     require(all(t in dictionary for t in item['classifications']+item['core_classifications']),'Reviewed Coin-Op classification disappeared')
     ids={dictionary[t] for t in item['classifications'] if t in dictionary}
     core_ids={dictionary[t] for t in item['core_classifications'] if t in dictionary}
-    records={p:r for p,r in database['files'].items() if p.endswith('.mra') and ids.intersection(r['tags'])}
+    records={p:r for p,r in database['files'].items() if is_mra(p) and ids.intersection(r['tags'])}
     cores=[p.rsplit('/',1)[-1] for p,r in database['files'].items() if p.startswith('_Arcade/cores/') and p.endswith('.rbf') and core_ids.intersection(r['tags'])]
     known={database['tag_dictionary'][t] for f in families().values() for t in f['classifications'] if t in database['tag_dictionary']}
     reviewed={t for f in families().values() for t in f['classifications']+f['core_classifications']}|{'arcade','arcadecores','arcaderbfsonly'}

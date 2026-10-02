@@ -1,6 +1,7 @@
 {
   "source_semantic_sha256": "ca904c9dd32483591c7936e9158e180ece853ba36d808e4ae1b7db13dab5ad65",
   "references": {
+    "_Arcade/_alternatives/_Vapor Trail/Kuhga - Operation Code 'Vapor Trail' (Japan, Rev. 3).MRA": "vaportra_mister",
     "_Arcade/Armed F (Japan).mra": "armedf",
     "_Arcade/Armed Police Batrider (Japan, B Version) (Fri Feb 13 1998).mra": "batrider_mister",
     "_Arcade/Battle Bakraid - Unlimited Version (Japan) (Tue Jun 8 1999).mra": "bbakraid_mister",

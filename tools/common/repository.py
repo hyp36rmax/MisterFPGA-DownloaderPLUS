@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 from pathlib import PurePosixPath
 from urllib.parse import quote
 
+from tools.common.file_types import is_mra
 from tools.common.database import ValidationError, canonical_json, digest, fetch, parse_json
 
 
@@ -79,7 +80,7 @@ def discover(config, tree):
                     or PurePosixPath(path).name.upper().startswith(("LICENSE", "COPYING", "README")),
                     "Unknown runtime/distribution file type; review required")
             continue
-        require(PurePosixPath(path).suffix == extension, "Ambiguous payload extension")
+        require(is_mra(path) or PurePosixPath(path).suffix == extension, "Ambiguous payload extension")
         require(path.casefold() not in seen, "Duplicate repository payload path")
         seen.add(path.casefold())
         require(type(entry.get("size")) is int and 0 < entry["size"] <= 16 * 1024 * 1024, "Invalid payload size")
@@ -92,7 +93,7 @@ def discover(config, tree):
                     (location == "cores" and suffix.startswith("cores/") and "/" not in suffix[len("cores/"):]),
                     "Core outside declared upstream core location")
         entries.append({"path": path, "size": entry["size"], "sha": entry["sha"]})
-    require(any(e["path"].endswith(".mra") for e in entries), "No navigation payloads; distribution layout changed")
+    require(any(is_mra(e["path"]) for e in entries), "No navigation payloads; distribution layout changed")
     versions = {}
     for entry in entries:
         if entry["path"].endswith(".rbf"):
@@ -102,7 +103,7 @@ def discover(config, tree):
             if key not in versions or date > versions[key][0]:
                 versions[key] = (date, entry)
     require(bool(versions), "No installable cores")
-    result = [entry for entry in entries if entry["path"].endswith(".mra")]
+    result = [entry for entry in entries if is_mra(entry["path"])]
     result += [value[1] for value in versions.values()]
     return sorted(result, key=lambda entry: entry["path"])
 
@@ -158,7 +159,7 @@ class RepositoryPolicy:
                     family, _ = core_identity(path, config)
                     require(record.get("tangle") == [config.get("source_module", config["name"]) + ":" + family.casefold()], "Invalid core replacement identity")
                 else:
-                    require(path.endswith(".mra") and "tangle" not in record, "Unexpected payload type/metadata")
+                    require(is_mra(path) and "tangle" not in record, "Unexpected payload type/metadata")
                     require(not path.startswith("_Arcade/cores/"), "Navigation content inside core directory")
         files = {path.casefold() for path in database["files"]}
         for path in paths:
@@ -187,7 +188,7 @@ def source_database(config, commit, timestamp, records, source_folders=()):
             families.add(family.casefold())
             record["tangle"] = [config.get("source_module", config["name"]) + ":" + family.casefold()]
         else:
-            require(path.endswith(".mra") and isinstance(entry.get("rbf"), str), "Missing MRA core reference")
+            require(is_mra(path) and isinstance(entry.get("rbf"), str), "Missing MRA core reference")
             references.append(entry["rbf"].casefold())
         require(relative not in files, "Duplicate inventory destination")
         files[relative] = record
@@ -233,7 +234,7 @@ def inspect_repository(config, previous=None, fetcher=fetch):
         blob = hashlib.sha1(b"blob " + str(len(payload)).encode() + b"\0" + payload).hexdigest()
         require(blob == entry["sha"], "Downloaded payload differs from pinned repository blob")
         result = {**entry, "md5": hashlib.md5(payload).hexdigest()}
-        if entry["path"].endswith(".mra"):
+        if is_mra(entry["path"]):
             result["rbf"] = mra_reference(payload, entry["path"])
         return result
 
@@ -264,7 +265,7 @@ def navigation_inventory(database, prefix):
     from tools.common.archives import expanded_inventory
     inventory = expanded_inventory(database)
     files = {path[len(prefix) + 1:]: record for path, record in inventory["files"].items()
-             if path.startswith(prefix + "/") and path.endswith(".mra")}
+             if path.startswith(prefix + "/") and is_mra(path)}
     alternatives = {path: record for path, record in files.items() if "_alternatives" in path.split("/")}
     folders = {path[len(prefix) + 1:]: record for path, record in inventory["folders"].items()
                if path.startswith(prefix + "/") and "_alternatives" in path[len(prefix) + 1:].split("/")}

@@ -7,6 +7,7 @@ import zipfile
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 
+from tools.common.file_types import is_mra
 from tools.common.database import fetch, unpack, ValidationError
 from tools.common.repository import require, safe_path, mra_reference
 
@@ -90,7 +91,7 @@ def select_archives(database,config,selected_ids):
             if not selected_ids & set(record['tags']):continue
             require(set(record['tags']) & group_ids <= selected_ids, 'Ambiguous cross-system archive classification')
             safe_path(path)
-            require(path.startswith(config['source_navigation_root']+'/') and path.endswith('.mra'),'Unknown selected archive payload')
+            require(path.startswith(config['source_navigation_root']+'/') and is_mra(path),'Unknown selected archive payload')
             require(original['target_folder']+record['arc_at']==path,'Archive member/destination mismatch')
             files[path]=copy.deepcopy(record)
             parts=path.split('/')
