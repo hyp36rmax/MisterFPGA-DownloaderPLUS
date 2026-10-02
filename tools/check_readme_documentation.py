@@ -1,5 +1,6 @@
 """Report README hardware inventory and local documentation link mismatches."""
 import json
+import configparser
 from pathlib import Path
 import re
 import sys
@@ -9,7 +10,8 @@ if __package__ in (None, ''):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from tools.check_module_catalog import published_inventory
-from tools.common.arcade_systems import ROOT, eligible_modules, registry
+from tools.common.arcade_systems import ROOT, PUBLIC_BASE, NAMESPACE, eligible_modules, registry
+from tools.common.engine import load_module
 from tools.common.database import ValidationError
 
 
@@ -72,6 +74,61 @@ def validate_systems(text, active, reserve):
     return issues
 
 
+def individual_inventory(root=ROOT):
+    """Read published individual identities and artifacts; grouping is presentation only."""
+    entries = registry(root)['modules']
+    groups = json.loads((root / 'docs/arcade-systems-presentation.json').read_text(encoding='utf-8'))
+    inventory = []
+    for item in published_inventory(root):
+        entry = entries.get(item['name'])
+        if not entry or entry['management_state'] == 'reserve' or not item['destination'].startswith(NAMESPACE):
+            continue
+        name = item['destination'].rstrip('/').rsplit('/', 1)[1][1:]
+        matches = [g for g in groups if name == g['prefix'] or name.startswith(g['prefix'] + ' ')]
+        if len(matches) != 1:
+            raise ValidationError('Individual subscription grouping needs review: ' + name)
+        config, _ = load_module(item['name'], root)
+        inventory.append({'group': matches[0]['group'], 'db_id': config['derived_db_id'],
+                          'url': PUBLIC_BASE + 'dist/' + item['name'] + '/' + item['artifact']})
+    return inventory
+
+
+def validate_individuals(text, inventory):
+    issues, seen = [], set()
+    expected = {item['db_id']: item for item in inventory}
+    if '\n## Individual Arcade Systems\n' not in text:
+        return ['Missing Individual Arcade Systems section']
+    section = text.split('\n## Individual Arcade Systems\n', 1)[1].split('\n## ', 1)[0]
+    group = None
+    for block in re.split(r'(^### .+$)', section, flags=re.M):
+        if block.startswith('### '):
+            group = block[4:].strip()
+            continue
+        for contents in re.findall(r'```ini\n(.*?)\n```', block, re.S):
+            parser = configparser.ConfigParser(interpolation=None)
+            try:
+                parser.read_string(contents)
+            except configparser.Error as exc:
+                issues.append('Invalid individual configuration in ' + str(group) + ': ' + str(exc))
+                continue
+            if parser.defaults():
+                issues.append('Unexpected default configuration in ' + str(group))
+            for identity in parser.sections():
+                if identity in seen:
+                    issues.append('Duplicate individual subscription: ' + identity)
+                seen.add(identity)
+                if identity not in expected:
+                    issues.append('Unavailable or excluded individual subscription: ' + identity)
+                    continue
+                item = expected[identity]
+                if group != item['group']:
+                    issues.append('Incorrect subscription group: ' + identity)
+                if dict(parser[identity]) != {'db_url': item['url']}:
+                    issues.append('Incorrect subscription configuration or artifact URL: ' + identity)
+    issues.extend('Missing individual subscription: ' + identity for identity in sorted(expected.keys() - seen))
+    return issues
+
+
 def documentation_issues(root=ROOT):
     issues = []
     files = [root / 'README.md', *sorted((root / 'docs').rglob('*.md')), *sorted((root / 'modules').rglob('*.md'))]
@@ -100,8 +157,11 @@ def main():
     try:
         active, reserve = system_inventory()
         issues = validate_systems((ROOT / 'README.md').read_text(encoding='utf-8'), active, reserve)
+        individuals = individual_inventory()
+        issues += validate_individuals((ROOT / 'README.md').read_text(encoding='utf-8'), individuals)
         issues += documentation_issues()
         print(json.dumps({'available_systems': len(active), 'reserve_systems': len(reserve),
+                          'individual_subscriptions': len(individuals),
                           'status': 'FAIL' if issues else 'PASS', 'issues': issues}, indent=2))
         return bool(issues)
     except (ValueError, IndexError, KeyError, OSError) as exc:

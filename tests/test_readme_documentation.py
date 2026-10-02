@@ -2,7 +2,7 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from tools.check_readme_documentation import documentation_issues, validate_systems
+from tools.check_readme_documentation import documentation_issues, validate_systems, validate_individuals
 
 
 class ReadmeDocumentationTests(unittest.TestCase):
@@ -50,3 +50,38 @@ class ReadmeDocumentationTests(unittest.TestCase):
             root = Path(directory)
             (root / 'README.md').write_text('# Title\n[bad](#missing)\n[good](#title)\n', encoding='utf-8')
             self.assertEqual(1, len(documentation_issues(root)))
+
+
+class IndividualSubscriptionTests(unittest.TestCase):
+    inventory = [{'group': 'CAPCOM', 'db_id': 'owner/project/cps1', 'url': 'https://example.org/cps1.json.zip'}]
+    text = ('\n## Individual Arcade Systems\n\n### CAPCOM\n\n```ini\n'
+            '[owner/project/cps1]\ndb_url = https://example.org/cps1.json.zip\n```\n\n## How it works\n')
+
+    def check(self, text):
+        return validate_individuals(text, self.inventory)
+
+    def test_complete_correct_configuration(self):
+        self.assertEqual([], self.check(self.text))
+
+    def test_missing_subscription(self):
+        self.assertTrue(any('Missing individual subscription' in issue for issue in self.check(self.text.replace('```ini', '```text'))))
+
+    def test_wrong_artifact_url(self):
+        self.assertTrue(any('artifact URL' in issue for issue in self.check(self.text.replace('cps1.json.zip', 'wrong.json.zip'))))
+
+    def test_wrong_group(self):
+        self.assertTrue(any('Incorrect subscription group' in issue for issue in self.check(self.text.replace('### CAPCOM', '### SEGA'))))
+
+    def test_excluded_subscription_and_missing_identity(self):
+        issues = self.check(self.text.replace('owner/project/cps1', 'owner/project/complete'))
+        self.assertTrue(any('excluded' in issue for issue in issues))
+        self.assertTrue(any('Missing individual subscription' in issue for issue in issues))
+
+    def test_duplicate_in_separate_blocks(self):
+        block = self.text.split('## How it works')[0]
+        extra = '### CAPCOM\n\n```ini\n[owner/project/cps1]\ndb_url = https://example.org/cps1.json.zip\n```\n'
+        self.assertTrue(any('Duplicate' in issue for issue in self.check(block + extra)))
+
+    def test_duplicate_within_block(self):
+        text = self.text.replace('\n```\n', '\n[owner/project/cps1]\ndb_url = https://example.org/cps1.json.zip\n```\n')
+        self.assertTrue(any('Invalid individual configuration' in issue for issue in self.check(text)))

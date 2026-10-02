@@ -165,6 +165,182 @@ The collection will grow as more arcade systems become available and can be supp
 - PGM2 (EZIO)
 - PSIKYO SH2
 
+## Individual Arcade Systems
+
+If you only want specific Arcade Systems, add the sections you want to your Downloader configuration and run Update_All normally. Use individual modules instead of Arcade Systems Complete for the same systems.
+
+### CAPCOM
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps1/capcom-cps1.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps15]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps15/capcom-cps15.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps2/capcom-cps2.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps3]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-cps3/capcom-cps3.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-zn1/capcom-zn1.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-zn2/capcom-zn2.json.zip
+```
+
+### DATA EAST
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-data-east-deco-16]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-data-east-deco-16/coinop-data-east-deco-16.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-data-east-deco-32]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-data-east-deco-32/coinop-data-east-deco-32.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-data-east-deco-8]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-data-east-deco-8/coinop-data-east-deco-8.json.zip
+```
+
+### EIGHTING / RAIZING
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-eighting-raizing]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-eighting-raizing/coinop-eighting-raizing.json.zip
+```
+
+### IREM
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m62]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m62/irem-m62.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m72]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m72/irem-m72.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m90]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m90/irem-m90.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m92]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m92/irem-m92.json.zip
+```
+
+### JALECO
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-jaleco-mega-system-1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-jaleco-mega-system-1/coinop-jaleco-mega-system-1.json.zip
+```
+
+### MIDWAY
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-midway-t-unit]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-midway-t-unit/coinop-midway-t-unit.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-midway-y-unit]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-midway-y-unit/coinop-midway-y-unit.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-midway-z-unit]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-midway-z-unit/coinop-midway-z-unit.json.zip
+```
+
+### NAMCO
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system11/namco-system11.json.zip
+```
+
+### NICHIBUTSU
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-nichibutsu-terra-cresta]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nichibutsu-terra-cresta/coinop-nichibutsu-terra-cresta.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-nichibutsu-terra-force]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nichibutsu-terra-force/coinop-nichibutsu-terra-force.json.zip
+```
+
+### NMK
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-nmk16]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nmk16/coinop-nmk16.json.zip
+```
+
+### PGM
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio-arcade-systems]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/pgm-ezio-arcade-systems/pgm-ezio-arcade-systems.json.zip
+```
+
+### SEGA
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-stv]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-stv/sega-stv.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system16]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system16/sega-system16.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system18]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system18/sega-system18.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system32/sega-system32.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32-multi]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system32-multi/sega-system32-multi.json.zip
+```
+
+### SEIBU
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/seibu-spi]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/seibu-spi/seibu-spi.json.zip
+```
+
+### SNK
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-snk-68000]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-snk-68000/coinop-snk-68000.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-snk-alpha-68k]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-snk-alpha-68k/coinop-snk-alpha-68k.json.zip
+```
+
+### TAITO
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-f2/taito-f2.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1b/taito-fx1b.json.zip
+```
+
+### TECHNOSOFT
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/technosoft]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/technosoft/technosoft.json.zip
+```
+
+### TOAPLAN
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-toaplan-1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-1/coinop-toaplan-1.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-toaplan-2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-2/coinop-toaplan-2.json.zip
+```
+
 ## How it works
 
 DownloaderPLUS uses maintained upstream distributions to add organized navigation inside your MiSTer Arcade folder. The original projects maintain their cores, MRAs and updates. DownloaderPLUS follows those sources as they change.
