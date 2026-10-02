@@ -21,12 +21,13 @@ def audit(live=False):
             from tools.verify_dist import verify_one
             g,m=verify_one(name,verbose=False)
             counts=filter_counts(g)
-            rows.append({'module':name,'source_default_filter':g['default_options']['filter'],
-                         'source_default_installable_primary_mras':counts['default_installable_primary_mras'],
-                         'source_filtered_primary_mras':counts['filtered_primary_mras'],
-                         'source_filtered_alternative_mras':counts['filtered_alternative_mras'],
-                         'generated_default_filter':g['default_options']['filter'],'conflict':False,
-                         'derived_policy_applied':False,'status':'PASS',**counts})
+            rows.append({'module':name,'source_default_filter':m.get('source_database',g)['default_options']['filter'],
+                         'source_default_installable_primary_mras':counts['default_installable_primary_mras']-m['validation'].get('source_filtered_primary_mras',0),
+                         'source_filtered_primary_mras':m['validation'].get('source_filtered_primary_mras',counts['filtered_primary_mras']),
+                         'source_filtered_alternative_mras':m['validation'].get('source_filtered_alternatives',counts['filtered_alternative_mras']),
+                         'generated_default_filter':g['default_options']['filter'],
+                         'conflict':bool(m['validation'].get('source_filtered_primary_mras',0) or m['validation'].get('source_filtered_alternatives',0)),
+                         'derived_policy_applied':m.get('source_database',g).get('default_options')!=g.get('default_options'),'status':'PASS',**counts})
             continue
         if c.get('source_mode') not in {'database','repository'}:continue
         m=parse_json((ROOT/'dist'/name/'manifest.json').read_bytes())

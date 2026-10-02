@@ -46,8 +46,9 @@ def eligible_modules(root=ROOT):
             continue
         entry=registered[name]
         if entry['management_state']=='reserve':
-            require(config.get('source_mode')=='documentation' and not entry['include_required_cores'],'Reserve cannot own payloads or cores')
-            require(entry['destination_roots']==[s['destination'] for s in config['systems']],'Reserve destinations differ from registry')
+            require(config.get('source_mode') in {'documentation','coinop-family'} and not entry['include_required_cores'],'Reserve cannot own payloads or cores')
+            if config.get('source_mode')=='documentation':
+                require(entry['destination_roots']==[s['destination'] for s in config['systems']],'Reserve destinations differ from registry')
         source=config.get('repository',config.get('upstream_db_id',config.get('authority')))
         require(source==entry['authority'], 'Registry/configuration authority mismatch: '+name)
         if config.get('target_folder'):

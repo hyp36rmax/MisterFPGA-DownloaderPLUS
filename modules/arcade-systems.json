@@ -273,7 +273,7 @@
     },
     "coinop-nmk16": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
-      "management_state": "manual",
+      "management_state": "managed",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NMK16"
@@ -325,13 +325,14 @@
         "_Arcade/_Arcade Systems/_CAVE CV1000",
         "_Arcade/_Arcade Systems/_KANEKO SUPER NOVA SYSTEM",
         "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12",
-        "_Arcade/_Arcade Systems/_PGM2 (EZIO)"
+        "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
+        "_Arcade/_Arcade Systems/_TECHNOS16"
       ],
       "include_required_cores": false
     },
     "coinop-midway-z-unit": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
-      "management_state": "manual",
+      "management_state": "reserve",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_MIDWAY Z-UNIT"
@@ -340,7 +341,7 @@
     },
     "coinop-midway-y-unit": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
-      "management_state": "manual",
+      "management_state": "reserve",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_MIDWAY Y-UNIT"
@@ -349,7 +350,7 @@
     },
     "coinop-midway-t-unit": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
-      "management_state": "manual",
+      "management_state": "reserve",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_MIDWAY T-UNIT"
@@ -376,7 +377,7 @@
     },
     "coinop-konami-pre-gx": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
-      "management_state": "manual",
+      "management_state": "managed",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_KONAMI PRE-GX"
@@ -389,6 +390,42 @@
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_PSIKYO SH2"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-taito-a78": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO A78"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-taito-a85": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO A85"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-technos-ta-0015": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TECHNOS TA-0015 & TA-0017"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-toaplan-min16-02": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TOAPLAN MIN16-02"
       ],
       "include_required_cores": false
     }
@@ -418,6 +455,10 @@
     "_KONAMI TMNT2 BASED": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_KONAMI XEXEX BASED": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_KONAMI PRE-GX": "Coin-OpCollection/Distribution-MiSTerFPGA",
-    "_CAVE 68000": "Coin-OpCollection/Distribution-MiSTerFPGA"
+    "_CAVE 68000": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TAITO A78": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TAITO A85": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TECHNOS TA-0015 & TA-0017": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TOAPLAN MIN16-02": "Coin-OpCollection/Distribution-MiSTerFPGA"
   }
 }

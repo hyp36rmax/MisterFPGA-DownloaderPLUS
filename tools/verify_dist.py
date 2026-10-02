@@ -25,6 +25,10 @@ def verify_assembly(name,root=ROOT):
         parent,parent_policy=load_module('coinop-collection',root);parent_policy.validate_schema(authoritative,parent)
         if digest(canonical_json(authoritative))!=manifest['source_semantic_sha256']:raise ValidationError('Coin-Op provenance mismatch')
         expected,resources,report=family_database(config,authoritative,manifest['source_references'],Path(root))
+        approval=registry(root)['modules'][name]
+        if report['state']!=approval['management_state']:raise ValidationError('Coin-Op registry state mismatch: '+name)
+        if report['state']=='reserve' and any(not p.endswith('/_READ ME.txt') for p in database['files']):
+            raise ValidationError('Reserve contains payloads: '+name)
         if any(manifest['validation'].get(k)!=v for k,v in report.items()):raise ValidationError('Coin-Op validation report mismatch')
     else:
         contributors=manifest['source_databases']

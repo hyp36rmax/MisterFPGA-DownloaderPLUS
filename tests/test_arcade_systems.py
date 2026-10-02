@@ -99,7 +99,7 @@ class ArcadeSystemsTests(unittest.TestCase):
 
     def test_reserve_only_guidance_and_private_user_file_safety(self):
         c=load_module('arcade-systems-reserve')[0];d,resources=documentation_database(c,c['systems'])
-        self.assertEqual(len(d['files']),5)
+        self.assertEqual(len(d['files']),6)
         self.assertTrue(all(p.endswith('/_READ ME.txt') for p in d['files']))
         self.assertTrue(all('/_Reserve/' not in p for p in d['files']))
         self.assertTrue(all('_Arcade/cores/' in text.decode() and 'authorized source' in text.decode() for text in resources.values()))
@@ -128,25 +128,27 @@ class ArcadeSystemsTests(unittest.TestCase):
             self.assertEqual({k:v for k,v in new.items() if k!='url'},r)
             from urllib.parse import quote
             self.assertEqual(new['url'],r.get('url',source['base_files_url']+quote(p)))
-        restricted=copy.deepcopy(source);restricted['default_options']['filter']='!all'
-        with self.assertRaisesRegex(ValidationError,'DERIVED FILTER CONFLICT'):family_database(c,restricted,refs)
-        blocked=copy.deepcopy(source);blocked['tag_dictionary']['syntheticrestricted']=999
-        blocked['default_options']['filter']='[MiSTer] !syntheticrestricted'
-        for p in selected:blocked['files'][p]['tags'].append(999)
-        manual,resources,report=family_database(c,blocked,refs)
-        self.assertEqual(report['state'],'manual');self.assertTrue(resources)
-        self.assertEqual(list(manual['files']),[item['destination']+'/_READ ME.txt'])
+        for value in ('!all','[MiSTer] !syntheticrestricted'):
+            blocked=copy.deepcopy(source);blocked['tag_dictionary']['syntheticrestricted']=999
+            blocked['default_options']['filter']=value
+            for path in selected:blocked['files'][path]['tags'].append(999)
+            managed,resources,report=family_database(c,blocked,refs)
+            self.assertEqual(report['state'],'managed');self.assertFalse(resources)
+            self.assertEqual(report['filtered_primary_mras'],0)
+            self.assertEqual(report['primary_mras'],len([path for path in selected if '_alternatives' not in path.split('/')]))
+            self.assertEqual(managed['tag_dictionary'],blocked['tag_dictionary'])
         absent=copy.deepcopy(source);absent['files']={p:r for p,r in source['files'].items() if p not in selected}
         empty,resources,report=family_database(c,absent,refs)
         self.assertEqual(report['state'],'absent');self.assertFalse(empty['files']);self.assertFalse(empty['folders']);self.assertFalse(resources)
 
-    def test_coinop_manual_promotion_preserves_access_defaults(self):
+    def test_coinop_public_records_ignore_source_default_eligibility_gate(self):
         c=load_module('coinop-nmk16')[0];m=self.coinop_fixture();source=m['source_database'];refs=m['source_references']
-        before,_,report=family_database(c,source,refs);self.assertEqual(report['state'],'manual')
+        before,_,report=family_database(c,source,refs);self.assertEqual(report['state'],'managed')
         public=copy.deepcopy(source);public['default_options']['filter']='[MiSTer]'
         after,_,report=family_database(c,public,refs);self.assertEqual(report['state'],'managed')
-        self.assertTrue(all(p.startswith(next(iter(before['folders']))+'/') for p in after['files']))
-        self.assertEqual(before['default_options'],source['default_options'])
+        self.assertEqual(before,after)
+        self.assertEqual(before['default_options'],{'filter':'[MiSTer]'})
+        self.assertEqual(report['filtered_primary_mras'],0)
 
     def test_unknown_classification_stays_outside_family_views(self):
         c=load_module('coinop-toaplan-2')[0];m=self.coinop_fixture();source=copy.deepcopy(m['source_database'])
@@ -221,7 +223,7 @@ class ArcadeSystemsTests(unittest.TestCase):
         item=copy.deepcopy(families()[c['family']]);item['classifications']=[];item['core_classifications']=[]
         self.assertEqual(family_state(m['source_database'],item,m['source_references'])[0],'absent')
         item['confirmed_releases']=[{'platform':'MiSTerFPGA','core_filename':'Confirmed_20261001.rbf','mra_filename':'Confirmed.mra','compatible':True,'evidence':'Reviewed released inventory'}]
-        self.assertEqual(family_state(m['source_database'],item,m['source_references'])[0],'manual')
+        self.assertEqual(family_state(m['source_database'],item,m['source_references'])[0],'reserve')
         with patch('tools.common.coinop_families.families',return_value={c['family']:item}):
             database,resources,report=family_database(c,m['source_database'],m['source_references'])
             self.assertEqual(len(database['files']),1);self.assertTrue(resources)

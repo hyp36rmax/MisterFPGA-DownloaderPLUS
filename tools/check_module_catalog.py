@@ -34,6 +34,7 @@ def source_label(config, root):
     if mode == 'documentation':
         return 'Navigation guidance'
     if mode == 'coinop-family':
+        if registry(root)['modules'][config['name']]['management_state']=='reserve':return 'Coin-Op Reserve guidance'
         return 'Coin-Op database selection'
     if mode == 'repository':
         if 'source_module' in config:

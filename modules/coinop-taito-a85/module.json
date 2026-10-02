@@ -1,0 +1,11 @@
+{
+  "name": "coinop-taito-a85",
+  "display_name": "TAITO A85",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "taito-a85",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-taito-a85",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

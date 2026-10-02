@@ -54,9 +54,9 @@ _Arcade/
 | KONAMI PRE-GX | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI PRE-GX/` | `coinop-konami-pre-gx.json.zip` |
 | KONAMI TMNT2 BASED | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI TMNT2 BASED/` | `coinop-konami-tmnt2-based.json.zip` |
 | KONAMI XEXEX BASED | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI XEXEX BASED/` | `coinop-konami-xexex-based.json.zip` |
-| MIDWAY T-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY T-UNIT/` | `coinop-midway-t-unit.json.zip` |
-| MIDWAY Y-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY Y-UNIT/` | `coinop-midway-y-unit.json.zip` |
-| MIDWAY Z-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY Z-UNIT/` | `coinop-midway-z-unit.json.zip` |
+| MIDWAY T-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY T-UNIT/` | `coinop-midway-t-unit.json.zip` |
+| MIDWAY Y-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY Y-UNIT/` | `coinop-midway-y-unit.json.zip` |
+| MIDWAY Z-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY Z-UNIT/` | `coinop-midway-z-unit.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/_NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
 | NICHIBUTSU TERRA CRESTA | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA/` | `coinop-nichibutsu-terra-cresta.json.zip` |
 | NICHIBUTSU TERRA FORCE | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE/` | `coinop-nichibutsu-terra-force.json.zip` |
@@ -70,11 +70,15 @@ _Arcade/
 | SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/_SEIBU SPI/` | `seibu-spi.json.zip` |
 | SNK 68000 | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK 68000/` | `coinop-snk-68000.json.zip` |
 | SNK ALPHA-68K | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK ALPHA-68K/` | `coinop-snk-alpha-68k.json.zip` |
+| TAITO A78 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A78/` | `coinop-taito-a78.json.zip` |
+| TAITO A85 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A85/` | `coinop-taito-a85.json.zip` |
 | TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO F2/` | `taito-f2.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/_TAITO FX1B/` | `taito-fx1b.json.zip` |
+| TECHNOS TA-0015 & TA-0017 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TECHNOS TA-0015 & TA-0017/` | `coinop-technos-ta-0015.json.zip` |
 | TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TECHNOSOFT/` | `technosoft.json.zip` |
 | TOAPLAN 1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN 1/` | `coinop-toaplan-1.json.zip` |
 | TOAPLAN 2 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN 2/` | `coinop-toaplan-2.json.zip` |
+| TOAPLAN MIN16-02 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN MIN16-02/` | `coinop-toaplan-min16-02.json.zip` |
 
 ## Installation
 
@@ -140,7 +144,7 @@ The current folders are listed under [Reserve Systems](#reserve-systems) below.
 
 ## Available Arcade Systems
 
-The collection will grow as more arcade systems become available and can be supported reliably. Some systems currently provide folders and manual placement guidance; see the [module catalog](docs/arcade-systems.md) for details.
+The systems below download from their maintained sources. Reserve Systems provide folders and placement guidance; see the [module catalog](docs/arcade-systems.md) for details.
 
 | Manufacturer or family | Systems |
 |---|---|
@@ -150,7 +154,6 @@ The collection will grow as more arcade systems become available and can be supp
 | IREM | M62, M72, M90, M92 |
 | JALECO | MEGA SYSTEM 1 |
 | KONAMI | PRE-GX, TMNT2 BASED, XEXEX BASED |
-| MIDWAY | T-UNIT, Y-UNIT, Z-UNIT |
 | NAMCO | SYSTEM 11 |
 | NICHIBUTSU | TERRA CRESTA, TERRA FORCE |
 | NMK | NMK16 |
@@ -159,17 +162,24 @@ The collection will grow as more arcade systems become available and can be supp
 | SEGA | ST-V, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
 | SEIBU | SPI |
 | SNK | 68000, ALPHA-68K |
-| TAITO | F2, FX1B |
+| TAITO | A78, A85, F2, FX1B |
+| TECHNOS | TA-0015 & TA-0017 |
 | TECHNOSOFT | TECHNOSOFT |
-| TOAPLAN | TOAPLAN 1, TOAPLAN 2 |
+| TOAPLAN | TOAPLAN 1, TOAPLAN 2, TOAPLAN MIN16-02 |
 
 ### Reserve Systems
 
 - CAVE 68000
 - CAVE CV1000
 - KANEKO SUPER NOVA SYSTEM
+- MIDWAY T-UNIT
+- MIDWAY Y-UNIT
+- MIDWAY Z-UNIT
 - NAMCO SYSTEM 12
 - PGM2 (EZIO)
+- TECHNOS16
+
+Midway Reserve folders use their individual subscriptions below or Arcade Systems Complete. The other Reserve folders use Arcade Systems Reserve.
 
 ## Individual Arcade Systems
 
@@ -343,11 +353,24 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### TAITO
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-taito-a78]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-taito-a78/coinop-taito-a78.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-taito-a85]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-taito-a85/coinop-taito-a85.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-f2/taito-f2.json.zip
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1b/taito-fx1b.json.zip
+```
+
+### TECHNOS
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-technos-ta-0015]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-technos-ta-0015/coinop-technos-ta-0015.json.zip
 ```
 
 ### TECHNOSOFT
@@ -360,6 +383,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### TOAPLAN
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-toaplan-min16-02]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-min16-02/coinop-toaplan-min16-02.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-toaplan-1]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-1/coinop-toaplan-1.json.zip
 
