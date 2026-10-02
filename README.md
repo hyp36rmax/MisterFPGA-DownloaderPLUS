@@ -46,6 +46,7 @@ _Arcade/
 | DATA EAST DECO-32 | Coin-Op database selection | `_Arcade/_Arcade Systems/_DATA EAST DECO-32/` | `coinop-data-east-deco-32.json.zip` |
 | DATA EAST DECO-8 | Coin-Op database selection | `_Arcade/_Arcade Systems/_DATA EAST DECO-8/` | `coinop-data-east-deco-8.json.zip` |
 | EIGHTING RAIZING | Coin-Op database selection | `_Arcade/_Arcade Systems/_EIGHTING RAIZING/` | `coinop-eighting-raizing.json.zip` |
+| IREM M107 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M107/` | `irem-m107.json.zip` |
 | IREM M62 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M62/` | `irem-m62.json.zip` |
 | IREM M72 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M72/` | `irem-m72.json.zip` |
 | IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M90/` | `irem-m90.json.zip` |
@@ -61,8 +62,10 @@ _Arcade/
 | NICHIBUTSU TERRA CRESTA | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA/` | `coinop-nichibutsu-terra-cresta.json.zip` |
 | NICHIBUTSU TERRA FORCE | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE/` | `coinop-nichibutsu-terra-force.json.zip` |
 | NMK16 | Coin-Op database selection | `_Arcade/_Arcade Systems/_NMK16/` | `coinop-nmk16.json.zip` |
+| PSIKYO | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO/` | `psikyo.json.zip` |
 | PSIKYO SH2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO SH2/` | `psikyo-sh2.json.zip` |
 | SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA ST-V/` | `sega-stv.json.zip` |
+| SEGA SYSTEM 1 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 1/` | `sega-system1.json.zip` |
 | SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 16/` | `sega-system16.json.zip` |
 | SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 18/` | `sega-system18.json.zip` |
 | SEGA SYSTEM 32 | MeatCores database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 32/` | `sega-system32.json.zip` |
@@ -72,8 +75,10 @@ _Arcade/
 | SNK ALPHA-68K | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK ALPHA-68K/` | `coinop-snk-alpha-68k.json.zip` |
 | TAITO A78 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A78/` | `coinop-taito-a78.json.zip` |
 | TAITO A85 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A85/` | `coinop-taito-a85.json.zip` |
+| TAITO ASUKA | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO ASUKA/` | `taito-asuka.json.zip` |
 | TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO F2/` | `taito-f2.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/_TAITO FX1B/` | `taito-fx1b.json.zip` |
+| TAITO SYSTEM SJ | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO SYSTEM SJ/` | `taito-system-sj.json.zip` |
 | TECHNOS TA-0015 & TA-0017 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TECHNOS TA-0015 & TA-0017/` | `coinop-technos-ta-0015.json.zip` |
 | TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TECHNOSOFT/` | `technosoft.json.zip` |
 | TOAPLAN 1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN 1/` | `coinop-toaplan-1.json.zip` |
@@ -151,18 +156,18 @@ The systems below download from their maintained sources. Reserve Systems provid
 | CAPCOM | CPS1, CPS1.5, CPS2, CPS3, ZN-1, ZN-2 |
 | DATA EAST | DECO-8, DECO-16, DECO-32 |
 | EIGHTING / RAIZING | EIGHTING RAIZING |
-| IREM | M62, M72, M90, M92 |
+| IREM | M107, M62, M72, M90, M92 |
 | JALECO | MEGA SYSTEM 1 |
 | KONAMI | PRE-GX, TMNT2 BASED, XEXEX BASED |
 | NAMCO | SYSTEM 11 |
 | NICHIBUTSU | TERRA CRESTA, TERRA FORCE |
 | NMK | NMK16 |
 | PGM | PGM (EZIO) |
-| PSIKYO | SH2 |
-| SEGA | ST-V, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
+| PSIKYO | PSIKYO, SH2 |
+| SEGA | ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
 | SEIBU | SPI |
 | SNK | 68000, ALPHA-68K |
-| TAITO | A78, A85, F2, FX1B |
+| TAITO | A78, A85, ASUKA, F2, FX1B, SYSTEM SJ |
 | TECHNOS | TA-0015 & TA-0017 |
 | TECHNOSOFT | TECHNOSOFT |
 | TOAPLAN | TOAPLAN 1, TOAPLAN 2, TOAPLAN MIN16-02 |
@@ -230,6 +235,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### IREM
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m107]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m107/irem-m107.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m62]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/irem-m62/irem-m62.json.zip
 
@@ -310,6 +318,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### PSIKYO
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/psikyo]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/psikyo/psikyo.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/psikyo-sh2]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/psikyo-sh2/psikyo-sh2.json.zip
 ```
@@ -317,6 +328,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### SEGA
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system1/sega-system1.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-stv]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-stv/sega-stv.json.zip
 
@@ -353,6 +367,12 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### TAITO
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-asuka]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-asuka/taito-asuka.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-system-sj]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-system-sj/taito-system-sj.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-taito-a78]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-taito-a78/coinop-taito-a78.json.zip
 
@@ -404,6 +424,8 @@ Keep normal upstream core installations enabled where required. Arcade cores con
 DownloaderPLUS organizes work maintained by the MiSTer community. Core development and game support belong to the original projects and their contributors.
 
 Thanks to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [Ezio Chiu's PGM work](https://github.com/hyp36rmax/PGM-Mister-EZIOCHIU), [Jotego](https://github.com/jotego/jtcores_mister), [MiSTer-devel](https://github.com/MiSTer-devel), [Meathax](https://github.com/meathax/meatcores), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), and the developers and contributors credited by each upstream project. Their work retains its own licensing. DownloaderPLUS is an independent project and does not claim affiliation or ownership.
+
+Additional core credits: [Martin Donlon](https://github.com/wickerwaka), [Paul Priest](https://github.com/ppriest), [MiSTer-X](https://github.com/MrX-8B), [rmonic79](https://github.com/rmonic79), and [Anton Gale](https://github.com/antongale). These modules use the official MiSTer Distribution as their download source.
 
 ## Project documentation
 

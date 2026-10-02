@@ -1,0 +1,26 @@
+{
+  "name": "taito-system-sj",
+  "display_name": "TAITO SYSTEM SJ",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/main/db.json.zip",
+  "upstream_db_id": "distribution_mister",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/taito-system-sj",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadetaitosj"
+  ],
+  "exclusive_group_tags": [
+    "arcadetaitosj"
+  ],
+  "source_navigation_root": "_Arcade",
+  "target_folder": "_Arcade Systems/_TAITO SYSTEM SJ",
+  "core_ownership": "upstream",
+  "selection_archives": [
+    "mra_alternatives"
+  ],
+  "require_all_group_tags": false,
+  "filter_policy": {
+    "inventory": "complete",
+    "remove_conflicting_exclusions": true
+  }
+}
