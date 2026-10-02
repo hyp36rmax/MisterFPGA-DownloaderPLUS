@@ -40,3 +40,25 @@ python tools/verify_dist.py
 ## Remaining hardware acceptance
 
 With the normal Coin-Op installation enabled, verify the dedicated navigation folder, representative root and alternative MRAs, successful core lookup and ROM loading, and the intended filter selections. Confirm both installations remain accessible after a normal Downloader update. Software checks do not claim to establish these on-device results. The module is not considered fully hardware-verified until that acceptance is completed.
+
+## Build and verify
+
+Python 3.11 or newer is sufficient; no third-party Python dependencies are needed. Run these commands from the repository root:
+
+```sh
+python -m unittest discover -s tests -v
+python tools/build.py --module coinop-collection
+python tools/verify_dist.py
+python tools/audit_alternatives.py --live
+```
+
+To reproduce the inspected snapshot without networking and independently compare every field:
+
+```sh
+python tools/build.py --module coinop-collection --upstream-file tests/fixtures/coinop-2026-09-30.db.json.zip
+python tools/validate.py --module coinop-collection --upstream tests/fixtures/coinop-2026-09-30.db.json.zip --generated dist/coinop-collection/coinop-collection.json.zip
+```
+
+Use `--output-dir <directory>` to build elsewhere. Use `python tools/build.py --all` to discover and build all modules from their configured upstream URLs.
+
+Generated artifacts are `dist/<module>/<module>.json.zip` and `dist/<module>/manifest.json`. ZIPs contain exactly one `db.json` and use fixed metadata, sorted JSON keys, and stored compression for deterministic bytes across supported Python platforms. Input object ordering and upstream ZIP timestamps/compression do not produce needless changes. Content bytes are always fetched by MiSTer from upstream, not from DownloaderPLUS.

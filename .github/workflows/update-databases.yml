@@ -56,6 +56,8 @@ jobs:
         run: python tools/verify_dist.py
       - name: Validate the published module catalog
         run: python tools/check_module_catalog.py
+      - name: Validate README systems and documentation links
+        run: python tools/check_readme_documentation.py
       - name: Audit recursive alternatives parity
         run: python tools/audit_alternatives.py
       - name: Audit Arcade Systems registry and ownership
@@ -95,6 +97,7 @@ jobs:
           python tools/verify_dist.py
           python tools/audit_filters.py
           python tools/check_module_catalog.py
+          python tools/check_readme_documentation.py
       - name: Publish only complete validated changes
         run: |
           git add -- dist/arcade-systems-complete

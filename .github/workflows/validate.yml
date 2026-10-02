@@ -31,6 +31,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Validate the published module catalog
         run: python tools/check_module_catalog.py
+      - name: Validate README systems and documentation links
+        run: python tools/check_readme_documentation.py
       - name: Verify the inspected snapshot through both CLIs
         run: |
           python tools/build.py --module coinop-collection --upstream-file tests/fixtures/coinop-2026-09-30.db.json.zip --output-dir "$RUNNER_TEMP/coinop"

@@ -49,7 +49,7 @@ The consolidated specification resolves the earlier Sega hold: both systems use 
 
 ## Migration and scope
 
-The three existing Arcade Systems IDs and artifact URLs remain permanent. Their navigation moves under `_Arcade/_Arcade Systems/`, while core destinations, file metadata, and upstream URLs stay identical. Downloader’s default `allow_delete` policy removes obsolete tracked MRAs and empty folders. Restricted deletion policies can retain old navigation copies; no manual deletion or changes to other database installations are performed. Coin-Op’s database, manifest, policy, fixtures, and configuration remain untouched. PGM (Ezio) is enabled separately at `_Arcade/_PGM (EZIO)/`; its verified inventory is 32 primary MRAs, 105 alternatives, 27 alternative folders and three cores. See [PGM inspection](pgm-inspection.md). No aggregate/master database is created.
+The three existing Arcade Systems IDs and artifact URLs remain permanent. Their navigation moves under `_Arcade/_Arcade Systems/`, while core destinations, file metadata, and upstream URLs stay identical. Downloader’s default `allow_delete` policy removes obsolete tracked MRAs and empty folders. Restricted deletion policies can retain old navigation copies; no manual deletion or changes to other database installations are performed. Coin-Op’s database, manifest, policy, fixtures, and configuration remain untouched. PGM (Ezio) is enabled separately at `_Arcade/_PGM (EZIO)/`; its verified inventory is 32 primary MRAs, 105 alternatives, 27 alternative folders and three cores. See [PGM inspection](pgm-inspection.md). At the time of this audit, no aggregate/master database was created.
 
 ## Software verification
 

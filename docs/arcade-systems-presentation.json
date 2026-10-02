@@ -1,0 +1,82 @@
+[
+  {
+    "group": "CAPCOM",
+    "prefix": "CAPCOM",
+    "strip_prefix": true
+  },
+  {
+    "group": "DATA EAST",
+    "prefix": "DATA EAST",
+    "strip_prefix": true
+  },
+  {
+    "group": "EIGHTING / RAIZING",
+    "prefix": "EIGHTING RAIZING",
+    "strip_prefix": false
+  },
+  {
+    "group": "IREM",
+    "prefix": "IREM",
+    "strip_prefix": true
+  },
+  {
+    "group": "JALECO",
+    "prefix": "JALECO",
+    "strip_prefix": true
+  },
+  {
+    "group": "MIDWAY",
+    "prefix": "MIDWAY",
+    "strip_prefix": true
+  },
+  {
+    "group": "NAMCO",
+    "prefix": "NAMCO",
+    "strip_prefix": true
+  },
+  {
+    "group": "NICHIBUTSU",
+    "prefix": "NICHIBUTSU",
+    "strip_prefix": true
+  },
+  {
+    "group": "NMK",
+    "prefix": "NMK16",
+    "strip_prefix": false
+  },
+  {
+    "group": "PGM",
+    "prefix": "PGM",
+    "strip_prefix": false
+  },
+  {
+    "group": "SEGA",
+    "prefix": "SEGA",
+    "strip_prefix": true
+  },
+  {
+    "group": "SEIBU",
+    "prefix": "SEIBU",
+    "strip_prefix": true
+  },
+  {
+    "group": "SNK",
+    "prefix": "SNK",
+    "strip_prefix": true
+  },
+  {
+    "group": "TAITO",
+    "prefix": "TAITO",
+    "strip_prefix": true
+  },
+  {
+    "group": "TECHNOSOFT",
+    "prefix": "TECHNOSOFT",
+    "strip_prefix": false
+  },
+  {
+    "group": "TOAPLAN",
+    "prefix": "TOAPLAN",
+    "strip_prefix": false
+  }
+]
