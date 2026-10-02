@@ -33,7 +33,7 @@ def system_inventory(root=ROOT):
             if len(matches) != 1:
                 raise ValidationError('System grouping needs review: ' + name)
             group = matches[0]
-            label = name[len(group['prefix']) + 1:] if group['strip_prefix'] else name
+            label = name[len(group['prefix']) + 1:] if group['strip_prefix'] and name != group['prefix'] else name
             key = (group['group'], label)
             if key in active:
                 raise ValidationError('Duplicate registry system: ' + name)
