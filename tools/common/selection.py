@@ -5,6 +5,7 @@ import hashlib
 import re
 from urllib.parse import quote, urlsplit
 
+from tools.common.file_types import is_mra
 from tools.common.database import ValidationError, fetch
 from tools.common.repository import require, safe_path, mra_reference, validate_system_navigation
 
@@ -132,14 +133,14 @@ def select_database(database, config, policy):
         require(len(classifications) <= 1 or classifications <= selected_ids, 'Ambiguous cross-system classification')
         if not classifications & selected_ids:
             continue
-        if path.endswith('.mra'):
+        if is_mra(path):
             require(path.startswith(config['source_navigation_root']+'/'), 'MRA outside declared navigation root')
         else:
             require(path.endswith('.rbf') and path.startswith('_Arcade/cores/') and '/' not in path[len('_Arcade/cores/'):], 'Unknown selected payload/core layout')
         if path.endswith('.rbf') and config.get('core_ownership') == 'upstream':
             continue
         files[path] = copy.deepcopy(record)
-    require(any(p.endswith('.mra') for p in files) and (config.get('core_ownership') == 'upstream' or any(p.endswith('.rbf') for p in files)), 'Classification missing navigation or core')
+    require(any(is_mra(p) for p in files) and (config.get('core_ownership') == 'upstream' or any(p.endswith('.rbf') for p in files)), 'Classification missing navigation or core')
     folder_paths = set()
     for path in files:
         parts = path.split('/')
@@ -172,7 +173,7 @@ def verify_payloads(database, fetcher=fetch, core_database=None, config=None):
         url = record.get('url', database['base_files_url'] + quote(path))
         payload = fetcher(url)
         require(len(payload) == record['size'] and hashlib.md5(payload).hexdigest() == record['hash'], 'Upstream payload hash/size mismatch: '+path)
-        if path.endswith('.mra'):
+        if is_mra(path):
             reference = mra_reference(payload, path)
             require(any(re.fullmatch(r'(?:Arcade-)?'+re.escape(reference)+r'(?:_\d{8})?\.rbf', core, re.I) for core in cores), 'Unresolved selected MRA core: '+path)
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
