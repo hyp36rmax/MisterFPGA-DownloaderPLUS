@@ -428,6 +428,51 @@
         "_Arcade/_Arcade Systems/_TOAPLAN MIN16-02"
       ],
       "include_required_cores": false
+    },
+    "irem-m107": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_IREM M107"
+      ],
+      "include_required_cores": false
+    },
+    "psikyo": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_PSIKYO"
+      ],
+      "include_required_cores": false
+    },
+    "sega-system1": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA SYSTEM 1"
+      ],
+      "include_required_cores": false
+    },
+    "taito-asuka": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO ASUKA"
+      ],
+      "include_required_cores": false
+    },
+    "taito-system-sj": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO SYSTEM SJ"
+      ],
+      "include_required_cores": false
     }
   },
   "reserved_authorities": {
