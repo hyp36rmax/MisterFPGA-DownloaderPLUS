@@ -23,7 +23,9 @@ def audit():
     for identifier,item in families().items():
         state,_,report=family_state(sample['source_database'],item,sample['source_references'])
         matrix.append({'family':item['display_name'],**report,'generated_folder':item['destination'] if state!='absent' else None,
+                       'evidence':item['evidence'],'confirmed_releases':item['confirmed_releases'],
                        'reason':'Authoritative default-installable inventory' if state=='managed' else
+                                'Authoritative released MiSTer package confirms a usable core/MRA pair outside the approved public DB' if state=='manual' and item['confirmed_releases'] else
                                 'Verified core and compatible MRA records exist; distribution default excludes them' if state=='manual' else
                                 'No verified usable MiSTer core/MRA pair in approved inventory; no folder is generated'})
     _,complete=verify_one('arcade-systems-complete',verbose=False)

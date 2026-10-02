@@ -1,0 +1,5 @@
+MIDWAY Y-UNIT
+
+Compatible released Coin-Op content may be placed here manually when obtained from an authorized source.
+Required Arcade cores belong in _Arcade/cores/; follow the source instructions.
+DownloaderPLUS does not provide ROMs.

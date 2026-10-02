@@ -277,9 +277,22 @@
       "classifications": [],
       "core_classifications": [],
       "evidence": [
-        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://www.patreon.com/atrac17/posts/coin-op-presents-155890167"
       ],
-      "confirmed_releases": []
+      "confirmed_releases": [
+        {
+          "platform": "MiSTerFPGA",
+          "compatible": true,
+          "evidence": {
+            "kind": "released-mister-package",
+            "url": "https://www.patreon.com/atrac17/posts/coin-op-presents-155890167",
+            "attachment": "Midway_MiSTer_202060417_Beta.zip",
+            "core_confirmed": true,
+            "mra_confirmed": true
+          }
+        }
+      ]
     },
     "midway-y-unit": {
       "display_name": "MIDWAY Y-UNIT",
@@ -287,9 +300,22 @@
       "classifications": [],
       "core_classifications": [],
       "evidence": [
-        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://www.patreon.com/atrac17/posts/coin-op-presents-155890167"
       ],
-      "confirmed_releases": []
+      "confirmed_releases": [
+        {
+          "platform": "MiSTerFPGA",
+          "compatible": true,
+          "evidence": {
+            "kind": "released-mister-package",
+            "url": "https://www.patreon.com/atrac17/posts/coin-op-presents-155890167",
+            "attachment": "Midway_MiSTer_202060417_Beta.zip",
+            "core_confirmed": true,
+            "mra_confirmed": true
+          }
+        }
+      ]
     },
     "midway-t-unit": {
       "display_name": "MIDWAY T-UNIT",
@@ -297,9 +323,22 @@
       "classifications": [],
       "core_classifications": [],
       "evidence": [
-        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://www.patreon.com/atrac17/posts/coin-op-presents-157759538"
       ],
-      "confirmed_releases": []
+      "confirmed_releases": [
+        {
+          "platform": "MiSTerFPGA",
+          "compatible": true,
+          "evidence": {
+            "kind": "released-mister-package",
+            "url": "https://www.patreon.com/atrac17/posts/coin-op-presents-157759538",
+            "attachment": "Midway_MiSTer_202060508_Beta.zip",
+            "core_confirmed": true,
+            "mra_confirmed": true
+          }
+        }
+      ]
     },
     "midway-wolf-unit": {
       "display_name": "MIDWAY WOLF UNIT",

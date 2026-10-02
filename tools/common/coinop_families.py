@@ -5,6 +5,7 @@ import hashlib
 import re
 from pathlib import Path
 from urllib.parse import quote
+from urllib.parse import urlsplit
 
 from tools.common.arcade_systems import ROOT, NAMESPACE, documentation_database, publish_assembly
 from tools.common.database import parse_json, fetch, unpack, digest, canonical_json
@@ -32,14 +33,32 @@ def families(root=ROOT):
 def confirmed_releases(item):
     releases=item.get('confirmed_releases',[])
     require(type(releases) is list,'Invalid confirmed release evidence')
+    eligible=[]
     for release in releases:
+        if type(release) is dict and set(release)=={'platform','compatible','evidence'}:
+            require(release['platform']=='MiSTerFPGA' and release['compatible'] is True,'Only confirmed usable MiSTer pairs qualify')
+            evidence=release['evidence']
+            require(type(evidence) is dict and set(evidence)=={'kind','url','attachment','core_confirmed','mra_confirmed'},'Unverified release-package evidence schema')
+            require(evidence['kind']=='released-mister-package','Roadmap or ambiguous evidence requires review')
+            require(isinstance(evidence['url'],str),'Unknown release evidence URL requires review')
+            source=urlsplit(evidence['url'])
+            require(source.scheme=='https' and source.netloc=='www.patreon.com' and
+                    re.fullmatch(r'/atrac17/posts/[a-z0-9-]+-[0-9]+',source.path) and not source.query and not source.fragment,
+                    'Release evidence must identify an authoritative public Coin-Op post')
+            require(type(evidence['core_confirmed']) is bool and type(evidence['mra_confirmed']) is bool,'Unknown core/MRA availability requires review')
+            require(isinstance(evidence['attachment'],str) and
+                    re.fullmatch(r'[A-Za-z0-9_-]*MiSTer[A-Za-z0-9_-]*\.zip',evidence['attachment']),
+                    'Missing actual released MiSTer package name')
+            if evidence['core_confirmed'] and evidence['mra_confirmed']:eligible.append(release)
+            continue
         require(type(release) is dict and set(release)=={'platform','core_filename','mra_filename','compatible','evidence'},'Unverified release evidence schema')
         require(release['platform']=='MiSTerFPGA' and release['compatible'] is True,'Only confirmed usable MiSTer pairs qualify')
         require(isinstance(release['evidence'],str) and release['evidence'].strip(),'Missing release inventory evidence')
         for key,suffix in (('core_filename','.rbf'),('mra_filename','.mra')):
             value=release[key]
             require(isinstance(value,str) and '/' not in value and '\\' not in value and value.endswith(suffix),'Missing actual released core/MRA filename')
-    return releases
+        eligible.append(release)
+    return eligible
 
 
 def references(database,fetcher=fetch):
@@ -74,7 +93,10 @@ def family_state(database,item,reference_map):
     prim=lambda entries:sum('_alternatives' not in p.split('/') for p in entries)
     released=confirmed_releases(item)
     state='managed' if prim(public) else 'manual' if prim(records) or released else 'absent'
-    return state,public if state=='managed' else {}, {'state':state,'core_exists':bool(cores or released),'mra_exists':bool(records or released),
+    packages=[r['evidence'] for r in item['confirmed_releases'] if type(r['evidence']) is dict]
+    return state,public if state=='managed' else {}, {'state':state,
+        'core_exists':bool(cores or released or any(p['core_confirmed'] for p in packages)),
+        'mra_exists':bool(records or released or any(p['mra_confirmed'] for p in packages)),
         'public_primary_mras':prim(public),'primary_mras':prim(records),'public_alternatives':len(public)-prim(public),
         'excluded_distribution_records':len(records)-len(public)}
 
@@ -101,6 +123,16 @@ def family_database(config,database,reference_map,root=ROOT):
             # Parent classifications may include excluded unrelated records; preserve
             # metadata while refusing a folder whose default blocks the selected view.
             result['folders'][target]=r
+    if state in {'manual','managed'} and confirmed_releases(item):
+        # Release-backed families retain the same neutral guidance through promotion.
+        docs,resources=documentation_database(config,[{'display_name':item['display_name'],'destination':item['destination'],'state':'manual'}])
+        payload=(item['display_name']+'\n\nCompatible released Coin-Op content may be placed here manually when obtained from an authorized source.\n'
+                 'Required Arcade cores belong in _Arcade/cores/; follow the source instructions.\n'
+                 'DownloaderPLUS does not provide ROMs.\n').encode('utf-8')
+        resources={path:payload for path in resources}
+        for record in docs['files'].values():record.update(hash=hashlib.md5(payload).hexdigest(),size=len(payload))
+        result['files'].update(docs['files'])
+        for path,record in docs['folders'].items():result['folders'].setdefault(path,record)
     counts=filter_counts(result)
     require(not counts['filtered_selected_files'] and not counts['filtered_selected_folders'],'DERIVED FILTER CONFLICT: Coin-Op family '+config['family'])
     from tools.common.repository import navigation_inventory

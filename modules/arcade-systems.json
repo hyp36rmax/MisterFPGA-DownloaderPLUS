@@ -328,6 +328,33 @@
         "_Arcade/_Arcade Systems/_PSIKYO SH2"
       ],
       "include_required_cores": false
+    },
+    "coinop-midway-z-unit": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "manual",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_MIDWAY Z-UNIT"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-midway-y-unit": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "manual",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_MIDWAY Y-UNIT"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-midway-t-unit": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "manual",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_MIDWAY T-UNIT"
+      ],
+      "include_required_cores": false
     }
   },
   "reserved_authorities": {

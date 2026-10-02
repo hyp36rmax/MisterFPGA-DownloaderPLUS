@@ -28,6 +28,9 @@ The first module, **Coin-Op Collection**, is an interim navigation/accessibility
 | IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M90/` | `irem-m90.json.zip` |
 | IREM M92 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M92/` | `irem-m92.json.zip` |
 | JALECO MEGA SYSTEM 1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_JALECO MEGA SYSTEM 1/` | `coinop-jaleco-mega-system-1.json.zip` |
+| MIDWAY T-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY T-UNIT/` | `coinop-midway-t-unit.json.zip` |
+| MIDWAY Y-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY Y-UNIT/` | `coinop-midway-y-unit.json.zip` |
+| MIDWAY Z-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY Z-UNIT/` | `coinop-midway-z-unit.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/_NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
 | NICHIBUTSU TERRA CRESTA | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA/` | `coinop-nichibutsu-terra-cresta.json.zip` |
 | NICHIBUTSU TERRA FORCE | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE/` | `coinop-nichibutsu-terra-force.json.zip` |

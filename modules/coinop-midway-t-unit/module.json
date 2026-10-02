@@ -1,0 +1,11 @@
+{
+  "name": "coinop-midway-t-unit",
+  "display_name": "MIDWAY T-UNIT",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "midway-t-unit",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-midway-t-unit",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}
