@@ -89,16 +89,18 @@ def family_state(database,item,reference_map):
         # MiSTer's loader matches the MRA fragment followed by '.' or '_'.
         require(any(re.match(r'(?:Arcade-)?'+re.escape(reference)+r'[._]',core,re.I) for core in cores),'Unresolved Coin-Op core implementation: '+path)
     parsed=parse_filter(database['default_options']['filter'],dictionary)
-    public={p:r for p,r in records.items() if installable(r,parsed)}
+    source_installable={p:r for p,r in records.items() if installable(r,parsed)}
     prim=lambda entries:sum('_alternatives' not in p.split('/') for p in entries)
     released=confirmed_releases(item)
-    state='managed' if prim(public) else 'manual' if prim(records) or released else 'absent'
+    state='managed' if prim(records) else 'reserve' if released else 'absent'
     packages=[r['evidence'] for r in item['confirmed_releases'] if type(r['evidence']) is dict]
-    return state,public if state=='managed' else {}, {'state':state,
+    return state,records if state=='managed' else {}, {'state':state,
         'core_exists':bool(cores or released or any(p['core_confirmed'] for p in packages)),
         'mra_exists':bool(records or released or any(p['mra_confirmed'] for p in packages)),
-        'public_primary_mras':prim(public),'primary_mras':prim(records),'public_alternatives':len(public)-prim(public),
-        'excluded_distribution_records':len(records)-len(public)}
+        'public_primary_mras':prim(records),'primary_mras':prim(records),'public_alternatives':len(records)-prim(records),
+        'source_filtered_primary_mras':prim(records)-prim(source_installable),
+        'source_filtered_alternatives':len(records)-prim(records)-len(source_installable)+prim(source_installable),
+        'excluded_distribution_records':0}
 
 
 def family_database(config,database,reference_map,root=ROOT):
@@ -106,9 +108,12 @@ def family_database(config,database,reference_map,root=ROOT):
     state,selected,audit=family_state(database,item,reference_map)
     result=copy.deepcopy(database)
     result['db_id']=config['derived_db_id'];result['files']={};result['folders']={}
+    # The public inventory defines eligibility; source defaults stay in provenance.
+    result['default_options']=copy.deepcopy(database['default_options'])
+    result['default_options']['filter']='[MiSTer]'
     resources={}
-    if state=='manual':
-        docs,resources=documentation_database(config,[{'display_name':item['display_name'],'destination':item['destination'],'state':'manual'}])
+    if state=='reserve':
+        docs,resources=documentation_database(config,[{'display_name':item['display_name'],'destination':item['destination'],'state':'reserve'}])
         result['files']=docs['files'];result['folders']=docs['folders']
     elif state=='managed':
         paths=set()
@@ -120,12 +125,11 @@ def family_database(config,database,reference_map,root=ROOT):
             require(path in database['folders'],'Missing authoritative Coin-Op folder metadata')
             target=item['destination']+path[len('_Arcade'):]
             r=copy.deepcopy(database['folders'][path])
-            # Parent classifications may include excluded unrelated records; preserve
-            # metadata while refusing a folder whose default blocks the selected view.
+            # Preserve authoritative parent metadata under the derived filter.
             result['folders'][target]=r
-    if state in {'manual','managed'} and confirmed_releases(item):
+    if state in {'reserve','managed'} and confirmed_releases(item):
         # Release-backed families retain the same neutral guidance through promotion.
-        docs,resources=documentation_database(config,[{'display_name':item['display_name'],'destination':item['destination'],'state':'manual'}])
+        docs,resources=documentation_database(config,[{'display_name':item['display_name'],'destination':item['destination'],'state':'reserve'}])
         payload=(item['display_name']+'\n\nCompatible released Coin-Op content may be placed here manually when obtained from an authorized source.\n'
                  'Required Arcade cores belong in _Arcade/cores/; follow the source instructions.\n'
                  'DownloaderPLUS does not provide ROMs.\n').encode('utf-8')
@@ -163,6 +167,9 @@ def build_family(config,upstream_file=None,output_root=None,cache=None):
             cache[key]=(database,references(database))
         database,reference_map=cache[key]
     parent_policy.validate_schema(database,parent)
+    from tools.audit_coinop_coverage import coverage
+    coverage_report=coverage(database,reference_map,verify_published=False)
+    require(not coverage_report['issues'],'Coin-Op coverage requires review: '+'; '.join(coverage_report['issues']))
     result,resources,report=family_database(config,database,reference_map)
     directory=Path(output_root) if output_root else ROOT/'dist'/config['name']
     previous=parse_json((directory/'manifest.json').read_bytes()) if (directory/'manifest.json').exists() else None

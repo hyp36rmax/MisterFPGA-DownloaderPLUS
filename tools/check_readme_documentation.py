@@ -81,7 +81,7 @@ def individual_inventory(root=ROOT):
     inventory = []
     for item in published_inventory(root):
         entry = entries.get(item['name'])
-        if not entry or entry['management_state'] == 'reserve' or not item['destination'].startswith(NAMESPACE):
+        if not entry or (entry['management_state'] == 'reserve' and load_module(item['name'],root)[0].get('source_mode')!='coinop-family') or not item['destination'].startswith(NAMESPACE):
             continue
         name = item['destination'].rstrip('/').rsplit('/', 1)[1][1:]
         matches = [g for g in groups if name == g['prefix'] or name.startswith(g['prefix'] + ' ')]

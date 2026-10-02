@@ -208,9 +208,22 @@
       "classifications": [],
       "core_classifications": [],
       "evidence": [
-        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://www.patreon.com/atrac17/posts/coin-op-presents-120641719"
       ],
-      "confirmed_releases": []
+      "confirmed_releases": [
+        {
+          "platform": "MiSTerFPGA",
+          "compatible": true,
+          "evidence": {
+            "kind": "released-mister-package",
+            "url": "https://www.patreon.com/atrac17/posts/coin-op-presents-120641719",
+            "attachment": "Technos16_MiSTerFPGA_20250203.zip",
+            "core_confirmed": true,
+            "mra_confirmed": true
+          }
+        }
+      ]
     },
     "tecmo16": {
       "display_name": "TECMO16",
@@ -391,6 +404,69 @@
       ],
       "evidence": [
         "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "taito-a78": {
+      "display_name": "TAITO A78",
+      "destination": "_Arcade/_Arcade Systems/_TAITO A78",
+      "classifications": [
+        "arcadebublboblmister"
+      ],
+      "core_classifications": [
+        "arcadebublboblmister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://www.patreon.com/atrac17/posts/coin-op-presents-170932574"
+      ],
+      "confirmed_releases": []
+    },
+    "taito-a85": {
+      "display_name": "TAITO A85",
+      "destination": "_Arcade/_Arcade Systems/_TAITO A85",
+      "classifications": [
+        "arcadekikikaimister"
+      ],
+      "core_classifications": [
+        "arcadekikikaimister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://github.com/mamedev/mame/blob/master/src/mame/taito/kikikai.cpp",
+        "https://www.patreon.com/atrac17/posts/coin-op-presents-170181323"
+      ],
+      "confirmed_releases": []
+    },
+    "technos-ta-0015": {
+      "display_name": "TECHNOS TA-0015 & TA-0017",
+      "destination": "_Arcade/_Arcade Systems/_TECHNOS TA-0015 & TA-0017",
+      "classifications": [
+        "arcadematmania",
+        "arcademaniach"
+      ],
+      "core_classifications": [
+        "arcademaniachmister",
+        "arcadematmaniamister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://www.patreon.com/atrac17/posts/coin-op-presents-154419170"
+      ],
+      "confirmed_releases": []
+    },
+    "toaplan-min16-02": {
+      "display_name": "TOAPLAN MIN16-02",
+      "destination": "_Arcade/_Arcade Systems/_TOAPLAN MIN16-02",
+      "classifications": [
+        "arcadesnowbrosmister"
+      ],
+      "core_classifications": [
+        "arcadesnowbrosmister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA",
+        "https://github.com/mamedev/mame/blob/master/src/mame/kaneko/snowbros.cpp"
       ],
       "confirmed_releases": []
     }

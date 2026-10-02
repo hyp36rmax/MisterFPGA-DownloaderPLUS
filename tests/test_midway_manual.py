@@ -9,16 +9,16 @@ from tools.common.coinop_families import families, family_state, family_database
 from tools.common.arcade_systems import eligible_modules, registry, merge_complete
 
 
-class MidwayManualTests(unittest.TestCase):
+class MidwayReserveTests(unittest.TestCase):
     def setUp(self):
         self.config=load_module('coinop-midway-t-unit')[0]
         self.item=copy.deepcopy(families()['midway-t-unit'])
         self.database=unpack((ROOT/'tests/fixtures/coinop-2026-09-30.db.json.zip').read_bytes())
         self.refs=json.loads((ROOT/'tests/fixtures/coinop-family-references-2026-09-30.json').read_text(encoding='utf-8'))['references']
 
-    def test_released_package_outside_public_database_is_manual(self):
+    def test_released_package_outside_public_database_is_reserve(self):
         state,selected,report=family_state(self.database,self.item,self.refs)
-        self.assertEqual(state,'manual');self.assertEqual(selected,{})
+        self.assertEqual(state,'reserve');self.assertEqual(selected,{})
         self.assertTrue(report['core_exists']);self.assertTrue(report['mra_exists'])
         self.assertEqual(report['public_primary_mras'],0)
 
@@ -40,15 +40,15 @@ class MidwayManualTests(unittest.TestCase):
             item=copy.deepcopy(self.item);item['confirmed_releases'][0]['evidence'][field]=value
             with self.subTest(field=field),self.assertRaises(ValidationError):family_state(self.database,item,self.refs)
 
-    def test_three_manual_families_are_approved_and_guidance_only(self):
+    def test_three_reserve_families_are_approved_and_guidance_only(self):
         for name in ('coinop-midway-z-unit','coinop-midway-y-unit','coinop-midway-t-unit'):
             config=load_module(name)[0]
             self.assertIn(name,eligible_modules())
             approval=registry()['modules'][name]
             self.assertEqual(approval['authority'],'Coin-OpCollection/Distribution-MiSTerFPGA')
-            self.assertEqual(approval['management_state'],'manual')
+            self.assertEqual(approval['management_state'],'reserve')
             output,resources,report=family_database(config,self.database,self.refs)
-            self.assertEqual(report['state'],'manual')
+            self.assertEqual(report['state'],'reserve')
             self.assertEqual(set(output['files']),{approval['destination_roots'][0]+'/_READ ME.txt'})
             self.assertEqual(len(resources),1)
             for record in output['files'].values():
@@ -58,7 +58,7 @@ class MidwayManualTests(unittest.TestCase):
             self.assertEqual(set(complete['files']),set(output['files']))
         self.assertNotIn('coinop-midway-wolf-unit',eligible_modules())
 
-    def test_manual_to_public_managed_keeps_same_destination(self):
+    def test_reserve_to_public_managed_keeps_same_destination(self):
         manual,_,_=family_database(self.config,self.database,self.refs)
         root=self.item['destination']
         public={'v':1,'timestamp':1,'db_id':'source','db_url':'https://example.com/db.zip',

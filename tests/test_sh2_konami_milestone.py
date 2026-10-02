@@ -1,4 +1,4 @@
-"""Approved source boundaries and managed/manual/Reserve transitions."""
+"""Approved source boundaries and public-managed/Reserve transitions."""
 import copy
 import json
 import tempfile
@@ -59,27 +59,19 @@ class MilestoneTests(unittest.TestCase):
                 config, _ = load_module(name); item = families()[config['family']]
                 state, selected, audit = family_state(source, item, refs)
                 generated, resources, report = family_database(config, source, refs)
-                self.assertEqual(generated['default_options'], source['default_options'])
+                self.assertEqual(generated['default_options'], {'filter':'[MiSTer]'})
                 self.assertEqual(generated['tag_dictionary'], source['tag_dictionary'])
                 self.assertEqual(report['filtered_selected_files'], 0)
+                self.assertEqual(state,'managed');self.assertFalse(resources)
+                self.assertEqual(len(generated['files']),len(selected))
                 if name.endswith('pre-gx'):
-                    self.assertEqual(state, 'manual'); self.assertEqual(audit['primary_mras'], 2)
-                    self.assertEqual(audit['public_primary_mras'], 0)
-                    self.assertEqual(set(refs[p] for p,r in source['files'].items() if p.endswith('.mra') and
-                        set(r['tags']) & {source['tag_dictionary'][t] for t in item['classifications']}), {'metamrph_mister','mystwarr_mister'})
-                    self.assertTrue(resources)
-                    self.assertTrue(all(p.endswith('/_READ ME.txt') for p in generated['files']))
-                    promoted = copy.deepcopy(source); promoted['default_options']['filter'] = '[MiSTer]'
-                    new, _, new_report = family_database(config, promoted, refs)
-                    self.assertEqual(new_report['state'], 'managed')
-                    self.assertIn(item['destination'], new['folders'])
-                else:
-                    self.assertEqual(state, 'managed'); self.assertFalse(resources)
-                    self.assertEqual(len(generated['files']), len(selected))
-                    for p,r in selected.items():
-                        new = generated['files'][item['destination']+'/'+p[len('_Arcade/'):]]
-                        self.assertEqual({k:v for k,v in new.items() if k!='url'}, r)
-                        self.assertEqual(new['url'], r.get('url', source['base_files_url']+quote(p)))
+                    self.assertEqual(audit['primary_mras'],2)
+                    self.assertEqual(audit['public_alternatives'],8)
+                    self.assertEqual(audit['source_filtered_primary_mras'],2)
+                for path,record in selected.items():
+                    new=generated['files'][item['destination']+'/'+path[len('_Arcade/'):]]
+                    self.assertEqual({k:v for k,v in new.items() if k!='url'},record)
+                    self.assertEqual(new['url'],record.get('url',source['base_files_url']+quote(path)))
 
     def test_cave_guidance_only_and_sh2_removed_from_reserve_after_verified_promotion(self):
         reserve, _ = verify_one('arcade-systems-reserve', verbose=False)
@@ -89,7 +81,7 @@ class MilestoneTests(unittest.TestCase):
         cv = '_Arcade/_Arcade Systems/_CAVE CV1000'
         self.assertEqual(entries['reserved_authorities']['_CAVE 68000'], 'Coin-OpCollection/Distribution-MiSTerFPGA')
         self.assertIn(cave+'/_READ ME.txt', reserve['files']); self.assertIn(cv+'/_READ ME.txt', reserve['files'])
-        self.assertEqual(len(reserve['files']), 5)
+        self.assertEqual(len(reserve['files']), 6)
         self.assertTrue(all(p.endswith('/_READ ME.txt') and '/dist/arcade-systems-reserve/' in r['url'] for p,r in reserve['files'].items()))
         self.assertFalse(any('_PSIKYO SH2' in p for p in expanded_inventory(reserve)['files']))
         self.assertEqual(entries['modules']['psikyo-sh2']['management_state'], 'managed')

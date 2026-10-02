@@ -1,0 +1,11 @@
+{
+  "name": "coinop-toaplan-min16-02",
+  "display_name": "TOAPLAN MIN16-02",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "toaplan-min16-02",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-toaplan-min16-02",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

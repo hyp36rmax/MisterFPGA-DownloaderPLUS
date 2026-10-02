@@ -2,7 +2,7 @@
 
 Every immediate system folder beneath `_Arcade/_Arcade Systems/` begins with `_`. Nested authoritative folders, including `_alternatives`, retain their original names and hierarchy.
 
-Coin-Op Collection remains the independent full presentation at `_Arcade/_Coin-Op Collection/`. The following optional family views use the same Coin-Op authority and preserve its distribution filters. Normal Coin-Op installation supplies their required cores.
+Coin-Op Collection remains the independent full presentation at `_Arcade/_Coin-Op Collection/`. The following optional family views use the same Coin-Op authority and preserve its tags and metadata while exposing all selected public records. Normal Coin-Op installation supplies their required cores.
 
 | Hardware family | Subscription | Content |
 |---|---|---|
@@ -11,22 +11,26 @@ Coin-Op Collection remains the independent full presentation at `_Arcade/_Coin-O
 | DATA EAST DECO-32 | [`coinop-data-east-deco-32`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-data-east-deco-32/coinop-data-east-deco-32.json.zip) | Public MRAs and recursive alternatives |
 | EIGHTING RAIZING | [`coinop-eighting-raizing`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-eighting-raizing/coinop-eighting-raizing.json.zip) | Public MRAs and recursive alternatives |
 | JALECO MEGA SYSTEM 1 | [`coinop-jaleco-mega-system-1`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-jaleco-mega-system-1/coinop-jaleco-mega-system-1.json.zip) | Public MRAs and recursive alternatives |
-| KONAMI PRE-GX | [`coinop-konami-pre-gx`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-pre-gx/coinop-konami-pre-gx.json.zip) | Guidance only; compatible released Coin-Op content may be supplied manually |
+| KONAMI PRE-GX | [`coinop-konami-pre-gx`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-pre-gx/coinop-konami-pre-gx.json.zip) | Authoritative public Coin-Op inventory |
 | KONAMI TMNT2 BASED | [`coinop-konami-tmnt2-based`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-tmnt2-based/coinop-konami-tmnt2-based.json.zip) | Public MRAs and recursive alternatives |
 | KONAMI XEXEX BASED | [`coinop-konami-xexex-based`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-xexex-based/coinop-konami-xexex-based.json.zip) | Public MRAs and recursive alternatives |
 | NICHIBUTSU TERRA CRESTA | [`coinop-nichibutsu-terra-cresta`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nichibutsu-terra-cresta/coinop-nichibutsu-terra-cresta.json.zip) | Public MRAs and recursive alternatives |
 | NICHIBUTSU TERRA FORCE | [`coinop-nichibutsu-terra-force`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nichibutsu-terra-force/coinop-nichibutsu-terra-force.json.zip) | Public MRAs and recursive alternatives |
-| NMK16 | [`coinop-nmk16`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nmk16/coinop-nmk16.json.zip) | Guidance only; compatible MRAs may be supplied manually |
+| NMK16 | [`coinop-nmk16`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nmk16/coinop-nmk16.json.zip) | Authoritative public Coin-Op inventory |
 | SNK ALPHA-68K | [`coinop-snk-alpha-68k`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-snk-alpha-68k/coinop-snk-alpha-68k.json.zip) | Public MRAs and recursive alternatives |
 | SNK 68000 | [`coinop-snk-68000`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-snk-68000/coinop-snk-68000.json.zip) | Public MRAs and recursive alternatives |
 | TOAPLAN 1 | [`coinop-toaplan-1`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-1/coinop-toaplan-1.json.zip) | Public MRAs and recursive alternatives |
 | TOAPLAN 2 | [`coinop-toaplan-2`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-2/coinop-toaplan-2.json.zip) | Public MRAs and recursive alternatives |
+| TAITO A78 | [`coinop-taito-a78`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-taito-a78/coinop-taito-a78.json.zip) | Authoritative public Coin-Op inventory |
+| TAITO A85 | [`coinop-taito-a85`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-taito-a85/coinop-taito-a85.json.zip) | Authoritative public Coin-Op inventory |
+| TECHNOS TA-0015 & TA-0017 | [`coinop-technos-ta-0015`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-technos-ta-0015/coinop-technos-ta-0015.json.zip) | Authoritative public Coin-Op inventory |
+| TOAPLAN MIN16-02 | [`coinop-toaplan-min16-02`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-min16-02/coinop-toaplan-min16-02.json.zip) | Authoritative public Coin-Op inventory |
 
 Configure an individual subscription using its linked database URL and section `hyp36rmax/MisterFPGA-DownloaderPLUS/<module>`. These family views are included in Complete. Choose Complete or the overlapping individual views.
 
 ## Reserve
 
-Reserve installs `_READ ME.txt` only in `_CAVE 68000`, `_CAVE CV1000`, `_KANEKO SUPER NOVA SYSTEM`, `_NAMCO SYSTEM 12`, and `_PGM2 (EZIO)`. These folders are peers of managed systems; no extra navigation category is created. User files remain user-owned.
+Reserve installs `_READ ME.txt` only in `_CAVE 68000`, `_CAVE CV1000`, `_KANEKO SUPER NOVA SYSTEM`, `_NAMCO SYSTEM 12`, `_PGM2 (EZIO)`, and `_TECHNOS16`. These folders are peers of managed systems; no extra navigation category is created. User files remain user-owned. Midway T/Y/Z-Unit Reserve guidance remains under its existing individual subscriptions and Complete, with unchanged database ownership.
 
 ## PGM (Ezio)
 

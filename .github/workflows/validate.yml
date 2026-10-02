@@ -49,6 +49,8 @@ jobs:
         run: python tools/audit_alternatives.py
       - name: Audit Arcade Systems registry and ownership
         run: python tools/audit_arcade_systems.py
+      - name: Audit complete public Coin-Op coverage
+        run: python tools/audit_coinop_coverage.py
       - name: Audit hardware-module default filters
         run: python tools/audit_filters.py
       - name: Verify all CPS selections through both CLIs

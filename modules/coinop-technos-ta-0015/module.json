@@ -1,0 +1,11 @@
+{
+  "name": "coinop-technos-ta-0015",
+  "display_name": "TECHNOS TA-0015 & TA-0017",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "technos-ta-0015",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-technos-ta-0015",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

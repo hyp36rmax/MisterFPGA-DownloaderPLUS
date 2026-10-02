@@ -18,4 +18,4 @@ It contains database metadata only, referencing Coin-Op's authoritative content 
 
 `mister-2026-09-30.db.json.zip` and `mra_alternatives_summary.json.zip` are unmodified official metadata snapshots used together for ST-V offline reproduction. No content archive, payloads or ROMs are included.
 
-`coinop-family-references-2026-09-30.json` records the verified MRA loader references for the frozen Coin-Op database snapshot, bound to its semantic digest. It contains metadata only. Family-state regression tests use this snapshot so ordinary public-release promotion does not invalidate the earlier manual-state case.
+`coinop-family-references-2026-09-30.json` records the verified MRA loader references for the frozen Coin-Op database snapshot, bound to its semantic digest. It contains metadata only. Family-state regression tests use this snapshot to verify public inventory eligibility independently of inherited source filters.

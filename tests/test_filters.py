@@ -117,6 +117,9 @@ class DerivedFilterTests(unittest.TestCase):
         rows=audit()
         for r in rows:
             if r['module']=='capcom-cps3':self.assertTrue(r['derived_policy_applied'])
+            elif r['module'].startswith('coinop-'):
+                self.assertEqual(r['generated_default_filter'],'[MiSTer]')
+                self.assertTrue(r['derived_policy_applied'])
             else:
                 self.assertFalse(r['conflict'])
                 self.assertFalse(r['derived_policy_applied'])

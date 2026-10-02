@@ -80,6 +80,11 @@
     "strip_prefix": true
   },
   {
+    "group": "TECHNOS",
+    "prefix": "TECHNOS",
+    "strip_prefix": true
+  },
+  {
     "group": "TECHNOSOFT",
     "prefix": "TECHNOSOFT",
     "strip_prefix": false

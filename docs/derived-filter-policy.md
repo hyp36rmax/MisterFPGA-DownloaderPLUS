@@ -48,3 +48,9 @@ The full suite has 157 passing tests. The focused metadata-only regression fixtu
 ## Downloader configuration
 
 DownloaderPLUS preserves upstream tags and classification metadata. Hardware modules retain compatible upstream defaults; an approved complete-inventory policy removes only conflicting exclusions from a derived default. User-defined filters remain configurable through normal MiSTer Downloader settings. Coin-Op's upstream defaults remain unchanged. See [derived filter policy](derived-filter-policy.md) and [Downloader filter documentation](https://github.com/MiSTer-devel/Downloader_MiSTer/blob/main/docs/download-filters.md).
+
+## Coin-Op hardware families
+
+Public Coin-Op database records define the managed inventory. Hardware-family views preserve authoritative tags and metadata and use `[MiSTer]` as the derived default so all selected public MRAs and alternatives are installable. The original default remains in source provenance and in the independent full Coin-Op Collection transformation. A confirmed released MiSTer core/MRA pair outside the public database qualifies for Reserve guidance only. Development-only or other-platform evidence does not qualify.
+
+Run `python tools/audit_coinop_coverage.py` to check every public record against reviewed family mappings or explicit unresolved reviews. Use `--live` to refresh and verify public MRA bytes. New games in known classifications are selected automatically; new unknown classifications stop family publication for review.
