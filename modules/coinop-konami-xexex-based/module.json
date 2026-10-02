@@ -1,0 +1,11 @@
+{
+  "name": "coinop-konami-xexex-based",
+  "display_name": "KONAMI XEXEX BASED",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "konami-xexex-based",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-konami-xexex-based",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

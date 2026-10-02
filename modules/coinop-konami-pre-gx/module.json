@@ -1,0 +1,11 @@
+{
+  "name": "coinop-konami-pre-gx",
+  "display_name": "KONAMI PRE-GX",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "konami-pre-gx",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-konami-pre-gx",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

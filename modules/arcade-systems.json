@@ -321,11 +321,11 @@
       "management_state": "reserve",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
+        "_Arcade/_Arcade Systems/_CAVE 68000",
         "_Arcade/_Arcade Systems/_CAVE CV1000",
         "_Arcade/_Arcade Systems/_KANEKO SUPER NOVA SYSTEM",
         "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12",
-        "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
-        "_Arcade/_Arcade Systems/_PSIKYO SH2"
+        "_Arcade/_Arcade Systems/_PGM2 (EZIO)"
       ],
       "include_required_cores": false
     },
@@ -355,6 +355,42 @@
         "_Arcade/_Arcade Systems/_MIDWAY T-UNIT"
       ],
       "include_required_cores": false
+    },
+    "coinop-konami-tmnt2-based": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_KONAMI TMNT2 BASED"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-konami-xexex-based": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_KONAMI XEXEX BASED"
+      ],
+      "include_required_cores": false
+    },
+    "coinop-konami-pre-gx": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "manual",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_KONAMI PRE-GX"
+      ],
+      "include_required_cores": false
+    },
+    "psikyo-sh2": {
+      "authority": "distribution_mister",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_PSIKYO SH2"
+      ],
+      "include_required_cores": false
     }
   },
   "reserved_authorities": {
@@ -378,6 +414,10 @@
     "_MIDWAY Z-UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_MIDWAY Y-UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_MIDWAY T-UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA",
-    "_MIDWAY WOLF UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA"
+    "_MIDWAY WOLF UNIT": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_KONAMI TMNT2 BASED": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_KONAMI XEXEX BASED": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_KONAMI PRE-GX": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_CAVE 68000": "Coin-OpCollection/Distribution-MiSTerFPGA"
   }
 }

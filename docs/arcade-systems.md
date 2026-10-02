@@ -11,6 +11,9 @@ Coin-Op Collection remains the independent full presentation at `_Arcade/_Coin-O
 | DATA EAST DECO-32 | [`coinop-data-east-deco-32`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-data-east-deco-32/coinop-data-east-deco-32.json.zip) | Public MRAs and recursive alternatives |
 | EIGHTING RAIZING | [`coinop-eighting-raizing`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-eighting-raizing/coinop-eighting-raizing.json.zip) | Public MRAs and recursive alternatives |
 | JALECO MEGA SYSTEM 1 | [`coinop-jaleco-mega-system-1`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-jaleco-mega-system-1/coinop-jaleco-mega-system-1.json.zip) | Public MRAs and recursive alternatives |
+| KONAMI PRE-GX | [`coinop-konami-pre-gx`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-pre-gx/coinop-konami-pre-gx.json.zip) | Guidance only; compatible released Coin-Op content may be supplied manually |
+| KONAMI TMNT2 BASED | [`coinop-konami-tmnt2-based`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-tmnt2-based/coinop-konami-tmnt2-based.json.zip) | Public MRAs and recursive alternatives |
+| KONAMI XEXEX BASED | [`coinop-konami-xexex-based`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-xexex-based/coinop-konami-xexex-based.json.zip) | Public MRAs and recursive alternatives |
 | NICHIBUTSU TERRA CRESTA | [`coinop-nichibutsu-terra-cresta`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nichibutsu-terra-cresta/coinop-nichibutsu-terra-cresta.json.zip) | Public MRAs and recursive alternatives |
 | NICHIBUTSU TERRA FORCE | [`coinop-nichibutsu-terra-force`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nichibutsu-terra-force/coinop-nichibutsu-terra-force.json.zip) | Public MRAs and recursive alternatives |
 | NMK16 | [`coinop-nmk16`](https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-nmk16/coinop-nmk16.json.zip) | Guidance only; compatible MRAs may be supplied manually |
@@ -23,7 +26,7 @@ Configure an individual subscription using its linked database URL and section `
 
 ## Reserve
 
-Reserve installs `_READ ME.txt` only in `_CAVE CV1000`, `_KANEKO SUPER NOVA SYSTEM`, `_NAMCO SYSTEM 12`, `_PGM2 (EZIO)` and `_PSIKYO SH2`. These folders are peers of managed systems; no extra navigation category is created. User files remain user-owned.
+Reserve installs `_READ ME.txt` only in `_CAVE 68000`, `_CAVE CV1000`, `_KANEKO SUPER NOVA SYSTEM`, `_NAMCO SYSTEM 12`, and `_PGM2 (EZIO)`. These folders are peers of managed systems; no extra navigation category is created. User files remain user-owned.
 
 ## PGM (Ezio)
 
@@ -44,7 +47,7 @@ Authoritative distributions:
 - [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
 - [CAPCOM ZN-2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
 - [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
-- [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): its hardware classifications supply SEGA ST-V, IREM M62/M72/M90/M92, TECHNOSOFT and TAITO F2 navigation, including only their classified archive alternatives.
+- [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): its hardware classifications supply SEGA ST-V, IREM M62/M72/M90/M92, TECHNOSOFT, TAITO F2 and PSIKYO SH2 navigation, including only their classified archive alternatives.
 - [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies the CPS family and SEGA SYSTEM 16/18 navigation modules.
 - [Meathax MeatCores](https://github.com/meathax/meatcores): its authoritative [Downloader database](https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip) feeds the two Sega modules.
 

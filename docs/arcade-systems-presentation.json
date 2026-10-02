@@ -25,6 +25,11 @@
     "strip_prefix": true
   },
   {
+    "group": "KONAMI",
+    "prefix": "KONAMI",
+    "strip_prefix": true
+  },
+  {
     "group": "MIDWAY",
     "prefix": "MIDWAY",
     "strip_prefix": true
@@ -48,6 +53,11 @@
     "group": "PGM",
     "prefix": "PGM",
     "strip_prefix": false
+  },
+  {
+    "group": "PSIKYO",
+    "prefix": "PSIKYO",
+    "strip_prefix": true
   },
   {
     "group": "SEGA",

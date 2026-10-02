@@ -1,4 +1,4 @@
-PSIKYO SH2
+CAVE 68000
 
 This folder is reserved for compatible Arcade content.
 Compatible MRAs may be placed here manually.

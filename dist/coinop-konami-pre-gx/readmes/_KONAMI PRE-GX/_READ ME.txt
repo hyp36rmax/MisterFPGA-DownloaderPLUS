@@ -1,0 +1,7 @@
+KONAMI PRE-GX
+
+This folder is reserved for compatible Arcade content.
+Compatible released Coin-Op content may be placed here manually.
+Obtain files from an authorized source. Required Arcade cores belong in _Arcade/cores/; follow the source instructions.
+DownloaderPLUS does not provide ROMs or currently distribute this system's payloads.
+This location may become automatically managed when an approved authoritative public distribution is available.

@@ -8,6 +8,11 @@
   "include_required_cores": false,
   "systems": [
     {
+      "display_name": "CAVE 68000",
+      "destination": "_Arcade/_Arcade Systems/_CAVE 68000",
+      "state": "reserve"
+    },
+    {
       "display_name": "CAVE CV1000",
       "destination": "_Arcade/_Arcade Systems/_CAVE CV1000",
       "state": "reserve"
@@ -25,11 +30,6 @@
     {
       "display_name": "PGM2 (EZIO)",
       "destination": "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
-      "state": "reserve"
-    },
-    {
-      "display_name": "PSIKYO SH2",
-      "destination": "_Arcade/_Arcade Systems/_PSIKYO SH2",
       "state": "reserve"
     }
   ]

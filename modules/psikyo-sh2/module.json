@@ -1,0 +1,23 @@
+{
+  "name": "psikyo-sh2",
+  "display_name": "PSIKYO SH2",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/main/db.json.zip",
+  "upstream_db_id": "distribution_mister",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/psikyo-sh2",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadepsikyosh2"
+  ],
+  "exclusive_group_tags": [
+    "arcadepsikyosh2",
+    "arcadepsikyo"
+  ],
+  "source_navigation_root": "_Arcade",
+  "target_folder": "_Arcade Systems/_PSIKYO SH2",
+  "core_ownership": "upstream",
+  "selection_archives": [
+    "mra_alternatives"
+  ],
+  "require_all_group_tags": false
+}

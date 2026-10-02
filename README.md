@@ -51,6 +51,9 @@ _Arcade/
 | IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M90/` | `irem-m90.json.zip` |
 | IREM M92 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M92/` | `irem-m92.json.zip` |
 | JALECO MEGA SYSTEM 1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_JALECO MEGA SYSTEM 1/` | `coinop-jaleco-mega-system-1.json.zip` |
+| KONAMI PRE-GX | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI PRE-GX/` | `coinop-konami-pre-gx.json.zip` |
+| KONAMI TMNT2 BASED | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI TMNT2 BASED/` | `coinop-konami-tmnt2-based.json.zip` |
+| KONAMI XEXEX BASED | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI XEXEX BASED/` | `coinop-konami-xexex-based.json.zip` |
 | MIDWAY T-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY T-UNIT/` | `coinop-midway-t-unit.json.zip` |
 | MIDWAY Y-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY Y-UNIT/` | `coinop-midway-y-unit.json.zip` |
 | MIDWAY Z-UNIT | Coin-Op database selection | `_Arcade/_Arcade Systems/_MIDWAY Z-UNIT/` | `coinop-midway-z-unit.json.zip` |
@@ -58,6 +61,7 @@ _Arcade/
 | NICHIBUTSU TERRA CRESTA | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA/` | `coinop-nichibutsu-terra-cresta.json.zip` |
 | NICHIBUTSU TERRA FORCE | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE/` | `coinop-nichibutsu-terra-force.json.zip` |
 | NMK16 | Coin-Op database selection | `_Arcade/_Arcade Systems/_NMK16/` | `coinop-nmk16.json.zip` |
+| PSIKYO SH2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO SH2/` | `psikyo-sh2.json.zip` |
 | SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA ST-V/` | `sega-stv.json.zip` |
 | SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 16/` | `sega-system16.json.zip` |
 | SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 18/` | `sega-system18.json.zip` |
@@ -145,11 +149,13 @@ The collection will grow as more arcade systems become available and can be supp
 | EIGHTING / RAIZING | EIGHTING RAIZING |
 | IREM | M62, M72, M90, M92 |
 | JALECO | MEGA SYSTEM 1 |
+| KONAMI | PRE-GX, TMNT2 BASED, XEXEX BASED |
 | MIDWAY | T-UNIT, Y-UNIT, Z-UNIT |
 | NAMCO | SYSTEM 11 |
 | NICHIBUTSU | TERRA CRESTA, TERRA FORCE |
 | NMK | NMK16 |
 | PGM | PGM (EZIO) |
+| PSIKYO | SH2 |
 | SEGA | ST-V, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
 | SEIBU | SPI |
 | SNK | 68000, ALPHA-68K |
@@ -159,11 +165,11 @@ The collection will grow as more arcade systems become available and can be supp
 
 ### Reserve Systems
 
+- CAVE 68000
 - CAVE CV1000
 - KANEKO SUPER NOVA SYSTEM
 - NAMCO SYSTEM 12
 - PGM2 (EZIO)
-- PSIKYO SH2
 
 ## Individual Arcade Systems
 
@@ -234,6 +240,19 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-jaleco-mega-system-1/coinop-jaleco-mega-system-1.json.zip
 ```
 
+### KONAMI
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-konami-pre-gx]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-pre-gx/coinop-konami-pre-gx.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-konami-tmnt2-based]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-tmnt2-based/coinop-konami-tmnt2-based.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-konami-xexex-based]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-xexex-based/coinop-konami-xexex-based.json.zip
+```
+
 ### MIDWAY
 
 ```ini
@@ -276,6 +295,13 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```ini
 [hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio-arcade-systems]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/pgm-ezio-arcade-systems/pgm-ezio-arcade-systems.json.zip
+```
+
+### PSIKYO
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/psikyo-sh2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/psikyo-sh2/psikyo-sh2.json.zip
 ```
 
 ### SEGA

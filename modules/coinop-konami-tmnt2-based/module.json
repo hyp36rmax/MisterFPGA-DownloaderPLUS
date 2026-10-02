@@ -1,0 +1,11 @@
+{
+  "name": "coinop-konami-tmnt2-based",
+  "display_name": "KONAMI TMNT2 BASED",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+  "family": "konami-tmnt2-based",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-konami-tmnt2-based",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "source_module": "coinop-collection"
+}

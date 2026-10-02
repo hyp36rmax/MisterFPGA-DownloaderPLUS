@@ -349,6 +349,50 @@
         "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
       ],
       "confirmed_releases": []
+    },
+    "konami-tmnt2-based": {
+      "display_name": "KONAMI TMNT2 BASED",
+      "destination": "_Arcade/_Arcade Systems/_KONAMI TMNT2 BASED",
+      "classifications": [
+        "arcadetmnt2mister"
+      ],
+      "core_classifications": [
+        "arcadetmnt2mister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "konami-xexex-based": {
+      "display_name": "KONAMI XEXEX BASED",
+      "destination": "_Arcade/_Arcade Systems/_KONAMI XEXEX BASED",
+      "classifications": [
+        "arcadegijoemister"
+      ],
+      "core_classifications": [
+        "arcadegijoemister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
+    },
+    "konami-pre-gx": {
+      "display_name": "KONAMI PRE-GX",
+      "destination": "_Arcade/_Arcade Systems/_KONAMI PRE-GX",
+      "classifications": [
+        "arcademetamrphmister",
+        "arcademystwarrmister"
+      ],
+      "core_classifications": [
+        "arcademetamrphmister",
+        "arcademystwarrmister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA"
+      ],
+      "confirmed_releases": []
     }
   }
 }
