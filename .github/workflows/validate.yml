@@ -13,9 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: '3.12'
+      - name: Check changed public documentation encoding
+        env:
+          DOCUMENTATION_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -n "$DOCUMENTATION_BASE" ] && [ "$DOCUMENTATION_BASE" != 0000000000000000000000000000000000000000 ]; then
+            python tools/check_documentation_encoding.py --base "$DOCUMENTATION_BASE"
+          else
+            python tools/check_documentation_encoding.py
+          fi
       - name: Run offline regression and safety tests
         run: python -m unittest discover -s tests -v
       - name: Verify the inspected snapshot through both CLIs

@@ -31,6 +31,6 @@ Both optional views use `hyp36rmax/PGM-Mister-EZIOCHIU`: standalone `_Arcade/_PG
 
 ## Filters
 
-Authoritative tags and compatible defaults are preserved. Complete includes the validated public inventory of its approved contributors. Normal user-selected MiSTer Downloader filters remain under the user’s control. CPS3 retains its corrected `[MiSTer]` default.
+Authoritative tags and compatible defaults are preserved. Complete includes the validated public inventory of its approved contributors. Normal user-selected MiSTer Downloader filters remain under the userâ€™s control. CPS3 retains its corrected `[MiSTer]` default.
 
 Arcade cores remain under `_Arcade/cores/`. Keep normal upstream core subscriptions enabled; existing modules that independently provide required core records continue to do so. DownloaderPLUS supplies no ROMs.

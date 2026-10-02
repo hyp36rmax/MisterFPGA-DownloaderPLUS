@@ -126,7 +126,7 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 Reserve creates organized locations for selected systems whose payloads DownloaderPLUS does not currently distribute. Compatible files obtained from an authorized source may be placed in the corresponding system folder. DownloaderPLUS does not provide ROMs.
 
-Coin-Op Collection and standalone PGM remain separate optional subscriptions. Their destinations differ from the Arcade Systems views. ìCompleteî means all currently approved DownloaderPLUS Arcade Systems presentations; it does not include every platform or a ROM collection. See [Arcade Systems](docs/arcade-systems.md) for the supported Coin-Op family views and [architecture contract](docs/arcade-systems-architecture.md) for validation details.
+Coin-Op Collection and standalone PGM remain separate optional subscriptions. Their destinations differ from the Arcade Systems views. ‚ÄúComplete‚Äù means all currently approved DownloaderPLUS Arcade Systems presentations; it does not include every platform or a ROM collection. See [Arcade Systems](docs/arcade-systems.md) for the supported Coin-Op family views and [architecture contract](docs/arcade-systems-architecture.md) for validation details.
 
 ## Arcade Systems
 
