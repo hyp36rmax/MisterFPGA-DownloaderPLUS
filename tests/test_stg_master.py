@@ -30,11 +30,26 @@ class PublicSTGMasterTests(unittest.TestCase):
         counts = matrix_counts(data)
         self.assertEqual((len(designs), len(tate_designs)), (counts['distinct_designs'], counts['distinct_tate_designs']))
         self.assertEqual(len({(r[2], r[4]) for r in rows}), len(rows))
-        for actual, row in zip(rows, data['rows']):
+        expected_rows = sorted(data['rows'], key=lambda row: (row['developer'].casefold(), row['canonical_title'].casefold()))
+        for actual, row in zip(rows, expected_rows):
             expected = [row[k] for k in ('developer', 'publisher', 'canonical_title')]
             expected += ['; '.join(row['alternate_titles']) or '—', row['hardware_system'], row['orientation'], row['type'] or '—', row['canonical_parent'] or '—']
             self.assertEqual(actual, expected)
         self.assertFalse(any(value in {'MATCHED','UNAVAILABLE','AUTHORITY HOLD','AMBIGUOUS'} for r in rows for value in r))
+
+    def test_public_sort_preserves_canonical_order_and_bytes(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / 'data/arcade-stg-master.json'
+        original_bytes = path.read_bytes()
+        data = load_matrix()
+        original_data = copy.deepcopy(data)
+        first = public_master(data)
+        rows = primary_rows(first)
+        keys = [(r[0].casefold(), r[2].casefold()) for r in rows]
+        self.assertEqual(keys, sorted(keys))
+        self.assertEqual(data, original_data)
+        self.assertEqual(path.read_bytes(), original_bytes)
+        self.assertEqual(public_master(data), first)
 
     def test_year_notes_and_parent_are_preserved(self):
         data = load_matrix()
@@ -67,7 +82,9 @@ class PublicSTGMasterTests(unittest.TestCase):
     def test_markdown_escaping_preserves_legitimate_unicode(self):
         data=copy.deepcopy(load_matrix())
         data['rows'][0]['publisher']='Example | Company & Partners →'
-        self.assertEqual(primary_rows(public_master(data))[0][1],data['rows'][0]['publisher'])
+        rendered = primary_rows(public_master(data))
+        row = next(r for r in rendered if (r[2], r[4]) == (data['rows'][0]['canonical_title'], data['rows'][0]['hardware_system']))
+        self.assertEqual(row[1], data['rows'][0]['publisher'])
 
     def test_readme_links_to_the_complete_public_master(self):
         root=Path(__file__).resolve().parents[1]
