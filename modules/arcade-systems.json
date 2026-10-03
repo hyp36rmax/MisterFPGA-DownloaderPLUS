@@ -1,6 +1,24 @@
 {
   "version": 1,
   "modules": {
+    "ssv": {
+      "authority": "meathax/meatcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SSV"
+      ],
+      "include_required_cores": true
+    },
+    "banpresto-bp964-bp965": {
+      "authority": "kuzearcade/kuzecores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_BANPRESTO BP964-BP965"
+      ],
+      "include_required_cores": true
+    },
     "capcom-cps1": {
       "authority": "jtcores",
       "management_state": "managed",

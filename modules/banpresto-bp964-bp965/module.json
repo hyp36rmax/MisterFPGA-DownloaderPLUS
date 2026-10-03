@@ -1,0 +1,26 @@
+{
+  "name": "banpresto-bp964-bp965",
+  "display_name": "BANPRESTO BP964-BP965",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/kuzearcade/kuzecores/db/db.json.zip",
+  "upstream_db_id": "kuzearcade/kuzecores",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/banpresto-bp964-bp965",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadenmkbp964",
+    "arcadearcadenmkbp964"
+  ],
+  "exclusive_group_tags": [
+    "arcadenmkbp964",
+    "arcadearcadenmkbp964"
+  ],
+  "source_navigation_root": "_Arcade",
+  "target_folder": "_Arcade Systems/_BANPRESTO BP964-BP965",
+  "core_policy": {
+    "identities": [
+      "NMKBP964"
+    ],
+    "immutable_url_prefix": "https://raw.githubusercontent.com/kuzearcade/Arcade-NMKBP964_MiSTer/"
+  },
+  "collection_scope": "selected"
+}

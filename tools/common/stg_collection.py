@@ -106,6 +106,9 @@ def match_rows(matrix, sources, root=ROOT, ownership=None):
     for authority, source in sorted(sources.items()):
         require(source['approval'] == approved[authority], 'Source approval snapshot differs from live registry')
         for path, record in source['database']['files'].items():
+            scope = source['approval'].get('scope_tags')
+            if scope and not {source['database']['tag_dictionary'].get(t) for t in scope}.intersection(record['tags']):
+                continue
             if not is_mra(path) or '_alternatives' in path.split('/'):
                 continue
             proof = source['metadata'].get(path)

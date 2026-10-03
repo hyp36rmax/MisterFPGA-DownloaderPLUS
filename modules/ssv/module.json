@@ -1,0 +1,23 @@
+{
+  "name": "ssv",
+  "display_name": "SSV",
+  "source_mode": "database",
+  "upstream_url": "https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip",
+  "upstream_db_id": "meathax/meatcores",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/ssv",
+  "policy_version": 1,
+  "selection_tags": [
+    "arcadearcadessv"
+  ],
+  "exclusive_group_tags": [
+    "arcadearcadessv"
+  ],
+  "source_navigation_root": "_Arcade/_MeatCores",
+  "target_folder": "_Arcade Systems/_SSV",
+  "core_policy": {
+    "identities": [
+      "SSV"
+    ],
+    "immutable_url_prefix": "https://raw.githubusercontent.com/meathax/meatcores/"
+  }
+}
