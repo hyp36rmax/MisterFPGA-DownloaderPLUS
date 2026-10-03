@@ -16,7 +16,7 @@ from tools.common.archives import expanded_inventory, validate_archives
 from tools.common.stg_sources import approvals, validate_metadata, current_sources, fetch_selected_alternatives
 
 DESTINATION = '_Arcade/_Arcade STG (TATE)'
-BASELINE = (220, 201, 19, 219, 200)
+BASELINE = (222, 203, 19, 221, 202)
 
 
 def checked_matrix(root=ROOT):

@@ -157,6 +157,8 @@ The current folders are listed under [Reserve Systems](#reserve-systems) below.
 
 This collects currently available vertical-orientation arcade STGs into one folder for easy browsing on a TATE setup. It follows a maintained Japanese arcade STG list and will grow as matching MiSTer cores and titles become available.
 
+For the complete maintained reference, including TATE/YOKO orientation, developer, publisher and original hardware, see the [Japanese Arcade STG Master](docs/arcade-stg-master.md).
+
 Destination: `_Arcade/_Arcade STG (TATE)/`
 
 ```ini

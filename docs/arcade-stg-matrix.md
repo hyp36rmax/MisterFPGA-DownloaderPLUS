@@ -4,12 +4,12 @@ The approved three-part matrix replaces the earlier incomplete matrix. This repo
 
 | Measure | Count |
 |---|---:|
-| Total rows | 220 |
-| Distinct designs | 219 |
-| Tate rows | 201 |
-| Distinct tate designs | 200 |
+| Total rows | 222 |
+| Distinct designs | 221 |
+| Tate rows | 203 |
+| Distinct tate designs | 202 |
 | Yoko rows | 19 |
-| Hardware resolved rows | 220 |
+| Hardware resolved rows | 222 |
 | Hardware unresolved rows | 0 |
 | Canonical parent rows | 1 |
 
@@ -20,7 +20,7 @@ Hardware values are supplied classifications, including broad family labels. A p
 | Type | Description | Rows |
 |---|---|---:|
 | T1 | Fixed/Gallery | 35 |
-| T2 | Flying/Scrolling | 143 |
+| T2 | Flying/Scrolling | 145 |
 | T3 | Ground/Run-and-Shoot | 7 |
 | T4 | Rotary/Multidirectional | 8 |
 | T5 | Alternative Perspective | 3 |
@@ -35,6 +35,7 @@ Hardware values are supplied classifications, including broad family labels. A p
 | Allumer | 1 | 1 | 0 | 1 |
 | Alpha Denshi / ADK | 2 | 2 | 0 | 2 |
 | Athena | 1 | 1 | 0 | 1 |
+| Banpresto / Tsuburaya Productions | 1 | 1 | 0 | 1 |
 | CAVE | 20 | 16 | 4 | 16 |
 | CAVE / IGS | 1 | 1 | 0 | 1 |
 | Capcom | 11 | 11 | 0 | 11 |
@@ -79,7 +80,7 @@ Hardware values are supplied classifications, including broad family labels. A p
 | UPL / NMK attribution | 1 | 1 | 0 | 1 |
 | Universal | 4 | 4 | 0 | 4 |
 | Video System | 2 | 2 | 0 | 2 |
-| Visco | 3 | 3 | 0 | 3 |
+| Visco | 4 | 4 | 0 | 4 |
 | Warashi | 2 | 2 | 0 | 2 |
 | Wood Place | 1 | 1 | 0 | 1 |
 
@@ -133,7 +134,7 @@ Hardware values are supplied classifications, including broad family labels. A p
 | Raizing | 5 | 5 | 0 | 5 |
 | SNK | 7 | 7 | 0 | 7 |
 | SNK/ADK | 2 | 2 | 0 | 2 |
-| SSV | 2 | 2 | 0 | 2 |
+| SSV | 4 | 4 | 0 | 4 |
 | Sega | 5 | 5 | 0 | 5 |
 | Sega NAOMI | 10 | 9 | 1 | 9 |
 | Sega ST-V | 2 | 2 | 0 | 2 |

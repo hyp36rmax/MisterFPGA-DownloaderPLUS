@@ -31,6 +31,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Validate the maintained STG master matrix
         run: python tools/audit_stg_matrix.py
+      - name: Validate public STG master parity
+        run: python tools/audit_stg_master.py
       - name: Validate the independent TATE collection
         run: python tools/audit_stg_collection.py
       - name: Validate the published module catalog
