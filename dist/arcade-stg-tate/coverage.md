@@ -4,12 +4,12 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 105 |
-| matched distinct designs | 105 |
-| unavailable rows | 78 |
+| matched rows | 106 |
+| matched distinct designs | 106 |
+| unavailable rows | 77 |
 | authority hold rows | 17 |
 | ambiguous rows | 1 |
-| primary mras | 105 |
+| primary mras | 106 |
 | alternatives | 357 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
@@ -22,6 +22,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | distribution_mister | 60 | 182 |
 | hyp36rmax/PGM-Mister-EZIOCHIU | 4 | 36 |
 | jtcores | 16 | 56 |
+| kuzearcade/kuzecores | 1 | 0 |
 | meathax/meatcores | 3 | 0 |
 | zakk4223/Arcade-SeibuSPI_MiSTer | 4 | 36 |
 
@@ -32,7 +33,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | 8080/SI | 3 | 3 | 0 | 0 | 0 |
 | Allumer | 1 | 0 | 1 | 0 | 0 |
 | Athena | 1 | 0 | 1 | 0 | 0 |
-| Banpresto BP964 | 1 | 0 | 1 | 0 | 0 |
+| Banpresto BP964 | 1 | 1 | 0 | 0 | 0 |
 | CAVE 68000 | 5 | 0 | 0 | 5 | 0 |
 | CAVE CV1000 | 1 | 0 | 0 | 1 | 0 |
 | CAVE CV1000-B | 6 | 0 | 0 | 6 | 0 |
@@ -119,7 +120,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Jaleco | 4 | 2 | 2 | 0 | 0 |
 | Kaneko | 3 | 0 | 3 | 0 | 0 |
 | Konami | 7 | 5 | 1 | 0 | 1 |
-| MOSS | 3 | 0 | 3 | 0 | 0 |
+| MOSS | 3 | 1 | 2 | 0 | 0 |
 | Metro | 1 | 0 | 1 | 0 | 0 |
 | Milestone | 3 | 0 | 3 | 0 | 0 |
 | NMK | 6 | 0 | 5 | 1 | 0 |
@@ -319,7 +320,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Battle Garegga | Raizing | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Battle Garegga (Europe - USA - Japan - Asia) (Sat Feb 3 1996).mra |
 | Soukyugurentai | Sega ST-V | MATCHED | distribution_mister | _Arcade/Soukyugurentai - Terra Diver (JUET 960821 V1.000).mra |
 | Air Gallet | Gazelle | MATCHED | distribution_mister | _Arcade/Air Gallet (Europe).mra |
-| Macross Plus | Banpresto BP964 | UNAVAILABLE |  |  |
+| Macross Plus | Banpresto BP964 | MATCHED | kuzearcade/kuzecores | _Arcade/Macross Plus.mra |
 | Sonic Wings Limited | Sony ZN-1 | UNAVAILABLE |  |  |
 | Raiden Fighters | Seibu SPI | MATCHED | zakk4223/Arcade-SeibuSPI_MiSTer | _Arcade/Raiden Fighters (Germany).mra |
 | DoDonPachi | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
@@ -373,7 +374,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 ## Latest coverage transitions
 
-No matched-title additions or removals in this baseline.
+- NEW TATE MATCH: Macross Plus — kuzearcade/kuzecores: _Arcade/Macross Plus.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 

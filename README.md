@@ -17,6 +17,7 @@ _Arcade/
 ├── _Arcade STG (TATE)/
 ├── cores/
 └── _Arcade Systems/
+    ├── _BANPRESTO BP964-BP965/
     ├── _CAPCOM CPS1/
     ├── _CAPCOM CPS2/
     ├── _DATA EAST DECO-16/
@@ -24,6 +25,7 @@ _Arcade/
     ├── _MIDWAY T-UNIT/
     ├── _NAMCO SYSTEM 11/
     ├── _SEGA SYSTEM 32/
+    ├── _SSV/
     ├── _TOAPLAN 1/
     └── ...
 ```
@@ -38,6 +40,7 @@ _Arcade/
 | Arcade Systems Reserve | Navigation guidance | `_Arcade/_Arcade Systems/` | `arcade-systems-reserve.json.zip` |
 | PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
 | Arcade STG (TATE) | Approved multi-source collection | `_Arcade/_Arcade STG (TATE)/` | `arcade-stg-tate.json.zip` |
+| BANPRESTO BP964-BP965 | kuzearcade/kuzecores database selection | `_Arcade/_Arcade Systems/_BANPRESTO BP964-BP965/` | `banpresto-bp964-bp965.json.zip` |
 | CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1/` | `capcom-cps1.json.zip` |
 | CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
 | CAPCOM CPS2 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS2/` | `capcom-cps2.json.zip` |
@@ -75,6 +78,7 @@ _Arcade/
 | SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/_SEIBU SPI/` | `seibu-spi.json.zip` |
 | SNK 68000 | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK 68000/` | `coinop-snk-68000.json.zip` |
 | SNK ALPHA-68K | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK ALPHA-68K/` | `coinop-snk-alpha-68k.json.zip` |
+| SSV | MeatCores database selection | `_Arcade/_Arcade Systems/_SSV/` | `ssv.json.zip` |
 | TAITO A78 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A78/` | `coinop-taito-a78.json.zip` |
 | TAITO A85 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A85/` | `coinop-taito-a85.json.zip` |
 | TAITO ASUKA | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO ASUKA/` | `taito-asuka.json.zip` |
@@ -168,6 +172,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 
 | Manufacturer or family | Systems |
 |---|---|
+| BANPRESTO | BP964-BP965 |
 | CAPCOM | CPS1, CPS1.5, CPS2, CPS3, ZN-1, ZN-2 |
 | DATA EAST | DECO-8, DECO-16, DECO-32 |
 | EIGHTING / RAIZING | EIGHTING RAIZING |
@@ -182,6 +187,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 | SEGA | ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
 | SEIBU | SPI |
 | SNK | 68000, ALPHA-68K |
+| SSV | SSV |
 | TAITO | A78, A85, ASUKA, F2, FX1B, SYSTEM SJ |
 | TECHNOS | TA-0015 & TA-0017 |
 | TECHNOSOFT | TECHNOSOFT |
@@ -204,6 +210,13 @@ Midway Reserve folders use their individual subscriptions below or Arcade System
 ## Individual Arcade Systems
 
 If you only want specific Arcade Systems, add the sections you want to your Downloader configuration and run Update_All normally. Use individual modules instead of Arcade Systems Complete for the same systems.
+
+### BANPRESTO
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/banpresto-bp964-bp965]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/banpresto-bp964-bp965/banpresto-bp964-bp965.json.zip
+```
 
 ### CAPCOM
 
@@ -379,6 +392,13 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-snk-alpha-68k/coinop-snk-alpha-68k.json.zip
 ```
 
+### SSV
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/ssv]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/ssv/ssv.json.zip
+```
+
 ### TAITO
 
 ```ini
@@ -441,6 +461,8 @@ DownloaderPLUS organizes work maintained by the MiSTer community. Core developme
 Thanks to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [Ezio Chiu's PGM work](https://github.com/hyp36rmax/PGM-Mister-EZIOCHIU), [Jotego](https://github.com/jotego/jtcores_mister), [MiSTer-devel](https://github.com/MiSTer-devel), [Meathax](https://github.com/meathax/meatcores), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), and the developers and contributors credited by each upstream project. Their work retains its own licensing. DownloaderPLUS is an independent project and does not claim affiliation or ownership.
 
 Additional core credits: [Martin Donlon](https://github.com/wickerwaka), [Paul Priest](https://github.com/ppriest), [MiSTer-X](https://github.com/MrX-8B), [rmonic79](https://github.com/rmonic79), and [Anton Gale](https://github.com/antongale). These modules use the official MiSTer Distribution as their download source.
+
+BANPRESTO BP964-BP965: core development by [kuzearcade](https://github.com/kuzearcade/Arcade-NMKBP964_MiSTer), distributed through [kuzecores](https://github.com/kuzearcade/kuzecores). SSV (Sammy / Seta / Visco): MiSTer implementation and public distribution by [Meathax](https://github.com/meathax/meatcores).
 
 ## Project documentation
 

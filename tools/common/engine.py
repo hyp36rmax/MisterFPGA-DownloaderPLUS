@@ -59,7 +59,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "database":
         fields = {"name", "display_name", "source_mode", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version",
                   "selection_tags", "exclusive_group_tags", "source_navigation_root", "target_folder"}
-        if set(config) - {"database_member", "core_ownership", "selection_archives", "require_all_group_tags", "filter_policy"} != fields or config["name"] != name:
+        if set(config) - {"database_member", "core_ownership", "selection_archives", "require_all_group_tags", "filter_policy", "core_policy", "collection_scope"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized database-selection configuration")
         if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name or config["derived_db_id"] == config["upstream_db_id"]:
             raise ValidationError("Invalid selected database identity")
@@ -84,6 +84,12 @@ def load_module(name, root=ROOT):
         if 'filter_policy' in config:validate_filter_policy(config['filter_policy'])
         if type(archives) is not list or not all(isinstance(a, str) and re.fullmatch('[a-z0-9_]+', a) for a in archives) or len(set(archives)) != len(archives):
             raise ValidationError("Invalid archive selection policy")
+        if 'collection_scope' in config and config['collection_scope'] != 'selected':
+            raise ValidationError('Invalid collection authority scope')
+        if 'core_policy' in config:
+            cp = config['core_policy']
+            if type(cp) is not dict or set(cp) != {'identities', 'immutable_url_prefix'} or type(cp['identities']) is not list or not cp['identities'] or len(set(cp['identities'])) != len(cp['identities']) or not all(isinstance(i,str) and re.fullmatch('[A-Za-z0-9_-]+',i) for i in cp['identities']) or not re.fullmatch(r'https://raw\.githubusercontent\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/', cp['immutable_url_prefix']):
+                raise ValidationError('Invalid current core policy')
         return config, DatabasePolicy(config)
     if config.get("source_mode") == "repository":
         fields = {"name", "display_name", "source_mode", "repository", "ref", "distribution_root",

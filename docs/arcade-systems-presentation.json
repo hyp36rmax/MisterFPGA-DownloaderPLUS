@@ -1,5 +1,15 @@
 [
   {
+    "group": "SSV",
+    "prefix": "SSV",
+    "strip_prefix": false
+  },
+  {
+    "group": "BANPRESTO",
+    "prefix": "BANPRESTO",
+    "strip_prefix": true
+  },
+  {
     "group": "CAPCOM",
     "prefix": "CAPCOM",
     "strip_prefix": true

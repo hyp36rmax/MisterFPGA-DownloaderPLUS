@@ -20,7 +20,7 @@ from tools.common.archives import hydrate_archives, checked_payload, expanded_in
 
 
 # Reviewed collection authorities; adding a registry source alone cannot expand this set.
-APPROVED_AUTHORITIES = ('Coin-OpCollection/Distribution-MiSTerFPGA', 'XelaNotPu/SYSTEM11_MiSTer', 'XelaNotPu/ZN1-Capcom_MiSTer', 'XelaNotPu/ZN1-TaitoFX1B_MiSTer', 'XelaNotPu/ZN2-Capcom_MiSTer', 'distribution_mister', 'hyp36rmax/PGM-Mister-EZIOCHIU', 'jtcores', 'meathax/meatcores', 'zakk4223/Arcade-SeibuSPI_MiSTer')
+APPROVED_AUTHORITIES = ('Coin-OpCollection/Distribution-MiSTerFPGA', 'XelaNotPu/SYSTEM11_MiSTer', 'XelaNotPu/ZN1-Capcom_MiSTer', 'XelaNotPu/ZN1-TaitoFX1B_MiSTer', 'XelaNotPu/ZN2-Capcom_MiSTer', 'distribution_mister', 'hyp36rmax/PGM-Mister-EZIOCHIU', 'jtcores', 'kuzearcade/kuzecores', 'meathax/meatcores', 'zakk4223/Arcade-SeibuSPI_MiSTer')
 
 
 def approvals(root=ROOT):
@@ -35,6 +35,8 @@ def approvals(root=ROOT):
             continue
         authority = registered[name]['authority']
         entry = result.setdefault(authority, {'configs': [], 'roots': [], 'selection_tags': []})
+        if config.get('collection_scope') == 'selected':
+            entry.setdefault('scope_tags', []).extend(config['selection_tags'])
         entry['configs'].append(name)
         entry['roots'].extend(registered[name]['destination_roots'])
         entry['selection_tags'].extend(config.get('selection_tags', []))
@@ -131,6 +133,9 @@ def current_sources(root=ROOT, fetcher=fetch):
             raw = fetcher(config['upstream_url'])
             database = unpack(raw, config.get('database_member', 'db.json'))
             policy.validate_schema(database, config)
+            if config.get('collection_scope') == 'selected':
+                from tools.common.selection import select_database
+                database = select_database(database, config, policy)
             # Existing approved Main configurations identify the authoritative alternatives archive.
             archive_names = sorted({a for name in approval['configs'] for a in load_module(name, root)[0].get('selection_archives', [])})
             database = hydrate_archives(database, {'selection_archives': archive_names}, cache, fetcher=fetcher)

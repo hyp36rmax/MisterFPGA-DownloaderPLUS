@@ -114,6 +114,25 @@ def safe_url(url):
     require(parsed.scheme == 'https' and parsed.hostname and not parsed.username and not parsed.password and not parsed.fragment, 'Invalid HTTPS source')
 
 
+def latest_authoritative_cores(files, core_policy, base_files_url=""):
+    """Use only promoted distribution records; select independently per dated identity."""
+    from tools.common.repository import core_version
+    versions = {}
+    for path, record in files.items():
+        if not path.endswith('.rbf'):
+            continue
+        identity, date = core_version(path)
+        require(identity in core_policy['identities'], 'Unexpected selected core identity: ' + identity)
+        prefix = core_policy['immutable_url_prefix']
+        require(re.fullmatch(re.escape(prefix) + r'[0-9a-f]{40}/[^?#]+', record.get('url', base_files_url + quote(path))), 'Core URL must remain commit-pinned: ' + path)
+        require(identity not in versions or date != versions[identity][0], 'Ambiguous authoritative core release')
+        if identity not in versions or date > versions[identity][0]:
+            versions[identity] = (date, path)
+    require(set(versions) == set(core_policy['identities']), 'Authoritative core identity missing')
+    selected = {p for _, p in versions.values()}
+    return {p: r for p, r in files.items() if not p.endswith('.rbf') or p in selected}
+
+
 def select_database(database, config, policy):
     policy.validate_schema(database, config)
     require(database['db_id'] == config['upstream_db_id'], 'Selection requires authoritative upstream')
@@ -140,6 +159,8 @@ def select_database(database, config, policy):
         if path.endswith('.rbf') and config.get('core_ownership') == 'upstream':
             continue
         files[path] = copy.deepcopy(record)
+    if config.get('core_policy'):
+        files = latest_authoritative_cores(files, config['core_policy'], database['base_files_url'])
     require(any(is_mra(p) for p in files) and (config.get('core_ownership') == 'upstream' or any(p.endswith('.rbf') for p in files)), 'Classification missing navigation or core')
     folder_paths = set()
     for path in files:
@@ -175,6 +196,8 @@ def verify_payloads(database, fetcher=fetch, core_database=None, config=None):
         require(len(payload) == record['size'] and hashlib.md5(payload).hexdigest() == record['hash'], 'Upstream payload hash/size mismatch: '+path)
         if is_mra(path):
             reference = mra_reference(payload, path)
+            if config and config.get('core_policy'):
+                require(reference.removeprefix('Arcade-').casefold() in {i.casefold() for i in config['core_policy']['identities']}, 'MRA core outside approved identity: ' + path)
             require(any(re.fullmatch(r'(?:Arcade-)?'+re.escape(reference)+r'(?:_\d{8})?\.rbf', core, re.I) for core in cores), 'Unresolved selected MRA core: '+path)
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(verify, database['files'].items()))
