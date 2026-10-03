@@ -12,9 +12,28 @@ class STGMatrixTests(unittest.TestCase):
     def test_approved_baseline_counts_and_parent(self):
         counts = matrix_counts(self.data)
         self.assertEqual((counts['total_rows'], counts['distinct_designs'], counts['tate_rows'],
-                          counts['distinct_tate_designs'], counts['yoko_rows']), (220, 219, 201, 200, 19))
-        self.assertEqual(counts['tate_types'], {'T1': 35, 'T2': 143, 'T3': 7, 'T4': 8, 'T5': 3, 'T6': 5})
+                          counts['distinct_tate_designs'], counts['yoko_rows']), (222, 221, 203, 202, 19))
+        self.assertEqual(counts['tate_types'], {'T1': 35, 'T2': 145, 'T3': 7, 'T4': 8, 'T5': 3, 'T6': 5})
         self.assertEqual(counts['canonical_parent_rows'], 1)
+
+    def test_approved_ssv_additions_preserve_original_220_rows(self):
+        import hashlib
+        from tools.common.database import canonical_json
+        self.assertEqual(hashlib.sha256(canonical_json(self.data['rows'][:220])).hexdigest(),
+                         '421928641c5bfdec05b7fc461d288309dbebb674964aeffe0d7e99bb9130830c')
+        expected = [
+            ('Ultra X Weapons', 'Banpresto / Tsuburaya Productions', 'Banpresto', ['Ultra Keibitai']),
+            ('Storm Blade', 'Visco', 'Visco', []),
+        ]
+        additions = self.data['rows'][220:]
+        self.assertEqual(len(additions), 2)
+        self.assertEqual(len({r['canonical_title'] for r in additions}), 2)
+        for row, values in zip(additions, expected):
+            self.assertEqual((row['canonical_title'], row['developer'], row['publisher'], row['alternate_titles']), values)
+            self.assertEqual((row['hardware_system'], row['orientation'], row['type'], row['canonical_parent']),
+                             ('SSV', 'TATE', 'T2', None))
+        existing = next(r for r in self.data['rows'] if r['canonical_title'] == 'Twin Eagle II')
+        self.assertEqual((existing['orientation'], existing['type']), ('TATE', 'T2'))
 
     def test_pgm_rows_and_attribution_note(self):
         rows = {r['canonical_title']: r for r in self.data['rows']}

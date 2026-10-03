@@ -2780,6 +2780,32 @@
       "canonical_parent": null,
       "year": null,
       "notes": null
+    },
+    {
+      "developer": "Banpresto / Tsuburaya Productions",
+      "publisher": "Banpresto",
+      "canonical_title": "Ultra X Weapons",
+      "alternate_titles": [
+        "Ultra Keibitai"
+      ],
+      "hardware_system": "SSV",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Visco",
+      "publisher": "Visco",
+      "canonical_title": "Storm Blade",
+      "alternate_titles": [],
+      "hardware_system": "SSV",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
     }
   ]
 }

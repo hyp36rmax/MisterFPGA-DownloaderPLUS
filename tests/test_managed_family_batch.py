@@ -156,7 +156,7 @@ class ManagedFamilyBatchTests(unittest.TestCase):
         config,_=load_module('arcade-stg-tate')
         database,matches,_,_=generate(config,checked_matrix(),snapshots)
         rows={r['canonical_title']:r for r in matches['matches']}
-        for title in ('Macross Plus','Vasara','Vasara 2'):self.assertEqual(rows[title]['match_state'],'MATCHED')
+        for title in ('Macross Plus','Vasara','Vasara 2','Twin Eagle II','Ultra X Weapons','Storm Blade'):self.assertEqual(rows[title]['match_state'],'MATCHED')
         self.assertEqual(rows['Space Invaders']['match_state'],'UNAVAILABLE')
         self.assertFalse(any('Quiz' in p or 'Monster Slider' in p for p in database['files']))
         self.assertFalse(any(p.endswith('.rbf') for p in database['files']))

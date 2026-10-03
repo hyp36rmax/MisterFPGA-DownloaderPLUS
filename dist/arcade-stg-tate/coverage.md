@@ -4,12 +4,12 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 106 |
-| matched distinct designs | 106 |
+| matched rows | 108 |
+| matched distinct designs | 108 |
 | unavailable rows | 77 |
 | authority hold rows | 17 |
 | ambiguous rows | 1 |
-| primary mras | 106 |
+| primary mras | 108 |
 | alternatives | 357 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
@@ -23,7 +23,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | hyp36rmax/PGM-Mister-EZIOCHIU | 4 | 36 |
 | jtcores | 16 | 56 |
 | kuzearcade/kuzecores | 1 | 0 |
-| meathax/meatcores | 3 | 0 |
+| meathax/meatcores | 5 | 0 |
 | zakk4223/Arcade-SeibuSPI_MiSTer | 4 | 36 |
 
 ## Hardware/System
@@ -70,7 +70,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Raizing | 5 | 5 | 0 | 0 | 0 |
 | SNK | 7 | 4 | 3 | 0 | 0 |
 | SNK/ADK | 2 | 2 | 0 | 0 | 0 |
-| SSV | 2 | 2 | 0 | 0 | 0 |
+| SSV | 4 | 4 | 0 | 0 | 0 |
 | Sega | 5 | 1 | 4 | 0 | 0 |
 | Sega NAOMI | 9 | 0 | 9 | 0 | 0 |
 | Sega ST-V | 2 | 2 | 0 | 0 | 0 |
@@ -105,6 +105,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Allumer | 1 | 0 | 1 | 0 | 0 |
 | Alpha Denshi / ADK | 2 | 2 | 0 | 0 | 0 |
 | Athena | 1 | 0 | 1 | 0 | 0 |
+| Banpresto / Tsuburaya Productions | 1 | 1 | 0 | 0 | 0 |
 | CAVE | 16 | 3 | 0 | 13 | 0 |
 | CAVE / IGS | 1 | 0 | 0 | 1 | 0 |
 | Capcom | 11 | 10 | 1 | 0 | 0 |
@@ -148,7 +149,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | UPL / NMK attribution | 1 | 0 | 1 | 0 | 0 |
 | Universal | 4 | 4 | 0 | 0 | 0 |
 | Video System | 2 | 0 | 2 | 0 | 0 |
-| Visco | 3 | 2 | 1 | 0 | 0 |
+| Visco | 4 | 3 | 1 | 0 | 0 |
 | Warashi | 2 | 1 | 1 | 0 | 0 |
 | Wood Place | 1 | 0 | 1 | 0 | 0 |
 
@@ -371,10 +372,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Illvelo | Sega NAOMI | UNAVAILABLE |  |  |
 | DoDonPachi DaiOuJou Tamashii | IGS PGM2 | AUTHORITY HOLD | ezio |  |
 | DoDonPachi SaiDaiOuJou | CAVE CV1000-D | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Ultra X Weapons | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Ultra X Weapons - Ultra Keibitai.mra |
+| Storm Blade | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Storm Blade.mra |
 
 ## Latest coverage transitions
 
-- NEW TATE MATCH: Macross Plus — kuzearcade/kuzecores: _Arcade/Macross Plus.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Storm Blade — meathax/meatcores: _Arcade/_MeatCores/Storm Blade.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Ultra X Weapons — meathax/meatcores: _Arcade/_MeatCores/Ultra X Weapons - Ultra Keibitai.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 
