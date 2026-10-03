@@ -25,11 +25,11 @@ def public_master(data):
     lines += ['', '## TATE type legend', '', '| Type | Meaning |', '|---|---|']
     for key, meaning in TYPES.items():
         lines.append('| ' + key + ' | ' + meaning + ' |')
-    lines += ['', 'YOKO rows have no TATE type. Rows retain the canonical master order.', '', '## Complete maintained matrix', '',
+    lines += ['', 'YOKO rows have no TATE type. Rows are presented alphabetically by Developer, then Canonical Title. The canonical structured master retains its stable internal order.', '', '## Complete maintained matrix', '',
               '| Developer | Publisher | Canonical Title | Alternate / Regional | Hardware / System | Orientation | TATE Type | Canonical Parent |',
               '|---|---|---|---|---|---|---|---|']
     fields = ('developer', 'publisher', 'canonical_title', 'alternate_titles', 'hardware_system', 'orientation', 'type', 'canonical_parent')
-    for row in rows:
+    for row in sorted(rows, key=lambda row: (row['developer'].casefold(), row['canonical_title'].casefold())):
         lines.append('| ' + ' | '.join(cell(row[k]) for k in fields) + ' |')
     additional = [r for r in rows if r['year'] is not None or r['notes'] is not None]
     if additional:
