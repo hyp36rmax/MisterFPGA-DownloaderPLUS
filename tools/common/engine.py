@@ -38,6 +38,11 @@ def load_module(name, root=ROOT):
         raise ValidationError("Invalid module name")
     directory = Path(root) / "modules" / name
     config = parse_json((directory / "module.json").read_bytes())
+    if config.get('source_mode') == 'collection':
+        from tools.common.stg_collection import CollectionPolicy, DESTINATION
+        if set(config) != {'name', 'display_name', 'source_mode', 'derived_db_id', 'policy_version', 'destination'} or config['name'] != name or name != 'arcade-stg-tate' or config['destination'] != DESTINATION or config['derived_db_id'] != 'hyp36rmax/MisterFPGA-DownloaderPLUS/' + name or config['policy_version'] != 1:
+            raise ValidationError('Invalid STG collection configuration')
+        return config, CollectionPolicy()
     if config.get("source_mode") in {"coinop-family", "documentation", "complete"}:
         from tools.common.arcade_systems import AssemblyPolicy
         fields={"name","display_name","source_mode","authority","derived_db_id","policy_version","include_required_cores"}

@@ -50,6 +50,11 @@ def verify_one(name,root=ROOT,verbose=True):
         import contextlib,io
         with contextlib.redirect_stdout(io.StringIO()):return verify_one(name,root,True)
     config, policy = load_module(name,root)
+    if config.get('source_mode') == 'collection':
+        from tools.common.stg_collection import verify_collection
+        result = verify_collection(config, root)
+        print('Verified ' + name + ': ' + str(len(result[0]['files'])) + ' direct MRAs')
+        return result
     if config.get('source_mode') in {'coinop-family','documentation','complete'}:
         return verify_assembly(name,root)
     config, policy = load_module(name,root)

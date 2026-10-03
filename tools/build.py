@@ -14,6 +14,11 @@ from tools.common.selection import select_database, verify_payloads
 
 def build(name, upstream_file=None, output_root=None, source_cache=None):
     config, policy = load_module(name)
+    if config.get('source_mode') == 'collection':
+        from tools.common.stg_collection import build_collection
+        if upstream_file:
+            raise ValidationError('Collection requires approved multi-source inventories, not one database')
+        return build_collection(config, output_root)
     if config.get("source_mode")=="coinop-family":
         from tools.common.coinop_families import build_family
         return build_family(config,upstream_file,output_root,source_cache)
