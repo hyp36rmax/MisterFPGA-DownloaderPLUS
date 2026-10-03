@@ -165,6 +165,216 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 - TwinBee: distribution_mister:_Arcade/TwinBee (Bubble System).mra; distribution_mister:_Arcade/TwinBee.mra
 
+## Frozen TATE title coverage
+
+| Title | Hardware/System | State | Authority | Primary MRA |
+|---|---|---|---|---|
+| Space Invaders | 8080/SI | MATCHED | distribution_mister | _Arcade/Space Invaders.mra |
+| Space Attack | Sega | UNAVAILABLE |  |  |
+| Space Invaders Part II | 8080/SI | MATCHED | distribution_mister | _Arcade/Space Invaders Part II (Taito, Bigger ROMs).mra |
+| Lunar Rescue | 8080/SI | MATCHED | distribution_mister | _Arcade/Lunar Rescue.mra |
+| Astro Fighter | DECO | UNAVAILABLE |  |  |
+| Cosmic Guerilla | Universal | MATCHED | distribution_mister | _Arcade/Cosmic Guerilla.mra |
+| Cosmic Alien | Universal | MATCHED | distribution_mister | _Arcade/Cosmic Alien.mra |
+| Ozma Wars | SNK | UNAVAILABLE |  |  |
+| Galaxian | Galaxian | MATCHED | distribution_mister | _Arcade/Galaxian (Namco, Set 1).mra |
+| Attack UFO | Dedicated | UNAVAILABLE |  |  |
+| Polaris | Taito | MATCHED | distribution_mister | _Arcade/Polaris.mra |
+| Balloon Bomber | Taito | MATCHED | distribution_mister | _Arcade/Balloon Bomber.mra |
+| Moon Cresta | Galaxian-derived | MATCHED | distribution_mister | _Arcade/Moon Cresta (Galaxian Hardware) [bl].mra |
+| Moon Quasar | Galaxian-derived | MATCHED | distribution_mister | _Arcade/Moon Quasar.mra |
+| Sky Chuter | Irem | UNAVAILABLE |  |  |
+| Ginga Teikoku no Gyakushuu | Irem | MATCHED | distribution_mister | _Arcade/UniWar S.mra |
+| Devil Zone | Universal | MATCHED | distribution_mister | _Arcade/Devil Zone.mra |
+| Magical Spot | Universal | MATCHED | distribution_mister | _Arcade/Magical Spot.mra |
+| Stratovox | Dedicated | UNAVAILABLE |  |  |
+| Sasuke vs. Commander | SNK | MATCHED | distribution_mister | _Arcade/Sasuke.mra |
+| Space Intruder | Dedicated | UNAVAILABLE |  |  |
+| Carnival | Sega | MATCHED | distribution_mister | _Arcade/Carnival.mra |
+| N-Sub | Sega | UNAVAILABLE |  |  |
+| Space Trek | Sega | UNAVAILABLE |  |  |
+| Tomahawk 777 | DECO | UNAVAILABLE |  |  |
+| Pleiads | Tehkan | MATCHED | distribution_mister | _Arcade/Pleiads (Tehkan).mra |
+| Satan of Saturn | SNK | MATCHED | distribution_mister | _Arcade/Satan Of Saturn.mra |
+| Galaga | Galaga | MATCHED | distribution_mister | _Arcade/Galaga (Midway, Set 1).mra |
+| Astro Blaster | Sega | UNAVAILABLE |  |  |
+| Red Clash | Kaneko | UNAVAILABLE |  |  |
+| Colony 7 | Taito | MATCHED | distribution_mister | _Arcade/Colony 7 (Set 1).mra |
+| Zaxxon | Zaxxon hardware | MATCHED | distribution_mister | _Arcade/Zaxxon (Set 1, Rev D).mra |
+| Front Line | Taito | MATCHED | distribution_mister | _Arcade/Front Line.mra |
+| Time Pilot | Konami | MATCHED | distribution_mister | _Arcade/Time Pilot.mra |
+| Mission-X | DECO | MATCHED | distribution_mister | _Arcade/Mission-X (DECO).mra |
+| Zoar | DECO | UNAVAILABLE |  |  |
+| Tank Battalion | Namco | MATCHED | distribution_mister | _Arcade/TankBattalion.mra |
+| Imago | Dedicated | UNAVAILABLE |  |  |
+| Xevious | Namco | MATCHED | distribution_mister | _Arcade/Xevious.mra |
+| Gyruss | Konami | MATCHED | distribution_mister | _Arcade/Gyruss.mra |
+| Juno First | Konami | MATCHED | distribution_mister | _Arcade/Juno First.mra |
+| Sky Lancer | Orca | UNAVAILABLE |  |  |
+| Dog Fight | Orca | UNAVAILABLE |  |  |
+| Exerion | Jaleco | MATCHED | distribution_mister | _Arcade/Exerion (Taito).mra |
+| Bio-Attack | Taito | MATCHED | distribution_mister | _Arcade/Bio Attack.mra |
+| Gaplus | Namco | MATCHED | distribution_mister | _Arcade/Galaga 3 - Gaplus (GP2 Rev B).mra |
+| Vulgus | Capcom | MATCHED | jtcores | _Arcade/Vulgus (set 1).mra |
+| 1942 | Capcom | MATCHED | jtcores | _Arcade/1942 (Revision B).mra |
+| Gyrodine | Crux/Kyugo family | MATCHED | distribution_mister | _Arcade/Gyrodine.mra |
+| Future Spy | Zaxxon hardware | MATCHED | distribution_mister | _Arcade/Future Spy (315-5061).mra |
+| Fire Battle | Wood Place | UNAVAILABLE |  |  |
+| Star Force | Tehkan | MATCHED | distribution_mister | _Arcade/Star Force.mra |
+| Sky Army | Dedicated | UNAVAILABLE |  |  |
+| Liberation | DECO | UNAVAILABLE |  |  |
+| Repulse | Kyugo family | MATCHED | distribution_mister | _Arcade/Repulse.mra |
+| Halley's Comet | Taito | UNAVAILABLE |  |  |
+| TwinBee | Konami | AMBIGUOUS |  |  |
+| Alpha Mission | SNK | MATCHED | distribution_mister | _Arcade/ASO.mra |
+| Tiger-Heli | Toaplan | MATCHED | distribution_mister | _Arcade/Tiger Heli Bootleg.mra |
+| Exed Exes | Capcom | MATCHED | jtcores | _Arcade/Exed Exes.mra |
+| Commando | Capcom | MATCHED | jtcores | _Arcade/Commando (World).mra |
+| Gun.Smoke | Capcom | MATCHED | jtcores | _Arcade/Gun.Smoke (World, 1985-11-15).mra |
+| Slap Fight | Toaplan | MATCHED | distribution_mister | _Arcade/Alcon Bootleg.mra |
+| Tokio | Taito | MATCHED | jtcores | _Arcade/Tokio - Scramble Formation (newer).mra |
+| Yōjūden | Irem | UNAVAILABLE |  |  |
+| Mission 660 | Kaneko | UNAVAILABLE |  |  |
+| Darwin 4078 | DECO | UNAVAILABLE |  |  |
+| Legendary Wings | Capcom | MATCHED | jtcores | _Arcade/Legendary Wings (US, rev. C).mra |
+| UFO Robo Dangar | Nichibutsu | MATCHED | distribution_mister | _Arcade/Ufo Robo Dangar (4-07-1987).mra |
+| Terra Cresta | Nichibutsu | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Terra Cresta (YM3526 set 1).mra |
+| Rafflesia | Sega/Coreland | MATCHED | distribution_mister | _Arcade/Rafflesia (315-5162).mra |
+| Flying Shark | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Hishou Zame (Japan).mra |
+| Twin Cobra | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Kyukyoku Tiger (Japan, 2P Co-Op).mra |
+| Dragon Spirit | System 1 | UNAVAILABLE |  |  |
+| Gemini Wing | Tecmo | MATCHED | distribution_mister | _Arcade/Gemini Wing.mra |
+| 1943: The Battle of Midway | Capcom | MATCHED | jtcores | _Arcade/1943 The Battle of Midway (Euro).mra |
+| Bermuda Triangle | SNK | UNAVAILABLE |  |  |
+| World Wars | SNK | UNAVAILABLE |  |  |
+| SRD: Super Real Darwin | DECO | UNAVAILABLE |  |  |
+| Last Mission | DECO | UNAVAILABLE |  |  |
+| Gondomania | DECO | UNAVAILABLE |  |  |
+| Legion | Nichibutsu | UNAVAILABLE |  |  |
+| MX5000 | Konami | MATCHED | jtcores | _Arcade/MX5000.mra |
+| Galaga '88 | System 1 | MATCHED | jtcores | _Arcade/Galaga '88.mra |
+| 1943 Kai | Capcom | UNAVAILABLE |  |  |
+| Image Fight | Irem M72 | MATCHED | distribution_mister | _Arcade/Image Fight (World).mra |
+| Truxton | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Truxton - Tatsujin.mra |
+| Master of Weapon | Taito | UNAVAILABLE |  |  |
+| Armed F | Nichibutsu | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Armed F (Japan).mra |
+| Twin Hawk | Toaplan | AUTHORITY HOLD |  |  |
+| Fire Shark | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Same! Same! Same! (2P Set).mra |
+| Plus Alpha | Mega System 1 | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Plus Alpha.mra |
+| The Next Space | SNK | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/The Next Space (Japan).mra |
+| Dangerous Seed | System 1 | MATCHED | jtcores | _Arcade/Dangerous Seed (Japan).mra |
+| Sky Soldiers | SNK/ADK | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Sky Soldiers (US).mra |
+| Sky Adventure | SNK/ADK | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Sky Adventure (World).mra |
+| Scramble Spirits | System 24 | UNAVAILABLE |  |  |
+| Gun Frontier | Taito F2 | MATCHED | distribution_mister | _Arcade/Gun & Frontier (World).mra |
+| 1941: Counter Attack | CPS-1 | MATCHED | jtcores | _Arcade/1941 Counter Attack (World 900227).mra |
+| Mercs | CPS-1 | MATCHED | jtcores | _Arcade/Mercs (World 900302).mra |
+| Air Duel | Irem M72 | MATCHED | distribution_mister | _Arcade/Air Duel (World, M72 hardware).mra |
+| Dragon Saber | System 2 | UNAVAILABLE |  |  |
+| Ashura Blaster | Taito B System | UNAVAILABLE |  |  |
+| Raiden | Seibu | MATCHED | distribution_mister | _Arcade/Raiden (World).mra |
+| Trigon | Konami | MATCHED | jtcores | _Arcade/Lightning Fighters (World).mra |
+| Out Zone | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Out Zone.mra |
+| Detana!! TwinBee | Konami | UNAVAILABLE |  |  |
+| Vimana | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Vimana (Japan).mra |
+| Thunder Dragon | NMK16 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Hacha Mecha Fighter | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Lethal Thunder | Irem | MATCHED | distribution_mister | _Arcade/Lethal Thunder (World).mra |
+| Acrobat Mission | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Zing Zing Zip | Allumer | UNAVAILABLE |  |  |
+| Sky Alert | Metro | UNAVAILABLE |  |  |
+| Sand Scorpion | Face | UNAVAILABLE |  |  |
+| Truxton II | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Truxton II - Tatsujin Oh.mra |
+| Dogyuun | Toaplan | UNAVAILABLE |  |  |
+| FixEight | Toaplan | UNAVAILABLE |  |  |
+| Super Spacefortress Macross | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Explosive Breaker | Kaneko | UNAVAILABLE |  |  |
+| F/A | NA-1 | UNAVAILABLE |  |  |
+| Aero Fighters | Video System | UNAVAILABLE |  |  |
+| Twin Eagle | Seta | UNAVAILABLE |  |  |
+| Arbalester | Seta | UNAVAILABLE |  |  |
+| Meta Fox | Seta | UNAVAILABLE |  |  |
+| Caliber .50 | Seta | AUTHORITY HOLD |  |  |
+| Nostradamus | Face | UNAVAILABLE |  |  |
+| Daioh | Athena | UNAVAILABLE |  |  |
+| Cybattler | Mega System 1 | UNAVAILABLE |  |  |
+| Sengoku Ace | Psikyo 68K | MATCHED | distribution_mister | _Arcade/Samurai Aces (World).mra |
+| Mahou Daisakusen | Raizing | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Mahou Daisakusen (Japan).mra |
+| GunNail | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Thunder Dragon 2 | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Fire Barrel | Irem | MATCHED | distribution_mister | _Arcade/Air Assault (World).mra |
+| RayForce | Taito F3 | UNAVAILABLE |  |  |
+| Shippu Mahou Daisakusen | Raizing | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Shippu Mahou Daisakusen (Japan).mra |
+| Gunbird | Psikyo 68K | MATCHED | distribution_mister | _Arcade/Gunbird (World).mra |
+| Raiden II | Seibu | MATCHED | distribution_mister | _Arcade/Raiden II (US, set 1).mra |
+| Raiden DX | Seibu | MATCHED | distribution_mister | _Arcade/Raiden DX (UK).mra |
+| Rapid Hero | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Twin Eagle II | Seta | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Twin Eagle II - The Rescue Mission.mra |
+| Gekirindan | Taito F3 | UNAVAILABLE |  |  |
+| DonPachi | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Strikers 1945 | Psikyo 68K | MATCHED | distribution_mister | _Arcade/Strikers 1945 (World).mra |
+| Viper Phase 1 | Seibu SPI | MATCHED | zakk4223/Arcade-SeibuSPI_MiSTer | _Arcade/Viper Phase 1 (New Version, World).mra |
+| Game Tengoku | Mega System 32 | UNAVAILABLE |  |  |
+| 19XX: The War Against Destiny | CPS-2 | MATCHED | jtcores | _Arcade/19XX The War Against Destiny (Europe 960104).mra |
+| Battle Garegga | Raizing | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Battle Garegga (Europe - USA - Japan - Asia) (Sat Feb 3 1996).mra |
+| Soukyugurentai | Sega ST-V | MATCHED | distribution_mister | _Arcade/Soukyugurentai - Terra Diver (JUET 960821 V1.000).mra |
+| Air Gallet | Gazelle | MATCHED | distribution_mister | _Arcade/Air Gallet (Europe).mra |
+| Macross Plus | Banpresto BP964 | UNAVAILABLE |  |  |
+| Sonic Wings Limited | Sony ZN-1 | UNAVAILABLE |  |  |
+| Raiden Fighters | Seibu SPI | MATCHED | zakk4223/Arcade-SeibuSPI_MiSTer | _Arcade/Raiden Fighters (Germany).mra |
+| DoDonPachi | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Strikers 1945 II | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Strikers 1945 II.mra |
+| Raiden Fighters 2 | Seibu SPI | MATCHED | zakk4223/Arcade-SeibuSPI_MiSTer | _Arcade/Raiden Fighters 2 - Operation Hell Dive (Germany).mra |
+| Shienryu | Sega ST-V | MATCHED | distribution_mister | _Arcade/Shienryu (JUET 961226 V1.000).mra |
+| Dangun Feveron | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| ESP Ra.De. | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Armed Police Batrider | Raizing | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Armed Police Batrider (Japan, B Version) (Fri Feb 13 1998).mra |
+| Space Bomber | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Space Bomber (ver. B).mra |
+| Gunbird 2 | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Gunbird 2 (set 1).mra |
+| Raiden Fighters Jet | Seibu SPI | MATCHED | zakk4223/Arcade-SeibuSPI_MiSTer | _Arcade/Raiden Fighters Jet (Germany).mra |
+| Guwange | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Battle Bakraid | Raizing | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Battle Bakraid - Unlimited Version (Japan) (Tue Jun 8 1999).mra |
+| Strikers 1945 III | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Strikers 1945 III.mra |
+| Great Mahou Daisakusen | CPS-2 | MATCHED | jtcores | _Arcade/Dimahoo (Europe 000121).mra |
+| Brave Blade | Sony ZN-1 | UNAVAILABLE |  |  |
+| Dragon Blaze | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Dragon Blaze.mra |
+| Psyvariar: Medium Unit | Taito G-NET | UNAVAILABLE |  |  |
+| Psyvariar Revision | Taito G-NET | UNAVAILABLE |  |  |
+| Vasara | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Vasara.mra |
+| Vasara 2 | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Vasara 2.mra |
+| Shikigami no Shiro | Taito G-NET | UNAVAILABLE |  |  |
+| Gunbarich | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Gunbarich.mra |
+| DoDonPachi II: Bee Storm | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/DoDonPachi II - Bee Storm (World, ver. 102).mra |
+| DoDonPachi DaiOuJou | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/DoDonPachi III (World, 2002.05.15 Master Ver).mra |
+| XII Stag | Taito G-NET | UNAVAILABLE |  |  |
+| Ketsui: Kizuna Jigoku Tachi | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/Ketsui- Kizuna Jigoku Tachi (2003-01-01. Master Ver.).mra |
+| Espgaluda | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/Espgaluda (2003-10-15 Master Ver).mra |
+| Shikigami no Shiro II | Sega NAOMI | UNAVAILABLE |  |  |
+| Psyvariar 2: The Will to Fabricate | Sega NAOMI | UNAVAILABLE |  |  |
+| Mushihimesama | CAVE CV1000-B | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Trizeal | Sega NAOMI | UNAVAILABLE |  |  |
+| Ibara | CAVE CV1000-B | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Espgaluda II | CAVE CV1000-B | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Under Defeat | Sega NAOMI | UNAVAILABLE |  |  |
+| Radirgy | Sega NAOMI | UNAVAILABLE |  |  |
+| Raiden III | Taito Type X | UNAVAILABLE |  |  |
+| Pink Sweets | CAVE CV1000-B | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Mushihimesama Futari | CAVE CV1000-B | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Trigger Heart Exelica | Sega NAOMI | UNAVAILABLE |  |  |
+| Karous | Sega NAOMI | UNAVAILABLE |  |  |
+| Shikigami no Shiro III | Taito Type X | UNAVAILABLE |  |  |
+| Muchi Muchi Pork! | CAVE CV1000-B | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Exzeal | Sega NAOMI | UNAVAILABLE |  |  |
+| Raiden IV | Taito Type X | UNAVAILABLE |  |  |
+| DoDonPachi DaiFukkatsu | CAVE CV1000 | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Illvelo | Sega NAOMI | UNAVAILABLE |  |  |
+| DoDonPachi DaiOuJou Tamashii | IGS PGM2 | AUTHORITY HOLD | ezio |  |
+| DoDonPachi SaiDaiOuJou | CAVE CV1000-D | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+
+## Latest coverage transitions
+
+No matched-title additions or removals in this baseline.
+
 ## Preservation
 
 The full upstream tag dictionaries remain in source provenance. Source-local numeric IDs are reconciled into a shared dictionary without changing tag terms or alias semantics. Source dictionaries and tags required for filter behavior are approved functional metadata exceptions.

@@ -28,3 +28,9 @@ may be deduplicated; original filename case and alternative hierarchy remain int
 The normal source filters decide public eligibility. A primary is held if including
 all its alternatives would expose a restricted member. Source-local tag IDs are
 reconciled while preserving the original tag terms and alias relationships.
+
+## Scheduled updates and coverage changes
+
+The existing six-hour module update schedule discovers this independent collection and reruns matching against current approved inventories. Source updates never edit the frozen master. New authorities require an explicit change to the reviewed collection authority set.
+
+The manifest fingerprints the master, upstream revisions and generated output. Coverage reports preserve the latest new/removed match events across identical rebuilds. Loss of at least five previously matched titles and more than 20% of previous coverage fails before any artifact is written; maintainers must review the source or matching change before adjusting this safety policy. Retrieval/schema failures also stop publication.

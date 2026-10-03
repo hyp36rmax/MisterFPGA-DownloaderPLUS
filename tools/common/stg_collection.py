@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 from urllib.parse import quote
 
-from tools.common.database import canonical_json, digest, package, unpack, atomic_write
+from tools.common.database import canonical_json, digest, package, unpack, atomic_write, parse_json
 from tools.common.repository import require, safe_path
 from tools.common.file_types import is_mra
 from tools.common.stg_matrix import load_matrix, matrix_counts, title_key
@@ -419,8 +419,40 @@ def validate_preservation(generated, sources, selection):
     require(set(actual) == expected, 'Orphan/unknown MRA in collection')
 
 
+def match_changes(previous, current):
+    old = {r['canonical_title']: r for r in previous}
+    new = {r['canonical_title']: r for r in current}
+    events = []
+    for title in sorted(set(old) | set(new)):
+        before, after = old.get(title), new.get(title)
+        was = before is not None and before['match_state'] == 'MATCHED'
+        now = after is not None and after['match_state'] == 'MATCHED'
+        if was == now:
+            continue
+        row = after if now else before
+        events.append({'event': 'NEW TATE MATCH' if now else 'REMOVED TATE MATCH',
+                       'canonical_title': title, 'hardware_system': row['hardware_system'],
+                       'authority': row['authority'], 'primary_mra': row['primary_mra'],
+                       'previous_state': before['match_state'] if before else 'NOT IN MASTER',
+                       'current_state': after['match_state'] if after else 'REMOVED FROM MASTER',
+                       'reason': 'Approved source or master eligibility changed'})
+    return events
+
+
+def guard_coverage(previous, current):
+    before = {r['canonical_title'] for r in previous if r['match_state'] == 'MATCHED'}
+    after = {r['canonical_title'] for r in current if r['match_state'] == 'MATCHED'}
+    lost = len(before - after)
+    require(not (lost >= 5 and lost / max(len(before), 1) > 0.20),
+            f'Unexpected STG coverage loss: {lost}/{len(before)} matched titles removed; '
+            'retain last known-good artifact and review source/matcher changes')
+
+
 def build_collection(config, output_root=None, root=ROOT, sources=None):
     matrix = checked_matrix(root)
+    directory = Path(output_root) if output_root else Path(root) / 'dist' / config['name']
+    prior_path = directory / 'manifest.json'
+    prior = parse_json(prior_path.read_bytes()) if prior_path.exists() else None
     sources = current_sources(root) if sources is None else copy.deepcopy(sources)
     previous = None
     for _ in range(len(matrix['rows']) + 1):
@@ -433,9 +465,19 @@ def build_collection(config, output_root=None, root=ROOT, sources=None):
     else:
         raise ValueError('Collection source matching did not stabilize')
     database, match_manifest, report, _ = generate(config, matrix, sources, root)
+    prior_rows = prior['match_manifest']['matches'] if prior else []
+    guard_coverage(prior_rows, match_manifest['matches'])
+    events = match_changes(prior_rows, match_manifest['matches']) if prior else []
+    # Preserve the last coverage transition across identical rebuilds.
+    history = {'previous_matches': prior_rows, 'events': events,
+               'previous_source_fingerprints': {a: v.get('source_revision_sha256') for a, v in prior['source_inventories'].items()} if prior else {}}
+    if prior and not events:
+        history = prior.get('coverage_changes', history)
+    match_manifest['coverage_changes'] = history['events']
     artifact = package(database)
     require(unpack(artifact) == database, 'Collection packaging changed metadata')
     manifest = {'module': config['name'], 'policy_version': config['policy_version'], 'source_mode': 'collection',
+                'schema_version': 1, 'coverage_changes': history,
                 'matrix_sha256': digest(canonical_json(matrix)), 'source_inventories': sources,
                 'match_manifest': match_manifest, 'validation': report,
                 'generated_zip_sha256': digest(artifact), 'generated_semantic_sha256': digest(canonical_json(database))}
@@ -460,6 +502,9 @@ def verify_collection(config, root=ROOT):
     matrix = checked_matrix(root)
     require(manifest['matrix_sha256'] == digest(canonical_json(matrix)), 'Collection matrix provenance mismatch')
     expected, matches, report, _ = generate(config, matrix, manifest['source_inventories'], root)
+    history = manifest['coverage_changes']
+    require(history['events'] == match_changes(history['previous_matches'], matches['matches']), 'Invalid coverage transition report')
+    matches['coverage_changes'] = history['events']
     raw = (directory / (config['name'] + '.json.zip')).read_bytes()
     require(unpack(raw) == expected and digest(raw) == manifest['generated_zip_sha256'] and digest(canonical_json(expected)) == manifest['generated_semantic_sha256'], 'Collection output/provenance mismatch')
     require(report == manifest['validation'] and matches == manifest['match_manifest'] and matches == parse_json((directory / 'matches.json').read_bytes()), 'Collection coverage/alternative parity mismatch')
@@ -496,6 +541,14 @@ def coverage_report(manifest, report):
     for row in manifest['matches']:
         if row['match_state'] == 'AMBIGUOUS':
             lines.append('- ' + row['canonical_title'] + ': ' + '; '.join(row['candidate_mras']))
+    lines += ['', '## Frozen TATE title coverage', '', '| Title | Hardware/System | State | Authority | Primary MRA |', '|---|---|---|---|---|']
+    for row in manifest['matches']:
+        lines.append('| ' + ' | '.join(str(row.get(k) or '').replace('|', '&#124;') for k in ('canonical_title', 'hardware_system', 'match_state', 'authority', 'primary_mra')) + ' |')
+    lines += ['', '## Latest coverage transitions', '']
+    for event in manifest.get('coverage_changes', []):
+        lines.append('- ' + event['event'] + ': ' + event['canonical_title'] + ' — ' + str(event['authority']) + ': ' + str(event['primary_mra']) + ' (' + event['previous_state'] + ' → ' + event['current_state'] + '). ' + event['reason'])
+    if not manifest.get('coverage_changes'):
+        lines.append('No matched-title additions or removals in this baseline.')
     lines += ['', '## Preservation', '', 'The full upstream tag dictionaries remain in source provenance. '
               'Source-local numeric IDs are reconciled into a shared dictionary without changing tag terms or alias semantics. '
               'Source dictionaries and tags required for filter behavior are approved functional metadata exceptions.', '',

@@ -19,6 +19,10 @@ from tools.common.engine import discover_modules, load_module
 from tools.common.archives import hydrate_archives, checked_payload, expanded_inventory
 
 
+# Reviewed collection authorities; adding a registry source alone cannot expand this set.
+APPROVED_AUTHORITIES = ('Coin-OpCollection/Distribution-MiSTerFPGA', 'XelaNotPu/SYSTEM11_MiSTer', 'XelaNotPu/ZN1-Capcom_MiSTer', 'XelaNotPu/ZN1-TaitoFX1B_MiSTer', 'XelaNotPu/ZN2-Capcom_MiSTer', 'distribution_mister', 'hyp36rmax/PGM-Mister-EZIOCHIU', 'jtcores', 'meathax/meatcores', 'zakk4223/Arcade-SeibuSPI_MiSTer')
+
+
 def approvals(root=ROOT):
     """Reuse the hardware registry/configuration decisions; do not introduce precedence."""
     registered = registry(root)['modules']
@@ -34,6 +38,7 @@ def approvals(root=ROOT):
         entry['configs'].append(name)
         entry['roots'].extend(registered[name]['destination_roots'])
         entry['selection_tags'].extend(config.get('selection_tags', []))
+    require(set(result) == set(APPROVED_AUTHORITIES), 'STG authority set changed; explicit collection approval required')
     return result
 
 

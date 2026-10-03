@@ -11,7 +11,7 @@ from tools.common.engine import load_module, validate_module_collisions
 from tools.common.arcade_systems import eligible_modules, registry
 from tools.common.stg_sources import approvals, metadata, mra_bytes
 from tools.common.stg_collection import (DESTINATION, checked_matrix, generate,
-                                        validate_preservation, build_collection)
+                                        validate_preservation, build_collection, match_changes, guard_coverage)
 from tools.common.archives import expanded_inventory
 
 
@@ -38,6 +38,39 @@ class STGCollectionTests(unittest.TestCase):
 
     def generate(self):
         return generate(self.config, self.matrix, self.sources)
+
+    def test_coverage_transitions_and_mass_removal_guard(self):
+        rows = [{'canonical_title': str(i), 'hardware_system': 'Test', 'authority': 'approved',
+                 'primary_mra': str(i) + '.mra', 'match_state': 'MATCHED'} for i in range(20)]
+        current = copy.deepcopy(rows)
+        for row in current[:5]:
+            row['match_state'] = 'UNAVAILABLE'
+        self.assertEqual(len(match_changes(rows, current)), 5)
+        self.assertTrue(all(e['event'] == 'REMOVED TATE MATCH' for e in match_changes(rows, current)))
+        with self.assertRaises(ValidationError):
+            guard_coverage(rows, current)
+        guard_coverage(rows, current[5:] + rows[:1])
+        self.assertEqual(match_changes(current, rows)[0]['event'], 'NEW TATE MATCH')
+
+    def test_mass_removal_retains_last_known_good_files(self):
+        import json
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            rows = [{'canonical_title': str(i), 'match_state': 'MATCHED'} for i in range(20)]
+            prior = json.dumps({'match_manifest': {'matches': rows}}).encode()
+            (directory / 'manifest.json').write_bytes(prior)
+            (directory / 'arcade-stg-tate.json.zip').write_bytes(b'last-known-good')
+            with self.assertRaises(ValidationError):
+                build_collection(self.config, output_root=directory, sources=self.sources)
+            self.assertEqual((directory / 'manifest.json').read_bytes(), prior)
+            self.assertEqual((directory / 'arcade-stg-tate.json.zip').read_bytes(), b'last-known-good')
+            self.assertFalse((directory / 'matches.json').exists())
+
+    def test_new_registry_authority_requires_collection_approval(self):
+        from tools.common import stg_sources
+        with patch.object(stg_sources, 'APPROVED_AUTHORITIES', ()):
+            with self.assertRaises(ValidationError):
+                stg_sources.approvals()
 
     def test_canonical_alias_and_future_unavailable_title(self):
         first = self.generate()[2]
