@@ -27,6 +27,8 @@ def display_name(config, root):
 
 def source_label(config, root):
     mode = config.get('source_mode', 'transformation')
+    if mode == 'collection':
+        return 'Approved multi-source collection'
     if mode == 'transformation':
         return 'Authoritative database transformation'
     if mode == 'complete':
@@ -71,7 +73,9 @@ def published_inventory(root=ROOT):
         if database['db_id'] != config['derived_db_id']:
             raise ValidationError('Published database identity differs from configuration: ' + name)
         mode = config.get('source_mode')
-        if mode in {'complete', 'documentation'}:
+        if mode == 'collection':
+            destination = config['destination']
+        elif mode in {'complete', 'documentation'}:
             destination = NAMESPACE.rstrip('/')
         elif name in approved:
             roots = approved[name]['destination_roots']

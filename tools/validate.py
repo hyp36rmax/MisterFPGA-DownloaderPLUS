@@ -22,6 +22,20 @@ def main():
     args = parser.parse_args()
     try:
         config, policy = load_module(args.module)
+        if config.get('source_mode') == 'collection':
+            from tools.common.stg_collection import checked_matrix, generate
+            from tools.common.database import digest
+            if not args.manifest:
+                raise ValueError('Collection validation requires its multi-source manifest')
+            manifest = parse_json(args.manifest.read_bytes())
+            matrix = checked_matrix()
+            if manifest['matrix_sha256'] != digest(canonical_json(matrix)):
+                raise ValueError('Collection matrix provenance mismatch')
+            expected, matches, report, _ = generate(config, matrix, manifest['source_inventories'])
+            if unpack(args.generated.read_bytes()) != expected or manifest['match_manifest'] != matches or manifest['validation'] != report:
+                raise ValueError('Collection output/coverage differs from authoritative selection')
+            print(canonical_json(report).decode(), end='')
+            return
         if args.manifest:
             manifest = parse_json(args.manifest.read_bytes())
             if config.get("source_mode") == "database":

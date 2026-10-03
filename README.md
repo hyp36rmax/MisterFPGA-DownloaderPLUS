@@ -14,6 +14,7 @@ Here is an example of the folder layout:
 _Arcade/
 ├── _Coin-Op Collection/
 ├── _PGM (EZIO)/
+├── _Arcade STG (TATE)/
 ├── cores/
 └── _Arcade Systems/
     ├── _CAPCOM CPS1/
@@ -36,6 +37,7 @@ _Arcade/
 | Arcade Systems Complete | Approved Arcade Systems aggregate | `_Arcade/_Arcade Systems/` | `arcade-systems-complete.json.zip` |
 | Arcade Systems Reserve | Navigation guidance | `_Arcade/_Arcade Systems/` | `arcade-systems-reserve.json.zip` |
 | PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
+| Arcade STG (TATE) | Approved multi-source collection | `_Arcade/_Arcade STG (TATE)/` | `arcade-stg-tate.json.zip` |
 | CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1/` | `capcom-cps1.json.zip` |
 | CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
 | CAPCOM CPS2 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS2/` | `capcom-cps2.json.zip` |
@@ -146,6 +148,19 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```
 
 The current folders are listed under [Reserve Systems](#reserve-systems) below.
+
+### Arcade STG (TATE)
+
+This collects currently available vertical-orientation arcade STGs into one folder for easy browsing on a TATE setup. It follows a maintained Japanese arcade STG list and will grow as matching MiSTer cores and titles become available.
+
+Destination: `_Arcade/_Arcade STG (TATE)/`
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-stg-tate]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-stg-tate/arcade-stg-tate.json.zip
+```
+
+Keep the normal upstream core installations enabled. This collection adds MRAs and their alternatives; it is separate from Arcade Systems Complete.
 
 ## Available Arcade Systems
 

@@ -1,0 +1,2785 @@
+{
+  "version": 1,
+  "rows": [
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Space Invaders",
+      "alternate_titles": [],
+      "hardware_system": "8080/SI",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "Space Attack",
+      "alternate_titles": [],
+      "hardware_system": "Sega",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Space Invaders Part II",
+      "alternate_titles": [],
+      "hardware_system": "8080/SI",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Lunar Rescue",
+      "alternate_titles": [],
+      "hardware_system": "8080/SI",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Astro Fighter",
+      "alternate_titles": [],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Universal",
+      "publisher": "Universal",
+      "canonical_title": "Cosmic Guerilla",
+      "alternate_titles": [],
+      "hardware_system": "Universal",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Universal",
+      "publisher": "Universal",
+      "canonical_title": "Cosmic Alien",
+      "alternate_titles": [],
+      "hardware_system": "Universal",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "SNK",
+      "publisher": "SNK",
+      "canonical_title": "Ozma Wars",
+      "alternate_titles": [],
+      "hardware_system": "SNK",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Galaxian",
+      "alternate_titles": [],
+      "hardware_system": "Galaxian",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Ryoto Electric",
+      "publisher": "Ryoto",
+      "canonical_title": "Attack UFO",
+      "alternate_titles": [],
+      "hardware_system": "Dedicated",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Polaris",
+      "alternate_titles": [],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Balloon Bomber",
+      "alternate_titles": [],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Nichibutsu",
+      "publisher": "Nichibutsu",
+      "canonical_title": "Moon Cresta",
+      "alternate_titles": [],
+      "hardware_system": "Galaxian-derived",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Nichibutsu",
+      "publisher": "Nichibutsu",
+      "canonical_title": "Moon Quasar",
+      "alternate_titles": [],
+      "hardware_system": "Galaxian-derived",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Irem",
+      "publisher": "Irem",
+      "canonical_title": "Sky Chuter",
+      "alternate_titles": [],
+      "hardware_system": "Irem",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Irem",
+      "publisher": "Irem",
+      "canonical_title": "Ginga Teikoku no Gyakushuu",
+      "alternate_titles": [
+        "UniWar S"
+      ],
+      "hardware_system": "Irem",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Universal",
+      "publisher": "Universal",
+      "canonical_title": "Devil Zone",
+      "alternate_titles": [],
+      "hardware_system": "Universal",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Universal",
+      "publisher": "Universal",
+      "canonical_title": "Magical Spot",
+      "alternate_titles": [
+        "Magical Spot II"
+      ],
+      "hardware_system": "Universal",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": "Magical Spot II is retained as the supplied variant/alternate, not a separate canonical design."
+    },
+    {
+      "developer": "Sunsoft",
+      "publisher": "Sun Electronics",
+      "canonical_title": "Stratovox",
+      "alternate_titles": [
+        "Speak & Rescue"
+      ],
+      "hardware_system": "Dedicated",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "TOSE",
+      "publisher": "SNK",
+      "canonical_title": "Sasuke vs. Commander",
+      "alternate_titles": [],
+      "hardware_system": "SNK",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Shoei",
+      "publisher": "Shoei",
+      "canonical_title": "Space Intruder",
+      "alternate_titles": [],
+      "hardware_system": "Dedicated",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "Carnival",
+      "alternate_titles": [],
+      "hardware_system": "Sega",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "N-Sub",
+      "alternate_titles": [],
+      "hardware_system": "Sega",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "Space Trek",
+      "alternate_titles": [],
+      "hardware_system": "Sega",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Tomahawk 777",
+      "alternate_titles": [],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Tehkan",
+      "publisher": "Tehkan",
+      "canonical_title": "Pleiads",
+      "alternate_titles": [
+        "Pleiades"
+      ],
+      "hardware_system": "Tehkan",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "SNK",
+      "publisher": "SNK",
+      "canonical_title": "Satan of Saturn",
+      "alternate_titles": [],
+      "hardware_system": "SNK",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Galaga",
+      "alternate_titles": [],
+      "hardware_system": "Galaga",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "Astro Blaster",
+      "alternate_titles": [],
+      "hardware_system": "Sega",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Kaneko",
+      "publisher": "Tehkan",
+      "canonical_title": "Red Clash",
+      "alternate_titles": [],
+      "hardware_system": "Kaneko",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Colony 7",
+      "alternate_titles": [],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "Zaxxon",
+      "alternate_titles": [],
+      "hardware_system": "Zaxxon hardware",
+      "orientation": "TATE",
+      "type": "T5",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Front Line",
+      "alternate_titles": [],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T3",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "Time Pilot",
+      "alternate_titles": [],
+      "hardware_system": "Konami",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Mission-X",
+      "alternate_titles": [],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Zoar",
+      "alternate_titles": [],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Tank Battalion",
+      "alternate_titles": [],
+      "hardware_system": "Namco",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Acom",
+      "publisher": "Acom",
+      "canonical_title": "Imago",
+      "alternate_titles": [],
+      "hardware_system": "Dedicated",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Xevious",
+      "alternate_titles": [],
+      "hardware_system": "Namco",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "Gyruss",
+      "alternate_titles": [],
+      "hardware_system": "Konami",
+      "orientation": "TATE",
+      "type": "T5",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "Juno First",
+      "alternate_titles": [],
+      "hardware_system": "Konami",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Orca",
+      "publisher": "Orca",
+      "canonical_title": "Sky Lancer",
+      "alternate_titles": [],
+      "hardware_system": "Orca",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Orca",
+      "publisher": "Thunderbolt",
+      "canonical_title": "Dog Fight",
+      "alternate_titles": [],
+      "hardware_system": "Orca",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Jaleco",
+      "publisher": "Jaleco",
+      "canonical_title": "Exerion",
+      "alternate_titles": [],
+      "hardware_system": "Jaleco",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Bio-Attack",
+      "alternate_titles": [],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Gaplus",
+      "alternate_titles": [
+        "Galaga 3"
+      ],
+      "hardware_system": "Namco",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "Vulgus",
+      "alternate_titles": [],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "1942",
+      "alternate_titles": [],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Crux",
+      "publisher": "Taito",
+      "canonical_title": "Gyrodine",
+      "alternate_titles": [],
+      "hardware_system": "Crux/Kyugo family",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "Future Spy",
+      "alternate_titles": [],
+      "hardware_system": "Zaxxon hardware",
+      "orientation": "TATE",
+      "type": "T5",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Wood Place",
+      "publisher": "Taito",
+      "canonical_title": "Fire Battle",
+      "alternate_titles": [],
+      "hardware_system": "Wood Place",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Tehkan",
+      "publisher": "Tehkan",
+      "canonical_title": "Star Force",
+      "alternate_titles": [],
+      "hardware_system": "Tehkan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Shoei",
+      "publisher": "Shoei",
+      "canonical_title": "Sky Army",
+      "alternate_titles": [],
+      "hardware_system": "Dedicated",
+      "orientation": "TATE",
+      "type": "T6",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Liberation",
+      "alternate_titles": [
+        "Dual Assault"
+      ],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T3",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Crux",
+      "publisher": "Sega",
+      "canonical_title": "Repulse",
+      "alternate_titles": [
+        "'99: The Last War"
+      ],
+      "hardware_system": "Kyugo family",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Halley's Comet",
+      "alternate_titles": [],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "TwinBee",
+      "alternate_titles": [],
+      "hardware_system": "Konami",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "SNK",
+      "publisher": "SNK",
+      "canonical_title": "Alpha Mission",
+      "alternate_titles": [
+        "ASO"
+      ],
+      "hardware_system": "SNK",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Taito",
+      "canonical_title": "Tiger-Heli",
+      "alternate_titles": [],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "Exed Exes",
+      "alternate_titles": [
+        "Savage Bees"
+      ],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "Commando",
+      "alternate_titles": [
+        "Senjō no Ōkami"
+      ],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T3",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "Gun.Smoke",
+      "alternate_titles": [],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T3",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Taito",
+      "canonical_title": "Slap Fight",
+      "alternate_titles": [
+        "Alcon"
+      ],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Tokio",
+      "alternate_titles": [
+        "Scramble Formation"
+      ],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Irem",
+      "publisher": "Irem",
+      "canonical_title": "Yōjūden",
+      "alternate_titles": [
+        "Heroic Episode"
+      ],
+      "hardware_system": "Irem",
+      "orientation": "TATE",
+      "type": "T6",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Kaneko",
+      "publisher": "Taito",
+      "canonical_title": "Mission 660",
+      "alternate_titles": [
+        "The Alphax Z"
+      ],
+      "hardware_system": "Kaneko",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Darwin 4078",
+      "alternate_titles": [],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "Legendary Wings",
+      "alternate_titles": [
+        "Ares no Tsubasa"
+      ],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T6",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Nichibutsu",
+      "publisher": "Nichibutsu",
+      "canonical_title": "UFO Robo Dangar",
+      "alternate_titles": [],
+      "hardware_system": "Nichibutsu",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Nichibutsu",
+      "publisher": "Nichibutsu",
+      "canonical_title": "Terra Cresta",
+      "alternate_titles": [],
+      "hardware_system": "Nichibutsu",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Coreland",
+      "publisher": "Sega",
+      "canonical_title": "Rafflesia",
+      "alternate_titles": [],
+      "hardware_system": "Sega/Coreland",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Taito",
+      "canonical_title": "Flying Shark",
+      "alternate_titles": [
+        "Hishouzame"
+      ],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Taito",
+      "canonical_title": "Twin Cobra",
+      "alternate_titles": [
+        "Kyukyoku Tiger"
+      ],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Dragon Spirit",
+      "alternate_titles": [],
+      "hardware_system": "System 1",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Tecmo",
+      "publisher": "Tecmo",
+      "canonical_title": "Gemini Wing",
+      "alternate_titles": [],
+      "hardware_system": "Tecmo",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "1943: The Battle of Midway",
+      "alternate_titles": [
+        "Midway Kaisen"
+      ],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "SNK",
+      "publisher": "SNK",
+      "canonical_title": "Bermuda Triangle",
+      "alternate_titles": [],
+      "hardware_system": "SNK",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "SNK",
+      "publisher": "SNK",
+      "canonical_title": "World Wars",
+      "alternate_titles": [],
+      "hardware_system": "SNK",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "SRD: Super Real Darwin",
+      "alternate_titles": [],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Last Mission",
+      "alternate_titles": [],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Data East",
+      "publisher": "Data East",
+      "canonical_title": "Gondomania",
+      "alternate_titles": [
+        "Makyou Senshi"
+      ],
+      "hardware_system": "DECO",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Nichibutsu",
+      "publisher": "Nichibutsu",
+      "canonical_title": "Legion",
+      "alternate_titles": [
+        "Chōji Meikyū Legion"
+      ],
+      "hardware_system": "Nichibutsu",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "MX5000",
+      "alternate_titles": [
+        "Flak Attack"
+      ],
+      "hardware_system": "Konami",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Galaga '88",
+      "alternate_titles": [],
+      "hardware_system": "System 1",
+      "orientation": "TATE",
+      "type": "T1",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "1943 Kai",
+      "alternate_titles": [],
+      "hardware_system": "Capcom",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Irem",
+      "publisher": "Irem",
+      "canonical_title": "Image Fight",
+      "alternate_titles": [],
+      "hardware_system": "Irem M72",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Taito",
+      "canonical_title": "Truxton",
+      "alternate_titles": [
+        "Tatsujin"
+      ],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Master of Weapon",
+      "alternate_titles": [],
+      "hardware_system": "Taito",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Nichibutsu",
+      "publisher": "Nichibutsu",
+      "canonical_title": "Armed F",
+      "alternate_titles": [
+        "Armed Formation"
+      ],
+      "hardware_system": "Nichibutsu",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Taito",
+      "canonical_title": "Twin Hawk",
+      "alternate_titles": [
+        "Daisenpu"
+      ],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Toaplan",
+      "canonical_title": "Fire Shark",
+      "alternate_titles": [
+        "Same! Same! Same!"
+      ],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Jaleco",
+      "publisher": "Jaleco",
+      "canonical_title": "Plus Alpha",
+      "alternate_titles": [],
+      "hardware_system": "Mega System 1",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "SNK",
+      "publisher": "SNK",
+      "canonical_title": "The Next Space",
+      "alternate_titles": [],
+      "hardware_system": "SNK",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Dangerous Seed",
+      "alternate_titles": [],
+      "hardware_system": "System 1",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Alpha Denshi / ADK",
+      "publisher": "SNK",
+      "canonical_title": "Sky Soldiers",
+      "alternate_titles": [],
+      "hardware_system": "SNK/ADK",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Alpha Denshi / ADK",
+      "publisher": "SNK",
+      "canonical_title": "Sky Adventure",
+      "alternate_titles": [],
+      "hardware_system": "SNK/ADK",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Sega",
+      "publisher": "Sega",
+      "canonical_title": "Scramble Spirits",
+      "alternate_titles": [],
+      "hardware_system": "System 24",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Bosconian",
+      "alternate_titles": [],
+      "hardware_system": "Namco",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Nichibutsu",
+      "publisher": "Nichibutsu",
+      "canonical_title": "Terra Force",
+      "alternate_titles": [],
+      "hardware_system": "Nichibutsu",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Taito",
+      "canonical_title": "Hellfire",
+      "alternate_titles": [],
+      "hardware_system": "Toaplan",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Toaplan",
+      "canonical_title": "Zero Wing",
+      "alternate_titles": [],
+      "hardware_system": "Toaplan",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Gun Frontier",
+      "alternate_titles": [],
+      "hardware_system": "Taito F2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "1941: Counter Attack",
+      "alternate_titles": [],
+      "hardware_system": "CPS-1",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "Mercs",
+      "alternate_titles": [
+        "Senjō no Ōkami II"
+      ],
+      "hardware_system": "CPS-1",
+      "orientation": "TATE",
+      "type": "T3",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Irem",
+      "publisher": "Irem",
+      "canonical_title": "Air Duel",
+      "alternate_titles": [],
+      "hardware_system": "Irem M72",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "Dragon Saber",
+      "alternate_titles": [],
+      "hardware_system": "System 2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Visco",
+      "publisher": "Taito",
+      "canonical_title": "Ashura Blaster",
+      "alternate_titles": [],
+      "hardware_system": "Taito B System",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seibu Kaihatsu",
+      "publisher": "Seibu",
+      "canonical_title": "Raiden",
+      "alternate_titles": [],
+      "hardware_system": "Seibu",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "Trigon",
+      "alternate_titles": [
+        "Lightning Fighters"
+      ],
+      "hardware_system": "Konami",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Toaplan",
+      "canonical_title": "Out Zone",
+      "alternate_titles": [],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T3",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "Detana!! TwinBee",
+      "alternate_titles": [
+        "Bells & Whistles"
+      ],
+      "hardware_system": "Konami",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Toaplan",
+      "canonical_title": "Vimana",
+      "alternate_titles": [],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "Tecmo",
+      "canonical_title": "Thunder Dragon",
+      "alternate_titles": [],
+      "hardware_system": "NMK16",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "NMK",
+      "canonical_title": "Hacha Mecha Fighter",
+      "alternate_titles": [],
+      "hardware_system": "NMK16",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Irem",
+      "publisher": "Irem",
+      "canonical_title": "Lethal Thunder",
+      "alternate_titles": [
+        "Thunder Blaster"
+      ],
+      "hardware_system": "Irem",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "UPL / NMK attribution",
+      "publisher": "UPL",
+      "canonical_title": "Acrobat Mission",
+      "alternate_titles": [],
+      "hardware_system": "NMK16",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Allumer",
+      "publisher": "Tecmo",
+      "canonical_title": "Zing Zing Zip",
+      "alternate_titles": [],
+      "hardware_system": "Allumer",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Metro",
+      "publisher": "Metro",
+      "canonical_title": "Sky Alert",
+      "alternate_titles": [],
+      "hardware_system": "Metro",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Face",
+      "publisher": "Face",
+      "canonical_title": "Sand Scorpion",
+      "alternate_titles": [
+        "Sasori"
+      ],
+      "hardware_system": "Face",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Toaplan",
+      "canonical_title": "Truxton II",
+      "alternate_titles": [
+        "Tatsujin Oh"
+      ],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Toaplan",
+      "canonical_title": "Dogyuun",
+      "alternate_titles": [],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Toaplan",
+      "publisher": "Toaplan",
+      "canonical_title": "FixEight",
+      "alternate_titles": [],
+      "hardware_system": "Toaplan",
+      "orientation": "TATE",
+      "type": "T3",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "Banpresto",
+      "canonical_title": "Super Spacefortress Macross",
+      "alternate_titles": [],
+      "hardware_system": "NMK16",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Kaneko",
+      "publisher": "Kaneko",
+      "canonical_title": "Explosive Breaker",
+      "alternate_titles": [
+        "Bakuretsu Breaker"
+      ],
+      "hardware_system": "Kaneko",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Namco",
+      "publisher": "Namco",
+      "canonical_title": "F/A",
+      "alternate_titles": [
+        "Fighter & Attacker"
+      ],
+      "hardware_system": "NA-1",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Video System",
+      "publisher": "Video System",
+      "canonical_title": "Aero Fighters",
+      "alternate_titles": [
+        "Sonic Wings"
+      ],
+      "hardware_system": "Video System",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seta",
+      "publisher": "Seta",
+      "canonical_title": "Twin Eagle",
+      "alternate_titles": [
+        "Revenge Joe's Brother"
+      ],
+      "hardware_system": "Seta",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seta",
+      "publisher": "Seta",
+      "canonical_title": "Arbalester",
+      "alternate_titles": [],
+      "hardware_system": "Seta",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seta",
+      "publisher": "Seta",
+      "canonical_title": "Meta Fox",
+      "alternate_titles": [],
+      "hardware_system": "Seta",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seta",
+      "publisher": "Seta",
+      "canonical_title": "Caliber .50",
+      "alternate_titles": [],
+      "hardware_system": "Seta",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Face",
+      "publisher": "Face",
+      "canonical_title": "Nostradamus",
+      "alternate_titles": [],
+      "hardware_system": "Face",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Athena",
+      "publisher": "Athena",
+      "canonical_title": "Daioh",
+      "alternate_titles": [],
+      "hardware_system": "Athena",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Jaleco",
+      "publisher": "Jaleco",
+      "canonical_title": "Cybattler",
+      "alternate_titles": [],
+      "hardware_system": "Mega System 1",
+      "orientation": "TATE",
+      "type": "T4",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Sengoku Ace",
+      "alternate_titles": [
+        "Samurai Aces"
+      ],
+      "hardware_system": "Psikyo 68K",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Raizing",
+      "publisher": "Eighting",
+      "canonical_title": "Mahou Daisakusen",
+      "alternate_titles": [
+        "Sorcer Striker"
+      ],
+      "hardware_system": "Raizing",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "Tecmo",
+      "canonical_title": "GunNail",
+      "alternate_titles": [],
+      "hardware_system": "NMK16",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "NMK / Sammy",
+      "canonical_title": "Thunder Dragon 2",
+      "alternate_titles": [
+        "Big Bang"
+      ],
+      "hardware_system": "NMK16",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "Banpresto",
+      "canonical_title": "Super Spacefortress Macross II",
+      "alternate_titles": [],
+      "hardware_system": "NMK16",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Irem",
+      "publisher": "Irem",
+      "canonical_title": "Fire Barrel",
+      "alternate_titles": [
+        "Air Assault"
+      ],
+      "hardware_system": "Irem",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "RayForce",
+      "alternate_titles": [
+        "Gunlock"
+      ],
+      "hardware_system": "Taito F3",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Raizing",
+      "publisher": "Eighting",
+      "canonical_title": "Shippu Mahou Daisakusen",
+      "alternate_titles": [
+        "Kingdom Grandprix"
+      ],
+      "hardware_system": "Raizing",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Gunbird",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo 68K",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seibu Kaihatsu",
+      "publisher": "Seibu",
+      "canonical_title": "Raiden II",
+      "alternate_titles": [],
+      "hardware_system": "Seibu",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seibu Kaihatsu",
+      "publisher": "Seibu",
+      "canonical_title": "Raiden DX",
+      "alternate_titles": [],
+      "hardware_system": "Seibu",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "Media Trading",
+      "canonical_title": "Rapid Hero",
+      "alternate_titles": [],
+      "hardware_system": "NMK16",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seta",
+      "publisher": "Seta",
+      "canonical_title": "Twin Eagle II",
+      "alternate_titles": [
+        "The Rescue Mission"
+      ],
+      "hardware_system": "Seta",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Gekirindan",
+      "alternate_titles": [],
+      "hardware_system": "Taito F3",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "Atlus",
+      "canonical_title": "DonPachi",
+      "alternate_titles": [],
+      "hardware_system": "CAVE 68000",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Strikers 1945",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo 68K",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seibu Kaihatsu",
+      "publisher": "Seibu",
+      "canonical_title": "Viper Phase 1",
+      "alternate_titles": [],
+      "hardware_system": "Seibu SPI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Jaleco",
+      "publisher": "Jaleco",
+      "canonical_title": "Game Tengoku",
+      "alternate_titles": [
+        "The Game Paradise"
+      ],
+      "hardware_system": "Mega System 32",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "canonical_title": "19XX: The War Against Destiny",
+      "alternate_titles": [
+        "19XX"
+      ],
+      "hardware_system": "CPS-2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Raizing",
+      "publisher": "Eighting",
+      "canonical_title": "Battle Garegga",
+      "alternate_titles": [],
+      "hardware_system": "Raizing",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Raizing",
+      "publisher": "Data East",
+      "canonical_title": "Soukyugurentai",
+      "alternate_titles": [
+        "Terra Diver"
+      ],
+      "hardware_system": "Sega ST-V",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Gazelle",
+      "publisher": "Banpresto",
+      "canonical_title": "Air Gallet",
+      "alternate_titles": [
+        "Akuu Gallet"
+      ],
+      "hardware_system": "Gazelle",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "MOSS",
+      "publisher": "Banpresto",
+      "canonical_title": "Macross Plus",
+      "alternate_titles": [],
+      "hardware_system": "Banpresto BP964",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Video System",
+      "publisher": "Video System",
+      "canonical_title": "Sonic Wings Limited",
+      "alternate_titles": [
+        "Aero Fighters Special lineage"
+      ],
+      "hardware_system": "Sony ZN-1",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seibu Kaihatsu",
+      "publisher": "Seibu",
+      "canonical_title": "Raiden Fighters",
+      "alternate_titles": [],
+      "hardware_system": "Seibu SPI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "Atlus",
+      "canonical_title": "DoDonPachi",
+      "alternate_titles": [],
+      "hardware_system": "CAVE 68000",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Strikers 1945 II",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo SH-2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seibu Kaihatsu",
+      "publisher": "Seibu",
+      "canonical_title": "Raiden Fighters 2",
+      "alternate_titles": [
+        "Operation Hell Dive"
+      ],
+      "hardware_system": "Seibu SPI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Warashi",
+      "publisher": "Warashi / Data East",
+      "canonical_title": "Shienryu",
+      "alternate_titles": [],
+      "hardware_system": "Sega ST-V",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "Nihon System",
+      "canonical_title": "Dangun Feveron",
+      "alternate_titles": [
+        "Fever SOS"
+      ],
+      "hardware_system": "CAVE 68000",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "Atlus",
+      "canonical_title": "ESP Ra.De.",
+      "alternate_titles": [],
+      "hardware_system": "CAVE 68000",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Raizing",
+      "publisher": "Eighting",
+      "canonical_title": "Armed Police Batrider",
+      "alternate_titles": [],
+      "hardware_system": "Raizing",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Space Bomber",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo SH-2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Gunbird 2",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo SH-2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Seibu Kaihatsu",
+      "publisher": "Seibu",
+      "canonical_title": "Raiden Fighters Jet",
+      "alternate_titles": [],
+      "hardware_system": "Seibu SPI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "Atlus",
+      "canonical_title": "Guwange",
+      "alternate_titles": [],
+      "hardware_system": "CAVE 68000",
+      "orientation": "TATE",
+      "type": "T6",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Raizing",
+      "publisher": "Eighting",
+      "canonical_title": "Battle Bakraid",
+      "alternate_titles": [],
+      "hardware_system": "Raizing",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Strikers 1945 III",
+      "alternate_titles": [
+        "Strikers 1999"
+      ],
+      "hardware_system": "Psikyo SH-2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Konami",
+      "publisher": "Konami",
+      "canonical_title": "TwinBee Yahho!",
+      "alternate_titles": [],
+      "hardware_system": "Konami GX",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Sengoku Blade",
+      "alternate_titles": [
+        "Tengai"
+      ],
+      "hardware_system": "Psikyo",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Sol Divide",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "Jaleco",
+      "canonical_title": "P-47 Aces",
+      "alternate_titles": [],
+      "hardware_system": "NMK",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "SNK",
+      "canonical_title": "Zed Blade",
+      "alternate_titles": [
+        "Operation Ragnarok"
+      ],
+      "hardware_system": "Neo Geo",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "UPL",
+      "canonical_title": "Bio-ship Paladin",
+      "alternate_titles": [
+        "Space Battle Ship Gomorrah"
+      ],
+      "hardware_system": "NMK/UPL",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "NMK",
+      "publisher": "UPL",
+      "canonical_title": "Black Heart",
+      "alternate_titles": [],
+      "hardware_system": "NMK/UPL",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Raizing / Eighting",
+      "publisher": "Capcom",
+      "canonical_title": "Great Mahou Daisakusen",
+      "alternate_titles": [
+        "Dimahoo"
+      ],
+      "hardware_system": "CPS-2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Eighting",
+      "publisher": "Namco",
+      "canonical_title": "Brave Blade",
+      "alternate_titles": [],
+      "hardware_system": "Sony ZN-1",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Dragon Blaze",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo SH-2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Success",
+      "publisher": "Taito",
+      "canonical_title": "Psyvariar: Medium Unit",
+      "alternate_titles": [],
+      "hardware_system": "Taito G-NET",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Success",
+      "publisher": "Taito",
+      "canonical_title": "Psyvariar Revision",
+      "alternate_titles": [],
+      "hardware_system": "Taito G-NET",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Visco",
+      "publisher": "Visco",
+      "canonical_title": "Vasara",
+      "alternate_titles": [],
+      "hardware_system": "SSV",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Takumi",
+      "publisher": "Capcom",
+      "canonical_title": "Mars Matrix",
+      "alternate_titles": [
+        "Hyper Solid Shooting"
+      ],
+      "hardware_system": "CPS-2",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "Capcom",
+      "canonical_title": "Progear",
+      "alternate_titles": [
+        "Progear no Arashi"
+      ],
+      "hardware_system": "CPS-2",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Visco",
+      "publisher": "Visco",
+      "canonical_title": "Vasara 2",
+      "alternate_titles": [],
+      "hardware_system": "SSV",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Takumi",
+      "publisher": "Taito",
+      "canonical_title": "Night Raid",
+      "alternate_titles": [],
+      "hardware_system": "Taito G-NET",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Alfa System",
+      "publisher": "Taito",
+      "canonical_title": "Shikigami no Shiro",
+      "alternate_titles": [
+        "Castle of Shikigami"
+      ],
+      "hardware_system": "Taito G-NET",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Psikyo",
+      "publisher": "Psikyo",
+      "canonical_title": "Gunbarich",
+      "alternate_titles": [],
+      "hardware_system": "Psikyo SH-2",
+      "orientation": "TATE",
+      "type": "T6",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "IGS / CAVE attribution",
+      "publisher": "IGS",
+      "canonical_title": "DoDonPachi II: Bee Storm",
+      "alternate_titles": [
+        "DoDonPachi II"
+      ],
+      "hardware_system": "IGS PGM",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": 2001,
+      "notes": "IGS/CAVE development attribution requires a note; the supplied attribution remains unresolved."
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "DoDonPachi DaiOuJou",
+      "alternate_titles": [
+        "DDP DOJ"
+      ],
+      "hardware_system": "IGS PGM",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Triangle Service",
+      "publisher": "Taito",
+      "canonical_title": "XII Stag",
+      "alternate_titles": [],
+      "hardware_system": "Taito G-NET",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Ketsui: Kizuna Jigoku Tachi",
+      "alternate_titles": [
+        "Ketsui"
+      ],
+      "hardware_system": "IGS PGM",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Espgaluda",
+      "alternate_titles": [],
+      "hardware_system": "IGS PGM",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Alfa System",
+      "publisher": "Taito",
+      "canonical_title": "Shikigami no Shiro II",
+      "alternate_titles": [
+        "Castle Shikigami 2"
+      ],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "SKONEC",
+      "publisher": "Success",
+      "canonical_title": "Psyvariar 2: The Will to Fabricate",
+      "alternate_titles": [],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Mushihimesama",
+      "alternate_titles": [],
+      "hardware_system": "CAVE CV1000-B",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Triangle Service",
+      "publisher": "Triangle Service",
+      "canonical_title": "Trizeal",
+      "alternate_titles": [],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Ibara",
+      "alternate_titles": [],
+      "hardware_system": "CAVE CV1000-B",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Espgaluda II",
+      "alternate_titles": [],
+      "hardware_system": "CAVE CV1000-B",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "G.rev",
+      "publisher": "Sega",
+      "canonical_title": "Under Defeat",
+      "alternate_titles": [],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Milestone",
+      "publisher": "Sega",
+      "canonical_title": "Radirgy",
+      "alternate_titles": [
+        "Radio Allergy"
+      ],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "MOSS",
+      "publisher": "Taito",
+      "canonical_title": "Raiden III",
+      "alternate_titles": [],
+      "hardware_system": "Taito Type X",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Pink Sweets",
+      "alternate_titles": [
+        "Ibara Sorekara"
+      ],
+      "hardware_system": "CAVE CV1000-B",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Mushihimesama Futari",
+      "alternate_titles": [],
+      "hardware_system": "CAVE CV1000-B",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Warashi",
+      "publisher": "Sega",
+      "canonical_title": "Trigger Heart Exelica",
+      "alternate_titles": [],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Milestone",
+      "publisher": "Sega",
+      "canonical_title": "Karous",
+      "alternate_titles": [],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Alfa System",
+      "publisher": "Taito",
+      "canonical_title": "Shikigami no Shiro III",
+      "alternate_titles": [
+        "Castle of Shikigami III"
+      ],
+      "hardware_system": "Taito Type X",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Muchi Muchi Pork!",
+      "alternate_titles": [],
+      "hardware_system": "CAVE CV1000-B",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Triangle Service",
+      "publisher": "Triangle Service",
+      "canonical_title": "Exzeal",
+      "alternate_titles": [
+        "Shooting Love 2007"
+      ],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "MOSS",
+      "publisher": "Taito",
+      "canonical_title": "Raiden IV",
+      "alternate_titles": [],
+      "hardware_system": "Taito Type X",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "Deathsmiles",
+      "alternate_titles": [],
+      "hardware_system": "CAVE CV1000",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "AMI",
+      "canonical_title": "DoDonPachi DaiFukkatsu",
+      "alternate_titles": [
+        "DoDonPachi Resurrection"
+      ],
+      "hardware_system": "CAVE CV1000",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "Milestone",
+      "publisher": "Sega",
+      "canonical_title": "Illvelo",
+      "alternate_titles": [
+        "Illmatic Envelope"
+      ],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE / IGS",
+      "publisher": "IGS",
+      "canonical_title": "DoDonPachi DaiOuJou Tamashii",
+      "alternate_titles": [
+        "DOJ Tamashii"
+      ],
+      "hardware_system": "IGS PGM2",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": "DoDonPachi DaiOuJou",
+      "year": null,
+      "notes": "Separate PGM2 hardware/release row sharing the canonical design of DoDonPachi DaiOuJou."
+    },
+    {
+      "developer": "Milestone",
+      "publisher": "Sega",
+      "canonical_title": "Radirgy Noa",
+      "alternate_titles": [],
+      "hardware_system": "Sega NAOMI",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "CAVE",
+      "canonical_title": "Deathsmiles II",
+      "alternate_titles": [
+        "Makai no Merry Christmas"
+      ],
+      "hardware_system": "PC-based CAVE hardware",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "CAVE",
+      "canonical_title": "Akai Katana",
+      "alternate_titles": [],
+      "hardware_system": "CAVE CV1000",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    },
+    {
+      "developer": "CAVE",
+      "publisher": "CAVE",
+      "canonical_title": "DoDonPachi SaiDaiOuJou",
+      "alternate_titles": [
+        "DDP SDOJ"
+      ],
+      "hardware_system": "CAVE CV1000-D",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": null,
+      "notes": null
+    }
+  ]
+}

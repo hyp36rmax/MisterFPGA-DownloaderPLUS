@@ -1,0 +1,8 @@
+{
+  "name": "arcade-stg-tate",
+  "display_name": "Arcade STG (TATE)",
+  "source_mode": "collection",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-stg-tate",
+  "policy_version": 1,
+  "destination": "_Arcade/_Arcade STG (TATE)"
+}
