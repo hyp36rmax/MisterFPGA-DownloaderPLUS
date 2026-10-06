@@ -127,9 +127,27 @@ def app_check(repository):
     return repo
 
 
+class TransientMergeState(ValidationError):
+    """GitHub has not finished calculating normal auto-merge eligibility."""
+
+
 def graphql(query, variables):
-    result = api('graphql', {'query': query, 'variables': variables})
+    try:
+        result = api('graphql', {'query': query, 'variables': variables})
+    except subprocess.CalledProcessError as exc:
+        # gh returns nonzero for GraphQL errors, including otherwise valid JSON.
+        try:
+            result = json.loads(exc.output)
+        except (TypeError, ValueError):
+            raise exc
+        if not result.get('errors'):
+            raise exc
     if result.get('errors'):
+        messages = [e.get('message', '').casefold() for e in result['errors']]
+        if messages and all(any(state in message for state in
+                                ('unstable status', 'unknown status', 'pending status'))
+                            for message in messages):
+            raise TransientMergeState('GitHub auto-merge eligibility is still settling')
         raise ValidationError('Protected auto-merge configuration failed')
     return result['data']
 
@@ -186,6 +204,8 @@ def wait_validation(repository, number, head, timeout=900):
         pr = api('repos/' + repository + '/pulls/' + str(number))
         if pr['head']['sha'] != head:
             raise ValidationError('Automation PR head changed during hosted validation')
+        if pr.get('state') == 'closed' and not pr.get('merged'):
+            raise ValidationError('Automation PR closed without merge')
         runs = api('repos/' + repository + '/actions/runs?event=pull_request&head_sha=' + head + '&per_page=100')['workflow_runs']
         runs = [r for r in runs if r['name'] == 'Validate' and
                 any(p['number'] == number for p in r.get('pull_requests', []))]
@@ -202,16 +222,45 @@ def wait_validation(repository, number, head, timeout=900):
     raise ValidationError('Normal required PR validation did not complete automatically')
 
 
-def enable_auto_merge(repository, number, head):
-    pr = api('repos/' + repository + '/pulls/' + str(number))
-    if pr['head']['sha'] != head or choose_pr([pr], repository) is None:
-        raise ValidationError('Unexpected automation PR; auto-merge prohibited')
-    # This mutation enables protected auto-merge only, never a direct merge endpoint.
-    data = graphql('mutation($id:ID!){enablePullRequestAutoMerge(input:{pullRequestId:$id,mergeMethod:MERGE}){pullRequest{autoMergeRequest{enabledAt} merged}}}',
-                   {'id': pr['node_id']})['enablePullRequestAutoMerge']['pullRequest']
-    if not data['autoMergeRequest'] and not data['merged']:
-        raise ValidationError('Protected auto-merge was not enabled')
-    print('Normal protected auto-merge enabled: ' + pr['html_url'])
+def enable_auto_merge(repository, number, head, timeout=300, interval=15):
+    deadline = time.monotonic() + timeout
+    last_state = 'UNKNOWN'
+    while time.monotonic() < deadline:
+        pr = api('repos/' + repository + '/pulls/' + str(number))
+        if pr['head']['sha'] != head or choose_pr([pr], repository) is None:
+            raise ValidationError('Unexpected automation PR/head; auto-merge prohibited')
+        if pr.get('merged'):
+            print('Validated automation PR already merged through normal protected publication.')
+            return
+        if pr.get('state') == 'closed':
+            raise ValidationError('Automation PR closed without merge')
+        if pr.get('auto_merge'):
+            print('Normal protected auto-merge already enabled.')
+            return
+        last_state = (pr.get('mergeable_state') or 'UNKNOWN').upper()
+        if last_state in {'UNKNOWN', 'UNSTABLE', 'PENDING'}:
+            print('Waiting for normal auto-merge eligibility: ' + last_state, flush=True)
+        elif last_state in {'CLEAN', 'HAS_HOOKS'}:
+            try:
+                # Enable protected auto-merge only, never a direct merge endpoint.
+                data = graphql('mutation($id:ID!){enablePullRequestAutoMerge(input:{pullRequestId:$id,mergeMethod:MERGE}){pullRequest{autoMergeRequest{enabledAt} merged headRefOid}}}',
+                               {'id': pr['node_id']})['enablePullRequestAutoMerge']['pullRequest']
+            except TransientMergeState:
+                # Eligibility can change between the state read and mutation.
+                last_state = 'SETTLING'
+            else:
+                if data['headRefOid'] != head:
+                    raise ValidationError('Automation PR head changed during auto-merge configuration')
+                if data['autoMergeRequest'] or data['merged']:
+                    print('Normal protected auto-merge configured: ' + pr['html_url'])
+                    return
+                last_state = 'SETTLING'
+        else:
+            raise ValidationError('Normal protected merge blocked: ' + last_state)
+        remaining = deadline - time.monotonic()
+        if remaining > 0:
+            time.sleep(min(interval, remaining))
+    raise ValidationError('Normal auto-merge eligibility timed out: ' + last_state)
 
 
 def main():

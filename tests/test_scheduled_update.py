@@ -14,7 +14,7 @@ REPO = 'hyp36rmax/MisterFPGA-DownloaderPLUS'
 def pull(number=1):
     return {'number': number, 'node_id': 'PR_1', 'draft': False,
             'base': {'ref': 'main'}, 'head': {'ref': updater.BRANCH, 'sha': 'new',
-            'repo': {'full_name': REPO}}, 'auto_merge': None, 'html_url': 'https://github.com/' + REPO + '/pull/1'}
+            'repo': {'full_name': REPO}}, 'state': 'open', 'merged': False, 'mergeable_state': 'clean', 'auto_merge': None, 'html_url': 'https://github.com/' + REPO + '/pull/1'}
 
 
 class ScheduledPublicationTests(unittest.TestCase):
@@ -80,12 +80,86 @@ class ScheduledPublicationTests(unittest.TestCase):
 
     def test_auto_merge_uses_enable_mutation_only(self):
         with patch.object(updater, 'api', return_value=pull()), patch.object(updater, 'graphql',
-             return_value={'enablePullRequestAutoMerge': {'pullRequest': {'autoMergeRequest': {'enabledAt': 'now'}, 'merged': False}}}) as mutation:
+             return_value={'enablePullRequestAutoMerge': {'pullRequest': {'autoMergeRequest': {'enabledAt': 'now'}, 'merged': False, 'headRefOid': 'new'}}}) as mutation:
             updater.enable_auto_merge(REPO, 1, 'new')
         self.assertIn('enablePullRequestAutoMerge', mutation.call_args.args[0])
         self.assertNotIn('mergePullRequest(', mutation.call_args.args[0])
         with patch.object(updater, 'api', return_value=pull()):
             with self.assertRaises(ValidationError): updater.enable_auto_merge(REPO, 1, 'other')
+
+    def test_transient_states_retry_then_enable_once(self):
+        eligible = pull()
+        for state in ('unstable', 'unknown', 'pending'):
+            transient = {**pull(), 'mergeable_state': state}
+            with patch.object(updater, 'api', side_effect=[transient, eligible]), \
+                 patch.object(updater.time, 'sleep') as sleep, patch.object(updater, 'graphql', return_value={
+                     'enablePullRequestAutoMerge': {'pullRequest': {
+                         'autoMergeRequest': {'enabledAt': 'now'}, 'merged': False, 'headRefOid': 'new'}}}) as mutation:
+                updater.enable_auto_merge(REPO, 1, 'new')
+                sleep.assert_called_once()
+                mutation.assert_called_once()
+
+    def test_transient_then_merged_is_success_without_mutation(self):
+        with patch.object(updater, 'api', side_effect=[{**pull(), 'mergeable_state': 'unstable'},
+             {**pull(), 'state': 'closed', 'merged': True}]), patch.object(updater.time, 'sleep'), \
+             patch.object(updater, 'graphql') as mutation:
+            updater.enable_auto_merge(REPO, 1, 'new')
+        mutation.assert_not_called()
+
+    def test_already_auto_merge_enabled_succeeds_without_mutation(self):
+        with patch.object(updater, 'api', return_value={**pull(), 'auto_merge': {'enabled_at': 'now'}}), \
+             patch.object(updater, 'graphql') as mutation:
+            updater.enable_auto_merge(REPO, 1, 'new')
+        mutation.assert_not_called()
+
+    def test_persistent_transient_state_times_out(self):
+        with patch.object(updater, 'api', return_value={**pull(), 'mergeable_state': 'unknown'}), \
+             patch.object(updater.time, 'monotonic', side_effect=[0, 0, 1, 301]), \
+             patch.object(updater.time, 'sleep') as sleep, patch.object(updater, 'graphql') as mutation:
+            with self.assertRaisesRegex(ValidationError, 'timed out'):
+                updater.enable_auto_merge(REPO, 1, 'new')
+        sleep.assert_called_once_with(15)
+        mutation.assert_not_called()
+
+    def test_closed_conflicting_or_blocked_pr_fails(self):
+        for changes in ({'state': 'closed'}, {'mergeable_state': 'dirty'}, {'mergeable_state': 'blocked'},
+                        {'head': {**pull()['head'], 'sha': 'replaced'}},
+                        {'state': 'closed', 'merged': True, 'head': {**pull()['head'], 'sha': 'replaced'}}):
+            with patch.object(updater, 'api', return_value={**pull(), **changes}), patch.object(updater, 'graphql') as mutation:
+                with self.assertRaises(ValidationError): updater.enable_auto_merge(REPO, 1, 'new')
+            mutation.assert_not_called()
+
+    def test_head_change_while_waiting_and_mutation_response_are_rejected(self):
+        with patch.object(updater, 'api', side_effect=[{**pull(), 'mergeable_state': 'unstable'},
+             {**pull(), 'head': {**pull()['head'], 'sha': 'other'}}]), patch.object(updater.time, 'sleep'):
+            with self.assertRaises(ValidationError): updater.enable_auto_merge(REPO, 1, 'new')
+        with patch.object(updater, 'api', return_value=pull()), patch.object(updater, 'graphql', return_value={
+             'enablePullRequestAutoMerge': {'pullRequest': {'autoMergeRequest': {}, 'merged': False, 'headRefOid': 'other'}}}):
+            with self.assertRaises(ValidationError): updater.enable_auto_merge(REPO, 1, 'new')
+
+    def test_mutation_settling_race_retries_but_access_failure_does_not(self):
+        success = {'enablePullRequestAutoMerge': {'pullRequest': {
+            'autoMergeRequest': {'enabledAt': 'now'}, 'merged': False, 'headRefOid': 'new'}}}
+        with patch.object(updater, 'api', return_value=pull()), patch.object(updater.time, 'sleep') as sleep, \
+             patch.object(updater, 'graphql', side_effect=[updater.TransientMergeState('settling'), success]) as mutation:
+            updater.enable_auto_merge(REPO, 1, 'new')
+        self.assertEqual(mutation.call_count, 2)
+        sleep.assert_called_once()
+        with patch.object(updater, 'api', side_effect=subprocess.CalledProcessError(1, 'gh')), \
+             patch.object(updater.time, 'sleep') as sleep:
+            with self.assertRaises(subprocess.CalledProcessError): updater.enable_auto_merge(REPO, 1, 'new')
+        sleep.assert_not_called()
+
+    def test_graphql_classifies_only_known_timing_errors(self):
+        for message in ('Pull request is in unstable status', 'Pull request is in unknown status', 'Pull request is in pending status'):
+            error = {'errors': [{'message': message}]}
+            for response in (error, subprocess.CalledProcessError(1, 'gh', output=__import__('json').dumps(error))):
+                with patch.object(updater, 'api', side_effect=response if isinstance(response, Exception) else None,
+                                  return_value=response if not isinstance(response, Exception) else None):
+                    with self.assertRaises(updater.TransientMergeState): updater.graphql('mutation', {})
+        with patch.object(updater, 'api', return_value={'errors': [{'message': 'Resource not accessible'}]}):
+            with self.assertRaises(ValidationError) as exc: updater.graphql('mutation', {})
+        self.assertNotIsInstance(exc.exception, updater.TransientMergeState)
 
     def test_app_must_have_single_repository_installation_and_auto_merge(self):
         repo = {'allow_auto_merge': True}
