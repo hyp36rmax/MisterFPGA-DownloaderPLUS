@@ -1,113 +1,93 @@
 name: Update databases
 
 on:
+  push:
+    branches:
+      - feature/protected-database-updates
   schedule:
     - cron: '23 */6 * * *'
   workflow_dispatch:
+    inputs:
+      verify_app_only:
+        description: Verify publication authentication without changing branches or PRs
+        type: boolean
+        default: false
 
 permissions:
   contents: read
+  actions: read
+  pull-requests: read
 
 concurrency:
   group: downloaderplus-database-publish
   cancel-in-progress: false
 
 jobs:
-  modules:
+  authentication:
+    if: (github.event_name == 'workflow_dispatch' && inputs.verify_app_only) || (github.event_name == 'push' && github.ref == 'refs/heads/feature/protected-database-updates')
     runs-on: ubuntu-latest
-    outputs:
-      names: ${{ steps.discover.outputs.names }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: '3.12'
-      - id: discover
-        name: Discover independent modules
-        run: |
-          names=$(python tools/build.py --list-update-modules)
-          echo "names=$names" >> "$GITHUB_OUTPUT"
+      - name: Obtain repository publication token
+        id: app
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
+        with:
+          app-id: ${{ vars.DOWNLOADERPLUS_APP_ID }}
+          private-key: ${{ secrets.DOWNLOADERPLUS_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-contents: write
+          permission-pull-requests: write
+      - name: Verify authentication and installation without publication
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+        run: python tools/scheduled_update.py check-app
+
   update:
-    needs: modules
-    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
-    permissions:
-      contents: write
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        module: ${{ fromJSON(needs.modules.outputs.names) }}
+    if: github.ref == 'refs/heads/main' && !inputs.verify_app_only
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ github.event.repository.default_branch }}
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: '3.12'
-      - name: Test safety contract
-        run: python -m unittest discover -s tests -v
-      - name: Build and validate this module independently
+      - name: Build and validate one complete publication cycle
+        id: cycle
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python tools/build.py --module "${{ matrix.module }}" --with-presentations
-      - name: Verify all distribution artifacts
-        run: python tools/verify_dist.py
-      - name: Validate the published module catalog
-        run: python tools/check_module_catalog.py
-      - name: Validate README systems and documentation links
-        run: python tools/check_readme_documentation.py
-      - name: Audit recursive alternatives parity
-        run: python tools/audit_alternatives.py
-      - name: Audit Arcade Systems registry and ownership
-        run: python tools/audit_arcade_systems.py
-      - name: Audit complete public Coin-Op coverage
-        run: python tools/audit_coinop_coverage.py
-      - name: Audit hardware-module default filters
-        run: python tools/audit_filters.py
-      - name: Publish only validated changes
-        run: |
-          mapfile -t paths < <(python tools/build.py --module "${{ matrix.module }}" --publication-paths)
-          git add -- "${paths[@]}"
-          if git diff --cached --quiet; then
-            echo "No material changes; no commit."
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update validated ${{ matrix.module }} database'
-          git push origin HEAD:"${{ github.event.repository.default_branch }}"
-
-  complete:
-    needs: update
-    if: needs.update.result == 'success'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        run: python tools/scheduled_update.py collect --plan "$RUNNER_TEMP/database-publication.json"
+      - name: Obtain repository publication token
+        if: steps.cycle.outputs.changed == 'true'
+        id: app
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
         with:
-          ref: ${{ github.event.repository.default_branch }}
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: '3.12'
-      - name: Build complete aggregate after every source group succeeds
-        run: python tools/build.py --module arcade-systems-complete
-      - name: Verify complete distribution and filters
-        run: |
-          python tools/verify_dist.py
-          python tools/audit_filters.py
-          python tools/check_module_catalog.py
-          python tools/check_readme_documentation.py
-      - name: Publish only complete validated changes
-        run: |
-          git add -- dist/arcade-systems-complete
-          if git diff --cached --quiet; then
-            echo "No material changes; no commit."
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update validated Arcade Systems Complete database'
-          git push origin HEAD:"${{ github.event.repository.default_branch }}"
+          app-id: ${{ vars.DOWNLOADERPLUS_APP_ID }}
+          private-key: ${{ secrets.DOWNLOADERPLUS_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-contents: write
+          permission-pull-requests: write
+      - name: Publish validated batch through a protected PR
+        id: publication
+        if: steps.cycle.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+        run: python tools/scheduled_update.py publish --plan "$RUNNER_TEMP/database-publication.json"
+      - name: Confirm normal PR validation runs and passes
+        if: steps.cycle.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/scheduled_update.py wait-validation --pr "${{ steps.publication.outputs.pr }}" --head "${{ steps.publication.outputs.head }}"
+      - name: Enable normal protected auto-merge after PR validation
+        if: steps.cycle.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+        run: python tools/scheduled_update.py enable-auto-merge --pr "${{ steps.publication.outputs.pr }}" --head "${{ steps.publication.outputs.head }}"
