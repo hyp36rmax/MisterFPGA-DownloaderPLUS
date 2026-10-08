@@ -126,6 +126,14 @@ class NewCoinOpReleaseTests(unittest.TestCase):
             self.assertTrue(any(r['path']==path and r['family'] is None for r in exc.exception.report['records']))
             self.assertFalse(any('arcadefuturehardware' in f['classifications'] for f in families().values()))
 
+    def test_unknown_core_only_classification_is_held_without_a_primary(self):
+        self.source['tag_dictionary']['arcadefuturecore']=9001
+        path='_Arcade/cores/futurecore_20261007.rbf'
+        self.source['files'][path]={'hash':'0'*32,'size':1,'tags':[9001]}
+        with self.assertRaises(ClassificationHold) as exc:require_approved_inventory(self.source,self.refs)
+        self.assertEqual(exc.exception.report['unreviewed_core_records'][0]['path'],path)
+        self.assertIsNone(exc.exception.report['unreviewed_core_records'][0]['family'])
+
     def test_unknown_plus_source_integrity_failure_is_not_downgraded_to_hold(self):
         self.unknown();self.refs.pop(next(p for p in self.refs if 'Legend of Kage' in p))
         with self.assertRaises(ValidationError) as exc:require_approved_inventory(self.source,self.refs)

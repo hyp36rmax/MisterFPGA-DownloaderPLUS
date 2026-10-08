@@ -82,6 +82,15 @@ class ClassificationHold(ValidationError):
 def require_approved_inventory(database, reference_map):
     from tools.audit_coinop_coverage import coverage
     report = coverage(database, reference_map, verify_published=False)
+    unknown = set(unknown_classifications(database))
+    report['unreviewed_core_records'] = []
+    for path, record in database['files'].items():
+        tags = sorted(t for t in unknown if database['tag_dictionary'][t] in record.get('tags', []))
+        if path.endswith('.rbf') and tags:
+            report['unreviewed_core_records'].append({'path':path, 'classifications':tags,
+                'core':path.rsplit('/',1)[-1], 'family':None, 'status':'UNRESOLVED'})
+            report['issues'].append('New public mapping requires review: '+path+'; classifications='+','.join(tags))
+    if report['issues']:report['status']='FAIL'
     if report['issues'] and all(i.startswith('New public mapping requires review:') for i in report['issues']):
         raise ClassificationHold(report)
     require(not report['issues'], 'Coin-Op coverage requires review: ' + '; '.join(report['issues']))

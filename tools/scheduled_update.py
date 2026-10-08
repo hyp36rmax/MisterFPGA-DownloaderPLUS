@@ -90,6 +90,7 @@ def classification_holds(cache, names):
         held = set(update_group('coinop-collection')) | {'arcade-systems-complete'}
         held.update(n for n in names if load_module(n)[0].get('source_mode') == 'collection')
         records = [r for r in exc.report['records'] if r['status']=='UNRESOLVED' and 'review' not in r]
+        records += exc.report.get('unreviewed_core_records', [])
         print(canonical_json({'classification_hold':records, 'held_modules':sorted(held),
                               'last_known_good':'preserved'}).decode('utf-8'), flush=True)
         return held, records
