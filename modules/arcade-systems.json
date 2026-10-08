@@ -491,6 +491,24 @@
         "_Arcade/_Arcade Systems/_TAITO SYSTEM SJ"
       ],
       "include_required_cores": false
+    },
+    "coinop-seibu-sei-8608": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEIBU SEI-8608"
+      ],
+      "include_required_cores": true
+    },
+    "coinop-taito-a54": {
+      "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO A54"
+      ],
+      "include_required_cores": true
     }
   },
   "reserved_authorities": {
@@ -522,6 +540,8 @@
     "_TAITO A78": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_TAITO A85": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_TECHNOS TA-0015 & TA-0017": "Coin-OpCollection/Distribution-MiSTerFPGA",
-    "_TOAPLAN MIN16-02": "Coin-OpCollection/Distribution-MiSTerFPGA"
+    "_TOAPLAN MIN16-02": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_SEIBU SEI-8608": "Coin-OpCollection/Distribution-MiSTerFPGA",
+    "_TAITO A54": "Coin-OpCollection/Distribution-MiSTerFPGA"
   }
 }

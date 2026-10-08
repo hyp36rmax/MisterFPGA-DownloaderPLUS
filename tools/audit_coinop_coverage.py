@@ -75,6 +75,9 @@ def coverage(database, reference_map, root=ROOT, verify_published=True):
     issues.extend('Stale unresolved review: '+p for p in sorted(set(review['records'])-seen_reviews))
     family_reports = []
     for name, item in approved.items():
+        if not any(t in database['tag_dictionary'] for t in item['classifications']+item['core_classifications']):
+            # Historical snapshots predate later reviewed families; never invent records.
+            continue
         try:
             state, selected, audit = family_state(database, item, reference_map)
         except (ValidationError, KeyError) as exc:

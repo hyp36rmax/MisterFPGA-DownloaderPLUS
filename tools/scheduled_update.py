@@ -71,11 +71,39 @@ def description(publication, root=ROOT):
         files = [p.rsplit('/', 1)[-1] for p in publication['paths'] if p.startswith('dist/' + name + '/')]
         lines.append('- ' + display + ': ' + ', '.join(files) +
                      '; source provenance ' + ('changed' if source_changed else 'unchanged') + '.')
+    if publication.get('held_modules'):
+        lines += ['', 'Classification review holds (last-known-good artifacts retained):',
+                  ', '.join(publication['held_modules']) + '.',
+                  'No unapproved records or partial aggregate changes are included.']
     lines += ['', 'Validation: safety tests, independent module builds, whole-distribution integrity,',
               'catalog, documentation, encoding, alternatives, registry/ownership, public coverage,',
               'filters, STG master and TATE checks passed.', '',
               'Source integrity and existing large-loss safeguards passed. No direct-main publication.']
     return '\n'.join(lines) + '\n'
+
+
+def classification_holds(cache, names):
+    from tools.common.coinop_families import ClassificationHold, verified_inventory
+    try:
+        verified_inventory(cache)
+    except ClassificationHold as exc:
+        held = set(update_group('coinop-collection')) | {'arcade-systems-complete'}
+        held.update(n for n in names if load_module(n)[0].get('source_mode') == 'collection')
+        records = [r for r in exc.report['records'] if r['status']=='UNRESOLVED' and 'review' not in r]
+        records += exc.report.get('unreviewed_core_records', [])
+        print(canonical_json({'classification_hold':records, 'held_modules':sorted(held),
+                              'last_known_good':'preserved'}).decode('utf-8'), flush=True)
+        return held, records
+    return set(), []
+
+
+def validate_held_aggregate(root=ROOT):
+    """Check staged contributors together without replacing the held snapshot."""
+    from tools.common.arcade_systems import eligible_modules, merge_complete, registry
+    from tools.verify_dist import verify_one
+    contributors = {n:verify_one(n,root,verbose=False)[0] for n in eligible_modules(root)}
+    config,_ = load_module('arcade-systems-complete',root)
+    merge_complete(config, contributors, registry(root)['modules'])
 
 
 def collect(root=ROOT):
@@ -86,15 +114,26 @@ def collect(root=ROOT):
               and load_module(n)[0].get('source_mode') != 'complete']
     subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'], cwd=root, check=True)
     cache = {}
+    held, holds = classification_holds(cache, names)
     for owner in owners:
+        if owner in held:continue
         for name in update_group(owner):
             print(canonical_json(build(name, source_cache=cache)).decode('utf-8'), flush=True)
         validate(root)
-    build('arcade-systems-complete', source_cache=cache)
+    if 'arcade-systems-complete' not in held:
+        build('arcade-systems-complete', source_cache=cache)
+    else:
+        validate_held_aggregate(root)
     validate(root)
     paths = git('diff', '--name-only', '-z', 'HEAD', root=root).split('\0')
     paths += git('ls-files', '--others', '--exclude-standard', '-z', root=root).split('\0')
-    return plan([p for p in paths if p], names, validated=True, large_loss_passed=True)
+    paths = [p for p in paths if p]
+    if any(p.startswith('dist/'+n+'/') for p in paths for n in held):
+        raise ValidationError('Held dependency artifacts changed; unsafe partial publication')
+    publication = plan(paths, names, validated=True, large_loss_passed=True)
+    publication['classification_holds'] = holds
+    publication['held_modules'] = sorted(held)
+    return publication
 
 
 def api(endpoint, fields=None):
@@ -157,8 +196,11 @@ def publish(publication, repository, root=ROOT):
     if not publication['publish']:
         print('No material changes; no commit, branch update or PR action.')
         return None
-    publication = plan(publication['paths'], discover_modules(), publication['validated'],
-                       publication['large_loss_passed'], publication['branch'])
+    checked = plan(publication['paths'], discover_modules(), publication['validated'],
+                   publication['large_loss_passed'], publication['branch'])
+    if any(p.startswith('dist/'+n+'/') for p in checked['paths'] for n in publication.get('held_modules', [])):
+        raise ValidationError('Publication contains a held dependency')
+    publication = {**publication, **checked}
     repo = app_check(repository)
     if repo['default_branch'] != 'main' or not repo['allow_merge_commit']:
         raise ValidationError('Repository merge convention changed; review required')

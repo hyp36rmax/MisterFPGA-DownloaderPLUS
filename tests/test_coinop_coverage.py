@@ -83,7 +83,7 @@ class CoverageTests(unittest.TestCase):
             build_family(config,output_root=output,cache=cache)
             previous={p.name:p.read_bytes() for p in output.iterdir()}
             self.unknown()
-            with self.assertRaisesRegex(ValidationError,'coverage requires review'):
+            with self.assertRaisesRegex(ValidationError,'classification hold'):
                 build_family(config,output_root=output,cache=cache)
             self.assertEqual(previous,{p.name:p.read_bytes() for p in output.iterdir()})
 
