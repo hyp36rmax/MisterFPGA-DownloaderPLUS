@@ -469,6 +469,34 @@
         "https://github.com/mamedev/mame/blob/master/src/mame/kaneko/snowbros.cpp"
       ],
       "confirmed_releases": []
+    },
+    "seibu-sei-8608": {
+      "display_name": "SEIBU SEI-8608",
+      "destination": "_Arcade/_Arcade Systems/_SEIBU SEI-8608",
+      "classifications": [
+        "arcadedarkmistmister"
+      ],
+      "core_classifications": [
+        "arcadedarkmistmister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA/commit/a9f0e643df6a0d7bdd11d18316c26c2a547c10f4"
+      ],
+      "confirmed_releases": []
+    },
+    "taito-a54": {
+      "display_name": "TAITO A54",
+      "destination": "_Arcade/_Arcade Systems/_TAITO A54",
+      "classifications": [
+        "arcadelkagemister"
+      ],
+      "core_classifications": [
+        "arcadelkagemister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA/commit/3eb1478f2a42563957c007aa1140e20bea779068"
+      ],
+      "confirmed_releases": []
     }
   }
 }

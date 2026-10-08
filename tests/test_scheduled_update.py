@@ -51,7 +51,7 @@ class ScheduledPublicationTests(unittest.TestCase):
         with self.assertRaises(ValidationError): updater.choose_pr([p], REPO)
 
     def test_build_failure_stops_before_whole_validation_or_publication(self):
-        with patch.object(updater, 'git', return_value=''), patch.object(updater, 'discover_modules', return_value=['one']), \
+        with patch.object(updater, 'classification_holds', return_value=(set(), [])), patch.object(updater, 'git', return_value=''), patch.object(updater, 'discover_modules', return_value=['one']), \
              patch.object(updater, 'load_module', return_value=({}, None)), patch.object(updater.subprocess, 'run'), \
              patch.object(updater, 'update_group', return_value=['one']), \
              patch.object(updater, 'build', side_effect=ValidationError('source loss')), patch.object(updater, 'validate') as validate:
@@ -59,7 +59,7 @@ class ScheduledPublicationTests(unittest.TestCase):
         validate.assert_not_called()
 
     def test_validation_failure_stops_cycle_before_plan(self):
-        with patch.object(updater, 'git', return_value=''), patch.object(updater, 'discover_modules', return_value=['one']), \
+        with patch.object(updater, 'classification_holds', return_value=(set(), [])), patch.object(updater, 'git', return_value=''), patch.object(updater, 'discover_modules', return_value=['one']), \
              patch.object(updater, 'load_module', return_value=({}, None)), patch.object(updater.subprocess, 'run'), \
              patch.object(updater, 'update_group', return_value=['one']), patch.object(updater, 'build', return_value={}), \
              patch.object(updater, 'validate', side_effect=subprocess.CalledProcessError(1, 'check')), patch.object(updater, 'plan') as plan:

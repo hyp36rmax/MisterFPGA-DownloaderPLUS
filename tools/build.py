@@ -72,6 +72,12 @@ def build(name, upstream_file=None, output_root=None, source_cache=None):
     policy.validate_schema(upstream, config)
     if upstream["db_id"] != config["upstream_db_id"]:
         raise ValidationError("Build input must be the authoritative upstream database")
+    if name == 'coinop-collection' and not upstream_file:
+        from tools.common.coinop_families import references, require_approved_inventory
+        key=('coinop-normalized', config['upstream_url'])
+        refs = source_cache[key][1] if source_cache is not None and key in source_cache else references(upstream)
+        require_approved_inventory(upstream, refs)
+        if source_cache is not None:source_cache[key]=(upstream, refs)
     generated = transform(upstream, config, policy)
     artifact = package(generated)
     report = validate_output(upstream, unpack(artifact), config, policy)

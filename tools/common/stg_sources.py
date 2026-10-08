@@ -154,7 +154,21 @@ def current_sources(root=ROOT, fetcher=fetch):
     all_alternatives = {a: {p for p in expanded_inventory(s['database'])['files']
                             if is_mra(p) and '_alternatives' in p.split('/')} for a, s in result.items()}
     fetch_selected_alternatives(result, all_alternatives, fetcher)
+    review_collection_sources(result)
     return result
+
+
+def review_collection_sources(sources):
+    """Live collection fetches inherit the same Coin-Op classification boundary."""
+    from tools.common.coinop_families import AUTHORITY, require_approved_inventory, validate_known_source
+    if AUTHORITY not in sources:
+        return
+    snapshot = sources[AUTHORITY]
+    database = copy.deepcopy(snapshot['database'])
+    database['files'].update({'_Arcade/cores/'+name:record for name,record in snapshot['core_records'].items()})
+    refs = {p:proof['rbf'] for p,proof in snapshot['metadata'].items()}
+    validate_known_source(database)
+    require_approved_inventory(database, refs)
 
 
 def fetch_selected_alternatives(sources, selected, fetcher=fetch):

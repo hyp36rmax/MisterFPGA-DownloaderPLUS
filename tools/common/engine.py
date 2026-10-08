@@ -47,12 +47,19 @@ def load_module(name, root=ROOT):
         from tools.common.arcade_systems import AssemblyPolicy
         fields={"name","display_name","source_mode","authority","derived_db_id","policy_version","include_required_cores"}
         mode=config["source_mode"]
-        if mode=="coinop-family":fields.update({"family","source_module"})
+        if mode=="coinop-family":
+            fields.update({"family","source_module"})
+            if 'core_policy' in config:fields.add('core_policy')
         if mode=="documentation":fields.add("systems")
         if set(config)!=fields or config["name"]!=name or config["derived_db_id"]!="hyp36rmax/MisterFPGA-DownloaderPLUS/"+name:
             raise ValidationError("Invalid Arcade Systems configuration")
         if mode=="coinop-family":
             from tools.common.coinop_families import AUTHORITY, families
+            if config.get('include_required_cores'):
+                cp=config.get('core_policy')
+                if not isinstance(cp,dict) or set(cp)!={'identities','immutable_url_prefix'} or not isinstance(cp['identities'],list) or not cp['identities'] or len(set(cp['identities']))!=len(cp['identities']) or any(not isinstance(i,str) or not re.fullmatch('[A-Za-z0-9_-]+',i) for i in cp['identities']) or cp['immutable_url_prefix']!='https://raw.githubusercontent.com/'+AUTHORITY+'/':
+                    raise ValidationError('Invalid Coin-Op required-core policy')
+            elif 'core_policy' in config:raise ValidationError('Core policy without required-core ownership')
             if config["authority"]!=AUTHORITY or config["family"] not in families(Path(root)):
                 raise ValidationError("Invalid Coin-Op authority/family")
         return config, AssemblyPolicy()

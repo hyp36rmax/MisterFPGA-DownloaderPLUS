@@ -88,8 +88,8 @@ class MraExtensionTests(unittest.TestCase):
             self.assertEqual(generated['files'][target]['size'], len(self.payload))
         report = coverage(self.source, self.refs)
         self.assertFalse(report['issues'])
-        self.assertEqual((report['mapped_primary_mras'], report['total_public_primary_mras']), (80, 80))
-        self.assertEqual((report['mapped_alternatives'], report['total_public_alternatives']), (198, 198))
+        self.assertEqual((report['mapped_primary_mras'], report['total_public_primary_mras']), (82, 82))
+        self.assertEqual((report['mapped_alternatives'], report['total_public_alternatives']), (200, 200))
 
 
 if __name__ == '__main__':

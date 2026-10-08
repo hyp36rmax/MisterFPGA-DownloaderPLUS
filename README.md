@@ -75,10 +75,12 @@ _Arcade/
 | SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 18/` | `sega-system18.json.zip` |
 | SEGA SYSTEM 32 | MeatCores database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 32/` | `sega-system32.json.zip` |
 | SEGA SYSTEM 32 MULTI | MeatCores database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 32 MULTI/` | `sega-system32-multi.json.zip` |
+| SEIBU SEI-8608 | Coin-Op database selection | `_Arcade/_Arcade Systems/_SEIBU SEI-8608/` | `coinop-seibu-sei-8608.json.zip` |
 | SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/_SEIBU SPI/` | `seibu-spi.json.zip` |
 | SNK 68000 | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK 68000/` | `coinop-snk-68000.json.zip` |
 | SNK ALPHA-68K | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK ALPHA-68K/` | `coinop-snk-alpha-68k.json.zip` |
 | SSV | MeatCores database selection | `_Arcade/_Arcade Systems/_SSV/` | `ssv.json.zip` |
+| TAITO A54 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A54/` | `coinop-taito-a54.json.zip` |
 | TAITO A78 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A78/` | `coinop-taito-a78.json.zip` |
 | TAITO A85 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A85/` | `coinop-taito-a85.json.zip` |
 | TAITO ASUKA | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO ASUKA/` | `taito-asuka.json.zip` |
@@ -187,10 +189,10 @@ The systems below download from their maintained sources. Reserve Systems provid
 | PGM | PGM (EZIO) |
 | PSIKYO | PSIKYO, SH2 |
 | SEGA | ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
-| SEIBU | SPI |
+| SEIBU | SEI-8608, SPI |
 | SNK | 68000, ALPHA-68K |
 | SSV | SSV |
-| TAITO | A78, A85, ASUKA, F2, FX1B, SYSTEM SJ |
+| TAITO | A54, A78, A85, ASUKA, F2, FX1B, SYSTEM SJ |
 | TECHNOS | TA-0015 & TA-0017 |
 | TECHNOSOFT | TECHNOSOFT |
 | TOAPLAN | TOAPLAN 1, TOAPLAN 2, TOAPLAN MIN16-02 |
@@ -380,6 +382,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### SEIBU
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-seibu-sei-8608]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-seibu-sei-8608/coinop-seibu-sei-8608.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/seibu-spi]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/seibu-spi/seibu-spi.json.zip
 ```
@@ -404,6 +409,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### TAITO
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-taito-a54]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-taito-a54/coinop-taito-a54.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-asuka]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-asuka/taito-asuka.json.zip
 

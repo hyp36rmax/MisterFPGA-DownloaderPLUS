@@ -121,7 +121,15 @@ def latest_authoritative_cores(files, core_policy, base_files_url=""):
     for path, record in files.items():
         if not path.endswith('.rbf'):
             continue
-        identity, date = core_version(path)
+        if path.rsplit('/',1)[-1].startswith('Arcade-'):
+            identity, date = core_version(path)
+        else:
+            from datetime import datetime
+            match = re.fullmatch(r'([A-Za-z0-9_-]+)_([0-9]{8})\.rbf', path.rsplit('/',1)[-1])
+            require(match is not None, 'Unrecognized core filename/version convention')
+            identity, date = match.groups()
+            try: datetime.strptime(date, '%Y%m%d')
+            except ValueError: raise ValidationError('Invalid authoritative core date')
         require(identity in core_policy['identities'], 'Unexpected selected core identity: ' + identity)
         prefix = core_policy['immutable_url_prefix']
         require(re.fullmatch(re.escape(prefix) + r'[0-9a-f]{40}/[^?#]+', record.get('url', base_files_url + quote(path))), 'Core URL must remain commit-pinned: ' + path)

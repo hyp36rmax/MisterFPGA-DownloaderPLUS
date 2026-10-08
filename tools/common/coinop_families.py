@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 
 from tools.common.arcade_systems import ROOT, NAMESPACE, documentation_database, publish_assembly
 from tools.common.file_types import is_mra
-from tools.common.database import parse_json, fetch, unpack, digest, canonical_json
+from tools.common.database import ValidationError, parse_json, fetch, unpack, digest, canonical_json
 from tools.common.repository import require, mra_reference
 from tools.common.filters import parse_filter, installable, filter_counts
 
@@ -72,6 +72,53 @@ def references(database,fetcher=fetch):
         return dict(pool.map(verify,[(p,r) for p,r in database['files'].items() if is_mra(p)]))
 
 
+class ClassificationHold(ValidationError):
+    """Verified public records need hardware review, not automatic approval."""
+    def __init__(self, report):
+        self.report = report
+        super().__init__('Coin-Op classification hold: ' + '; '.join(report['issues']))
+
+
+def require_approved_inventory(database, reference_map):
+    from tools.audit_coinop_coverage import coverage
+    report = coverage(database, reference_map, verify_published=False)
+    if report['issues'] and all(i.startswith('New public mapping requires review:') for i in report['issues']):
+        raise ClassificationHold(report)
+    require(not report['issues'], 'Coin-Op coverage requires review: ' + '; '.join(report['issues']))
+    return report
+
+
+def validate_known_source(database):
+    """Classification review cannot mask disappearance of previously published coverage."""
+    previous = parse_json((ROOT/'dist/coinop-nmk16/manifest.json').read_bytes())['source_database']
+    reviewed = {t for item in families().values() for t in item['classifications']+item['core_classifications']}
+    required = reviewed.intersection(previous['tag_dictionary'])
+    require(required <= set(database['tag_dictionary']), 'Previously published Coin-Op classification disappeared')
+    primary = lambda d: {p for p in d['files'] if is_mra(p) and '_alternatives' not in p.split('/')}
+    before, after = primary(previous), primary(database)
+    lost = len(before-after)
+    require(not (lost >= 5 and lost > len(before)*0.2), 'Coin-Op source-loss guard: unexpected primary removal')
+
+
+def verified_inventory(cache):
+    from tools.common.engine import load_module
+    config, policy = load_module('coinop-collection')
+    key = ('coinop-normalized', URL)
+    if key not in cache:
+        raw = cache.get(URL)
+        if raw is None:
+            raw = fetch(URL); cache[URL] = raw
+        database = unpack(raw)
+        policy.validate_schema(database, config)
+        cache[('database', URL, 'db.json')] = database
+        cache[key] = (database, references(database))
+    database, refs = cache[key]
+    policy.validate_schema(database, config)
+    validate_known_source(database)
+    require_approved_inventory(database, refs)
+    return database, refs
+
+
 def family_state(database,item,reference_map):
     dictionary=database['tag_dictionary']
     require(all(t in dictionary for t in item['classifications']+item['core_classifications']),'Reviewed Coin-Op classification disappeared')
@@ -128,6 +175,22 @@ def family_database(config,database,reference_map,root=ROOT):
             r=copy.deepcopy(database['folders'][path])
             # Preserve authoritative parent metadata under the derived filter.
             result['folders'][target]=r
+    selected_cores = {}
+    if state == 'managed' and config.get('include_required_cores'):
+        from tools.common.selection import latest_authoritative_cores
+        core_ids = {database['tag_dictionary'][t] for t in item['core_classifications']}
+        cores = {p:r for p,r in database['files'].items() if p.startswith('_Arcade/cores/')
+                 and p.endswith('.rbf') and core_ids.intersection(r['tags'])}
+        selected_cores = latest_authoritative_cores(cores, config['core_policy'], database['base_files_url'])
+        for path in selected:
+            reference = reference_map[path]
+            require(any(re.match(r'(?:Arcade-)?'+re.escape(reference)+r'[._]', p.rsplit('/',1)[-1], re.I)
+                        for p in selected_cores), 'Selected latest core does not satisfy MRA: '+path)
+        for path, record in selected_cores.items():
+            result['files'][path] = {**copy.deepcopy(record), 'url':record.get('url', database['base_files_url']+quote(path))}
+        for path in ('_Arcade', '_Arcade/cores'):
+            require(path in database['folders'], 'Missing authoritative core folder')
+            result['folders'][path] = copy.deepcopy(database['folders'][path])
     if state in {'reserve','managed'} and confirmed_releases(item):
         # Release-backed families retain the same neutral guidance through promotion.
         docs,resources=documentation_database(config,[{'display_name':item['display_name'],'destination':item['destination'],'state':'reserve'}])
@@ -144,7 +207,7 @@ def family_database(config,database,reference_map,root=ROOT):
     files,alternatives,folders=navigation_inventory(result,item['destination'])
     report={**audit,**counts,'effective_source_urls_changed':0,'namespace_violations':0,
             'source_primary_mras':audit['primary_mras'],'primary_mras':len(files)-len(alternatives),
-            'alternative_mras':len(alternatives),'alternative_folders':len(folders),'current_cores':0,
+            'alternative_mras':len(alternatives),'alternative_folders':len(folders),'current_cores':len(selected_cores),
             'total_mras':len(files),'total_distributable_files':len(result['files']),
             'generated_alternative_mras':len(alternatives),'alternatives_parity':True,
                              'generated_files':len(result['files']),'generated_folders':len(result['folders'])}
@@ -168,10 +231,15 @@ def build_family(config,upstream_file=None,output_root=None,cache=None):
             cache[key]=(database,references(database))
         database,reference_map=cache[key]
     parent_policy.validate_schema(database,parent)
-    from tools.audit_coinop_coverage import coverage
-    coverage_report=coverage(database,reference_map,verify_published=False)
-    require(not coverage_report['issues'],'Coin-Op coverage requires review: '+'; '.join(coverage_report['issues']))
+    require_approved_inventory(database,reference_map)
     result,resources,report=family_database(config,database,reference_map)
+    for path,record in result['files'].items():
+        if path.endswith('.rbf'):
+            key=('verified-core',record['url'],record['hash'],record['size'])
+            if key not in cache:
+                payload=fetch(record['url'])
+                require(len(payload)==record['size'] and hashlib.md5(payload).hexdigest()==record['hash'], 'Coin-Op core hash/size mismatch: '+path)
+                cache[key]=True
     directory=Path(output_root) if output_root else ROOT/'dist'/config['name']
     previous=parse_json((directory/'manifest.json').read_bytes()) if (directory/'manifest.json').exists() else None
     published=publish_assembly(config,result,{'source_mode':'coinop-family','source_database':database,
