@@ -207,7 +207,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Time Pilot | Konami | MATCHED | distribution_mister | _Arcade/Time Pilot.mra |
 | Mission-X | DECO | MATCHED | distribution_mister | _Arcade/Mission-X (DECO).mra |
 | Zoar | DECO | UNAVAILABLE |  |  |
-| Tank Battalion | Namco | MATCHED | distribution_mister | _Arcade/TankBattalion.mra |
+| Tank Battalion | Namco | MATCHED | distribution_mister | _Arcade/Tank Battalion.mra |
 | Imago | Dedicated | UNAVAILABLE |  |  |
 | Xevious | Namco | MATCHED | distribution_mister | _Arcade/Xevious.mra |
 | Gyruss | Konami | MATCHED | distribution_mister | _Arcade/Gyruss.mra |
