@@ -4,13 +4,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 108 |
-| matched distinct designs | 108 |
-| unavailable rows | 77 |
-| authority hold rows | 17 |
-| ambiguous rows | 1 |
-| primary mras | 108 |
-| alternatives | 357 |
+| matched rows | 111 |
+| matched distinct designs | 111 |
+| unavailable rows | 74 |
+| authority hold rows | 16 |
+| ambiguous rows | 2 |
+| primary mras | 111 |
+| alternatives | 368 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
 
@@ -19,9 +19,9 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Authority | Primary MRAs | Alternatives |
 |---|---:|---:|
 | Coin-OpCollection/Distribution-MiSTerFPGA | 18 | 47 |
-| distribution_mister | 60 | 182 |
+| distribution_mister | 62 | 193 |
 | hyp36rmax/PGM-Mister-EZIOCHIU | 4 | 36 |
-| jtcores | 16 | 56 |
+| jtcores | 17 | 56 |
 | kuzearcade/kuzecores | 1 | 0 |
 | meathax/meatcores | 5 | 0 |
 | zakk4223/Arcade-SeibuSPI_MiSTer | 4 | 36 |
@@ -42,7 +42,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | CPS-2 | 2 | 2 | 0 | 0 | 0 |
 | Capcom | 8 | 7 | 1 | 0 | 0 |
 | Crux/Kyugo family | 1 | 1 | 0 | 0 | 0 |
-| DECO | 9 | 1 | 8 | 0 | 0 |
+| DECO | 9 | 1 | 7 | 0 | 1 |
 | Dedicated | 5 | 0 | 5 | 0 | 0 |
 | Face | 2 | 0 | 2 | 0 | 0 |
 | Galaga | 1 | 1 | 0 | 0 | 0 |
@@ -63,8 +63,8 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | NA-1 | 1 | 0 | 1 | 0 | 0 |
 | NMK16 | 7 | 0 | 6 | 1 | 0 |
 | Namco | 3 | 3 | 0 | 0 | 0 |
-| Nichibutsu | 4 | 3 | 1 | 0 | 0 |
-| Orca | 2 | 0 | 2 | 0 | 0 |
+| Nichibutsu | 4 | 4 | 0 | 0 | 0 |
+| Orca | 2 | 1 | 1 | 0 | 0 |
 | Psikyo 68K | 3 | 3 | 0 | 0 | 0 |
 | Psikyo SH-2 | 6 | 6 | 0 | 0 | 0 |
 | Raizing | 5 | 5 | 0 | 0 | 0 |
@@ -77,7 +77,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Sega/Coreland | 1 | 1 | 0 | 0 | 0 |
 | Seibu | 3 | 3 | 0 | 0 | 0 |
 | Seibu SPI | 4 | 4 | 0 | 0 | 0 |
-| Seta | 5 | 1 | 3 | 1 | 0 |
+| Seta | 5 | 2 | 3 | 0 | 0 |
 | Sony ZN-1 | 2 | 0 | 2 | 0 | 0 |
 | System 1 | 3 | 2 | 1 | 0 | 0 |
 | System 2 | 1 | 0 | 1 | 0 | 0 |
@@ -111,7 +111,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Capcom | 11 | 10 | 1 | 0 | 0 |
 | Coreland | 1 | 1 | 0 | 0 | 0 |
 | Crux | 2 | 2 | 0 | 0 | 0 |
-| Data East | 9 | 1 | 8 | 0 | 0 |
+| Data East | 9 | 1 | 7 | 0 | 1 |
 | Eighting | 1 | 0 | 1 | 0 | 0 |
 | Face | 2 | 0 | 2 | 0 | 0 |
 | G.rev | 1 | 0 | 1 | 0 | 0 |
@@ -126,8 +126,8 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Milestone | 3 | 0 | 3 | 0 | 0 |
 | NMK | 6 | 0 | 5 | 1 | 0 |
 | Namco | 10 | 7 | 3 | 0 | 0 |
-| Nichibutsu | 6 | 5 | 1 | 0 | 0 |
-| Orca | 2 | 0 | 2 | 0 | 0 |
+| Nichibutsu | 6 | 6 | 0 | 0 | 0 |
+| Orca | 2 | 1 | 1 | 0 | 0 |
 | Psikyo | 9 | 9 | 0 | 0 | 0 |
 | Raizing | 6 | 6 | 0 | 0 | 0 |
 | Raizing / Eighting | 1 | 1 | 0 | 0 | 0 |
@@ -136,7 +136,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | SNK | 6 | 3 | 3 | 0 | 0 |
 | Sega | 8 | 3 | 5 | 0 | 0 |
 | Seibu Kaihatsu | 7 | 7 | 0 | 0 | 0 |
-| Seta | 5 | 1 | 3 | 1 | 0 |
+| Seta | 5 | 2 | 3 | 0 | 0 |
 | Shoei | 2 | 0 | 2 | 0 | 0 |
 | Success | 2 | 0 | 2 | 0 | 0 |
 | Sunsoft | 1 | 0 | 1 | 0 | 0 |
@@ -165,6 +165,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 ## Excluded uncertain matches
 
+- Liberation: meathax/meatcores:_Arcade/_MeatCores/Dual Assault.mra; meathax/meatcores:_Arcade/_MeatCores/Liberation.mra
 - TwinBee: distribution_mister:_Arcade/TwinBee (Bubble System).mra; distribution_mister:_Arcade/TwinBee.mra
 
 ## Frozen TATE title coverage
@@ -190,7 +191,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Devil Zone | Universal | MATCHED | distribution_mister | _Arcade/Devil Zone.mra |
 | Magical Spot | Universal | MATCHED | distribution_mister | _Arcade/Magical Spot.mra |
 | Stratovox | Dedicated | UNAVAILABLE |  |  |
-| Sasuke vs. Commander | SNK | MATCHED | distribution_mister | _Arcade/Sasuke.mra |
+| Sasuke vs. Commander | SNK | MATCHED | distribution_mister | _Arcade/Sasuke Vs. Commander.mra |
 | Space Intruder | Dedicated | UNAVAILABLE |  |  |
 | Carnival | Sega | MATCHED | distribution_mister | _Arcade/Carnival.mra |
 | N-Sub | Sega | UNAVAILABLE |  |  |
@@ -207,13 +208,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Time Pilot | Konami | MATCHED | distribution_mister | _Arcade/Time Pilot.mra |
 | Mission-X | DECO | MATCHED | distribution_mister | _Arcade/Mission-X (DECO).mra |
 | Zoar | DECO | UNAVAILABLE |  |  |
-| Tank Battalion | Namco | MATCHED | distribution_mister | _Arcade/TankBattalion.mra |
+| Tank Battalion | Namco | MATCHED | distribution_mister | _Arcade/Tank Battalion.mra |
 | Imago | Dedicated | UNAVAILABLE |  |  |
 | Xevious | Namco | MATCHED | distribution_mister | _Arcade/Xevious.mra |
 | Gyruss | Konami | MATCHED | distribution_mister | _Arcade/Gyruss.mra |
 | Juno First | Konami | MATCHED | distribution_mister | _Arcade/Juno First.mra |
 | Sky Lancer | Orca | UNAVAILABLE |  |  |
-| Dog Fight | Orca | UNAVAILABLE |  |  |
+| Dog Fight | Orca | MATCHED | distribution_mister | _Arcade/Dog Fight.mra |
 | Exerion | Jaleco | MATCHED | distribution_mister | _Arcade/Exerion (Taito).mra |
 | Bio-Attack | Taito | MATCHED | distribution_mister | _Arcade/Bio Attack.mra |
 | Gaplus | Namco | MATCHED | distribution_mister | _Arcade/Galaga 3 - Gaplus (GP2 Rev B).mra |
@@ -224,7 +225,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Fire Battle | Wood Place | UNAVAILABLE |  |  |
 | Star Force | Tehkan | MATCHED | distribution_mister | _Arcade/Star Force.mra |
 | Sky Army | Dedicated | UNAVAILABLE |  |  |
-| Liberation | DECO | UNAVAILABLE |  |  |
+| Liberation | DECO | AMBIGUOUS |  |  |
 | Repulse | Kyugo family | MATCHED | distribution_mister | _Arcade/Repulse.mra |
 | Halley's Comet | Taito | UNAVAILABLE |  |  |
 | TwinBee | Konami | AMBIGUOUS |  |  |
@@ -252,7 +253,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | SRD: Super Real Darwin | DECO | UNAVAILABLE |  |  |
 | Last Mission | DECO | UNAVAILABLE |  |  |
 | Gondomania | DECO | UNAVAILABLE |  |  |
-| Legion | Nichibutsu | UNAVAILABLE |  |  |
+| Legion | Nichibutsu | MATCHED | distribution_mister | _Arcade/Legend.mra |
 | MX5000 | Konami | MATCHED | jtcores | _Arcade/MX5000.mra |
 | Galaga '88 | System 1 | MATCHED | jtcores | _Arcade/Galaga '88.mra |
 | 1943 Kai | Capcom | UNAVAILABLE |  |  |
@@ -296,7 +297,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Twin Eagle | Seta | UNAVAILABLE |  |  |
 | Arbalester | Seta | UNAVAILABLE |  |  |
 | Meta Fox | Seta | UNAVAILABLE |  |  |
-| Caliber .50 | Seta | AUTHORITY HOLD |  |  |
+| Caliber .50 | Seta | MATCHED | jtcores | _Arcade/Caliber 50 (Ver. 1.01).mra |
 | Nostradamus | Face | UNAVAILABLE |  |  |
 | Daioh | Athena | UNAVAILABLE |  |  |
 | Cybattler | Mega System 1 | UNAVAILABLE |  |  |
@@ -377,8 +378,9 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 ## Latest coverage transitions
 
-- NEW TATE MATCH: Storm Blade — meathax/meatcores: _Arcade/_MeatCores/Storm Blade.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Ultra X Weapons — meathax/meatcores: _Arcade/_MeatCores/Ultra X Weapons - Ultra Keibitai.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Caliber .50 — jtcores: _Arcade/Caliber 50 (Ver. 1.01).mra (AUTHORITY HOLD → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Dog Fight — distribution_mister: _Arcade/Dog Fight.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Legion — distribution_mister: _Arcade/Legend.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 
