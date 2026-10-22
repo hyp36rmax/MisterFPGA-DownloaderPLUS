@@ -29,7 +29,7 @@ def audit():
                                 'Verified core and compatible MRA records exist; distribution default excludes them' if state=='manual' else
                                 'No verified usable MiSTer core/MRA pair in approved inventory; no folder is generated'})
     _,complete=verify_one('arcade-systems-complete',verbose=False)
-    return {'coinop_families':matrix,'unmapped_coinop_classifications':unknown_classifications(sample['source_database']),
+    return {'catalog_only_systems':data.get('catalog_only_systems',[]),'coinop_families':matrix,'unmapped_coinop_classifications':unknown_classifications(sample['source_database']),
             'eligible_modules':names,'excluded_modules':sorted(set(data['modules'])-set(names)),
             'modules':rows,'complete':complete['validation']}
 

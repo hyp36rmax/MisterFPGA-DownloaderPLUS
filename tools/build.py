@@ -14,6 +14,11 @@ from tools.common.selection import select_database, verify_payloads
 
 def build(name, upstream_file=None, output_root=None, source_cache=None):
     config, policy = load_module(name)
+    if config.get('source_mode') == 'public-distribution':
+        from tools.common.public_distribution import build as build_public
+        if upstream_file:
+            raise ValidationError('Public distribution builds require the approved release source')
+        return build_public(config, output_root, source_cache)
     if config.get('source_mode') == 'collection':
         from tools.common.stg_collection import build_collection
         if upstream_file:

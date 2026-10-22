@@ -38,6 +38,13 @@ def load_module(name, root=ROOT):
         raise ValidationError("Invalid module name")
     directory = Path(root) / "modules" / name
     config = parse_json((directory / "module.json").read_bytes())
+    if config.get('source_mode') == 'public-distribution':
+        from tools.common.public_distribution import validate_config
+        from tools.common.arcade_systems import AssemblyPolicy
+        validate_config(config)
+        if config['name'] != name:
+            raise ValidationError('Public distribution module identity mismatch')
+        return config, AssemblyPolicy()
     if config.get('source_mode') == 'collection':
         from tools.common.stg_collection import CollectionPolicy, DESTINATION
         if set(config) != {'name', 'display_name', 'source_mode', 'derived_db_id', 'policy_version', 'destination'} or config['name'] != name or name != 'arcade-stg-tate' or config['destination'] != DESTINATION or config['derived_db_id'] != 'hyp36rmax/MisterFPGA-DownloaderPLUS/' + name or config['policy_version'] != 1:

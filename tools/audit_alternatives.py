@@ -17,7 +17,7 @@ def audit(live=False):
     source_cache = {}
     for name in discover_modules():
         config, policy = load_module(name)
-        if config.get('source_mode')=='coinop-family':
+        if config.get('source_mode') in {'coinop-family','public-distribution'}:
             from tools.verify_dist import verify_one
             generated,manifest=verify_one(name,verbose=False)
             report=manifest['validation']

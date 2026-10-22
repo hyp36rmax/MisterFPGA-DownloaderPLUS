@@ -151,3 +151,26 @@ TAITO F2 follows the official `arcadetaitof2` classification, preserving complet
 PGM (Ezio) offers two navigation choices: the existing standalone `_Arcade/_PGM (EZIO)/` and the optional Arcade Systems `_Arcade/_Arcade Systems/_PGM (EZIO)/`. Both follow the same authoritative distribution and install the same required cores in `_Arcade/cores/`, so either subscription works alone. Most users need one presentation; both can coexist if you want both locations. Neither removes the other view. Existing PGM configuration and installation instructions remain unchanged. See [optional PGM module](../modules/pgm-ezio-arcade-systems/README.md).
 
 Arcade Systems folders now require a leading underscore. Existing database IDs and URLs stay unchanged. Run Update_All normally to install the corrected paths; old tracked copies are removed only when your Downloader deletion policy permits it. See [navigation migration](navigation-migration.md).
+
+
+## G-NET and Model 2 public releases
+
+TAITO G-NET uses [shmupfan's public database](https://raw.githubusercontent.com/shmupfan/Distribution/main/db.json), scoped to the released G-NET repository URLs. Its plain-JSON adapter validates the original records and preserves the effective core filename `TaitoGNET_20261022.rbf`. The adapter adds only the empty tag/folder structure required by the generated database; the original source snapshot remains in the manifest. Other shmupfan systems are not approved by this module.
+
+SEGA MODEL 2 and SEGA MODEL 2A use [alphanu1's `model2a` release directory](https://github.com/alphanu1/sega-model2-mister/tree/model2a/releases). Released MRA core references select the hardware view. Both views preserve flat release filenames, including regional and 15 kHz CRT variants; no artificial alternatives directories are created. Development MRAs and release helpers are excluded. Each core identity selects its latest dated release independently under `_Arcade/cores/`.
+
+All three modules verify public payload hashes and sizes before publication. Repository releases also verify Git blob identities. Manifests retain pinned source inventories and verified MRA evidence for offline replay. Invalid source records, unresolved dependencies, ambiguous alternatives and large source losses preserve the last known-good artifacts. A conflicting authority reservation requires review. The existing Coin-Op source decisions remain unchanged.
+
+These are public beta releases. For G-NET, follow the [installation guide](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer/blob/main/docs/INSTALL.md) to prepare your own BIOS and game-card data with the [converter](https://gnet-converter.pages.dev). The documented boot/display checks do not mean every game received gameplay testing. For Model 2/2A, consult the release notes for SDRAM requirements, untested CRT/peripheral combinations, missing link play and other game-specific limitations. DownloaderPLUS supplies database metadata for cores and MRAs, never game data.
+
+### Catalog-only Namco Reserve systems
+
+| Hardware | Developer reference | Announced core identities |
+|---|---|---|
+| NAMCO SYSTEM 21 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-21-172718008) | XNSYSTEM21, XNWINRUN |
+| NAMCO SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | Not used as downloadable inventory |
+| NAMCO SUPER SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | Tracked separately from System 22 |
+
+The registry's `catalog_only_systems` entries retain developer references without module IDs, source approvals, artifacts, installation folders or guidance files. They contribute nothing to Complete. Existing Reserve subscriptions keep their current folder/guidance behavior. Promotion requires a separately verified and approved public distribution, including a Coin-Op coverage check.
+
+Ray Crisis and Space Invaders Anniversary remain separate historical-master review candidates. Neither is added to the frozen master by this release. Orientation alone does not establish STG eligibility.

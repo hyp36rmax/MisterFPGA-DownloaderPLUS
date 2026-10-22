@@ -20,7 +20,7 @@ from tools.common.archives import hydrate_archives, checked_payload, expanded_in
 
 
 # Reviewed collection authorities; adding a registry source alone cannot expand this set.
-APPROVED_AUTHORITIES = ('Coin-OpCollection/Distribution-MiSTerFPGA', 'XelaNotPu/SYSTEM11_MiSTer', 'XelaNotPu/ZN1-Capcom_MiSTer', 'XelaNotPu/ZN1-TaitoFX1B_MiSTer', 'XelaNotPu/ZN2-Capcom_MiSTer', 'distribution_mister', 'hyp36rmax/PGM-Mister-EZIOCHIU', 'jtcores', 'kuzearcade/kuzecores', 'meathax/meatcores', 'zakk4223/Arcade-SeibuSPI_MiSTer')
+APPROVED_AUTHORITIES = ('shmupfan', 'alphanu1', 'Coin-OpCollection/Distribution-MiSTerFPGA', 'XelaNotPu/SYSTEM11_MiSTer', 'XelaNotPu/ZN1-Capcom_MiSTer', 'XelaNotPu/ZN1-TaitoFX1B_MiSTer', 'XelaNotPu/ZN2-Capcom_MiSTer', 'distribution_mister', 'hyp36rmax/PGM-Mister-EZIOCHIU', 'jtcores', 'kuzearcade/kuzecores', 'meathax/meatcores', 'zakk4223/Arcade-SeibuSPI_MiSTer')
 
 
 def approvals(root=ROOT):
@@ -95,6 +95,10 @@ def current_sources(root=ROOT, fetcher=fetch):
     cache = {}
     for authority, approval in sorted(approvals(root).items()):
         config, policy = load_module(approval['configs'][0], root)
+        if config.get('source_mode') == 'public-distribution':
+            from tools.common.public_distribution import collection_source
+            result[authority] = collection_source(approval, root, fetcher=fetcher)
+            continue
         if config.get('source_mode') == 'repository':
             api = 'https://api.github.com/repos/' + config['repository']
             commit = parse_json(fetcher(api + '/commits/' + quote(config['ref'], safe='')))

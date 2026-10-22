@@ -17,7 +17,7 @@ def audit(live=False):
     rows=[];cache={}
     for name in discover_modules():
         c,p=load_module(name)
-        if c.get('source_mode') in {'coinop-family','complete','documentation'}:
+        if c.get('source_mode') in {'coinop-family','complete','documentation','public-distribution'}:
             from tools.verify_dist import verify_one
             g,m=verify_one(name,verbose=False)
             counts=filter_counts(g)

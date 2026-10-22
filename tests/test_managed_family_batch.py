@@ -140,7 +140,8 @@ class ManagedFamilyBatchTests(unittest.TestCase):
                 self.assertEqual(complete['files'][p]['size'],r['size'])
         validate_module_collisions([verify_one(n,verbose=False)[0] for n in MODULES])
 
-    def test_tate_automatic_frozen_matching_and_scope_boundary(self):
+    @patch('tools.common.public_distribution.validate_collection_source')
+    def test_tate_automatic_frozen_matching_and_scope_boundary(self, public_source_validation):
         snapshots={a:{'approval':v,'cores':[],'metadata':{},'database':{'v':1,'timestamp':1,'db_id':a,'tag_dictionary':{},'files':{},'folders':{}}} for a,v in approvals().items()}
         for name in MODULES:
             config,_,selected=self.selected(name)

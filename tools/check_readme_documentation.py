@@ -19,7 +19,7 @@ def system_inventory(root=ROOT):
     published = {item['name'] for item in published_inventory(root)}
     entries = registry(root)['modules']
     groups = json.loads((root / 'docs/arcade-systems-presentation.json').read_text(encoding='utf-8'))
-    active, reserve = {}, set()
+    active, reserve = {}, {item['display_name'] for item in registry(root).get('catalog_only_systems',[])}
     for module in eligible_modules(root):
         if module not in published:
             raise ValidationError('Registered system lacks published artifact: ' + module)

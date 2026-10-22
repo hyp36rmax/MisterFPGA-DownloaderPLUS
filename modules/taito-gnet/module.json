@@ -1,0 +1,14 @@
+{
+  "name": "taito-gnet",
+  "display_name": "TAITO G-NET",
+  "source_mode": "public-distribution",
+  "authority": "shmupfan",
+  "repository": "shmupfan/Arcade-TaitoGNET_MiSTer",
+  "source_type": "plain-json",
+  "ref": "main",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/taito-gnet",
+  "policy_version": 1,
+  "include_required_cores": true,
+  "core_identity": "TaitoGNET",
+  "target_folder": "_Arcade Systems/_TAITO G-NET"
+}

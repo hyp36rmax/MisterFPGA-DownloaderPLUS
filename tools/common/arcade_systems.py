@@ -17,7 +17,17 @@ PUBLIC_BASE = 'https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-Downloader
 
 def registry(root=ROOT):
     data = parse_json((Path(root)/'modules/arcade-systems.json').read_bytes())
-    require(set(data)=={'version','modules','reserved_authorities'} and data['version']==1, 'Unknown Arcade Systems registry')
+    require(set(data)-{'catalog_only_systems'}=={'version','modules','reserved_authorities'} and data['version']==1, 'Unknown Arcade Systems registry')
+    catalog=data.get('catalog_only_systems',[])
+    require(type(catalog) is list,'Invalid catalog-only Reserve list')
+    seen=set()
+    for item in catalog:
+        require(type(item) is dict and set(item)=={'display_name','state','developer','core_identities','references'} and item['state']=='reserve' and item['developer']=='XelaNotPu','Invalid catalog-only Reserve metadata')
+        require(item['display_name'] in {'NAMCO SYSTEM 21','NAMCO SYSTEM 22','NAMCO SUPER SYSTEM 22'} and item['display_name'] not in seen,'Duplicate or unapproved catalog-only Reserve identity')
+        seen.add(item['display_name'])
+        require(type(item['core_identities']) is list and all(isinstance(i,str) and re.fullmatch('[A-Za-z0-9_-]+',i) for i in item['core_identities']),'Invalid announced core identity')
+        require(type(item['references']) is list and item['references'] and all(isinstance(u,str) and re.fullmatch(r'https://www\.patreon\.com/XelaNotPu/posts/[a-z0-9-]+',u) for u in item['references']),'Invalid Reserve developer reference')
+        require(not any('_Arcade/_Arcade Systems/_'+item['display_name'] in e['destination_roots'] for e in data['modules'].values()),'Catalog-only Reserve must not own installation destinations')
     for name, item in data['modules'].items():
         require(set(item)=={'authority','management_state','include_in_arcade_systems_complete','destination_roots','include_required_cores'}, 'Unknown registry entry')
         require(item['management_state'] in {'managed','manual','reserve'}, 'Invalid management state')
@@ -49,7 +59,7 @@ def eligible_modules(root=ROOT):
             require(config.get('source_mode') in {'documentation','coinop-family'} and not entry['include_required_cores'],'Reserve cannot own payloads or cores')
             if config.get('source_mode')=='documentation':
                 require(entry['destination_roots']==[s['destination'] for s in config['systems']],'Reserve destinations differ from registry')
-        source=config.get('repository',config.get('upstream_db_id',config.get('authority')))
+        source=config['authority'] if config.get('source_mode')=='public-distribution' else config.get('repository',config.get('upstream_db_id',config.get('authority')))
         require(source==entry['authority'], 'Registry/configuration authority mismatch: '+name)
         if config.get('target_folder'):
             require(entry['destination_roots']==['_Arcade/'+config['target_folder']], 'Registry/configuration destination mismatch')
