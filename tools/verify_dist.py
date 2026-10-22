@@ -17,7 +17,13 @@ def verify_assembly(name,root=ROOT):
     raw=(directory/(name+'.json.zip')).read_bytes();database=unpack(raw);manifest=parse_json((directory/'manifest.json').read_bytes())
     policy.validate_schema(database,config)
     mode=config['source_mode'];resources={}
-    if mode=='documentation':
+    if mode=='public-distribution':
+        from tools.common.public_distribution import generate
+        snapshot=manifest['source_snapshot']
+        if digest(canonical_json(snapshot))!=manifest['source_semantic_sha256']:raise ValidationError('Public source provenance mismatch')
+        expected,report=generate(config,snapshot)
+        if manifest['validation']!={'generated_files':len(expected['files']),'generated_folders':len(expected['folders']),**report}:raise ValidationError('Public validation report mismatch')
+    elif mode=='documentation':
         expected,resources=documentation_database(config,config['systems'])
     elif mode=='coinop-family':
         from tools.common.coinop_families import family_database
@@ -55,7 +61,7 @@ def verify_one(name,root=ROOT,verbose=True):
         result = verify_collection(config, root)
         print('Verified ' + name + ': ' + str(len(result[0]['files'])) + ' direct MRAs')
         return result
-    if config.get('source_mode') in {'coinop-family','documentation','complete'}:
+    if config.get('source_mode') in {'coinop-family','documentation','complete','public-distribution'}:
         return verify_assembly(name,root)
     config, policy = load_module(name,root)
     directory = Path(root) / "dist" / name

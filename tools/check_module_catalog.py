@@ -27,6 +27,8 @@ def display_name(config, root):
 
 def source_label(config, root):
     mode = config.get('source_mode', 'transformation')
+    if mode == 'public-distribution':
+        return config['authority'] + (' database selection' if config['source_type']=='plain-json' else ' release distribution')
     if mode == 'collection':
         return 'Approved multi-source collection'
     if mode == 'transformation':

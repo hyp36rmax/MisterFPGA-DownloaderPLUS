@@ -24,8 +24,11 @@ _Arcade/
     ├── _IREM M92/
     ├── _MIDWAY T-UNIT/
     ├── _NAMCO SYSTEM 11/
+    ├── _SEGA MODEL 2/
+    ├── _SEGA MODEL 2A/
     ├── _SEGA SYSTEM 32/
     ├── _SSV/
+    ├── _TAITO G-NET/
     ├── _TOAPLAN 1/
     └── ...
 ```
@@ -69,6 +72,8 @@ _Arcade/
 | NMK16 | Coin-Op database selection | `_Arcade/_Arcade Systems/_NMK16/` | `coinop-nmk16.json.zip` |
 | PSIKYO | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO/` | `psikyo.json.zip` |
 | PSIKYO SH2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO SH2/` | `psikyo-sh2.json.zip` |
+| SEGA MODEL 2 | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2/` | `sega-model2.json.zip` |
+| SEGA MODEL 2A | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2A/` | `sega-model2a.json.zip` |
 | SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA ST-V/` | `sega-stv.json.zip` |
 | SEGA SYSTEM 1 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 1/` | `sega-system1.json.zip` |
 | SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 16/` | `sega-system16.json.zip` |
@@ -86,6 +91,7 @@ _Arcade/
 | TAITO ASUKA | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO ASUKA/` | `taito-asuka.json.zip` |
 | TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO F2/` | `taito-f2.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/_TAITO FX1B/` | `taito-fx1b.json.zip` |
+| TAITO G-NET | shmupfan database selection | `_Arcade/_Arcade Systems/_TAITO G-NET/` | `taito-gnet.json.zip` |
 | TAITO SYSTEM SJ | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO SYSTEM SJ/` | `taito-system-sj.json.zip` |
 | TECHNOS TA-0015 & TA-0017 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TECHNOS TA-0015 & TA-0017/` | `coinop-technos-ta-0015.json.zip` |
 | TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TECHNOSOFT/` | `technosoft.json.zip` |
@@ -188,14 +194,16 @@ The systems below download from their maintained sources. Reserve Systems provid
 | NMK | NMK16 |
 | PGM | PGM (EZIO) |
 | PSIKYO | PSIKYO, SH2 |
-| SEGA | ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
+| SEGA | MODEL 2, MODEL 2A, ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
 | SEIBU | SEI-8608, SPI |
 | SNK | 68000, ALPHA-68K |
 | SSV | SSV |
-| TAITO | A54, A78, A85, ASUKA, F2, FX1B, SYSTEM SJ |
+| TAITO | A54, A78, A85, ASUKA, F2, FX1B, G-NET, SYSTEM SJ |
 | TECHNOS | TA-0015 & TA-0017 |
 | TECHNOSOFT | TECHNOSOFT |
 | TOAPLAN | TOAPLAN 1, TOAPLAN 2, TOAPLAN MIN16-02 |
+
+G-NET and Model 2/2A are public beta releases; compatibility varies by game and peripheral. G-NET installs the core and MRAs, but needs your own BIOS and converted game-card data. Follow the [G-NET installation guide](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer/blob/main/docs/INSTALL.md) and [game-card converter](https://gnet-converter.pages.dev). See the [Model 2 release notes](https://github.com/alphanu1/sega-model2-mister/tree/model2a/releases) for SDRAM requirements, game status and peripheral limitations.
 
 ### Reserve Systems
 
@@ -206,8 +214,13 @@ The systems below download from their maintained sources. Reserve Systems provid
 - MIDWAY Y-UNIT
 - MIDWAY Z-UNIT
 - NAMCO SYSTEM 12
+- NAMCO SYSTEM 21
+- NAMCO SYSTEM 22
+- NAMCO SUPER SYSTEM 22
 - PGM2 (EZIO)
 - TECHNOS16
+
+NAMCO SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are catalog-only references to XelaNotPu projects. They create no folders or files and have no approved download source.
 
 Midway Reserve folders use their individual subscriptions below or Arcade Systems Complete. The other Reserve folders use Arcade Systems Reserve.
 
@@ -360,6 +373,12 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### SEGA
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model2/sega-model2.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2a]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model2a/sega-model2a.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system1]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system1/sega-system1.json.zip
 
@@ -409,6 +428,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### TAITO
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-gnet]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-gnet/taito-gnet.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-taito-a54]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-taito-a54/coinop-taito-a54.json.zip
 
@@ -473,6 +495,8 @@ Thanks to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution
 Additional core credits: [Martin Donlon](https://github.com/wickerwaka), [Paul Priest](https://github.com/ppriest), [MiSTer-X](https://github.com/MrX-8B), [rmonic79](https://github.com/rmonic79), and [Anton Gale](https://github.com/antongale). These modules use the official MiSTer Distribution as their download source.
 
 BANPRESTO BP964-BP965: core development by [kuzearcade](https://github.com/kuzearcade/Arcade-NMKBP964_MiSTer), distributed through [kuzecores](https://github.com/kuzearcade/kuzecores). SSV (Sammy / Seta / Visco): MiSTer implementation and public distribution by [Meathax](https://github.com/meathax/meatcores).
+
+G-NET: [shmupfan](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer). Model 2 and Model 2A: [alphanu1](https://github.com/alphanu1/sega-model2-mister).
 
 ## Project documentation
 

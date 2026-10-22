@@ -17,6 +17,10 @@ from tools.common.archives import expanded_inventory
 
 class STGCollectionTests(unittest.TestCase):
     def setUp(self):
+        # These synthetic inventories test collection matching, not live release provenance.
+        source_validation = patch('tools.common.public_distribution.validate_collection_source')
+        source_validation.start()
+        self.addCleanup(source_validation.stop)
         self.config, _ = load_module('arcade-stg-tate')
         self.matrix = checked_matrix()
         self.sources = {}

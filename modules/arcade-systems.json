@@ -509,6 +509,33 @@
         "_Arcade/_Arcade Systems/_TAITO A54"
       ],
       "include_required_cores": true
+    },
+    "taito-gnet": {
+      "authority": "shmupfan",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO G-NET"
+      ],
+      "include_required_cores": true
+    },
+    "sega-model2": {
+      "authority": "alphanu1",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA MODEL 2"
+      ],
+      "include_required_cores": true
+    },
+    "sega-model2a": {
+      "authority": "alphanu1",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA MODEL 2A"
+      ],
+      "include_required_cores": true
     }
   },
   "reserved_authorities": {
@@ -543,5 +570,37 @@
     "_TOAPLAN MIN16-02": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_SEIBU SEI-8608": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_TAITO A54": "Coin-OpCollection/Distribution-MiSTerFPGA"
-  }
+  },
+  "catalog_only_systems": [
+    {
+      "display_name": "NAMCO SYSTEM 21",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [
+        "XNSYSTEM21",
+        "XNWINRUN"
+      ],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-21-172718008"
+      ]
+    },
+    {
+      "display_name": "NAMCO SYSTEM 22",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
+      ]
+    },
+    {
+      "display_name": "NAMCO SUPER SYSTEM 22",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
+      ]
+    }
+  ]
 }

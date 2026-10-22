@@ -4,13 +4,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 111 |
-| matched distinct designs | 111 |
-| unavailable rows | 74 |
+| matched rows | 115 |
+| matched distinct designs | 115 |
+| unavailable rows | 70 |
 | authority hold rows | 16 |
 | ambiguous rows | 2 |
-| primary mras | 111 |
-| alternatives | 368 |
+| primary mras | 115 |
+| alternatives | 376 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
 
@@ -24,6 +24,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | jtcores | 17 | 56 |
 | kuzearcade/kuzecores | 1 | 0 |
 | meathax/meatcores | 5 | 0 |
+| shmupfan | 4 | 8 |
 | zakk4223/Arcade-SeibuSPI_MiSTer | 4 | 36 |
 
 ## Hardware/System
@@ -86,7 +87,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Taito B System | 1 | 0 | 1 | 0 | 0 |
 | Taito F2 | 1 | 1 | 0 | 0 | 0 |
 | Taito F3 | 2 | 0 | 2 | 0 | 0 |
-| Taito G-NET | 4 | 0 | 4 | 0 | 0 |
+| Taito G-NET | 4 | 4 | 0 | 0 | 0 |
 | Taito Type X | 3 | 0 | 3 | 0 | 0 |
 | Tecmo | 1 | 1 | 0 | 0 | 0 |
 | Tehkan | 2 | 2 | 0 | 0 | 0 |
@@ -101,7 +102,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Developer | TATE rows | Matched | Unavailable | Authority Hold | Ambiguous |
 |---|---:|---:|---:|---:|---:|
 | Acom | 1 | 0 | 1 | 0 | 0 |
-| Alfa System | 3 | 0 | 3 | 0 | 0 |
+| Alfa System | 3 | 1 | 2 | 0 | 0 |
 | Allumer | 1 | 0 | 1 | 0 | 0 |
 | Alpha Denshi / ADK | 2 | 2 | 0 | 0 | 0 |
 | Athena | 1 | 0 | 1 | 0 | 0 |
@@ -138,14 +139,14 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Seibu Kaihatsu | 7 | 7 | 0 | 0 | 0 |
 | Seta | 5 | 2 | 3 | 0 | 0 |
 | Shoei | 2 | 0 | 2 | 0 | 0 |
-| Success | 2 | 0 | 2 | 0 | 0 |
+| Success | 2 | 2 | 0 | 0 | 0 |
 | Sunsoft | 1 | 0 | 1 | 0 | 0 |
 | TOSE | 1 | 1 | 0 | 0 | 0 |
 | Taito | 14 | 10 | 4 | 0 | 0 |
 | Tecmo | 1 | 1 | 0 | 0 | 0 |
 | Tehkan | 2 | 2 | 0 | 0 | 0 |
 | Toaplan | 12 | 9 | 2 | 1 | 0 |
-| Triangle Service | 3 | 0 | 3 | 0 | 0 |
+| Triangle Service | 3 | 1 | 2 | 0 | 0 |
 | UPL / NMK attribution | 1 | 0 | 1 | 0 | 0 |
 | Universal | 4 | 4 | 0 | 0 | 0 |
 | Video System | 2 | 0 | 2 | 0 | 0 |
@@ -341,15 +342,15 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Great Mahou Daisakusen | CPS-2 | MATCHED | jtcores | _Arcade/Dimahoo (Europe 000121).mra |
 | Brave Blade | Sony ZN-1 | UNAVAILABLE |  |  |
 | Dragon Blaze | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Dragon Blaze.mra |
-| Psyvariar: Medium Unit | Taito G-NET | UNAVAILABLE |  |  |
-| Psyvariar Revision | Taito G-NET | UNAVAILABLE |  |  |
+| Psyvariar: Medium Unit | Taito G-NET | MATCHED | shmupfan | _Arcade/Psyvariar -Medium Unit- (V2.02O).mra |
+| Psyvariar Revision | Taito G-NET | MATCHED | shmupfan | _Arcade/Psyvariar -Revision- (V2.04J).mra |
 | Vasara | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Vasara.mra |
 | Vasara 2 | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Vasara 2.mra |
-| Shikigami no Shiro | Taito G-NET | UNAVAILABLE |  |  |
+| Shikigami no Shiro | Taito G-NET | MATCHED | shmupfan | _Arcade/Shikigami no Shiro (V2.03J).mra |
 | Gunbarich | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Gunbarich.mra |
 | DoDonPachi II: Bee Storm | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/DoDonPachi II - Bee Storm (World, ver. 102).mra |
 | DoDonPachi DaiOuJou | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/DoDonPachi III (World, 2002.05.15 Master Ver).mra |
-| XII Stag | Taito G-NET | UNAVAILABLE |  |  |
+| XII Stag | Taito G-NET | MATCHED | shmupfan | _Arcade/XII Stag (V2.01J).mra |
 | Ketsui: Kizuna Jigoku Tachi | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/Ketsui- Kizuna Jigoku Tachi (2003-01-01. Master Ver.).mra |
 | Espgaluda | IGS PGM | MATCHED | hyp36rmax/PGM-Mister-EZIOCHIU | _Arcade/Espgaluda (2003-10-15 Master Ver).mra |
 | Shikigami no Shiro II | Sega NAOMI | UNAVAILABLE |  |  |
@@ -378,9 +379,10 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 ## Latest coverage transitions
 
-- NEW TATE MATCH: Caliber .50 — jtcores: _Arcade/Caliber 50 (Ver. 1.01).mra (AUTHORITY HOLD → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Dog Fight — distribution_mister: _Arcade/Dog Fight.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Legion — distribution_mister: _Arcade/Legend.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Psyvariar Revision — shmupfan: _Arcade/Psyvariar -Revision- (V2.04J).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Psyvariar: Medium Unit — shmupfan: _Arcade/Psyvariar -Medium Unit- (V2.02O).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Shikigami no Shiro — shmupfan: _Arcade/Shikigami no Shiro (V2.03J).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: XII Stag — shmupfan: _Arcade/XII Stag (V2.01J).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 
