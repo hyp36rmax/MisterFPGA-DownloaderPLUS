@@ -19,7 +19,9 @@ from tools.verify_dist import verify_one
 
 class PublicDistributionTests(unittest.TestCase):
     def snapshot(self, name='taito-gnet'):
-        return parse_json((ROOT/'dist'/name/'manifest.json').read_bytes())['source_snapshot']
+        # Fixed release baselines must not pin future scheduled distribution updates.
+        snapshots=unpack((ROOT/'tests/fixtures/public-releases-2026-10-22.json.zip').read_bytes())
+        return snapshots['gnet' if name=='taito-gnet' else 'model2']
 
     def test_gnet_inventory_payloads_and_effective_core_filename(self):
         c,_=load_module('taito-gnet');s=self.snapshot();d,r=generate(c,s)
