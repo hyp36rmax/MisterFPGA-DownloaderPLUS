@@ -4,13 +4,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 115 |
-| matched distinct designs | 115 |
-| unavailable rows | 70 |
+| matched rows | 120 |
+| matched distinct designs | 120 |
+| unavailable rows | 65 |
 | authority hold rows | 16 |
 | ambiguous rows | 2 |
-| primary mras | 115 |
-| alternatives | 376 |
+| primary mras | 120 |
+| alternatives | 383 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
 
@@ -23,7 +23,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | hyp36rmax/PGM-Mister-EZIOCHIU | 4 | 36 |
 | jtcores | 17 | 56 |
 | kuzearcade/kuzecores | 1 | 0 |
-| meathax/meatcores | 5 | 0 |
+| meathax/meatcores | 10 | 7 |
 | shmupfan | 4 | 8 |
 | zakk4223/Arcade-SeibuSPI_MiSTer | 4 | 36 |
 
@@ -43,7 +43,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | CPS-2 | 2 | 2 | 0 | 0 | 0 |
 | Capcom | 8 | 7 | 1 | 0 | 0 |
 | Crux/Kyugo family | 1 | 1 | 0 | 0 | 0 |
-| DECO | 9 | 1 | 7 | 0 | 1 |
+| DECO | 9 | 4 | 4 | 0 | 1 |
 | Dedicated | 5 | 0 | 5 | 0 | 0 |
 | Face | 2 | 0 | 2 | 0 | 0 |
 | Galaga | 1 | 1 | 0 | 0 | 0 |
@@ -78,7 +78,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Sega/Coreland | 1 | 1 | 0 | 0 | 0 |
 | Seibu | 3 | 3 | 0 | 0 | 0 |
 | Seibu SPI | 4 | 4 | 0 | 0 | 0 |
-| Seta | 5 | 2 | 3 | 0 | 0 |
+| Seta | 5 | 4 | 1 | 0 | 0 |
 | Sony ZN-1 | 2 | 0 | 2 | 0 | 0 |
 | System 1 | 3 | 2 | 1 | 0 | 0 |
 | System 2 | 1 | 0 | 1 | 0 | 0 |
@@ -112,7 +112,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Capcom | 11 | 10 | 1 | 0 | 0 |
 | Coreland | 1 | 1 | 0 | 0 | 0 |
 | Crux | 2 | 2 | 0 | 0 | 0 |
-| Data East | 9 | 1 | 7 | 0 | 1 |
+| Data East | 9 | 4 | 4 | 0 | 1 |
 | Eighting | 1 | 0 | 1 | 0 | 0 |
 | Face | 2 | 0 | 2 | 0 | 0 |
 | G.rev | 1 | 0 | 1 | 0 | 0 |
@@ -137,7 +137,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | SNK | 6 | 3 | 3 | 0 | 0 |
 | Sega | 8 | 3 | 5 | 0 | 0 |
 | Seibu Kaihatsu | 7 | 7 | 0 | 0 | 0 |
-| Seta | 5 | 2 | 3 | 0 | 0 |
+| Seta | 5 | 4 | 1 | 0 | 0 |
 | Shoei | 2 | 0 | 2 | 0 | 0 |
 | Success | 2 | 2 | 0 | 0 | 0 |
 | Sunsoft | 1 | 0 | 1 | 0 | 0 |
@@ -251,9 +251,9 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | 1943: The Battle of Midway | Capcom | MATCHED | jtcores | _Arcade/1943 The Battle of Midway (Euro).mra |
 | Bermuda Triangle | SNK | UNAVAILABLE |  |  |
 | World Wars | SNK | UNAVAILABLE |  |  |
-| SRD: Super Real Darwin | DECO | UNAVAILABLE |  |  |
-| Last Mission | DECO | UNAVAILABLE |  |  |
-| Gondomania | DECO | UNAVAILABLE |  |  |
+| SRD: Super Real Darwin | DECO | MATCHED | meathax/meatcores | _Arcade/_MeatCores/SRD - Super Real Darwin.mra |
+| Last Mission | DECO | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Last Mission.mra |
+| Gondomania | DECO | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Gondomania.mra |
 | Legion | Nichibutsu | MATCHED | distribution_mister | _Arcade/Legend.mra |
 | MX5000 | Konami | MATCHED | jtcores | _Arcade/MX5000.mra |
 | Galaga '88 | System 1 | MATCHED | jtcores | _Arcade/Galaga '88.mra |
@@ -296,8 +296,8 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | F/A | NA-1 | UNAVAILABLE |  |  |
 | Aero Fighters | Video System | UNAVAILABLE |  |  |
 | Twin Eagle | Seta | UNAVAILABLE |  |  |
-| Arbalester | Seta | UNAVAILABLE |  |  |
-| Meta Fox | Seta | UNAVAILABLE |  |  |
+| Arbalester | Seta | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Arbalester.mra |
+| Meta Fox | Seta | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Meta Fox.mra |
 | Caliber .50 | Seta | MATCHED | jtcores | _Arcade/Caliber 50 (Ver. 1.01).mra |
 | Nostradamus | Face | UNAVAILABLE |  |  |
 | Daioh | Athena | UNAVAILABLE |  |  |
@@ -379,10 +379,11 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 ## Latest coverage transitions
 
-- NEW TATE MATCH: Psyvariar Revision — shmupfan: _Arcade/Psyvariar -Revision- (V2.04J).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Psyvariar: Medium Unit — shmupfan: _Arcade/Psyvariar -Medium Unit- (V2.02O).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Shikigami no Shiro — shmupfan: _Arcade/Shikigami no Shiro (V2.03J).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: XII Stag — shmupfan: _Arcade/XII Stag (V2.01J).mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Arbalester — meathax/meatcores: _Arcade/_MeatCores/Arbalester.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Gondomania — meathax/meatcores: _Arcade/_MeatCores/Gondomania.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Last Mission — meathax/meatcores: _Arcade/_MeatCores/Last Mission.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Meta Fox — meathax/meatcores: _Arcade/_MeatCores/Meta Fox.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: SRD: Super Real Darwin — meathax/meatcores: _Arcade/_MeatCores/SRD - Super Real Darwin.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 
