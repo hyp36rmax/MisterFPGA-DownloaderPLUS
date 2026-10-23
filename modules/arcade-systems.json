@@ -343,6 +343,9 @@
         "_Arcade/_Arcade Systems/_CAVE CV1000",
         "_Arcade/_Arcade Systems/_KANEKO SUPER NOVA SYSTEM",
         "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12",
+        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 21",
+        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 22",
+        "_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22",
         "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
         "_Arcade/_Arcade Systems/_TECHNOS16"
       ],
@@ -598,36 +601,5 @@
     "_SEIBU SEI-8608": "Coin-OpCollection/Distribution-MiSTerFPGA",
     "_TAITO A54": "Coin-OpCollection/Distribution-MiSTerFPGA"
   },
-  "catalog_only_systems": [
-    {
-      "display_name": "NAMCO SYSTEM 21",
-      "state": "reserve",
-      "developer": "XelaNotPu",
-      "core_identities": [
-        "XNSYSTEM21",
-        "XNWINRUN"
-      ],
-      "references": [
-        "https://www.patreon.com/XelaNotPu/posts/namco-system-21-172718008"
-      ]
-    },
-    {
-      "display_name": "NAMCO SYSTEM 22",
-      "state": "reserve",
-      "developer": "XelaNotPu",
-      "core_identities": [],
-      "references": [
-        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
-      ]
-    },
-    {
-      "display_name": "NAMCO SUPER SYSTEM 22",
-      "state": "reserve",
-      "developer": "XelaNotPu",
-      "core_identities": [],
-      "references": [
-        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
-      ]
-    }
-  ]
+  "catalog_only_systems": []
 }

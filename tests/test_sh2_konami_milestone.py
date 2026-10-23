@@ -81,7 +81,7 @@ class MilestoneTests(unittest.TestCase):
         cv = '_Arcade/_Arcade Systems/_CAVE CV1000'
         self.assertEqual(entries['reserved_authorities']['_CAVE 68000'], 'Coin-OpCollection/Distribution-MiSTerFPGA')
         self.assertIn(cave+'/_READ ME.txt', reserve['files']); self.assertIn(cv+'/_READ ME.txt', reserve['files'])
-        self.assertEqual(len(reserve['files']), 6)
+        self.assertEqual(set(reserve['files']), {s['destination']+'/_READ ME.txt' for s in load_module('arcade-systems-reserve')[0]['systems']})
         self.assertTrue(all(p.endswith('/_READ ME.txt') and '/dist/arcade-systems-reserve/' in r['url'] for p,r in reserve['files'].items()))
         self.assertFalse(any('_PSIKYO SH2' in p for p in expanded_inventory(reserve)['files']))
         self.assertEqual(entries['modules']['psikyo-sh2']['management_state'], 'managed')

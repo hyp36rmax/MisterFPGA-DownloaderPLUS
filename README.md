@@ -26,6 +26,9 @@ _Arcade/
     ├── _IREM M92/
     ├── _MIDWAY T-UNIT/
     ├── _NAMCO SYSTEM 11/
+    ├── _NAMCO SYSTEM 21/
+    ├── _NAMCO SYSTEM 22/
+    ├── _NAMCO SUPER SYSTEM 22/
     ├── _SEGA MODEL 2/
     ├── _SEGA MODEL 2A/
     ├── _SEGA SYSTEM 32/
@@ -227,7 +230,7 @@ G-NET and Model 2/2A are public beta releases; compatibility varies by game and 
 - PGM2 (EZIO)
 - TECHNOS16
 
-NAMCO SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are catalog-only references to XelaNotPu projects. They create no folders or files and have no approved download source.
+NAMCO SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are Reserve folders with `_READ ME.txt` guidance identifying the XelaNotPu projects. They are included in Arcade Systems Reserve and Complete. No approved automatic download source exists for their cores or MRAs.
 
 Midway Reserve folders use their individual subscriptions below or Arcade Systems Complete. The other Reserve folders use Arcade Systems Reserve.
 

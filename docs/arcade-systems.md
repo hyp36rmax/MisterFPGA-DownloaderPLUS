@@ -163,7 +163,7 @@ All three modules verify public payload hashes and sizes before publication. Rep
 
 These are public beta releases. For G-NET, follow the [installation guide](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer/blob/main/docs/INSTALL.md) to prepare your own BIOS and game-card data with the [converter](https://gnet-converter.pages.dev). The documented boot/display checks do not mean every game received gameplay testing. For Model 2/2A, consult the release notes for SDRAM requirements, untested CRT/peripheral combinations, missing link play and other game-specific limitations. DownloaderPLUS supplies database metadata for cores and MRAs, never game data.
 
-### Catalog-only Namco Reserve systems
+### Namco Reserve folders
 
 | Hardware | Developer reference | Announced core identities |
 |---|---|---|
@@ -171,7 +171,7 @@ These are public beta releases. For G-NET, follow the [installation guide](https
 | NAMCO SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | Not used as downloadable inventory |
 | NAMCO SUPER SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | Tracked separately from System 22 |
 
-The registry's `catalog_only_systems` entries retain developer references without module IDs, source approvals, artifacts, installation folders or guidance files. They contribute nothing to Complete. Existing Reserve subscriptions keep their current folder/guidance behavior. Promotion requires a separately verified and approved public distribution, including a Coin-Op coverage check.
+NAMCO SYSTEM 21, NAMCO SYSTEM 22 and NAMCO SUPER SYSTEM 22 use the existing Arcade Systems Reserve subscription. Each creates its own `_Arcade/_Arcade Systems/_<SYSTEM>/` folder containing only `_READ ME.txt`, with the upstream developer/project reference and a notice that no approved automatic download source exists. The same guidance folders are included in Complete. They remain Reserve, with no individual Managed module, payload authority, cores or MRAs. Existing Reserve folders are unchanged. Promotion requires a separately verified and approved public distribution, including a Coin-Op coverage check.
 
 Ray Crisis and Space Invaders Anniversary remain separate historical-master review candidates. Neither is added to the frozen master by this release. Orientation alone does not establish STG eligibility.
 

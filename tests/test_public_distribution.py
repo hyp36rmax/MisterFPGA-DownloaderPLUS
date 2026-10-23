@@ -1,4 +1,4 @@
-"""Release boundaries, replay, and catalog-only Reserve regression coverage."""
+"""Release boundaries, replay, and Reserve guidance regression coverage."""
 import copy
 import hashlib
 import subprocess
@@ -105,17 +105,21 @@ class PublicDistributionTests(unittest.TestCase):
             with patch('tools.common.public_distribution.inspect',return_value=loss),self.assertRaises(ValidationError):build(c,Path(tmp))
             self.assertEqual(before,{p.name:p.read_bytes() for p in Path(tmp).iterdir()})
 
-    def test_complete_exact_contribution_and_catalog_only_exclusion(self):
+    def test_complete_exact_contribution_and_namco_reserve_guidance(self):
         complete,_=verify_one('arcade-systems-complete',verbose=False)
         for name in ['taito-gnet','sega-model2','sega-model2a']:
             d,_=verify_one(name,verbose=False)
             for p,r in d['files'].items():self.assertEqual(complete['files'][p],r)
-        catalog=registry()['catalog_only_systems']
-        self.assertEqual({i['display_name'] for i in catalog},{'NAMCO SYSTEM 21','NAMCO SYSTEM 22','NAMCO SUPER SYSTEM 22'})
+        self.assertEqual(registry()['catalog_only_systems'],[])
+        config,_=load_module('arcade-systems-reserve')
+        names={'NAMCO SYSTEM 21','NAMCO SYSTEM 22','NAMCO SUPER SYSTEM 22'}
+        catalog=[i for i in config['systems'] if i['display_name'] in names]
+        self.assertEqual({i['display_name'] for i in catalog},names)
         for item in catalog:
             self.assertEqual(item['state'],'reserve');self.assertEqual(item['developer'],'XelaNotPu')
             self.assertTrue(item['references'])
-            self.assertFalse(any('/_'+item['display_name'] in p for cat in ('files','folders') for p in complete[cat]))
+            self.assertIn(item['destination'],complete['folders'])
+            self.assertEqual([p for p in complete['files'] if p.startswith(item['destination']+'/')],[item['destination']+'/_READ ME.txt'])
         config,_=load_module('arcade-systems-reserve');db,_=documentation_database(config,config['systems'])
         self.assertEqual(db,unpack((ROOT/'dist/arcade-systems-reserve/arcade-systems-reserve.json.zip').read_bytes()))
         self.assertFalse(any('namco-system21' in p.name or 'namco-system22' in p.name or 'namco-super-system22' in p.name for p in (ROOT/'dist').iterdir()))
