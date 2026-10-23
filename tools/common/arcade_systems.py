@@ -93,6 +93,17 @@ def documentation_database(config, systems):
         require(destination.startswith(NAMESPACE+'_'),'Documentation outside Arcade Systems')
         validate_system_navigation(destination[len('_Arcade/'):])
         data=guidance(item['display_name'],item['state'])
+        if 'developer' in item or 'references' in item:
+            from tools.common.selection import safe_url
+            developer=item.get('developer')
+            references=item.get('references')
+            require(isinstance(developer,str) and developer.strip() and not any(ord(c)<32 for c in developer), 'Invalid Reserve developer attribution')
+            require(type(references) is list and references, 'Missing Reserve project reference')
+            for reference in references:safe_url(reference)
+            data+=('\nUpstream developer/project: '+developer+' / '+item['display_name']+'\n'
+                   +'\n'.join(references)+'\n'
+                   +'No approved automatic download source currently exists.\n'
+                   +'This folder contains guidance only; no cores, MRAs, ROMs or BIOS files are supplied.\n').encode('utf-8')
         resource='dist/'+config['name']+'/readmes/'+destination[len(NAMESPACE):]+'/_READ ME.txt'
         result['files'][destination+'/_READ ME.txt']={'hash':hashlib.md5(data).hexdigest(),'size':len(data),'tags':[], 'url':PUBLIC_BASE+quote(resource)}
         result['folders'][destination]={'tags':[]}

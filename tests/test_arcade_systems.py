@@ -99,7 +99,7 @@ class ArcadeSystemsTests(unittest.TestCase):
 
     def test_reserve_only_guidance_and_private_user_file_safety(self):
         c=load_module('arcade-systems-reserve')[0];d,resources=documentation_database(c,c['systems'])
-        self.assertEqual(len(d['files']),6)
+        self.assertEqual(set(d['files']),{s['destination']+'/_READ ME.txt' for s in c['systems']})
         self.assertTrue(all(p.endswith('/_READ ME.txt') for p in d['files']))
         self.assertTrue(all('/_Reserve/' not in p for p in d['files']))
         self.assertTrue(all('_Arcade/cores/' in text.decode() and 'authorized source' in text.decode() for text in resources.values()))

@@ -28,6 +28,39 @@
       "state": "reserve"
     },
     {
+      "display_name": "NAMCO SYSTEM 21",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [
+        "XNSYSTEM21",
+        "XNWINRUN"
+      ],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-21-172718008"
+      ],
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SYSTEM 21"
+    },
+    {
+      "display_name": "NAMCO SYSTEM 22",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
+      ],
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SYSTEM 22"
+    },
+    {
+      "display_name": "NAMCO SUPER SYSTEM 22",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
+      ],
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22"
+    },
+    {
       "display_name": "PGM2 (EZIO)",
       "destination": "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
       "state": "reserve"
