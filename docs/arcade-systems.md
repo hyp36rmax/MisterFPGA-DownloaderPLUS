@@ -174,3 +174,29 @@ These are public beta releases. For G-NET, follow the [installation guide](https
 The registry's `catalog_only_systems` entries retain developer references without module IDs, source approvals, artifacts, installation folders or guidance files. They contribute nothing to Complete. Existing Reserve subscriptions keep their current folder/guidance behavior. Promotion requires a separately verified and approved public distribution, including a Coin-Op coverage check.
 
 Ray Crisis and Space Invaders Anniversary remain separate historical-master review candidates. Neither is added to the frozen master by this release. Orientation alone does not establish STG eligibility.
+
+
+## Atari System 1/2 and Sega X-Board
+
+These optional views select the [official MiSTer main distribution](https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/main/db.json.zip). Keep the normal official subscription enabled; it supplies their cores under `_Arcade/cores/`. DownloaderPLUS adds MRAs and the official recursive alternatives without changing filenames, payloads, tags, source URLs or archive member paths.
+
+| Module | Internal selection tag | Navigation destination | Artifact |
+|---|---|---|---|
+| ATARI SYSTEM 1 | `arcadeatarisys1` | `_Arcade/_Arcade Systems/_ATARI SYSTEM 1/` | `atari-system1.json.zip` |
+| ATARI SYSTEM 2 | `arcadeatarisys2` | `_Arcade/_Arcade Systems/_ATARI SYSTEM 2/` | `atari-system2.json.zip` |
+| SEGA X-BOARD | `arcadesegaxboard` | `_Arcade/_Arcade Systems/_SEGA X-BOARD/` | `sega-xboard.json.zip` |
+
+Use Complete or choose the individual subscriptions:
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/atari-system1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/atari-system1/atari-system1.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/atari-system2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/atari-system2/atari-system2.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-xboard]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-xboard/sega-xboard.json.zip
+```
+
+The internal database classification is distinct from the public filter name and dated RBF filename. These views use the existing complete-inventory filter policy and selective official alternatives archive. They do not distribute cores, ROMs or BIOS files, or change existing ownership and Reserve entries.

@@ -17,6 +17,8 @@ _Arcade/
 ├── _Arcade STG (TATE)/
 ├── cores/
 └── _Arcade Systems/
+    ├── _ATARI SYSTEM 1/
+    ├── _ATARI SYSTEM 2/
     ├── _BANPRESTO BP964-BP965/
     ├── _CAPCOM CPS1/
     ├── _CAPCOM CPS2/
@@ -27,6 +29,7 @@ _Arcade/
     ├── _SEGA MODEL 2/
     ├── _SEGA MODEL 2A/
     ├── _SEGA SYSTEM 32/
+    ├── _SEGA X-BOARD/
     ├── _SSV/
     ├── _TAITO G-NET/
     ├── _TOAPLAN 1/
@@ -43,6 +46,8 @@ _Arcade/
 | Arcade Systems Reserve | Navigation guidance | `_Arcade/_Arcade Systems/` | `arcade-systems-reserve.json.zip` |
 | PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
 | Arcade STG (TATE) | Approved multi-source collection | `_Arcade/_Arcade STG (TATE)/` | `arcade-stg-tate.json.zip` |
+| ATARI SYSTEM 1 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 1/` | `atari-system1.json.zip` |
+| ATARI SYSTEM 2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 2/` | `atari-system2.json.zip` |
 | BANPRESTO BP964-BP965 | kuzearcade/kuzecores database selection | `_Arcade/_Arcade Systems/_BANPRESTO BP964-BP965/` | `banpresto-bp964-bp965.json.zip` |
 | CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1/` | `capcom-cps1.json.zip` |
 | CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
@@ -80,6 +85,7 @@ _Arcade/
 | SEGA SYSTEM 18 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 18/` | `sega-system18.json.zip` |
 | SEGA SYSTEM 32 | MeatCores database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 32/` | `sega-system32.json.zip` |
 | SEGA SYSTEM 32 MULTI | MeatCores database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 32 MULTI/` | `sega-system32-multi.json.zip` |
+| SEGA X-BOARD | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA X-BOARD/` | `sega-xboard.json.zip` |
 | SEIBU SEI-8608 | Coin-Op database selection | `_Arcade/_Arcade Systems/_SEIBU SEI-8608/` | `coinop-seibu-sei-8608.json.zip` |
 | SEIBU SPI | Repository distribution | `_Arcade/_Arcade Systems/_SEIBU SPI/` | `seibu-spi.json.zip` |
 | SNK 68000 | Coin-Op database selection | `_Arcade/_Arcade Systems/_SNK 68000/` | `coinop-snk-68000.json.zip` |
@@ -182,6 +188,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 
 | Manufacturer or family | Systems |
 |---|---|
+| ATARI | SYSTEM 1, SYSTEM 2 |
 | BANPRESTO | BP964-BP965 |
 | CAPCOM | CPS1, CPS1.5, CPS2, CPS3, ZN-1, ZN-2 |
 | DATA EAST | DECO-8, DECO-16, DECO-32 |
@@ -194,7 +201,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 | NMK | NMK16 |
 | PGM | PGM (EZIO) |
 | PSIKYO | PSIKYO, SH2 |
-| SEGA | MODEL 2, MODEL 2A, ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI |
+| SEGA | MODEL 2, MODEL 2A, ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI, X-BOARD |
 | SEIBU | SEI-8608, SPI |
 | SNK | 68000, ALPHA-68K |
 | SSV | SSV |
@@ -227,6 +234,16 @@ Midway Reserve folders use their individual subscriptions below or Arcade System
 ## Individual Arcade Systems
 
 If you only want specific Arcade Systems, add the sections you want to your Downloader configuration and run Update_All normally. Use individual modules instead of Arcade Systems Complete for the same systems.
+
+### ATARI
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/atari-system1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/atari-system1/atari-system1.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/atari-system2]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/atari-system2/atari-system2.json.zip
+```
 
 ### BANPRESTO
 
@@ -373,6 +390,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ### SEGA
 
 ```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-xboard]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-xboard/sega-xboard.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model2/sega-model2.json.zip
 
