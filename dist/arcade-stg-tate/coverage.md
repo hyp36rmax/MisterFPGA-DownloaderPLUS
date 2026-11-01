@@ -18,10 +18,10 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Authority | Primary MRAs | Alternatives |
 |---|---:|---:|
-| Coin-OpCollection/Distribution-MiSTerFPGA | 18 | 47 |
+| Coin-OpCollection/Distribution-MiSTerFPGA | 20 | 53 |
 | distribution_mister | 62 | 193 |
 | hyp36rmax/PGM-Mister-EZIOCHIU | 4 | 36 |
-| jtcores | 17 | 56 |
+| jtcores | 15 | 50 |
 | kuzearcade/kuzecores | 1 | 0 |
 | meathax/meatcores | 10 | 7 |
 | shmupfan | 4 | 8 |
@@ -271,8 +271,8 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Sky Adventure | SNK/ADK | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Sky Adventure (World).mra |
 | Scramble Spirits | System 24 | UNAVAILABLE |  |  |
 | Gun Frontier | Taito F2 | MATCHED | distribution_mister | _Arcade/Gun & Frontier (World).mra |
-| 1941: Counter Attack | CPS-1 | MATCHED | jtcores | _Arcade/1941 Counter Attack (World 900227).mra |
-| Mercs | CPS-1 | MATCHED | jtcores | _Arcade/Mercs (World 900302).mra |
+| 1941: Counter Attack | CPS-1 | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/1941 - Counter Attack (World 900227) [CoC].mra |
+| Mercs | CPS-1 | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Mercs (World 900302) [CoC].mra |
 | Air Duel | Irem M72 | MATCHED | distribution_mister | _Arcade/Air Duel (World, M72 hardware).mra |
 | Dragon Saber | System 2 | UNAVAILABLE |  |  |
 | Ashura Blaster | Taito B System | UNAVAILABLE |  |  |

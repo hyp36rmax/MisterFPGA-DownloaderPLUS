@@ -11,7 +11,7 @@ from tools.common.database import ValidationError, package, unpack
 from tools.common.engine import ROOT, load_module, transform, validate_output
 from tools.common.selection import select_database, verify_payloads
 
-MODULES = ('capcom-cps1', 'capcom-cps15', 'capcom-cps2', 'capcom-cps3')
+MODULES = ('capcom-cps15', 'capcom-cps2', 'capcom-cps3')
 FIXTURE = ROOT/'tests/fixtures/jtcores-2026-09-30.db.json.zip'
 
 
@@ -19,7 +19,7 @@ class CpsTests(unittest.TestCase):
     def source(self):
         return unpack(FIXTURE.read_bytes(), 'jtbindb.json')
 
-    def test_current_four_classifications_and_exact_selection(self):
+    def test_remaining_jtcore_classifications_and_exact_selection(self):
         database = self.source()
         inventories = []
         for name in MODULES:
@@ -58,10 +58,10 @@ class CpsTests(unittest.TestCase):
         for kind in ('missing','alias','mixed'):
             d=self.source(); tag=config['selection_tags'][0]
             if kind=='missing':d['tag_dictionary'].pop(tag)
-            elif kind=='alias':d['tag_dictionary'][config['exclusive_group_tags'][1]]=d['tag_dictionary'][tag]
+            elif kind=='alias':d['tag_dictionary'][next(t for t in config['exclusive_group_tags'] if t!=tag)]=d['tag_dictionary'][tag]
             else:
                 p=next(p for p,r in d['files'].items() if d['tag_dictionary'][tag] in r['tags'])
-                d['files'][p]['tags'].append(d['tag_dictionary'][config['exclusive_group_tags'][1]])
+                d['files'][p]['tags'].append(d['tag_dictionary'][next(t for t in config['exclusive_group_tags'] if t!=tag)])
             with self.subTest(kind=kind),self.assertRaises(ValidationError):select_database(d,config,policy)
 
     def test_normal_additions_removals_and_no_alternatives(self):
@@ -74,25 +74,25 @@ class CpsTests(unittest.TestCase):
         for p in list(d['folders']):
             if '_alternatives' in p and tid in d['folders'][p]['tags']:d['folders'].pop(p)
         source=select_database(d,config,policy);g=transform(source,config,policy)
-        self.assertIn('_Arcade/_Arcade Systems/_CAPCOM CPS1/New CPS Game.mra',g['files'])
+        self.assertIn('_Arcade/'+config['target_folder']+'/New CPS Game.mra',g['files'])
         self.assertNotIn(primary,source['files'])
         self.assertEqual(validate_output(source,g,config,policy)['alternative_mras'],0)
 
     def test_external_core_resolution_without_owning_or_fetching_core(self):
         import hashlib
         config,policy=load_module(MODULES[0]);d=self.source();source=select_database(d,config,policy)
-        path=next(iter(source['files']));payload=b'<misterromdescription><rbf>jtcps1</rbf><rom zip="user-supplied.zip"/></misterromdescription>'
+        path=next(iter(source['files']));payload=b'<misterromdescription><rbf>jtcps15</rbf><rom zip="user-supplied.zip"/></misterromdescription>'
         source['files']={path:{**source['files'][path],'hash':hashlib.md5(payload).hexdigest(),'size':len(payload)}}
         seen=[]
         def fetcher(url):seen.append(url);return payload
         verify_payloads(source,fetcher=fetcher,core_database=d,config=config)
         self.assertEqual(len(seen),1);self.assertFalse(any(url.endswith('.rbf') for url in seen))
-        d['files']={p:r for p,r in d['files'].items() if not p.endswith('jtcps1.rbf')}
+        d['files']={p:r for p,r in d['files'].items() if not p.endswith('jtcps15.rbf')}
         with self.assertRaises(ValidationError):verify_payloads(source,fetcher=fetcher,core_database=d,config=config)
 
     def test_malformed_selected_paths_and_collisions_rejected(self):
         config,policy=load_module(MODULES[0]);original=self.source()
-        p=next(p for p,r in original['files'].items() if original['tag_dictionary']['arcadejtcps1'] in r['tags'] and p.endswith('.mra'))
+        p=next(p for p,r in original['files'].items() if original['tag_dictionary'][config['selection_tags'][0]] in r['tags'] and p.endswith('.mra'))
         for bad in ('_Arcade/../Bad.mra','_Arcade/Bad?.mra','_Arcade/Bad./Game.mra',p.upper()):
             d=copy.deepcopy(original);d['files'][bad]=copy.deepcopy(d['files'][p])
             with self.subTest(path=bad),self.assertRaises(ValidationError):select_database(d,config,policy)
@@ -105,7 +105,7 @@ class CpsTests(unittest.TestCase):
             z.writestr('jtbindb.json',b'{}');z.writestr('extra.json',b'{}')
         with self.assertRaises(ValidationError):unpack(target.getvalue(),'jtbindb.json')
 
-    def test_shared_fetch_four_modules_repeat_no_op(self):
+    def test_shared_fetch_remaining_modules_repeat_no_op(self):
         with tempfile.TemporaryDirectory() as tmp,patch('tools.build.fetch',return_value=FIXTURE.read_bytes()) as fetcher,patch('tools.build.verify_payloads'):
             cache={}
             for name in MODULES:self.assertTrue(build(name,output_root=Path(tmp)/name,source_cache=cache)['changed'])

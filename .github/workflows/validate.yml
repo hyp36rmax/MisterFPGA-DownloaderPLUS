@@ -65,9 +65,9 @@ jobs:
         run: python tools/audit_coinop_coverage.py
       - name: Audit hardware-module default filters
         run: python tools/audit_filters.py
-      - name: Verify all CPS selections through both CLIs
+      - name: Verify remaining JTCORES CPS selections through both CLIs
         run: |
-          for module in capcom-cps1 capcom-cps15 capcom-cps2 capcom-cps3; do
+          for module in capcom-cps15 capcom-cps2 capcom-cps3; do
             python tools/build.py --module "$module" --upstream-file tests/fixtures/jtcores-2026-09-30.db.json.zip --output-dir "$RUNNER_TEMP/$module"
             python tools/validate.py --module "$module" --upstream tests/fixtures/jtcores-2026-09-30.db.json.zip --generated "$RUNNER_TEMP/$module/$module.json.zip"
           done

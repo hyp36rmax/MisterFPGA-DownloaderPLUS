@@ -167,7 +167,8 @@ def family_database(config,database,reference_map,root=ROOT):
     result['db_id']=config['derived_db_id'];result['files']={};result['folders']={}
     # The public inventory defines eligibility; source defaults stay in provenance.
     result['default_options']=copy.deepcopy(database['default_options'])
-    result['default_options']['filter']='[MiSTer]'
+    if not config.get('preserve_source_filter'):
+        result['default_options']['filter']='[MiSTer]'
     resources={}
     if state=='reserve':
         docs,resources=documentation_database(config,[{'display_name':item['display_name'],'destination':item['destination'],'state':'reserve'}])
@@ -184,6 +185,13 @@ def family_database(config,database,reference_map,root=ROOT):
             r=copy.deepcopy(database['folders'][path])
             # Preserve authoritative parent metadata under the derived filter.
             result['folders'][target]=r
+    if state == 'managed' and config.get('preserve_source_filter'):
+        parsed=parse_filter(database['default_options']['filter'],database['tag_dictionary'])
+        source_cores={p.rsplit('/',1)[-1]:r for p,r in database['files'].items() if p.startswith('_Arcade/cores/') and p.endswith('.rbf')}
+        for path in selected:
+            reference=reference_map[path]
+            require(any(re.match(r'(?:Arcade-)?'+re.escape(reference)+r'[._]',p,re.I) and installable(r,parsed) for p,r in source_cores.items()),
+                    'DERIVED FILTER CONFLICT: required upstream core is excluded: '+path)
     selected_cores = {}
     if state == 'managed' and config.get('include_required_cores'):
         from tools.common.selection import latest_authoritative_cores
@@ -253,7 +261,7 @@ def build_family(config,upstream_file=None,output_root=None,cache=None):
     previous=parse_json((directory/'manifest.json').read_bytes()) if (directory/'manifest.json').exists() else None
     published=publish_assembly(config,result,{'source_mode':'coinop-family','source_database':database,
         'source_semantic_sha256':digest(canonical_json(database)),'source_references':reference_map,'unmapped_classifications':unknown_classifications(database)},report,resources,output_root)
-    if previous and previous['validation']['state']!=report['state']:
+    if previous and previous['validation'].get('state',report['state'])!=report['state']:
         published['state_transition']=previous['validation']['state']+' -> '+report['state']
     return published
 

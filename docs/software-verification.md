@@ -1,6 +1,6 @@
 # Software acceptance
 
-The current navigation policy (version 2) uses `_Arcade/_Coin-Op Collection/` and publishes `dist/coinop-collection/coinop-collection.json.zip`. The permanent derived database identity and all upstream sources are unchanged.
+The current navigation policy (version 3) uses `_Arcade/_Coin-Op Collection/` and publishes `dist/coinop-collection/coinop-collection.json.zip`. The permanent derived database identity and all upstream sources are unchanged. Standard-location core records now remain upstream-owned rather than being mirrored; see [CPS1 migration](cps1-migration.md).
 
 The approved September 30, 2026 upstream fixture is preserved unchanged under `tests/fixtures/` with its SHA-256 checked by an acceptance test.
 
@@ -8,13 +8,14 @@ Independent upstream/output comparison produces:
 
 | Measure | Result |
 |---|---:|
-| Files | 332 → 332 |
-| Folders | 76 → 76 |
-| File destinations changed | 332 |
-| Folder destinations changed | 73 |
+| Files | 332 → 278 |
+| Folders | 76 → 75 |
+| File destinations changed | 278 |
+| Folder destinations changed | 72 |
 | Non-Arcade destinations changed | 0 |
 | Effective source URLs changed | 0 |
-| URL fields materialized | 332 |
+| URL fields materialized | 278 |
+| Core files retained under upstream ownership | 54 |
 | Hashes changed | 0 |
 | Sizes changed | 0 |
 | Tags changed | 0 |

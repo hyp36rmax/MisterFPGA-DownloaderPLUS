@@ -1,9 +1,7 @@
 # CAPCOM CPS1
 
-Authoritative source: [Jotego JTCORES](https://github.com/jotego/jtcores_mister), classified through its current Downloader tag dictionary. Credit belongs to Jotego and upstream contributors.
+Coin-Op’s authoritative CPS1 presentation under `_Arcade/_Arcade Systems/_CAPCOM CPS1/`. The module ID and subscription URL remain unchanged.
 
-This navigation-only module installs selected MRAs and recursive alternatives in `_Arcade/_Arcade Systems/_CAPCOM CPS1/`. Keep normal JTCORES/Update_All enabled to manage its core. MRA contents, hashes, sizes, tags, filters and effective payload sources remain unchanged. Users supply their own ROM sets.
+Keep the normal Coin-Op subscription enabled: it supplies the licensed cores under `_Arcade/cores/`. This module preserves source filters, tags, MRA contents and authorization references. It does not supply license keys or bypass account/device checks. CPS1.5, CPS2 and CPS3 remain independent JTCORES presentations.
 
-Artifact: `capcom-cps1.json.zip`. Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps1`. Independent scheduled and manual updates use the shared database-selection engine.
-
-See [inspection](../../docs/cps-inspection.md) and the root README for configuration.
+See [migration and cleanup behavior](../../docs/cps1-migration.md).

@@ -497,6 +497,72 @@
         "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA/commit/3eb1478f2a42563957c007aa1140e20bea779068"
       ],
       "confirmed_releases": []
+    },
+    "capcom-cps1": {
+      "display_name": "CAPCOM CPS1",
+      "destination": "_Arcade/_Arcade Systems/_CAPCOM CPS1",
+      "classifications": [
+        "arcade1941mister",
+        "arcade3wondersmister",
+        "arcadecaptcommmister",
+        "arcadecawingmister",
+        "arcadecworld2jmister",
+        "arcadedynwarmister",
+        "arcadeffightmister",
+        "arcadeforgottnmister",
+        "arcadeghoulsmister",
+        "arcadeknightsmister",
+        "arcadekodmister",
+        "arcademegamanmister",
+        "arcademercsmister",
+        "arcademswordmister",
+        "arcademtwinsmister",
+        "arcadenemomister",
+        "arcadepang3mister",
+        "arcadepnickjmister",
+        "arcadeqadmister",
+        "arcadeqtono2jmister",
+        "arcadesf2cemister",
+        "arcadesf2hfmister",
+        "arcadesf2mister",
+        "arcadestridermister",
+        "arcadeunsquadmister",
+        "arcadevarthmister",
+        "arcadewillowmister"
+      ],
+      "core_classifications": [
+        "arcade1941mister",
+        "arcade3wondersmister",
+        "arcadecaptcommmister",
+        "arcadecawingmister",
+        "arcadecworld2jmister",
+        "arcadedynwarmister",
+        "arcadeffightmister",
+        "arcadeforgottnmister",
+        "arcadeghoulsmister",
+        "arcadeknightsmister",
+        "arcadekodmister",
+        "arcademegamanmister",
+        "arcademercsmister",
+        "arcademswordmister",
+        "arcademtwinsmister",
+        "arcadenemomister",
+        "arcadepang3mister",
+        "arcadepnickjmister",
+        "arcadeqadmister",
+        "arcadeqtono2jmister",
+        "arcadesf2cemister",
+        "arcadesf2hfmister",
+        "arcadesf2mister",
+        "arcadestridermister",
+        "arcadeunsquadmister",
+        "arcadevarthmister",
+        "arcadewillowmister"
+      ],
+      "evidence": [
+        "https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA/tree/709cab401cd4317a025bf0d90be1dbc568873ba6"
+      ],
+      "confirmed_releases": []
     }
   }
 }

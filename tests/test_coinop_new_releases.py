@@ -21,6 +21,14 @@ class NewCoinOpReleaseTests(unittest.TestCase):
     def setUp(self):
         self.source = unpack((ROOT/'tests/fixtures/coinop-2026-10-07.db.json.zip').read_bytes())
         self.refs = json.loads((ROOT/'dist/coinop-taito-a54/manifest.json').read_bytes())['source_references']
+        previous=tempfile.TemporaryDirectory()
+        self.addCleanup(previous.cleanup)
+        directory=Path(previous.name)/'dist/coinop-nmk16'
+        directory.mkdir(parents=True)
+        (directory/'manifest.json').write_bytes(canonical_json({'source_database':self.source}))
+        baseline=patch('tools.common.coinop_families.ROOT',Path(previous.name))
+        baseline.start()
+        self.addCleanup(baseline.stop)
 
     def test_exact_families_payload_metadata_recursive_alternatives_and_cores(self):
         for name, family, identity, primaries, alternatives in [

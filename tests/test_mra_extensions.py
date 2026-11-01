@@ -7,6 +7,7 @@ import unittest
 from tools.audit_coinop_coverage import coverage
 from tools.common.coinop_families import family_database, references
 from tools.common.engine import ROOT, load_module
+from tools.common.database import unpack
 from tools.common.file_types import is_mra
 from tools.common.filters import filter_counts
 from tools.common.repository import navigation_inventory
@@ -21,6 +22,9 @@ class MraExtensionTests(unittest.TestCase):
         manifest = json.loads((ROOT / 'dist/coinop-data-east-deco-16/manifest.json').read_bytes())
         self.source = manifest['source_database']
         self.refs = manifest['source_references']
+        original=unpack((ROOT/'tests/fixtures/coinop-2026-10-07.db.json.zip').read_bytes())
+        ids={v:self.source['tag_dictionary'][k] for k,v in original['tag_dictionary'].items()}
+        self.fixture['record']['tags']=sorted(ids[t] for t in self.fixture['record']['tags'])
         self.config, _ = load_module('coinop-data-east-deco-16')
 
     def test_all_extension_case_combinations_are_mras(self):
@@ -88,8 +92,10 @@ class MraExtensionTests(unittest.TestCase):
             self.assertEqual(generated['files'][target]['size'], len(self.payload))
         report = coverage(self.source, self.refs)
         self.assertFalse(report['issues'])
-        self.assertEqual((report['mapped_primary_mras'], report['total_public_primary_mras']), (82, 82))
-        self.assertEqual((report['mapped_alternatives'], report['total_public_alternatives']), (200, 200))
+        primary=sum(is_mra(p) and '_alternatives' not in p.split('/') for p in self.source['files'])
+        self.assertEqual((report['mapped_primary_mras'], report['total_public_primary_mras']), (primary, primary))
+        alternatives=sum(is_mra(p) and '_alternatives' in p.split('/') for p in self.source['files'])
+        self.assertEqual((report['mapped_alternatives'], report['total_public_alternatives']), (alternatives, alternatives))
 
 
 if __name__ == '__main__':

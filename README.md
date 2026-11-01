@@ -52,7 +52,7 @@ _Arcade/
 | ATARI SYSTEM 1 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 1/` | `atari-system1.json.zip` |
 | ATARI SYSTEM 2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 2/` | `atari-system2.json.zip` |
 | BANPRESTO BP964-BP965 | kuzearcade/kuzecores database selection | `_Arcade/_Arcade Systems/_BANPRESTO BP964-BP965/` | `banpresto-bp964-bp965.json.zip` |
-| CAPCOM CPS1 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1/` | `capcom-cps1.json.zip` |
+| CAPCOM CPS1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1/` | `capcom-cps1.json.zip` |
 | CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
 | CAPCOM CPS2 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS2/` | `capcom-cps2.json.zip` |
 | CAPCOM CPS3 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS3/` | `capcom-cps3.json.zip` |
@@ -256,6 +256,8 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```
 
 ### CAPCOM
+
+CPS1 uses Coin-Op’s licensed implementation. Keep the normal Coin-Op installation enabled and follow its account/device authorization requirements. CPS1.5, CPS2 and CPS3 continue using JTCORES.
 
 ```ini
 [hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps1]
