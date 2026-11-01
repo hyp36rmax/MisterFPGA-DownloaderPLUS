@@ -1,5 +1,7 @@
 # Available Modules
 
+Every available DownloaderPLUS module, including its source, destination, and database artifact. See the [README installation commands](../README.md#installation-commands) to configure a subscription.
+
 | Module | Source mode | Navigation destination | Artifact |
 |---|---|---|---|
 | Coin-Op Collection | Authoritative database transformation | `_Arcade/_Coin-Op Collection/` | `coinop-collection.json.zip` |
@@ -67,4 +69,3 @@
 | TOAPLAN 2 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN 2/` | `coinop-toaplan-2.json.zip` |
 | TOAPLAN MIN16-02 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN MIN16-02/` | `coinop-toaplan-min16-02.json.zip` |
 
-Every available DownloaderPLUS module, including its source, destination, and database artifact. See the [README installation commands](../README.md#installation-commands) to configure a subscription.
