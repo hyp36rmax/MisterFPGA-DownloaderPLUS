@@ -28,7 +28,7 @@ class CPS1MigrationTests(unittest.TestCase):
 
     def test_exact_licensed_inventory_and_metadata(self):
         d,_,r=family_database(self.config,self.source,self.refs)
-        self.assertEqual((r['primary_mras'],r['alternative_mras'],r['current_cores']),(27,111,0))
+        self.assertEqual((r['primary_mras'],r['alternative_mras'],r['alternative_folders'],r['current_cores']),(27,111,26,0))
         self.assertEqual(d['default_options'],self.source['default_options'])
         self.assertEqual(d['tag_dictionary'],self.source['tag_dictionary'])
         evidence=unpack((FIXTURE/'mra-evidence.json.zip').read_bytes())

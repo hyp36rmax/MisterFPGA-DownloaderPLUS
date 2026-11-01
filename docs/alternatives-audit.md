@@ -1,6 +1,6 @@
 # Arcade Systems alternatives audit
 
-Inspected September 30, 2026. Counts below come from authoritative source inventories: commit-pinned repository distributions and tagged MeatCores database records, not README title counts or earlier discussions. Alternative folder counts include the `_alternatives` root and every descendant directory. Development MRAs outside the declared distribution root are excluded.
+Inspected September 30, 2026. Counts below come from authoritative source inventories: commit-pinned repository distributions and tagged MeatCores database records, not README title counts or earlier discussions. Alternative folder counts include the `_alternatives` root and every descendant directory. Development MRAs outside the declared distribution root are excluded. The CPS1 row was updated on October 31 for its Coin-Op migration.
 
 | System | Primary MRAs | Alternative MRAs | Alternative folders | Cores | Total files | Generated alternative MRAs | Status |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -16,7 +16,7 @@ Inspected September 30, 2026. Counts below come from authoritative source invent
 | PGM (Ezio) — Arcade Systems | 32 | 105 | 27 | 3 | 140 | 105 | PASS |
 | NAMCO SYSTEM 11 | 11 | 24 | 9 | 1 | 36 | 24 | PASS |
 | TAITO FX1B | 5 | 7 | 4 | 1 | 13 | 7 | PASS |
-| CAPCOM CPS1 | 27 | 111 | 27 | 0 | 138 | 111 | PASS |
+| CAPCOM CPS1 | 27 | 111 | 26 | 0 | 138 | 111 | PASS |
 | CAPCOM CPS1.5 | 6 | 13 | 6 | 0 | 19 | 13 | PASS |
 | CAPCOM CPS2 | 40 | 280 | 40 | 0 | 320 | 280 | PASS |
 | CAPCOM CPS3 | 6 | 11 | 6 | 0 | 17 | 11 | PASS |
