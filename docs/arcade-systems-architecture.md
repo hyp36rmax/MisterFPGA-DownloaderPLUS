@@ -51,3 +51,7 @@ Database modules use `module.json`, `validate_schema(database, config)`, and `de
 See [Phase 1 evidence](phase-1.md) and [software acceptance](software-verification.md).
 
 Database transformation remains the default. Direct repository generation is permitted for repositories owned by this project's maintainer, or when explicitly requested for another repository. The five repository-derived Arcade Systems modules are explicit exceptions, with declarative `allow_external_repository` authorization.
+
+## Independent STG collections
+
+TATE, YOKO and STG Complete share the existing collection matcher, approved sources and deterministic packaging. Each owns a separate navigation root and database ID, outside the Arcade Systems registry and Complete aggregation. No hardware module or Reserve ownership changes. See [STG collection rules](arcade-stg-collections.md).

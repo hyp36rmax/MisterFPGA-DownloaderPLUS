@@ -33,7 +33,7 @@ jobs:
         run: python tools/audit_stg_matrix.py
       - name: Validate public STG master parity
         run: python tools/audit_stg_master.py
-      - name: Validate the independent TATE collection
+      - name: Validate the independent STG collections
         run: python tools/audit_stg_collection.py
       - name: Validate the published module catalog
         run: python tools/check_module_catalog.py

@@ -34,3 +34,7 @@ reconciled while preserving the original tag terms and alias relationships.
 The existing six-hour module update schedule discovers this independent collection and reruns matching against current approved inventories. Source updates never edit the frozen master. New authorities require an explicit change to the reviewed collection authority set.
 
 The manifest fingerprints the master, upstream revisions and generated output. Coverage reports preserve the latest new/removed match events across identical rebuilds. Loss of at least five previously matched titles and more than 20% of previous coverage fails before any artifact is written; maintainers must review the source or matching change before adjusting this safety policy. Retrieval/schema failures also stop publication.
+
+## Other STG views
+
+[YOKO](../arcade-stg-yoko/README.md) selects horizontal titles. [Complete](../arcade-stg-complete/README.md) combines verified TATE and YOKO titles in its own folder. Choose Complete or the individual views to avoid unnecessary copies. TATE retains its original subscription and destination. See [shared collection rules](../../docs/arcade-stg-collections.md).

@@ -1,10 +1,10 @@
 # Japanese Arcade STG Master
 
-This is the maintained Japanese arcade STG master used by DownloaderPLUS to classify orientation and identify titles eligible for Arcade STG (TATE).
+This is the maintained Japanese arcade STG master used by DownloaderPLUS to classify orientation and identify titles eligible for the Arcade STG collections.
 
-TATE and YOKO titles are intentionally retained. Arcade STG (TATE) uses only qualifying TATE rows with currently available approved MiSTer implementations. A title can remain in this master even when no MiSTer core supports it.
+TATE and YOKO titles are intentionally retained. Arcade STG (TATE) selects qualifying vertical titles, YOKO selects horizontal titles, and Complete includes both orientations from the same approved inventories. A title can remain in this master even when no MiSTer core supports it.
 
-Generated from the [canonical structured master](../data/arcade-stg-master.json). Current MiSTer availability is listed separately in the [coverage report](../dist/arcade-stg-tate/coverage.md).
+Generated from the [canonical structured master](../data/arcade-stg-master.json). Current MiSTer availability is listed separately in the [TATE](../dist/arcade-stg-tate/coverage.md), [YOKO](../dist/arcade-stg-yoko/coverage.md), and [Complete](../dist/arcade-stg-complete/coverage.md) coverage reports.
 
 | Measure | Count |
 |---|---:|

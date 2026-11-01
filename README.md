@@ -38,7 +38,7 @@ Supported games appear in dedicated folders for Capcom, Sega, Namco, Taito, Irem
 - Dedicated folders organized by arcade hardware.
 - Individual subscriptions for specific systems.
 - Arcade Systems Complete for the full approved hardware collection.
-- Separate Coin-Op Collection, PGM, and Arcade STG (TATE) presentations.
+- Separate Coin-Op Collection, PGM, and Arcade STG presentations.
 - Original MRA filenames, metadata, and alternatives preserved.
 - Automatic updates through maintained upstream distributions.
 - Existing MiSTer core locations and ownership preserved.
@@ -76,6 +76,8 @@ Avoid subscribing to Arcade Systems Complete and individual modules covering the
 | PGM (Ezio) | Standalone PGM collection | No |
 | PGM (Ezio) Arcade Systems | PGM inside Arcade Systems | Yes |
 | Arcade STG (TATE) | Curated vertical arcade shoot 'em ups | No |
+| Arcade STG (YOKO) | Curated horizontal arcade shoot 'em ups | No |
+| Arcade STG (Complete) | Verified TATE and YOKO titles together | No |
 
 ## Available modules
 
@@ -124,6 +126,8 @@ _Arcade/
 │   ├── _TOAPLAN 1/
 │   └── ...
 ├── _Arcade STG (TATE)/
+├── _Arcade STG (YOKO)/
+├── _Arcade STG (Complete)/
 ├── _Coin-Op Collection/
 └── _PGM (EZIO)/
 ```
@@ -243,6 +247,30 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```
 
 Keep normal upstream core installations enabled. Arcade STG (TATE) remains separate from Arcade Systems Complete.
+
+#### Arcade STG (YOKO)
+
+Horizontal arcade STGs from the same maintained master and approved sources.
+
+Destination: `_Arcade/_Arcade STG (YOKO)/`
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-stg-yoko]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-stg-yoko/arcade-stg-yoko.json.zip
+```
+
+#### Arcade STG (Complete)
+
+All verified TATE and YOKO titles in one flat collection, with recursive alternatives.
+
+Destination: `_Arcade/_Arcade STG (Complete)/`
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-stg-complete]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-stg-complete/arcade-stg-complete.json.zip
+```
+
+Choose Arcade STG Complete or the individual orientations you want to avoid duplicate installations. Each uses its own folder and database identity. All three remain separate from Arcade Systems Complete and rely on normal upstream core installations. See [STG coverage and source rules](docs/arcade-stg-collections.md).
 
 ## Individual Arcade Systems
 
@@ -533,9 +561,9 @@ No. Choose Arcade Systems Complete for the full hardware collection or individua
 
 Overlapping subscriptions can manage the same destinations.
 
-### Are Coin-Op Collection, PGM, and Arcade STG (TATE) included in Complete?
+### Are Coin-Op Collection, PGM, and Arcade STG included in Arcade Systems Complete?
 
-Coin-Op Collection, standalone PGM (Ezio), and Arcade STG (TATE) remain separate subscriptions.
+Coin-Op Collection, standalone PGM (Ezio), and all three Arcade STG collections remain separate subscriptions.
 
 PGM (Ezio) Arcade Systems is included in Complete.
 
@@ -624,6 +652,8 @@ Sega Model 2 and Model 2A: [alphanu1](https://github.com/alphanu1/sega-model2-mi
 Original licenses and distribution conditions remain in effect. DownloaderPLUS is independent and does not claim affiliation or ownership of upstream projects.
 
 ## Project Documentation
+
+- [Arcade STG collections and coverage](docs/arcade-stg-collections.md)
 
 - [Module catalog, source authorities, and individual subscriptions](docs/arcade-systems.md)
 - [Arcade Systems architecture](docs/arcade-systems-architecture.md)

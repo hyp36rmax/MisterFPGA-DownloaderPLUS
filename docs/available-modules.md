@@ -9,7 +9,9 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | Arcade Systems Complete | Approved Arcade Systems aggregate | `_Arcade/_Arcade Systems/` | `arcade-systems-complete.json.zip` |
 | Arcade Systems Reserve | Navigation guidance | `_Arcade/_Arcade Systems/` | `arcade-systems-reserve.json.zip` |
 | PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
+| Arcade STG (Complete) | Approved multi-source collection | `_Arcade/_Arcade STG (Complete)/` | `arcade-stg-complete.json.zip` |
 | Arcade STG (TATE) | Approved multi-source collection | `_Arcade/_Arcade STG (TATE)/` | `arcade-stg-tate.json.zip` |
+| Arcade STG (YOKO) | Approved multi-source collection | `_Arcade/_Arcade STG (YOKO)/` | `arcade-stg-yoko.json.zip` |
 | ATARI SYSTEM 1 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 1/` | `atari-system1.json.zip` |
 | ATARI SYSTEM 2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 2/` | `atari-system2.json.zip` |
 | BANPRESTO BP964-BP965 | kuzearcade/kuzecores database selection | `_Arcade/_Arcade Systems/_BANPRESTO BP964-BP965/` | `banpresto-bp964-bp965.json.zip` |
