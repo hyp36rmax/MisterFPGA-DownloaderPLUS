@@ -1,43 +1,81 @@
 # MiSTer FPGA DownloaderPLUS
 
-## Purpose
+A cleaner way to organize arcade games on MiSTer FPGA.
 
-I wanted a curated folder structure for my MiSTer Arcade folder.
+DownloaderPLUS brings supported arcade hardware systems and collections into dedicated folders using existing community releases and maintained download sources. Works with MiSTer Downloader and Update All.
 
-DownloaderPLUS puts supported arcade systems and collections into dedicated folders using the original projects and their maintained files. Choose the individual collections or systems you want, or use Arcade Systems Complete for the full organized Arcade Systems collection. Run Update_All normally to keep things current.
+Browse games by original arcade hardware, choose individual systems, or install Arcade Systems Complete for the full organized collection.
 
-This is an ongoing project. New systems and collections will be added as compatible cores and reliable sources become available. DownloaderPLUS does not provide game ROMs.
+Original developers maintain their FPGA cores and game support. DownloaderPLUS focuses on collection organization while preserving upstream files, metadata, and download sources.
 
-Here is an example of the folder layout:
+DownloaderPLUS does not develop FPGA cores or distribute game ROMs, BIOS files, or authorization keys.
 
-```text
-_Arcade/
-├── _Coin-Op Collection/
-├── _PGM (EZIO)/
-├── _Arcade STG (TATE)/
-├── cores/
-└── _Arcade Systems/
-    ├── _ATARI SYSTEM 1/
-    ├── _ATARI SYSTEM 2/
-    ├── _BANPRESTO BP964-BP965/
-    ├── _CAPCOM CPS1/
-    ├── _CAPCOM CPS2/
-    ├── _DATA EAST DECO-16/
-    ├── _IREM M92/
-    ├── _MIDWAY T-UNIT/
-    ├── _NAMCO SYSTEM 11/
-    ├── _NAMCO SYSTEM 21/
-    ├── _NAMCO SYSTEM 22/
-    ├── _NAMCO SUPER SYSTEM 22/
-    ├── _SEGA MODEL 2/
-    ├── _SEGA MODEL 2A/
-    ├── _SEGA SYSTEM 32/
-    ├── _SEGA X-BOARD/
-    ├── _SSV/
-    ├── _TAITO G-NET/
-    ├── _TOAPLAN 1/
-    └── ...
+## Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Collection Options](#collection-options)
+- [Available modules](#available-modules)
+- [Managed Systems](#managed-systems) and [Reserve Folders](#reserve-folders)
+- [Folder Structure](#folder-structure)
+- [Available Arcade Systems](#available-arcade-systems)
+- [Reserve Systems](#reserve-systems)
+- [Installation Commands](#installation-commands)
+- [Individual Arcade Systems](#individual-arcade-systems)
+- [Questions & Answers](#questions--answers)
+- [How Updates Work](#how-updates-work)
+- [Credits](#credits)
+- [Project Documentation](#project-documentation)
+
+## Overview
+
+DownloaderPLUS started with a simple goal: organize the MiSTer Arcade folder around original arcade hardware.
+
+Supported games appear in dedicated folders for Capcom, Sega, Namco, Taito, Irem, Atari, Data East, and other hardware families. Game alternatives retain their original folder structure, making different releases and regional versions easier to find.
+
+### Features
+
+- Dedicated folders organized by arcade hardware.
+- Individual subscriptions for specific systems.
+- Arcade Systems Complete for the full approved hardware collection.
+- Separate Coin-Op Collection, PGM, and Arcade STG (TATE) presentations.
+- Original MRA filenames, metadata, and alternatives preserved.
+- Automatic updates through maintained upstream distributions.
+- Existing MiSTer core locations and ownership preserved.
+- Reserve folders for systems awaiting approved automatic distribution.
+
+DownloaderPLUS does not replace MiSTer Downloader, Update All, or original developer releases.
+
+## Getting Started
+
+### Arcade Systems
+
+For the full organized Arcade Systems collection, add Arcade Systems Complete to your existing MiSTer Downloader configuration.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-complete]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-systems-complete/arcade-systems-complete.json.zip
 ```
+
+Run Update All normally.
+
+Arcade Systems Complete includes approved Managed systems and Reserve folders. Keep original upstream core subscriptions enabled where required.
+
+Prefer individual systems? See [Installation Commands](#installation-commands).
+
+Avoid subscribing to Arcade Systems Complete and individual modules covering the same destinations.
+
+## Collection Options
+
+| Collection | Description | Included in Complete |
+|---|---|---|
+| Arcade Systems Complete | All approved hardware folders and Reserve navigation | Main subscription |
+| Individual Arcade Systems | Selected hardware collections | Yes |
+| Arcade Systems Reserve | Guidance folders awaiting approved download sources | Yes |
+| Coin-Op Collection | Dedicated Coin-Op collection | No |
+| PGM (Ezio) | Standalone PGM collection | No |
+| PGM (Ezio) Arcade Systems | PGM inside Arcade Systems | Yes |
+| Arcade STG (TATE) | Curated vertical arcade shoot 'em ups | No |
 
 ## Available modules
 
@@ -108,82 +146,56 @@ _Arcade/
 | TOAPLAN 2 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN 2/` | `coinop-toaplan-2.json.zip` |
 | TOAPLAN MIN16-02 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN MIN16-02/` | `coinop-toaplan-min16-02.json.zip` |
 
-## Installation
+### Managed Systems
 
-Add the sections you want to your normal MiSTer Downloader configuration, then run Update_All.
+Managed systems use approved upstream sources to download and organize supported files automatically.
 
-### Coin-Op Collection
+Some modules install required FPGA cores. Others rely on the original upstream subscription. Core ownership and original download sources remain intact.
 
-This adds a dedicated Coin-Op Collection folder alongside your normal Coin-Op installation. Keep your normal Coin-Op installation enabled and run Update_All normally.
+### Reserve Folders
 
-```ini
-[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection]
-db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-collection/coinop-collection.json.zip
-```
+Reserve folders provide organized navigation and installation guidance for hardware without an approved automatic download source.
+
+Reserve status does not imply that a playable FPGA core or compatible MRA collection is available through DownloaderPLUS.
+
+Promotion to Managed requires verified upstream files and compatible distribution support.
+
+## Folder Structure
+
+Example MiSTer Arcade layout:
 
 ```text
 _Arcade/
-├── <normal Coin-Op content>
-└── _Coin-Op Collection/
+├── cores/
+├── _Arcade Systems/
+│   ├── _ATARI SYSTEM 1/
+│   ├── _ATARI SYSTEM 2/
+│   ├── _BANPRESTO BP964-BP965/
+│   ├── _CAPCOM CPS1/
+│   ├── _CAPCOM CPS2/
+│   ├── _DATA EAST DECO-16/
+│   ├── _IREM M92/
+│   ├── _MIDWAY T-UNIT/
+│   ├── _NAMCO SYSTEM 11/
+│   ├── _NAMCO SYSTEM 21/
+│   ├── _NAMCO SYSTEM 22/
+│   ├── _NAMCO SUPER SYSTEM 22/
+│   ├── _SEGA MODEL 2/
+│   ├── _SEGA MODEL 2A/
+│   ├── _SEGA SYSTEM 32/
+│   ├── _SEGA X-BOARD/
+│   ├── _SSV/
+│   ├── _TAITO G-NET/
+│   ├── _TOAPLAN 1/
+│   └── ...
+├── _Arcade STG (TATE)/
+├── _Coin-Op Collection/
+└── _PGM (EZIO)/
 ```
 
-### PGM (Ezio)
+Executable arcade cores remain in `_Arcade/cores/`.
 
-This adds a dedicated PGM collection under `_Arcade/_PGM (EZIO)/`, using the maintained public distribution based on **Ezio Chiu's work**.
-
-```ini
-[hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio]
-db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/pgm-ezio/pgm-ezio.json.zip
-```
-
-### Arcade Systems
-
-Arcade Systems organizes supported arcade hardware into dedicated system folders under `_Arcade/_Arcade Systems/`.
-
-#### Arcade Systems Complete
-
-Use **Arcade Systems Complete** if you want the full collection. It includes all currently approved DownloaderPLUS Arcade Systems presentations, including Reserve folders. Coin-Op Collection and standalone PGM remain separate choices.
-
-```ini
-[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-complete]
-db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-systems-complete/arcade-systems-complete.json.zip
-```
-
-Keep your normal upstream core installations enabled where required. Required Arcade cores continue to use `_Arcade/cores/`.
-
-#### Individual Arcade Systems
-
-If you only want certain systems, use the individual modules in the Available modules table instead of Complete. Choose Complete or individual modules for the same systems so two subscriptions do not manage the same folders.
-
-See [individual subscription examples](docs/arcade-systems.md#source-authorities-and-individual-subscriptions). The PGM Arcade Systems module puts the same PGM collection under `_Arcade/_Arcade Systems/_PGM (EZIO)/`; choose whichever PGM view you prefer.
-
-#### Arcade Systems Reserve
-
-Arcade Systems Reserve creates organized folders for selected arcade systems whose files DownloaderPLUS does not currently distribute. If you already have compatible files from an authorized source, place them in the corresponding Arcade Systems folder.
-
-Use this subscription if you only want the Reserve folders. They are already included in Complete.
-
-```ini
-[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-reserve]
-db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-systems-reserve/arcade-systems-reserve.json.zip
-```
-
-The current folders are listed under [Reserve Systems](#reserve-systems) below.
-
-### Arcade STG (TATE)
-
-This collects currently available vertical-orientation arcade STGs into one folder for easy browsing on a TATE setup. It follows a maintained Japanese arcade STG list and will grow as matching MiSTer cores and titles become available.
-
-For the complete maintained reference, including TATE/YOKO orientation, developer, publisher and original hardware, see the [Japanese Arcade STG Master](docs/arcade-stg-master.md).
-
-Destination: `_Arcade/_Arcade STG (TATE)/`
-
-```ini
-[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-stg-tate]
-db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-stg-tate/arcade-stg-tate.json.zip
-```
-
-Keep the normal upstream core installations enabled. This collection adds MRAs and their alternatives; it is separate from Arcade Systems Complete.
+Game ROMs and required firmware remain separate from DownloaderPLUS.
 
 ## Available Arcade Systems
 
@@ -234,7 +246,72 @@ NAMCO SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are Reserve folders with `_READ M
 
 Midway Reserve folders use their individual subscriptions below or Arcade Systems Complete. The other Reserve folders use Arcade Systems Reserve.
 
+## Installation Commands
+
+Add the desired sections to your existing MiSTer Downloader configuration. Run Update All normally.
+
+Add each section once. The Complete subscription below is the same one shown in Getting Started.
+
+### Main Collections
+
+#### Arcade Systems Complete
+
+Recommended for the full organized hardware collection.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-complete]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-systems-complete/arcade-systems-complete.json.zip
+```
+
+#### Coin-Op Collection
+
+Creates a dedicated `_Arcade/_Coin-Op Collection/` folder alongside the original Coin-Op installation.
+
+Keep the normal Coin-Op subscription enabled for required cores and account authorization.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-collection/coinop-collection.json.zip
+```
+
+#### PGM (Ezio)
+
+Standalone PGM collection based on the maintained public distribution of Ezio Chiu's work.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/pgm-ezio]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/pgm-ezio/pgm-ezio.json.zip
+```
+
+#### Arcade Systems Reserve
+
+Creates guidance folders for supported Reserve classifications.
+
+Already included in Arcade Systems Complete.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-reserve]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-systems-reserve/arcade-systems-reserve.json.zip
+```
+
+#### Arcade STG (TATE)
+
+Curated arcade shoot 'em ups organized for vertical displays.
+
+Destination: `_Arcade/_Arcade STG (TATE)/`
+
+Collection coverage follows the maintained [Japanese Arcade STG Master](docs/arcade-stg-master.md), including original hardware, developer, publisher, and display orientation.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-stg-tate]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/arcade-stg-tate/arcade-stg-tate.json.zip
+```
+
+Keep normal upstream core installations enabled. Arcade STG (TATE) remains separate from Arcade Systems Complete.
+
 ## Individual Arcade Systems
+
+See the [module sources and individual subscriptions](docs/arcade-systems.md#source-authorities-and-individual-subscriptions) for source details.
 
 If you only want specific Arcade Systems, add the sections you want to your Downloader configuration and run Update_All normally. Use individual modules instead of Arcade Systems Complete for the same systems.
 
@@ -505,30 +582,119 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-2/coinop-toaplan-2.json.zip
 ```
 
-## How it works
+## Questions & Answers
 
-DownloaderPLUS uses maintained upstream distributions to add organized navigation inside your MiSTer Arcade folder. The original projects maintain their cores, MRAs and updates. DownloaderPLUS follows those sources as they change.
+### What is DownloaderPLUS?
 
-Keep normal upstream core installations enabled where required. Arcade cores continue to use `_Arcade/cores/`. Game ROMs and any required BIOS or audio firmware are supplied separately; follow the original project's instructions.
+A MiSTer FPGA arcade collection organizer. Supported arcade systems are grouped by original hardware using maintained community download sources.
+
+### Does DownloaderPLUS replace MiSTer Downloader or Update All?
+
+No. DownloaderPLUS adds optional database subscriptions. Keep using Update All normally.
+
+### Should Arcade Systems Complete and individual modules both be installed?
+
+No. Choose Arcade Systems Complete for the full hardware collection or individual modules for selected systems.
+
+Overlapping subscriptions can manage the same destinations.
+
+### Are Coin-Op Collection, PGM, and Arcade STG (TATE) included in Complete?
+
+Coin-Op Collection, standalone PGM (Ezio), and Arcade STG (TATE) remain separate subscriptions.
+
+PGM (Ezio) Arcade Systems is included in Complete.
+
+### Where are FPGA cores installed?
+
+Arcade cores use `_Arcade/cores/`.
+
+Original upstream subscriptions continue managing required cores where applicable.
+
+### What happens to alternative game versions?
+
+Eligible alternatives retain their original filenames, metadata, and folder hierarchy.
+
+### What is the difference between Managed and Reserve?
+
+Managed systems use approved upstream downloads.
+
+Reserve systems provide guidance folders for platforms awaiting approved automatic distribution.
+
+### Does DownloaderPLUS include game ROMs?
+
+No. Game ROMs, BIOS files, and authorization keys are not distributed.
+
+### Does DownloaderPLUS develop FPGA cores?
+
+No. Core development, game support, and compatibility remain with the original developers.
+
+### Can existing arcade installations remain enabled?
+
+Yes. Keep original upstream subscriptions enabled where required.
+
+Avoid overlapping DownloaderPLUS subscriptions managing the same folders.
+
+### How are new games and core updates handled?
+
+Approved upstream changes flow through the existing database-update process.
+
+New hardware classifications and distribution sources require verification before inclusion.
+
+### Does Coin-Op CPS1 require authorization?
+
+Yes. Coin-Op CPS1 uses the original account and device authorization requirements.
+
+DownloaderPLUS preserves those requirements and does not provide keys or bypass licensing.
+
+### What happens when a module changes sources?
+
+MiSTer Downloader handles tracked file reconciliation through existing ownership and deletion settings.
+
+Previously tracked files may remain when deletion is disabled. Untracked personal files are not automatically targeted by DownloaderPLUS.
+
+### Does DownloaderPLUS guarantee every game will work?
+
+No. Game compatibility depends on the original FPGA implementation, required hardware, ROM data, firmware, and release maturity.
+
+Refer to the original developer for compatibility notes and known issues.
+
+## How Updates Work
+
+DownloaderPLUS uses maintained upstream distributions to organize arcade navigation.
+
+Original developers maintain their FPGA cores, MRAs, and releases. DownloaderPLUS follows approved source changes and generates corresponding database subscriptions.
+
+MiSTer Downloader handles installation, updates, and normal file reconciliation.
+
+Keep original upstream core installations enabled where required.
+
+Some systems need additional ROMs, BIOS files, firmware, or account authorization. Follow the original project's installation requirements.
 
 ## Credits
 
-DownloaderPLUS organizes work maintained by the MiSTer community. Core development and game support belong to the original projects and their contributors.
+DownloaderPLUS organizes work maintained by the MiSTer FPGA community. Core development and game support belong to the original projects and contributors.
 
-Thanks to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [Ezio Chiu's PGM work](https://github.com/hyp36rmax/PGM-Mister-EZIOCHIU), [Jotego](https://github.com/jotego/jtcores_mister), [MiSTer-devel](https://github.com/MiSTer-devel), [Meathax](https://github.com/meathax/meatcores), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), and the developers and contributors credited by each upstream project. Their work retains its own licensing. DownloaderPLUS is an independent project and does not claim affiliation or ownership.
+Thanks to [Coin-Op Collection](https://github.com/Coin-OpCollection/Distribution-MiSTerFPGA), [Ezio Chiu's PGM work](https://github.com/hyp36rmax/PGM-Mister-EZIOCHIU), [Jotego](https://github.com/jotego/jtcores_mister), [MiSTer-devel](https://github.com/MiSTer-devel), [Meathax](https://github.com/meathax/meatcores), [XelaNotPu](https://github.com/XelaNotPu), [zakk4223](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer), and contributors credited by each upstream project.
 
 Additional core credits: [Martin Donlon](https://github.com/wickerwaka), [Paul Priest](https://github.com/ppriest), [MiSTer-X](https://github.com/MrX-8B), [rmonic79](https://github.com/rmonic79), and [Anton Gale](https://github.com/antongale). These modules use the official MiSTer Distribution as their download source.
 
-BANPRESTO BP964-BP965: core development by [kuzearcade](https://github.com/kuzearcade/Arcade-NMKBP964_MiSTer), distributed through [kuzecores](https://github.com/kuzearcade/kuzecores). SSV (Sammy / Seta / Visco): MiSTer implementation and public distribution by [Meathax](https://github.com/meathax/meatcores).
+BANPRESTO BP964-BP965: core development by [kuzearcade](https://github.com/kuzearcade/Arcade-NMKBP964_MiSTer), distributed through [kuzecores](https://github.com/kuzearcade/kuzecores).
 
-G-NET: [shmupfan](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer). Model 2 and Model 2A: [alphanu1](https://github.com/alphanu1/sega-model2-mister).
+SSV (Sammy / Seta / Visco): MiSTer implementation and distribution by [Meathax](https://github.com/meathax/meatcores).
 
-## Project documentation
+TAITO G-NET: [shmupfan](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer).
 
-- [Module catalog, source authorities and individual subscriptions](docs/arcade-systems.md)
+Sega Model 2 and Model 2A: [alphanu1](https://github.com/alphanu1/sega-model2-mister).
+
+Original licenses and distribution conditions remain in effect. DownloaderPLUS is independent and does not claim affiliation or ownership of upstream projects.
+
+## Project Documentation
+
+- [Module catalog, source authorities, and individual subscriptions](docs/arcade-systems.md)
 - [Arcade Systems architecture](docs/arcade-systems-architecture.md)
 - [Coin-Op family mapping](modules/coinop-families.json)
-- [Coin-Op inspection](docs/phase-1.md) and [module details](modules/coinop-collection/README.md)
+- [Coin-Op inspection](docs/phase-1.md)
+- [Coin-Op module details](modules/coinop-collection/README.md)
 - [PGM inspection and source policy](docs/pgm-inspection.md)
 - [Filter policy](docs/derived-filter-policy.md)
 - [Alternatives audit](docs/alternatives-audit.md)
