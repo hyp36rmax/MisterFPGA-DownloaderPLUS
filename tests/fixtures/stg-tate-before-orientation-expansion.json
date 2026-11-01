@@ -1,0 +1,10 @@
+{
+  "files": {
+    "dist/arcade-stg-tate/arcade-stg-tate.json.zip": "3f1096bf3550215364bd0655a645bc9ba58212b03f932b8b23f14530ddd46b50",
+    "dist/arcade-stg-tate/coverage.md": "eb0bae986308e4ba11c562c3e339a8b0b17050da9279184c63495385622e90ed",
+    "dist/arcade-stg-tate/manifest.json": "2574fe5f3cfbcf537e88ae23168882465f640787cb40f32b41d1f2c95bde059b",
+    "dist/arcade-stg-tate/matches.json": "ddb0b851ecb225346b1379816037242bfa0a5d2cbae65eeabdbe408babcd18a1",
+    "data/arcade-stg-master.json": "b45351e3dbdd0e04a2509e68c9a996d9c801ecc85dffef71bc9c0bdb6b6dc119"
+  },
+  "source_inventory_sha256": "4c580053ef54e541de0520924c8dbef744809199710db8672f3ba80568131245"
+}

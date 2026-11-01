@@ -16,6 +16,11 @@ from tools.common.archives import expanded_inventory, validate_archives
 from tools.common.stg_sources import approvals, validate_metadata, current_sources, fetch_selected_alternatives
 
 DESTINATION = '_Arcade/_Arcade STG (TATE)'
+COLLECTIONS = {
+    'arcade-stg-tate': (DESTINATION, ('TATE',)),
+    'arcade-stg-yoko': ('_Arcade/_Arcade STG (YOKO)', ('YOKO',)),
+    'arcade-stg-complete': ('_Arcade/_Arcade STG (Complete)', ('TATE', 'YOKO')),
+}
 BASELINE = (222, 203, 19, 221, 202)
 
 
@@ -98,7 +103,7 @@ def claimed_authorities(candidate, source, root=ROOT):
     return claims
 
 
-def match_rows(matrix, sources, root=ROOT, ownership=None):
+def match_rows(matrix, sources, root=ROOT, ownership=None, orientations=('TATE',)):
     approved = approvals(root)
     require(set(sources) == set(approved), 'Source inventory differs from existing approved authorities')
     candidates = []
@@ -141,7 +146,7 @@ def match_rows(matrix, sources, root=ROOT, ownership=None):
             owners.setdefault((c['authority'], c['path']), set()).add(row['canonical_parent'] or row['canonical_title'])
     result = []; selected = {}; unknown = []
     for index, row in enumerate(matrix['rows']):
-        if row['orientation'] != 'TATE':
+        if row['orientation'] not in orientations:
             continue
         hits = row_matches[index]
         required = required_authority(row, root)
@@ -165,6 +170,12 @@ def match_rows(matrix, sources, root=ROOT, ownership=None):
             state = 'UNAVAILABLE'
         match = {**copy.deepcopy(row), 'match_state': state, 'authority': required,
                  'primary_mra': None, 'alternative_count': 0, 'candidate_mras': sorted(c['authority'] + ':' + c['path'] for c in hits)}
+        if row['orientation'] == 'YOKO' and state == 'UNAVAILABLE' and not hits:
+            # Report possible subtitle mappings for review; never use them for selection.
+            review_keys = row_keys(row)
+            review = [c for c in candidates if c['public'] and any(k.startswith(r) and k != r for k in c['keys'] for r in review_keys)]
+            if review:
+                match['review_candidates'] = sorted(c['authority'] + ':' + c['path'] for c in review)
         if state == 'MATCHED':
             chosen = sorted(eligible, key=lambda c: (c['authority'], c['path']))[0]
             match.update(authority=chosen['authority'], primary_mra=chosen['path'])
@@ -247,11 +258,11 @@ def alternative_paths(primary, source, matrix=None):
     return alternative_ownership(source, matrix or load_matrix())['files'].get(primary, [])
 
 
-def destination(path):
+def destination(path, target=DESTINATION):
     parts = path.split('/')
     if '_alternatives' in parts:
-        return DESTINATION + '/' + '/'.join(parts[parts.index('_alternatives'):])
-    return DESTINATION + '/' + parts[-1]
+        return target + '/' + '/'.join(parts[parts.index('_alternatives'):])
+    return target + '/' + parts[-1]
 
 
 def tag_dictionary(sources, contributing):
@@ -270,25 +281,28 @@ def tag_dictionary(sources, contributing):
 
 
 class CollectionPolicy:
+    def __init__(self, target=DESTINATION):
+        self.target = target
+
     def destination(self, path, category):
-        return DESTINATION if path == '_Arcade' else path
+        return self.target if path == '_Arcade' else path
 
     def validate_schema(self, database, config):
         from tools.common.selection import safe_url
         require(database['db_id'] == config['derived_db_id'], 'Collection database identity mismatch')
         require(database['default_options'] == {'filter': '[MiSTer]'}, 'Unexpected collection default')
-        require(config['destination'] == DESTINATION, 'Unexpected collection destination')
+        require(config['destination'] == self.target, 'Unexpected collection destination')
         safe_url(database['db_url']); safe_url(database['base_files_url'])
         ids = set(database['tag_dictionary'].values())
         seen = set(); files = set()
         for category in ('files', 'folders'):
             for path, record in expanded_inventory(database)[category].items():
                 safe_path(path)
-                require(path == DESTINATION or path.startswith(DESTINATION + '/'), 'Collection namespace violation')
+                require(path == self.target or path.startswith(self.target + '/'), 'Collection namespace violation')
                 require(path.casefold() not in seen, 'Collection destination collision: ' + path)
                 seen.add(path.casefold())
                 require(type(record['tags']) is list and set(record['tags']) <= ids, 'Invalid collection tags')
-                tail = path[len(DESTINATION):].strip('/')
+                tail = path[len(self.target):].strip('/')
                 require('cores' not in tail.split('/'), 'Collection duplicates core ownership')
                 if category == 'files':
                     require(is_mra(path) and ('/' not in tail or tail.startswith('_alternatives/')), 'Non-flat primary or non-MRA payload')
@@ -303,8 +317,9 @@ class CollectionPolicy:
 
 
 def generate(config, matrix, sources, root=ROOT, require_payloads=True):
+    target_root, orientations = COLLECTIONS[config['name']]
     ownership = {a: alternative_ownership(s, matrix) for a, s in sources.items()}
-    matches, selected, unknown = match_rows(matrix, sources, root, ownership)
+    matches, selected, unknown = match_rows(matrix, sources, root, ownership, orientations)
     selection = {}; owner = {}
     for match in matches:
         if match['match_state'] != 'MATCHED':
@@ -317,7 +332,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
             owner[(authority, path)] = primary
             selection.setdefault(authority, set()).add(path)
     result = empty_database(config, max((s['database']['timestamp'] for s in sources.values()), default=0))
-    result['folders'][DESTINATION] = {'tags': []}
+    result['folders'][target_root] = {'tags': []}
     dictionary = tag_dictionary(sources, selection)
     result['tag_dictionary'] = dictionary
     origins = {}; coverage = {}
@@ -333,7 +348,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
             is_parent = any(f.startswith(old_folder + '/') for f in selected_families)
             if old_folder != '_Arcade' and not is_family and not is_parent:
                 continue
-            target_folder = destination(old_folder) if '_alternatives' in old_folder.split('/') else DESTINATION
+            target_folder = destination(old_folder, target_root) if '_alternatives' in old_folder.split('/') else target_root
             folder_record = {k: copy.deepcopy(v) for k, v in original_folder.items() if k not in {'arc_id', 'tags'}}
             folder_record['tags'] = [mapping[t] for t in original_folder.get('tags', [])]
             previous_folder = result['folders'].get(target_folder)
@@ -350,7 +365,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
                 require(any(re.fullmatch(r'(?:Arcade-)?' + re.escape(proof['rbf']) + r'(?:_\d{8})?\.rbf', c, re.I) for c in source['cores']), 'MRA reference has no source-owned core: ' + path)
             record = copy.deepcopy(original)
             record['tags'] = [mapping[t] for t in record.get('tags', [])]
-            target = destination(path)
+            target = destination(path, target_root)
             if 'arc_id' not in record:
                 record['url'] = original.get('url', database['base_files_url'] + quote(path))
             else:
@@ -360,7 +375,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
                     descriptor = copy.deepcopy(original_desc)
                     descriptor.pop('summary_file', None)
                     descriptor['extract'] = 'selective'
-                    descriptor['target_folder'] = DESTINATION + '/'
+                    descriptor['target_folder'] = target_root + '/'
                     descriptor['summary_inline'] = {'v': 1, 'files': {}, 'folders': {}}
                     result.setdefault('archives', {})[archive_id] = descriptor
                 record['arc_id'] = archive_id
@@ -376,18 +391,18 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
             else:
                 result['files'][target] = record
             pieces = target.split('/')
-            for i in range(len(DESTINATION.split('/')), len(pieces)):
+            for i in range(len(target_root.split('/')), len(pieces)):
                 folder = '/'.join(pieces[:i])
                 result['folders'].setdefault(folder, {'tags': []})
-    CollectionPolicy().validate_schema(result, config)
-    validate_preservation(result, sources, selection)
+    CollectionPolicy(target_root).validate_schema(result, config)
+    validate_preservation(result, sources, selection, target_root)
     counts = Counter(m['match_state'] for m in matches)
     report = {'matrix_baseline': matrix_counts(matrix), 'matched_rows': counts['MATCHED'],
               'matched_distinct_designs': len({m['canonical_parent'] or m['canonical_title'] for m in matches if m['match_state'] == 'MATCHED'}),
               'unavailable_rows': counts['UNAVAILABLE'], 'authority_hold_rows': counts['AUTHORITY HOLD'],
               'ambiguous_rows': counts['AMBIGUOUS'], 'sources': coverage,
               'primary_mras': sum(c['primary_mras'] for c in coverage.values()), 'alternatives': sum(c['alternatives'] for c in coverage.values()),
-              'missing_alternatives': 0, 'orphan_alternatives': 0, 'yoko_published': 0, 'ambiguous_published': 0,
+              'missing_alternatives': 0, 'orphan_alternatives': 0, 'yoko_published': sum(m['orientation'] == 'YOKO' and m['match_state'] == 'MATCHED' for m in matches), 'ambiguous_published': 0,
               'restricted_payload_leaks': 0, 'effective_source_urls_changed': 0, 'mra_content_differences': 0,
               'hash_size_differences': 0, 'core_duplication': 0, 'destination_conflicts': 0,
               'complete_inclusion': False, 'unknown_primary_count': len(unknown), **filter_counts(result)}
@@ -395,7 +410,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
     return result, {'matches': matches, 'unknown_primaries': unknown}, report, selection
 
 
-def validate_preservation(generated, sources, selection):
+def validate_preservation(generated, sources, selection, target_root=DESTINATION):
     """Compare original member identities independently of construction/replay."""
     actual = expanded_inventory(generated)['files']
     expected = set()
@@ -405,7 +420,7 @@ def validate_preservation(generated, sources, selection):
         old_dictionary = database['tag_dictionary']
         for path in paths:
             original = inventory(source)[path]
-            target = destination(path)
+            target = destination(path, target_root)
             expected.add(target)
             require(target in actual, 'Missing primary/authoritative alternative: ' + path)
             record = actual[target]
@@ -425,7 +440,7 @@ def validate_preservation(generated, sources, selection):
     require(set(actual) == expected, 'Orphan/unknown MRA in collection')
 
 
-def match_changes(previous, current):
+def match_changes(previous, current, label='TATE'):
     old = {r['canonical_title']: r for r in previous}
     new = {r['canonical_title']: r for r in current}
     events = []
@@ -436,7 +451,7 @@ def match_changes(previous, current):
         if was == now:
             continue
         row = after if now else before
-        events.append({'event': 'NEW TATE MATCH' if now else 'REMOVED TATE MATCH',
+        events.append({'event': 'NEW ' + label + ' MATCH' if now else 'REMOVED ' + label + ' MATCH',
                        'canonical_title': title, 'hardware_system': row['hardware_system'],
                        'authority': row['authority'], 'primary_mra': row['primary_mra'],
                        'previous_state': before['match_state'] if before else 'NOT IN MASTER',
@@ -473,9 +488,9 @@ def build_collection(config, output_root=None, root=ROOT, sources=None):
     database, match_manifest, report, _ = generate(config, matrix, sources, root)
     prior_rows = prior['match_manifest']['matches'] if prior else []
     guard_coverage(prior_rows, match_manifest['matches'])
-    events = match_changes(prior_rows, match_manifest['matches']) if prior else []
+    events = match_changes(prior_rows, match_manifest['matches'], collection_label(config)) if prior else []
     # Preserve the last coverage transition across identical rebuilds.
-    history = {'previous_matches': prior_rows, 'events': events,
+    history = {'previous_matches': prior_rows if prior else copy.deepcopy(match_manifest['matches']), 'events': events,
                'previous_source_fingerprints': {a: v.get('source_revision_sha256') for a, v in prior['source_inventories'].items()} if prior else {}}
     if prior and not events:
         history = prior.get('coverage_changes', history)
@@ -497,7 +512,7 @@ def build_collection(config, output_root=None, root=ROOT, sources=None):
     changed = atomic_write(directory / (config['name'] + '.json.zip'), artifact)
     changed = atomic_write(directory / 'manifest.json', canonical_json(manifest)) or changed
     changed = atomic_write(directory / 'matches.json', canonical_json(match_manifest)) or changed
-    changed = atomic_write(directory / 'coverage.md', coverage_report(match_manifest, report)) or changed
+    changed = atomic_write(directory / 'coverage.md', coverage_report(match_manifest, report, config)) or changed
     return {'module': config['name'], 'changed': changed, **report}
 
 
@@ -509,19 +524,24 @@ def verify_collection(config, root=ROOT):
     require(manifest['matrix_sha256'] == digest(canonical_json(matrix)), 'Collection matrix provenance mismatch')
     expected, matches, report, _ = generate(config, matrix, manifest['source_inventories'], root)
     history = manifest['coverage_changes']
-    require(history['events'] == match_changes(history['previous_matches'], matches['matches']), 'Invalid coverage transition report')
+    require(history['events'] == match_changes(history['previous_matches'], matches['matches'], collection_label(config)), 'Invalid coverage transition report')
     matches['coverage_changes'] = history['events']
     raw = (directory / (config['name'] + '.json.zip')).read_bytes()
     require(unpack(raw) == expected and digest(raw) == manifest['generated_zip_sha256'] and digest(canonical_json(expected)) == manifest['generated_semantic_sha256'], 'Collection output/provenance mismatch')
     require(report == manifest['validation'] and matches == manifest['match_manifest'] and matches == parse_json((directory / 'matches.json').read_bytes()), 'Collection coverage/alternative parity mismatch')
     require(manifest['module'] == config['name'] and manifest['policy_version'] == config['policy_version'], 'Collection identity mismatch')
     require(config['name'] not in registry(root)['modules'], 'Collection entered hardware registry')
-    require((directory / 'coverage.md').read_bytes() == coverage_report(matches, report), 'Stale collection coverage report')
+    require((directory / 'coverage.md').read_bytes() == coverage_report(matches, report, config), 'Stale collection coverage report')
     return expected, manifest
 
 
-def coverage_report(manifest, report):
-    lines = ['# Arcade STG (TATE) public coverage', '',
+def collection_label(config):
+    return 'Complete' if config['name'] == 'arcade-stg-complete' else COLLECTIONS[config['name']][1][0]
+
+
+def coverage_report(manifest, report, config=None):
+    view_label = collection_label(config) if config else 'TATE'
+    lines = ['# Arcade STG (' + view_label + ') public coverage', '',
              'Generated from the frozen master matrix and pinned approved public inventories. '
              'The collection does not own cores or contribute to Arcade Systems Complete.', '',
              '| Measure | Count |', '|---|---:|']
@@ -532,7 +552,7 @@ def coverage_report(manifest, report):
     for authority, count in report['sources'].items():
         lines.append(f"| {authority} | {count['primary_mras']} | {count['alternatives']} |")
     for field, label in [('hardware_system', 'Hardware/System'), ('developer', 'Developer')]:
-        lines += ['', '## ' + label, '', '| ' + label + ' | TATE rows | Matched | Unavailable | Authority Hold | Ambiguous |',
+        lines += ['', '## ' + label, '', '| ' + label + ' | ' + ('Master' if view_label == 'Complete' else view_label) + ' rows | Matched | Unavailable | Authority Hold | Ambiguous |',
                   '|---|---:|---:|---:|---:|---:|']
         for value in sorted({m[field] for m in manifest['matches']}):
             rows = [m for m in manifest['matches'] if m[field] == value]
@@ -547,9 +567,25 @@ def coverage_report(manifest, report):
     for row in manifest['matches']:
         if row['match_state'] == 'AMBIGUOUS':
             lines.append('- ' + row['canonical_title'] + ': ' + '; '.join(row['candidate_mras']))
-    lines += ['', '## Frozen TATE title coverage', '', '| Title | Hardware/System | State | Authority | Primary MRA |', '|---|---|---|---|---|']
+    lines += ['', '## Frozen ' + view_label + ' title coverage', '', '| Title | Hardware/System | State | Authority | Primary MRA |', '|---|---|---|---|---|']
     for row in manifest['matches']:
         lines.append('| ' + ' | '.join(str(row.get(k) or '').replace('|', '&#124;') for k in ('canonical_title', 'hardware_system', 'match_state', 'authority', 'primary_mra')) + ' |')
+    if view_label != 'TATE':
+        lines += ['', '## YOKO availability', '', '| Title | Status | Evidence |', '|---|---|---|']
+        for row in manifest['matches']:
+            if row['orientation'] != 'YOKO':
+                continue
+            status = {'MATCHED': 'VERIFIED', 'AMBIGUOUS': 'NEEDS VALIDATION'}.get(row['match_state'], 'BLOCKED')
+            if row.get('review_candidates'):
+                status = 'NEEDS VALIDATION'
+            if status == 'VERIFIED':
+                evidence = row['primary_mra']
+            elif status == 'NEEDS VALIDATION':
+                evidence = 'Uncertain source or game mapping: ' + '; '.join(row.get('review_candidates', row['candidate_mras']))
+            else:
+                evidence = ('Held authority or source eligibility restriction' if row['match_state'] == 'AUTHORITY HOLD'
+                            else 'No approved compatible primary MRA and core pair')
+            lines.append('| ' + row['canonical_title'] + ' | ' + status + ' | ' + str(evidence) + ' |')
     lines += ['', '## Latest coverage transitions', '']
     for event in manifest.get('coverage_changes', []):
         lines.append('- ' + event['event'] + ': ' + event['canonical_title'] + ' — ' + str(event['authority']) + ': ' + str(event['primary_mra']) + ' (' + event['previous_state'] + ' → ' + event['current_state'] + '). ' + event['reason'])
@@ -562,6 +598,6 @@ def coverage_report(manifest, report):
               'retain title/inventory metadata only; their payload bytes are not published here.', '',
               'Archive URLs, payload hashes, sizes and member paths are preserved. The derived inline index selects only '
               'collection members; its extraction target is the new collection folder.', '',
-              'All TATE rows, including unavailable and held rows, are listed in [matches.json](matches.json). '
+              'All ' + view_label + ' rows, including unavailable and held rows, are listed in [matches.json](matches.json). '
               'Unknown upstream primary names are reported there without automatically changing the matrix.', '']
     return '\n'.join(lines).encode('utf-8')

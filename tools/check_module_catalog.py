@@ -102,9 +102,13 @@ def published_inventory(root=ROOT):
     return sorted(inventory, key=lambda item: (priority.get(item['name'], len(PRIORITY)), item['display_name'].casefold()))
 
 
-def catalog_rows(readme):
+def catalog_rows(readme, root=ROOT):
+    document = 'README.md'
+    if '| Module | Source mode | Navigation destination | Artifact |' not in readme and '[Available Modules](docs/available-modules.md)' in readme:
+        document = 'docs/available-modules.md'
+        readme = (Path(root) / document).read_text(encoding='utf-8')
     lines = readme.splitlines()
-    start = lines.index('## Available modules') + 1
+    start = lines.index('# Available Modules' if document != 'README.md' else '## Available modules') + 1
     end = next((i for i in range(start, len(lines)) if lines[i].startswith('## ')), len(lines))
     rows = []
     for i in range(start, end):
@@ -114,8 +118,8 @@ def catalog_rows(readme):
         if cells == ['Module', 'Source mode', 'Navigation destination', 'Artifact'] or all(set(cell) <= {'-', ':'} for cell in cells):
             continue
         if len(cells) != 4:
-            raise ValidationError(f'README.md:{i + 1}: expected four catalog columns')
-        rows.append({'line': i + 1, 'display_name': cells[0], 'source_mode': cells[1],
+            raise ValidationError(f'{document}:{i + 1}: expected four catalog columns')
+        rows.append({'line': i + 1, 'document': document, 'display_name': cells[0], 'source_mode': cells[1],
                      'destination': cells[2].strip('`'), 'artifact': cells[3].strip('`')})
     return rows
 
@@ -126,7 +130,7 @@ def validate_rows(rows, inventory):
     seen = set()
     for row in rows:
         name = row['display_name']
-        location = f"README.md:{row['line']}"
+        location = f"{row.get('document', 'README.md')}:{row['line']}"
         if name in seen:
             issues.append({'kind': 'duplicate', 'location': location, 'module': name})
         seen.add(name)

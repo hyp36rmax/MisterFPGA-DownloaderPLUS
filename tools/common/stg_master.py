@@ -15,9 +15,9 @@ def public_master(data):
     rows = validate_matrix(data)['rows']
     counts = matrix_counts(data)
     lines = ['# Japanese Arcade STG Master', '',
-             'This is the maintained Japanese arcade STG master used by DownloaderPLUS to classify orientation and identify titles eligible for Arcade STG (TATE).', '',
-             'TATE and YOKO titles are intentionally retained. Arcade STG (TATE) uses only qualifying TATE rows with currently available approved MiSTer implementations. A title can remain in this master even when no MiSTer core supports it.', '',
-             'Generated from the [canonical structured master](../data/arcade-stg-master.json). Current MiSTer availability is listed separately in the [coverage report](../dist/arcade-stg-tate/coverage.md).', '',
+             'This is the maintained Japanese arcade STG master used by DownloaderPLUS to classify orientation and identify titles eligible for the Arcade STG collections.', '',
+             'TATE and YOKO titles are intentionally retained. Arcade STG (TATE) selects qualifying vertical titles, YOKO selects horizontal titles, and Complete includes both orientations from the same approved inventories. A title can remain in this master even when no MiSTer core supports it.', '',
+             'Generated from the [canonical structured master](../data/arcade-stg-master.json). Current MiSTer availability is listed separately in the [TATE](../dist/arcade-stg-tate/coverage.md), [YOKO](../dist/arcade-stg-yoko/coverage.md), and [Complete](../dist/arcade-stg-complete/coverage.md) coverage reports.', '',
              '| Measure | Count |', '|---|---:|']
     for key, label in [('total_rows', 'Hardware/release rows'), ('tate_rows', 'TATE'), ('yoko_rows', 'YOKO'),
                        ('distinct_designs', 'Distinct canonical designs'), ('distinct_tate_designs', 'Distinct TATE designs')]:

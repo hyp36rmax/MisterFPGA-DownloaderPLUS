@@ -1,4 +1,6 @@
 import copy
+import tempfile
+from pathlib import Path
 import unittest
 
 from tools.check_module_catalog import catalog_rows, published_inventory, validate_rows, ROOT
@@ -20,6 +22,14 @@ class ModuleCatalogTests(unittest.TestCase):
         rows = catalog_rows((ROOT / 'README.md').read_text(encoding='utf-8'))
         self.assertEqual(len(inventory), len(list((ROOT / 'dist').glob('*/*.json.zip'))))
         self.assertEqual(validate_rows(rows, inventory), [])
+
+    def test_linked_catalog_page_preserves_validation_and_locations(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'docs').mkdir()
+            (root/'docs/available-modules.md').write_text('# Available Modules\n\n| Module | Source mode | Navigation destination | Artifact |\n|---|---|---|---|\n| SAMPLE | Repository distribution | `_Arcade/_Arcade Systems/_SAMPLE/` | `wrong.json.zip` |\n',encoding='utf-8')
+            rows=catalog_rows('## Available modules\n\n[Available Modules](docs/available-modules.md)\n',root)
+            issue=next(i for i in validate_rows(rows,self.inventory) if i['kind']=='artifact')
+            self.assertEqual(issue['location'],'docs/available-modules.md:5')
 
     def test_missing_published_module_is_reported(self):
         self.assertIn('missing', self.kinds([]))
