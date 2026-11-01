@@ -15,7 +15,7 @@ DownloaderPLUS does not develop FPGA cores or distribute game ROMs, BIOS files, 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
 - [Collection Options](#collection-options)
-- [Available modules](docs/available-modules.md)
+- [Available modules](#available-modules)
 - [Managed Systems](#managed-systems) and [Reserve Folders](#reserve-folders)
 - [Folder Structure](#folder-structure)
 - [Available Arcade Systems](#available-arcade-systems)
