@@ -16,7 +16,7 @@ Inspected September 30, 2026. Counts below come from authoritative source invent
 | PGM (Ezio) — Arcade Systems | 32 | 105 | 27 | 3 | 140 | 105 | PASS |
 | NAMCO SYSTEM 11 | 11 | 24 | 9 | 1 | 36 | 24 | PASS |
 | TAITO FX1B | 5 | 7 | 4 | 1 | 13 | 7 | PASS |
-| CAPCOM CPS1 | 33 | 126 | 27 | 0 | 159 | 126 | PASS |
+| CAPCOM CPS1 | 27 | 111 | 27 | 0 | 138 | 111 | PASS |
 | CAPCOM CPS1.5 | 6 | 13 | 6 | 0 | 19 | 13 | PASS |
 | CAPCOM CPS2 | 40 | 280 | 40 | 0 | 320 | 280 | PASS |
 | CAPCOM CPS3 | 6 | 11 | 6 | 0 | 17 | 11 | PASS |
@@ -69,6 +69,6 @@ python tools/build.py --all
 
 The audit command reads all enabled Arcade Systems modules dynamically and skips Coin-Op. Without `--live` it reconstructs the verified source inventory from each manifest. With `--live` it fetches and validates current authoritative distributions and compares them to the generated databases. Hosted validation and independent updates also run the offline parity audit. Actual MiSTer navigation/game launch acceptance remains a separate hardware milestone.
 
-CPS inventories use the live JTCORES classifications; ST-V uses the official MiSTer classification and verified alternatives index. These five navigation-only modules include no cores. ST-V uses selective extraction of only its eight classified alternatives from the unchanged upstream archive. See [CPS inspection](cps-inspection.md) and [ST-V inspection](stv-inspection.md).
+CPS1 uses Coin-Op; the remaining CPS inventories use the live JTCORES classifications; ST-V uses the official MiSTer classification and verified alternatives index. These five navigation-only modules include no cores. ST-V uses selective extraction of only its eight classified alternatives from the unchanged upstream archive. See [CPS inspection](cps-inspection.md) and [ST-V inspection](stv-inspection.md).
 
 The seven confirmed Sega/IREM/Technosoft modules use classified database inventories and the existing selective archive policy. System C-2 remains held pending an authoritative official selector. See [batch inspection](next-batch-inspection.md).

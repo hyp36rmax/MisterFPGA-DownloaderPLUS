@@ -57,10 +57,15 @@ def load_module(name, root=ROOT):
         if mode=="coinop-family":
             fields.update({"family","source_module"})
             if 'core_policy' in config:fields.add('core_policy')
+            if 'preserve_source_filter' in config:
+                fields.add('preserve_source_filter')
+                if config['preserve_source_filter'] is not True:raise ValidationError('Invalid source filter preservation policy')
         if mode=="documentation":fields.add("systems")
         if set(config)!=fields or config["name"]!=name or config["derived_db_id"]!="hyp36rmax/MisterFPGA-DownloaderPLUS/"+name:
             raise ValidationError("Invalid Arcade Systems configuration")
         if mode=="coinop-family":
+            if name=="capcom-cps1" and config.get("preserve_source_filter") is not True:
+                raise ValidationError("Licensed CPS1 requires source filter preservation")
             from tools.common.coinop_families import AUTHORITY, families
             if config.get('include_required_cores'):
                 cp=config.get('core_policy')
@@ -186,6 +191,10 @@ def destinations(database, category, policy):
     mapping = {}
     targets = set()
     for original in database[category]:
+        if getattr(policy,'upstream_owned_core',lambda path,category:False)(original,category):
+            valid = original == '_Arcade/cores' if category == 'folders' else original.startswith('_Arcade/cores/') and original.count('/') == 2 and original.endswith('.rbf')
+            if not valid:raise ValidationError('Only standard-location upstream core records may be omitted')
+            continue
         target = policy.destination(original, category)
         if target.casefold() in targets:
             raise ValidationError(f"Destination collision in {category}: {target}")
@@ -257,6 +266,9 @@ def validate_output(upstream, generated, config, policy):
         "tags_changed": 0, "tangles_changed": 0, "unexpected_metadata_differences": 0,
         "approved_db_id_changes": int(upstream["db_id"] != generated["db_id"]),
     }
+    if hasattr(policy,'upstream_owned_core'):
+        report['upstream_owned_core_files']=sum(policy.upstream_owned_core(p,'files') for p in upstream['files'])
+        report['upstream_owned_core_folders']=sum(policy.upstream_owned_core(p,'folders') for p in upstream['folders'])
     for category in ("files", "folders"):
         mapping = destinations(upstream, category, policy)
         if set(mapping.values()) != set(generated[category]):

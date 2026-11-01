@@ -1,0 +1,188 @@
+# Copyright (c) 2021-2026 José Manuel Barroso Galindo <theypsilon@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# You can download the latest version of this tool from:
+# https://github.com/MiSTer-devel/Downloader_MiSTer
+
+from enum import IntEnum, unique
+from pathlib import Path
+from typing import NamedTuple, TypedDict, Optional
+
+from downloader.constants import FILE_downloader_ini, K_BASE_PATH, K_DOWNLOADER_TIMEOUT, K_DOWNLOADER_RETRIES, \
+    MEDIA_FAT, DISTRIBUTION_MISTER_DB_ID, K_DOWNLOADER_THREADS_LIMIT, STORAGE_PRIORITY_PREFER_SD, \
+    DEFAULT_MINIMUM_SYSTEM_FREE_SPACE_MB, DEFAULT_MINIMUM_EXTERNAL_FREE_SPACE_MB, DOWNLOADER_OUTPUT_HUMAN
+from downloader.db_options import DbOptions
+from downloader.error import DownloaderError
+from downloader.http_gateway import HttpConfig
+
+
+class Environment(TypedDict):
+    DOWNLOADER_LAUNCHER_PATH: Optional[str]
+    DOWNLOADER_INI_PATH: Optional[str]
+    EXTRA_DROP_IN_DATABASE_FILES: str
+    LOGFILE: Optional[str]
+    LOGLEVEL: str
+    DOWNLOADER_OUTPUT: str
+    CURL_SSL: str
+    COMMIT: str
+    RELEASE_PATCH: Optional[int]
+    ALLOW_REBOOT: Optional[str]
+    UPDATE_LINUX: str
+    DEFAULT_DB_URL: str
+    DEFAULT_DB_ID: str
+    DEFAULT_BASE_PATH: Optional[str]
+    FORCED_BASE_PATH: Optional[str]
+    PC_LAUNCHER: Optional[str]
+    SKIP_FREE_SPACE_CHECKS: Optional[str]
+    DEBUG: str
+    FAIL_ON_FILE_ERROR: str
+    HTTP_PROXY: str
+    HTTPS_PROXY: str
+    ROTATE_LOGS: str
+    SSL_CERT_FILE: str
+
+
+@unique
+class AllowDelete(IntEnum):
+    NONE = 0
+    ALL = 1
+    OLD_RBF = 2
+
+
+@unique
+class AllowReboot(IntEnum):
+    NEVER = 0
+    ALWAYS = 1
+    ONLY_AFTER_LINUX_UPDATE = 2
+
+@unique
+class FileChecking(IntEnum):
+    FASTEST = 0
+    BALANCED = 1
+    EXHAUSTIVE = 2
+    VERIFY_INTEGRITY = 3
+
+class IgnoredDatabase(NamedTuple):
+    file: str
+    section: str
+    ctx: str
+    line: int
+    first_line: int
+
+
+class ConfigDatabaseSectionRequired(TypedDict):
+    section: str
+    db_url: str
+
+
+class ConfigDatabaseSection(ConfigDatabaseSectionRequired, total=False):
+    description: str
+    options: DbOptions
+
+
+class ConfigMisterSection(TypedDict):
+    base_path: str
+    base_system_path: str
+    storage_priority: str
+    allow_delete: AllowDelete
+    allow_reboot: AllowReboot
+    verbose: bool
+    bench: bool
+    update_linux: bool
+    file_checking: FileChecking
+    downloader_threads_limit: int
+    downloader_timeout: int
+    downloader_retries: int
+    filter: str
+    minimum_system_free_space_mb: int
+    minimum_external_free_space_mb: int
+    user_defined_options: list[str]
+    http_proxy: Optional[str]
+
+
+class ConfigRequired(ConfigMisterSection):
+    zip_file_count_threshold: int
+    zip_accumulated_mb_threshold: int
+    debug: bool
+    default_db_id: str
+    start_time: float
+    logfile: Optional[str]
+    is_pc_launcher: bool
+    skip_free_space_checks: bool
+    databases: dict[str, ConfigDatabaseSection]
+    database_sources: dict[str, str]
+    ignored_databases: list[IgnoredDatabase]
+    config_path: Path
+    commit: str
+    fail_on_file_error: bool
+    curl_ssl: str
+    ssl_cert_file: str
+    http_logging: bool
+    http_config: Optional[HttpConfig]
+    rotate_logs: bool
+    downloader_output: str
+
+class Config(ConfigRequired, total=False):
+    environment: Environment  # This should never be used. It's there just to be debug-logged.
+
+
+def default_config() -> Config:
+    return {
+        'curl_ssl': '',
+        'ssl_cert_file': '',
+        'http_logging': False,
+        'databases': {},
+        'database_sources': {},
+        'ignored_databases': [],
+        'config_path': Path(FILE_downloader_ini),
+        'base_path': MEDIA_FAT,
+        'base_system_path': MEDIA_FAT,
+        'storage_priority': STORAGE_PRIORITY_PREFER_SD,
+        'allow_delete': AllowDelete.ALL,
+        'allow_reboot': AllowReboot.ALWAYS,
+        'update_linux': True,
+        'downloader_threads_limit': 6,
+        'downloader_timeout': 180,
+        'downloader_retries': 3,
+        'zip_file_count_threshold': 60,
+        'zip_accumulated_mb_threshold': 100,
+        'filter': '',
+        'verbose': False,
+        'bench': False,
+        'debug': False,
+        'default_db_id': DISTRIBUTION_MISTER_DB_ID,
+        'start_time': 0,
+        'logfile': None,
+        'is_pc_launcher': False,
+        'skip_free_space_checks': False,
+        'user_defined_options': [],
+        'commit': 'unknown',
+        'fail_on_file_error': False,
+        'file_checking': FileChecking.BALANCED,
+        'minimum_system_free_space_mb': DEFAULT_MINIMUM_SYSTEM_FREE_SPACE_MB,
+        'minimum_external_free_space_mb': DEFAULT_MINIMUM_EXTERNAL_FREE_SPACE_MB,
+        'http_proxy': '',
+        'http_config': None,
+        'rotate_logs': True,
+        'downloader_output': DOWNLOADER_OUTPUT_HUMAN
+    }
+
+
+def download_sensitive_configs() -> list[str]:
+    return [K_BASE_PATH, K_DOWNLOADER_THREADS_LIMIT, K_DOWNLOADER_TIMEOUT, K_DOWNLOADER_RETRIES]
+
+
+class InvalidConfigParameter(DownloaderError):
+    pass

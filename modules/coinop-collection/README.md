@@ -2,13 +2,13 @@
 
 This interim navigation module derives a database from Coin-Op Collection's authoritative [official database](https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/db/db.json.zip). Coin-Op retains ownership and control of its content. DownloaderPLUS is independent and does not modify upstream.
 
-The approved contract renames `_Arcade/<suffix>` to `_Arcade/_Coin-Op Collection/<suffix>` and the exact `_Arcade` folder record to `_Arcade/_Coin-Op Collection`. Already-transformed keys are stable; double prefixes and collisions fail. Non-Arcade paths, including external games folders, remain unchanged.
+The navigation contract renames `_Arcade/<suffix>` to `_Arcade/_Coin-Op Collection/<suffix>` and the exact `_Arcade` folder record to `_Arcade/_Coin-Op Collection`. Already-transformed keys are stable; double prefixes and collisions fail. Non-Arcade paths, including external games folders, remain unchanged.
 
-Rewritten files retain their original effective source through explicit URLs. The only other permitted change is the permanent derived `db_id` in `module.json`. All hashes, sizes, tags, tangles, timestamp, defaults, dictionary, base URL, root upstream database URL, and storage classifications stay identical.
+Rewritten files retain their original effective source through explicit URLs. Standard-location core records are omitted to retain upstream ownership; the permanent derived `db_id` is defined in `module.json`. All retained hashes, sizes, tags, tangles, timestamp, defaults, dictionary, base URL, root upstream database URL, and storage classifications stay identical.
 
 Supported schema: database v1 with the nine inspected root fields; file records with `hash`, `size`, `tags`, optional `tangle` and `url`; folder records with `tags` and optional `path: pext`. Integer tag aliases are supported. New entries, tag IDs, filenames, counts, and values within this schema are dynamic. Unknown schema features stop publication.
 
-Keep normal Coin-Op enabled: dedicated-folder MRAs resolve cores in `_Arcade/cores`. Mirrored nested cores are included for faithful destination transformation, but normal core lookup still uses the upstream installation. No MRA payloads or ROM references are edited.
+Keep normal Coin-Op enabled: dedicated-folder MRAs resolve cores in `_Arcade/cores`. The derived database omits core records so the normal Coin-Op installation retains ownership at `_Arcade/cores/`. No MRA payloads or ROM references are edited.
 
 See the root [README](../../README.md) for manual installation. See [filter policy](../../docs/derived-filter-policy.md), [build commands](../../docs/software-verification.md), and [synchronization](../../docs/arcade-systems-architecture.md) for technical details. Final MiSTer hardware acceptance remains outstanding.
 
@@ -18,7 +18,7 @@ Authoritative database:
 
 <https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/db/db.json.zip>
 
-The module changes file and folder destination keys as follows, preserving the complete suffix:
+The module changes MRA and navigation-folder destination keys as follows, preserving the complete suffix. Standard core records are omitted because upstream Coin-Op owns them:
 
 ```text
 _Arcade/<existing path>
@@ -59,6 +59,6 @@ The section must match the derived `db_id`. Do not replace the normal Coin-Op se
 
 If you installed the earlier database, update only the derived section's `db_url` to the `coinop-collection.json.zip` URL above. Keep its database ID unchanged. The corrected destination is `_Arcade/_Coin-Op Collection/`. Files previously tracked under the derived ID follow Downloader's ordinary update/removal settings; the normal Coin-Op installation remains independent.
 
-**Runtime dependency:** MiSTer's Arcade MRA loader derives its root from `_Arcade` and looks for RBFs in the normal `_Arcade/cores` directory. MRAs in the dedicated folder therefore depend on the normal Coin-Op installation. The derived database mirrors the upstream `cores/` suffix as requested, but those nested RBFs are not the normal loader's lookup location. ROMs continue to use the existing games locations. See the inspected [MiSTer loader](https://github.com/MiSTer-devel/Main_MiSTer/blob/master/support/arcade/mra_loader.cpp).
+**Runtime dependency:** MiSTer's Arcade MRA loader derives its root from `_Arcade` and looks for RBFs in the normal `_Arcade/cores` directory. MRAs in the dedicated folder therefore depend on the normal Coin-Op installation. The derived database does not mirror `cores/` or acquire a second owner at the standard core location. Previously tracked nested RBFs retire through normal Downloader reconciliation. See [migration behavior](../../docs/cps1-migration.md). ROMs continue to use the existing games locations. See the inspected [MiSTer loader](https://github.com/MiSTer-devel/Main_MiSTer/blob/master/support/arcade/mra_loader.cpp).
 
 Software verification is automated. Actual navigation and game launching on MiSTer hardware still require final acceptance verification; no hardware verification is claimed.

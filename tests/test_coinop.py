@@ -22,21 +22,29 @@ class CoinOpTests(unittest.TestCase):
         self.assertEqual(digest(FIXTURE.read_bytes()),
                          "251c2b9ad771b799754e7c1fa6b1f398a97e9015531ae7c12f3388cb8d1eec57")
         report = validate_output(self.upstream, self.generated, self.config, self.policy)
-        self.assertEqual(report, {
-            "upstream_files": 332, "generated_files": 332,
-            "upstream_folders": 76, "generated_folders": 76,
-            "file_destinations_changed": 332, "folder_destinations_changed": 73,
-            "non_arcade_destinations_changed": 0, "effective_source_urls_changed": 0,
-            "url_fields_materialized": 332, "hashes_changed": 0, "sizes_changed": 0,
-            "tags_changed": 0, "tangles_changed": 0, "unexpected_metadata_differences": 0,
-            "approved_db_id_changes": 1,
-        })
+        self.assertEqual(report, {'upstream_files': 332,
+         'generated_files': 278,
+         'upstream_folders': 76,
+         'generated_folders': 75,
+         'file_destinations_changed': 278,
+         'folder_destinations_changed': 72,
+         'non_arcade_destinations_changed': 0,
+         'effective_source_urls_changed': 0,
+         'url_fields_materialized': 278,
+         'hashes_changed': 0,
+         'sizes_changed': 0,
+         'tags_changed': 0,
+         'tangles_changed': 0,
+         'unexpected_metadata_differences': 0,
+         'approved_db_id_changes': 1,
+         'upstream_owned_core_files': 54,
+         'upstream_owned_core_folders': 1})
 
     def test_exact_paths_and_complete_suffix(self):
         pairs = {
             "_Arcade/foo.mra": "_Arcade/_Coin-Op Collection/foo.mra",
             "_Arcade/_alternatives/_A Game/foo.mra": "_Arcade/_Coin-Op Collection/_alternatives/_A Game/foo.mra",
-            "_Arcade/cores/a_20260101.rbf": "_Arcade/_Coin-Op Collection/cores/a_20260101.rbf",
+            "_Arcade/cores/a_20260101.rbf": "_Arcade/cores/a_20260101.rbf",
             "_ArcadeExtra/foo.mra": "_ArcadeExtra/foo.mra",
         }
         for original, target in pairs.items():
@@ -67,7 +75,7 @@ class CoinOpTests(unittest.TestCase):
         self.upstream["files"][original]["url"] = url
         result = transform(self.upstream, self.config, self.policy)
         self.assertEqual(result["files"][self.policy.destination(original, "files")]["url"], url)
-        self.assertEqual(validate_output(self.upstream, result, self.config, self.policy)["url_fields_materialized"], 331)
+        self.assertEqual(validate_output(self.upstream, result, self.config, self.policy)["url_fields_materialized"], 277)
 
     def test_filter_tags_tangles_and_all_metadata_preserved(self):
         self.assertEqual(self.generated["default_options"]["filter"],
@@ -75,6 +83,7 @@ class CoinOpTests(unittest.TestCase):
         for key in ("v", "timestamp", "tag_dictionary", "base_files_url", "db_url", "default_options"):
             self.assertEqual(self.generated[key], self.upstream[key])
         for path, before in self.upstream["files"].items():
+            if self.policy.upstream_owned_core(path,"files"):continue
             after = self.generated["files"][self.policy.destination(path, "files")]
             self.assertEqual({key: after[key] for key in before}, before)
 
@@ -213,7 +222,7 @@ class CoinOpTests(unittest.TestCase):
     def test_future_counts_not_hardcoded(self):
         self.upstream["files"].pop(next(iter(self.upstream["files"])))
         result = transform(self.upstream, self.config, self.policy)
-        self.assertEqual(validate_output(self.upstream, result, self.config, self.policy)["generated_files"], 331)
+        self.assertEqual(validate_output(self.upstream, result, self.config, self.policy)["generated_files"], 277)
 
     def test_build_no_op_and_failure_preserves_last_good(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -1,22 +1,12 @@
 {
   "name": "capcom-cps1",
   "display_name": "CAPCOM CPS1",
-  "source_mode": "database",
-  "upstream_url": "https://raw.githubusercontent.com/jotego/jtcores_mister/main/jtbindb.json.zip",
-  "upstream_db_id": "jtcores",
+  "source_mode": "coinop-family",
+  "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps1",
-  "policy_version": 1,
-  "selection_tags": [
-    "arcadejtcps1"
-  ],
-  "exclusive_group_tags": [
-    "arcadejtcps1",
-    "arcadejtcps15",
-    "arcadejtcps2",
-    "arcadejtcps3"
-  ],
-  "source_navigation_root": "_Arcade",
-  "target_folder": "_Arcade Systems/_CAPCOM CPS1",
-  "database_member": "jtbindb.json",
-  "core_ownership": "upstream"
+  "policy_version": 2,
+  "include_required_cores": false,
+  "family": "capcom-cps1",
+  "source_module": "coinop-collection",
+  "preserve_source_filter": true
 }
