@@ -14,6 +14,8 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
 
+Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alternative/` source paths and download URLs remain unchanged.
+
 ## Contributing authorities
 
 | Authority | Primary MRAs | Alternatives |

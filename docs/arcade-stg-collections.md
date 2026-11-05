@@ -29,3 +29,5 @@ The original 222 canonical rows retain their order and field values. Three appro
 ## TAITO F3
 
 The [F3 inspection](taito-f3-inspection.md) records five verified shooter identities and the approved versioned expansion. Gekirindan, RayForce / Gunlock, Grid Seeker and Twin Cobra II enter TATE; Darius Gaiden enters YOKO. Complete includes all five. Keep MeatCores enabled for the upstream-owned F3 core.
+
+F3 destination alternatives use `_alternatives/`; source paths and URLs stay unchanged. Other systems retain their existing paths. See [F3 correction and cleanup](taito-f3-alternatives.md).

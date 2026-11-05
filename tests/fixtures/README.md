@@ -23,3 +23,5 @@ It contains database metadata only, referencing Coin-Op's authoritative content 
 `meatcores-f3-2026-11-05.db.json.zip` is the unchanged authoritative MeatCores metadata snapshot for F3 selection. It contains no core, ROM or BIOS payloads. Credit belongs to Meathax and the upstream contributors.
 
 `stg-before-f3.json` preserves the preceding STG Complete MeatCores snapshot and match records for the scoped F3 regression. It contains source metadata and existing public MRA verification evidence, with no core, ROM or BIOS payloads. It proves that the F3 batch retains non-F3 records and matches.
+
+`taito-f3-before-alternatives-normalization.json` records pre-correction database fingerprints, singular paths, source/match fingerprints and the shared alternative parent metadata. It contains metadata only and proves that only F3 destination paths and the necessary shared parent tag unions change.

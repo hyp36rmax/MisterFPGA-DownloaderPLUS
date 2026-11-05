@@ -258,10 +258,13 @@ def alternative_paths(primary, source, matrix=None):
     return alternative_ownership(source, matrix or load_matrix())['files'].get(primary, [])
 
 
-def destination(path, target=DESTINATION):
+def destination(path, target=DESTINATION, authority=None):
     parts = path.split('/')
     if alternative_directory(path):
-        return target + '/' + '/'.join(parts[parts.index(alternative_directory(path)):])
+        tail = parts[parts.index(alternative_directory(path)):]
+        if authority == 'meathax/meatcores' and path.startswith('_Arcade/_Meatcores/_TaitoF3/') and tail[0] == '_alternative':
+            tail[0] = '_alternatives'
+        return target + '/' + '/'.join(tail)
     return target + '/' + parts[-1]
 
 
@@ -348,7 +351,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
             is_parent = any(f.startswith(old_folder + '/') for f in selected_families)
             if old_folder != '_Arcade' and not is_family and not is_parent:
                 continue
-            target_folder = destination(old_folder, target_root) if alternative_directory(old_folder) else target_root
+            target_folder = destination(old_folder, target_root, authority) if alternative_directory(old_folder) else target_root
             folder_record = {k: copy.deepcopy(v) for k, v in original_folder.items() if k not in {'arc_id', 'tags'}}
             folder_record['tags'] = [mapping[t] for t in original_folder.get('tags', [])]
             previous_folder = result['folders'].get(target_folder)
@@ -365,7 +368,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
                 require(any(re.fullmatch(r'(?:Arcade-)?' + re.escape(proof['rbf']) + r'(?:_\d{8})?\.rbf', c, re.I) for c in source['cores']), 'MRA reference has no source-owned core: ' + path)
             record = copy.deepcopy(original)
             record['tags'] = [mapping[t] for t in record.get('tags', [])]
-            target = destination(path, target_root)
+            target = destination(path, target_root, authority)
             if 'arc_id' not in record:
                 record['url'] = original.get('url', database['base_files_url'] + quote(path))
             else:
@@ -420,7 +423,7 @@ def validate_preservation(generated, sources, selection, target_root=DESTINATION
         old_dictionary = database['tag_dictionary']
         for path in paths:
             original = inventory(source)[path]
-            target = destination(path, target_root)
+            target = destination(path, target_root, authority)
             expected.add(target)
             require(target in actual, 'Missing primary/authoritative alternative: ' + path)
             record = actual[target]
@@ -548,6 +551,10 @@ def coverage_report(manifest, report, config=None):
     for key in ('matched_rows', 'matched_distinct_designs', 'unavailable_rows', 'authority_hold_rows',
                 'ambiguous_rows', 'primary_mras', 'alternatives', 'missing_alternatives', 'orphan_alternatives'):
         lines.append('| ' + key.replace('_', ' ') + ' | ' + str(report[key]) + ' |')
+    if any(row.get('authority') == 'meathax/meatcores' and
+           (row.get('primary_mra') or '').startswith('_Arcade/_Meatcores/_TaitoF3/')
+           for row in manifest['matches']):
+        lines += ['', 'Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alternative/` source paths and download URLs remain unchanged.']
     lines += ['', '## Contributing authorities', '', '| Authority | Primary MRAs | Alternatives |', '|---|---:|---:|']
     for authority, count in report['sources'].items():
         lines.append(f"| {authority} | {count['primary_mras']} | {count['alternatives']} |")

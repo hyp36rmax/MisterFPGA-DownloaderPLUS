@@ -19,6 +19,11 @@ class DatabasePolicy:
 
     def destination(self, path, category):
         safe_path(path)
+        if self.config.get('name') == 'taito-f3':
+            for root in (self.source_prefix, self.prefix):
+                singular = root + '/_alternative'
+                if path == singular or path.startswith(singular + '/'):
+                    path = root + '/_alternatives' + path[len(singular):]
         if path == self.prefix or path.startswith(self.prefix + '/'):
             tail = path[len(self.prefix):]
             repeated = '/' + self.config['target_folder']

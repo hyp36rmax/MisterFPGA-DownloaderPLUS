@@ -38,3 +38,5 @@ The manifest fingerprints the master, upstream revisions and generated output. C
 ## Other STG views
 
 [YOKO](../arcade-stg-yoko/README.md) selects horizontal titles. [Complete](../arcade-stg-complete/README.md) combines verified TATE and YOKO titles in its own folder. Choose Complete or the individual views to avoid unnecessary copies. TATE retains its original subscription and destination. See [shared collection rules](../../docs/arcade-stg-collections.md).
+
+Taito F3 alternatives use `_alternatives/` at the destination. Original source paths and URLs remain unchanged. See [F3 path correction and cleanup](../../docs/taito-f3-alternatives.md).
