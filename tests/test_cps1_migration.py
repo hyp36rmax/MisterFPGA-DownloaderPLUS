@@ -89,7 +89,7 @@ class CPS1MigrationTests(unittest.TestCase):
 
 
 class DownloaderCleanupTests(unittest.TestCase):
-    def run_cleanup(self,allow_delete='all',shared=False,core=False):
+    def run_cleanup(self,allow_delete='all',shared=False,core=False,relative=None,replacement=None):
         # Execute the pinned upstream candidate and deletion blocks, not a replacement remover.
         source=ast.parse((FIXTURE/'process_db_index_worker.py.source').read_text(encoding='utf-8'))
         translate=next(n for n in source.body if isinstance(n,ast.FunctionDef) and n.name=='_translate_items')
@@ -99,12 +99,17 @@ class DownloaderCleanupTests(unittest.TestCase):
         block=next(n for n in ast.walk(importer) if isinstance(n,ast.If) and isinstance(n.test,ast.Compare) and isinstance(n.test.left,ast.Call) and isinstance(n.test.left.func,ast.Name) and n.test.left.func.id=='len' and any(isinstance(x,ast.Name) and x.id=='files_to_consume' for x in ast.walk(n.test)))
         log=SimpleNamespace(bench=lambda *a:None,debug=lambda *a:None)
         with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);old=root/('_Arcade/_Coin-Op Collection/cores/old.rbf' if core else '_Arcade/_Arcade Systems/_CAPCOM CPS1/Old Game.mra')
+            root=Path(tmp);old=root/(relative or ('_Arcade/_Coin-Op Collection/cores/old.rbf' if core else '_Arcade/_Arcade Systems/_CAPCOM CPS1/Old Game.mra'))
             user=old.parent/'User Game.mra';old.parent.mkdir(parents=True);old.write_bytes(b'old managed file');user.write_bytes(b'user data')
             rel=old.relative_to(root).as_posix();pkg=SimpleNamespace(rel_path=rel,full_path=str(old),description={'hash':'old','size':16},drive=None,is_pext_external=lambda:False)
-            calculator=SimpleNamespace(create_path_packages=lambda items,kind:([pkg for p,r in items if p==rel],[]))
+            packages={rel:pkg};index={}
+            if replacement:
+                new=root/replacement;new.parent.mkdir(parents=True,exist_ok=True);new.write_bytes(b'new tracked file')
+                current=SimpleNamespace(rel_path=replacement,full_path=str(new),description={'hash':'new','size':16})
+                packages[replacement]=current;index[replacement]=current.description
+            calculator=SimpleNamespace(create_path_packages=lambda items,kind:([packages[p] for p,r in items if p in packages],[]))
             ctx=SimpleNamespace(fail_ctx=SimpleNamespace(swallow_error=lambda e:None))
-            _,removed=env['_translate_items'](ctx,calculator,{},'file',{rel:pkg.description})
+            _,removed=env['_translate_items'](ctx,calculator,index,'file',{rel:pkg.description})
             self.assertEqual(removed,[pkg])
             self.assertNotIn(user.relative_to(root).as_posix(),[p.rel_path for p in removed])
             stores={'downloaderplus':{rel},'jtcores':{rel.upper()} if shared else {'_Arcade/Independent JT.mra'}}
@@ -121,6 +126,7 @@ class DownloaderCleanupTests(unittest.TestCase):
                      'AllowDelete':SimpleNamespace(ALL='all',OLD_RBF='old_rbf',NONE='none'),'FILE_PROP_ENTANGLEMENTS':'tangle','is_entangled_with':lambda p,failed:False,'os':os}
             exec(compile(ast.Module(body=[block],type_ignores=[]),'upstream_cleanup','exec'),runtime)
             self.assertTrue(user.is_file())
+            if replacement:self.assertEqual(new.read_bytes(),b'new tracked file')
             self.assertEqual(stores['jtcores'],{rel.upper()} if shared else {'_Arcade/Independent JT.mra'})
             return old.is_file(),removed_paths
 
@@ -137,12 +143,12 @@ class DownloaderCleanupTests(unittest.TestCase):
         self.assertFalse(self.run_cleanup(allow_delete='old_rbf',core=True)[0])
 
 
-    def test_nonempty_folder_is_never_removed(self):
+    def test_nonempty_folder_is_never_removed(self,relative='_alternatives'):
         source=ast.parse((FIXTURE/'online_importer.py.source').read_text(encoding='utf-8'))
         block=next(n for n in ast.walk(source) if isinstance(n,ast.If) and isinstance(n.test,ast.Compare) and any(isinstance(x,ast.NamedExpr) and isinstance(x.target,ast.Name) and x.target.id=='directories_to_consume' for x in ast.walk(n.test)))
         with tempfile.TemporaryDirectory() as tmp:
-            folder=Path(tmp)/'_alternatives';folder.mkdir();user=folder/'User Game.mra';user.write_bytes(b'user data')
-            pkg=SimpleNamespace(rel_path='_alternatives',full_path=str(folder))
+            folder=Path(tmp)/relative;folder.mkdir(parents=True);user=folder/'User Game.mra';user.write_bytes(b'user data')
+            pkg=SimpleNamespace(rel_path=relative,full_path=str(folder))
             store=SimpleNamespace(matching_paths_ci=lambda *args:set())
             fs=SimpleNamespace(folder_has_items=lambda path:any(Path(path).iterdir()),remove_folder=lambda path:self.fail('Must not remove nonempty folder'))
             env={'PathPackage':SimpleNamespace,'box':SimpleNamespace(consume_directories=lambda:[(pkg,{'downloaderplus'})],is_folder_installed=lambda p:False),

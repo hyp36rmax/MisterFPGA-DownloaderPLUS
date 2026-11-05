@@ -282,13 +282,23 @@ def validate_navigation(upstream, generated, config):
             if 'arc_id' in record and database.get('archives'):
                 return database['archives'][record['arc_id']]['base_files_url'] + quote(prefix + '/' + path)
             return database.get('base_files_url', '') + quote(prefix + '/' + path)
-        return {path: {**record, "url": record.get("url", original_url(path,record))}
-                for path, record in files.items()}
+        result = {}
+        for path, record in files.items():
+            target = normalized_path(path)
+            require(target not in result, 'Alternative destination collision: ' + target)
+            result[target] = {**record, "url": record.get("url", original_url(path,record))}
+        return result
+    def normalized_path(path):
+        if config.get('name') == 'taito-f3' and (path == '_alternative' or path.startswith('_alternative/')):
+            return '_alternatives' + path[len('_alternative'):]
+        return path
     # Explicit URLs may be added to preserve an original implicit effective URL.
     target_prefix = "_Arcade/" + config["target_folder"]
     require(normalized(before, upstream, source_prefix) == normalized(after, generated, target_prefix), "Primary/alternative relative path or payload metadata parity mismatch")
     require(normalized(alternatives, upstream, source_prefix) == normalized(generated_alternatives, generated, target_prefix), "Alternative MRA parity mismatch")
-    require(folders == generated_folders, "Alternative folder hierarchy parity mismatch")
+    expected_folders = {normalized_path(path): record for path, record in folders.items()}
+    require(len(expected_folders) == len(folders), "Alternative folder destination collision")
+    require(expected_folders == generated_folders, "Alternative folder hierarchy parity mismatch")
     return {"primary_mras": len(before) - len(alternatives), "alternative_mras": len(alternatives),
             "alternative_folders": len(folders), "total_mras": len(before),
             "current_cores": sum(path.endswith(".rbf") for path in generated["files"]),

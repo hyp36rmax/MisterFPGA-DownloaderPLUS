@@ -58,4 +58,4 @@ TATE, YOKO and STG Complete share the existing collection matcher, approved sour
 
 ## TAITO F3
 
-F3 uses the existing MeatCores tagged database selector with upstream core ownership. The hardware navigation audit recognizes the authoritative `_alternative` directory spelling without renaming it. The existing STG matcher preserves that spelling too. The F3 integration uses scoped source-snapshot inputs to retain all non-F3 records. No source authority, subscription identity or downloader mechanism changes. See [F3 verification](taito-f3-inspection.md).
+F3 uses the existing MeatCores tagged database selector with upstream core ownership. The source parsers accept `_alternative` and `_alternatives`. F3 alone maps its destination alternative root to `_alternatives`; upstream source paths and URLs retain their original spelling. The F3 integration uses scoped source-snapshot inputs to retain all non-F3 records. No source authority, subscription identity or downloader mechanism changes. See [F3 verification](taito-f3-inspection.md).

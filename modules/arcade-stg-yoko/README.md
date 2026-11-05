@@ -17,3 +17,5 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 Build with `python tools/build.py --module arcade-stg-yoko`. Audit with `python tools/audit_stg_collection.py --module arcade-stg-yoko`.
 
 This subscription is independent of Arcade Systems Complete and of the other STG views. Primaries remain flat, recursive alternatives retain their hierarchy, and conflicting filenames fail publication. Choose STG Complete or individual orientations to avoid duplicate copies.
+
+Taito F3 alternatives use `_alternatives/` at the destination. Original source paths and URLs remain unchanged. See [F3 path correction and cleanup](../../docs/taito-f3-alternatives.md).

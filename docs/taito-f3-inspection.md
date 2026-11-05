@@ -6,7 +6,7 @@ Inspected 2026-11-05 from [Meathax / MeatCores](https://github.com/meathax/meatc
 
 The authoritative classification is `arcadearcadetaitof3` (ID 62 in this snapshot). It selects 33 primary MRAs and 63 regional alternatives. All 96 MRA payloads were fetched and checked against the original hashes and sizes. The database has no default filter override.
 
-The 28 alternative directories comprise `_alternative/` and 27 game-family directories beneath it. The singular upstream spelling and every nested path remain unchanged. The exact inventory and original records are retained in `dist/taito-f3/manifest.json`; the offline source snapshot is `tests/fixtures/meatcores-f3-2026-11-05.db.json.zip`.
+The 28 alternative directories comprise `_alternative/` and 27 game-family directories beneath it. The singular spelling remains in upstream references and URLs. Destinations use `_alternatives/`, with every nested game-family path unchanged. The exact inventory and original records are retained in `dist/taito-f3/manifest.json`; the offline source snapshot is `tests/fixtures/meatcores-f3-2026-11-05.db.json.zip`.
 
 Executable core: `_Arcade/cores/Arcade-TaitoF3_20261105.rbf`, upstream MD5 `5c2dd97da5fe3c50aadc9a28ec781c58`, size 4,224,200 bytes. Required MRA reference: `Arcade-TaitoF3`. MeatCores owns the core; neither the individual module nor its contribution to Arcade Systems Complete adds core records. Keep the normal MeatCores subscription enabled.
 
@@ -40,7 +40,7 @@ The existing source-snapshot input is projected to refresh only the approved F3 
 | YOKO | 7 / 8 | 17 / 20 |
 | Complete | 127 / 132 | 400 / 411 |
 
-Complete is the verified union of TATE and YOKO. All three retain their independent subscription IDs and destinations and own no executable cores. F3 alternatives preserve `_alternative/` and their game-family directories. No additional collection is introduced.
+Complete is the verified union of TATE and YOKO. All three retain their independent subscription IDs and destinations and own no executable cores. F3 alternative destinations use `_alternatives/` and preserve their game-family directories; source references retain `_alternative/`. No additional collection is introduced.
 
 ## NEEDS VALIDATION on hardware
 
@@ -48,6 +48,8 @@ MiSTer game launch, ROM lookup, video rotation, sound, controls and regional beh
 
 ## VERIFIED validation
 
-All 342 regression tests and all 11 repository audits pass, including distribution integrity, STG replay and union, public master parity, module catalog, README documentation and encoding validation. Focused tests compare every non-F3 match and pinned source record with the pre-F3 fixture; no unrelated coverage changes are included.
+The original integration passed 342 regression tests and all 11 repository audits, including distribution integrity, STG replay and union, public master parity, module catalog, README documentation and encoding validation. Focused tests compare every non-F3 match and pinned source record with the pre-F3 fixture; no unrelated coverage changes are included.
 
 Repeat F3, Arcade Systems Complete and all three STG builds produce no changes. Repeat master document generation also produces no changes. Hosted results are recorded in the draft PR. Physical compatibility remains unverified.
+
+See [alternative destination correction](taito-f3-alternatives.md) for current regression evidence and normal tracked-file retirement behavior.

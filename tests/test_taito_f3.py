@@ -40,7 +40,7 @@ class TaitoF3Tests(unittest.TestCase):
         files,alternatives,folders=navigation_inventory(generated,'_Arcade/_Arcade Systems/_TAITO F3')
         self.assertEqual(len(alternatives),63)
         self.assertEqual(len(folders),28)
-        self.assertTrue(all(p.startswith('_alternative/') for p in alternatives))
+        self.assertTrue(all(p.startswith('_alternatives/') for p in alternatives))
 
     def test_approved_expansion_preserves_frozen_prefix(self):
         import hashlib,json
@@ -115,10 +115,10 @@ class TaitoF3Tests(unittest.TestCase):
                              sum(orientation in orientations for orientation,_ in expected.values()))
             self.assertFalse(any(p.endswith('.rbf') for p in database['files']))
 
-    def test_upstream_singular_alternative_spelling_is_preserved(self):
+    def test_upstream_singular_paths_map_to_plural_destinations(self):
         alternative='_Arcade/_Meatcores/_TaitoF3/_alternative/_Gunlock/Ray Force.mra'
         generated=transform(self.selected,self.config,self.policy)
-        self.assertIn('_Arcade/_Arcade Systems/_TAITO F3/_alternative/_Gunlock/Ray Force.mra',generated['files'])
+        self.assertIn('_Arcade/_Arcade Systems/_TAITO F3/_alternatives/_Gunlock/Ray Force.mra',generated['files'])
         self.assertEqual(alternative_directory(alternative),'_alternative')
         self.assertEqual(alternative_directory('_Arcade/_alternatives/_Game/Game.mra'),'_alternatives')
 
