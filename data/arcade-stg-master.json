@@ -2806,6 +2806,42 @@
       "canonical_parent": null,
       "year": null,
       "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Darius Gaiden",
+      "alternate_titles": [],
+      "hardware_system": "Taito F3",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": 1994,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Grid Seeker",
+      "alternate_titles": [],
+      "hardware_system": "Taito F3",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": 1992,
+      "notes": null
+    },
+    {
+      "developer": "Takumi",
+      "publisher": "Taito",
+      "canonical_title": "Twin Cobra II",
+      "alternate_titles": [],
+      "hardware_system": "Taito F3",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": 1995,
+      "notes": null
     }
   ]
 }

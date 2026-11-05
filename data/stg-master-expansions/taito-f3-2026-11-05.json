@@ -1,7 +1,7 @@
 {
   "version": 1,
   "expansion": "taito-f3-2026-11-05",
-  "status": "proposed",
+  "status": "approved",
   "baseline_commit": "04774d7",
   "baseline_file_sha256": "b45351e3dbdd0e04a2509e68c9a996d9c801ecc85dffef71bc9c0bdb6b6dc119",
   "baseline_rows_sha256": "7c83da4d2a9d693a4cd3703853be1f5b83409d8caa764ca77d0d9ab88b9c362e",
@@ -16,7 +16,7 @@
     "https://github.com/meathax/meatcores/tree/c565b62e4e1a39e8707bd8dc39a110be99474a38/_Arcade/_Meatcores/_TaitoF3",
     "https://github.com/mamedev/mame/blob/bfe7b06da696a035ee3421602b379d41093fe852/src/mame/taito/taito_f3.cpp"
   ],
-  "review_required": "Grid Seeker TATE (T2) classification approved by maintainer on 2026-11-05. Application and STG artifacts held for shared MeatCores inventory scope review.",
+  "review_required": "Maintainer approved Grid Seeker TATE (T2) and continuation limited to F3 plus its five STG titles. Unrelated source records remain pinned.",
   "rows": [
     {
       "developer": "Taito",

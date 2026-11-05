@@ -13,7 +13,7 @@ from urllib.parse import quote
 
 from tools.common.database import fetch, unpack, parse_json, digest, canonical_json
 from tools.common.repository import require, discover, raw_url, mra_reference
-from tools.common.file_types import is_mra
+from tools.common.file_types import is_mra, alternative_directory
 from tools.common.arcade_systems import registry, ROOT
 from tools.common.engine import discover_modules, load_module
 from tools.common.archives import hydrate_archives, checked_payload, expanded_inventory
@@ -83,7 +83,7 @@ def payloads(snapshot, fetcher=fetch):
     def one(item):
         path, record = item
         return path, metadata(fetcher(record.get('url', database['base_files_url'] + quote(path))), path, record)
-    primary = [(p, r) for p, r in database['files'].items() if is_mra(p) and '_alternatives' not in p.split('/')]
+    primary = [(p, r) for p, r in database['files'].items() if is_mra(p) and not alternative_directory(p)]
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
         result = dict(pool.map(one, primary))
     snapshot['metadata'] = result
@@ -127,7 +127,7 @@ def current_sources(root=ROOT, fetcher=fetch):
                 folder_paths.update('/'.join(parts[:i]) for i in range(1, len(parts)))
             for entry in tree['tree']:
                 path = entry['path']
-                if entry.get('type') == 'tree' and path.startswith(config['distribution_root'] + '/') and '_alternatives' in path.split('/'):
+                if entry.get('type') == 'tree' and path.startswith(config['distribution_root'] + '/') and alternative_directory(path):
                     folder_paths.add('_Arcade/' + path[len(config['distribution_root']) + 1:])
             database['folders'] = {p: {'tags': []} for p in sorted(folder_paths)}
             snapshot = {'database': database, 'metadata': references, 'source_commit': commit['sha'],
@@ -156,7 +156,7 @@ def current_sources(root=ROOT, fetcher=fetch):
         result[authority] = snapshot
     # Structured alternative titles also establish regional parent relationships.
     all_alternatives = {a: {p for p in expanded_inventory(s['database'])['files']
-                            if is_mra(p) and '_alternatives' in p.split('/')} for a, s in result.items()}
+                            if is_mra(p) and alternative_directory(p)} for a, s in result.items()}
     fetch_selected_alternatives(result, all_alternatives, fetcher)
     review_collection_sources(result)
     return result
@@ -201,3 +201,79 @@ def fetch_selected_alternatives(sources, selected, fetcher=fetch):
                     record = descriptor['summary_inline']['files'][path]
                     source['metadata'][path] = metadata(archive.read(record['arc_at']), path, record)
     return sources
+
+
+def project_database_update(baseline, update, config):
+    """Refresh one approved tagged scope in pinned collection build inputs only.
+
+    Other records keep their payloads, effective URLs, defaults and core evidence.
+    Numeric tags are reconciled by their complete upstream alias groups.
+    The normal live source fetch and publication safeguards remain unchanged.
+    """
+    from tools.common.selection import select_database, DatabasePolicy
+    authority = config['upstream_db_id']
+    require(baseline['database']['db_id'] == authority == update['database']['db_id'],
+            'Scoped update authority mismatch')
+    old = baseline['database']; fresh = update['database']
+    require(old.get('default_options') == fresh.get('default_options'),
+            'Scoped update changes shared filter defaults; review required')
+    selected = select_database(fresh, config, DatabasePolicy(config))
+    result = copy.deepcopy(baseline)
+    database = result['database']
+    groups = {}
+    for term, identifier in fresh['tag_dictionary'].items():
+        groups.setdefault(identifier, set()).add(term)
+    prefix = config['source_navigation_root']
+    scoped = lambda path: path == prefix or path.startswith(prefix + '/')
+    tags = {fresh['tag_dictionary'][t] for t in config['selection_tags']}
+    core_records = {p:r for p,r in fresh['files'].items() if p.startswith('_Arcade/cores/')
+                    and p.endswith('.rbf') and tags.intersection(r['tags'])}
+    needed = {t for category in ('files', 'folders') for path,r in selected[category].items()
+              if category == 'files' or scoped(path) for t in r['tags']}
+    needed.update(t for r in core_records.values() for t in r['tags'])
+    mapping = {}
+    for identifier, aliases in sorted(groups.items()):
+        if identifier not in needed:
+            continue
+        existing = {database['tag_dictionary'][term] for term in aliases if term in database['tag_dictionary']}
+        require(len(existing) <= 1, 'Scoped update splits tag aliases')
+        if existing:
+            target = next(iter(existing))
+            old_aliases = {t for t, value in database['tag_dictionary'].items() if value == target}
+            require(old_aliases == aliases, 'Scoped update changes tag aliases; review required')
+        else:
+            target = max(database['tag_dictionary'].values(), default=-1) + 1
+            database['tag_dictionary'].update({term: target for term in aliases})
+        mapping[identifier] = target
+    def record(original, path=None):
+        value = copy.deepcopy(original)
+        value['tags'] = [mapping[t] for t in original['tags']]
+        if path is not None:
+            value['url'] = original.get('url', fresh['base_files_url'] + quote(path))
+        return value
+    for category in ('files', 'folders'):
+        database[category] = {p:r for p,r in database[category].items() if not scoped(p)}
+        for path, original in selected[category].items():
+            if category == 'folders' and not scoped(path):
+                continue  # Existing parent metadata belongs to the pinned inventory.
+            database[category][path] = record(original, path if category == 'files' else None)
+    result['metadata'] = {p:m for p,m in result['metadata'].items() if not scoped(p)}
+    result['metadata'].update({p:copy.deepcopy(update['metadata'][p]) for p in selected['files']})
+    for path, original in core_records.items():
+        name = path.rsplit('/', 1)[1]
+        value = record(original, path)
+        require(name not in result.get('core_records', {}) or result['core_records'][name] == value,
+                'Scoped update conflicts with pinned core ownership')
+        if name not in result['cores']:
+            result['cores'].append(name)
+        result.setdefault('core_records', {})[name] = value
+    result['cores'].sort()
+    database['timestamp'] = max(old['timestamp'], fresh['timestamp'])
+    result['approval'] = copy.deepcopy(update['approval'])
+    result['scope_update'] = {'module': config['name'], 'selection_tags': config['selection_tags'],
+                              'baseline_revision_sha256': baseline['source_revision_sha256'],
+                              'update_revision_sha256': update['source_revision_sha256'],
+                              'baseline_database_sha256': digest(canonical_json(old)),
+                              'update_database_sha256': digest(canonical_json(fresh))}
+    result['source_revision_sha256'] = digest(canonical_json(result['scope_update']))
+    return result

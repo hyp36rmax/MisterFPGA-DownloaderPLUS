@@ -12,8 +12,8 @@ class STGMatrixTests(unittest.TestCase):
     def test_approved_baseline_counts_and_parent(self):
         counts = matrix_counts(self.data)
         self.assertEqual((counts['total_rows'], counts['distinct_designs'], counts['tate_rows'],
-                          counts['distinct_tate_designs'], counts['yoko_rows']), (222, 221, 203, 202, 19))
-        self.assertEqual(counts['tate_types'], {'T1': 35, 'T2': 145, 'T3': 7, 'T4': 8, 'T5': 3, 'T6': 5})
+                          counts['distinct_tate_designs'], counts['yoko_rows']), (225, 224, 205, 204, 20))
+        self.assertEqual(counts['tate_types'], {'T1': 35, 'T2': 147, 'T3': 7, 'T4': 8, 'T5': 3, 'T6': 5})
         self.assertEqual(counts['canonical_parent_rows'], 1)
 
     def test_approved_ssv_additions_preserve_original_220_rows(self):
@@ -25,7 +25,7 @@ class STGMatrixTests(unittest.TestCase):
             ('Ultra X Weapons', 'Banpresto / Tsuburaya Productions', 'Banpresto', ['Ultra Keibitai']),
             ('Storm Blade', 'Visco', 'Visco', []),
         ]
-        additions = self.data['rows'][220:]
+        additions = self.data['rows'][220:222]
         self.assertEqual(len(additions), 2)
         self.assertEqual(len({r['canonical_title'] for r in additions}), 2)
         for row, values in zip(additions, expected):
@@ -46,7 +46,7 @@ class STGMatrixTests(unittest.TestCase):
                          ('IGS PGM2', 'TATE', 'T2', 'DoDonPachi DaiOuJou'))
         self.assertEqual(rows['DoDonPachi II: Bee Storm']['year'], 2001)
         self.assertIn('attribution', rows['DoDonPachi II: Bee Storm']['notes'])
-        self.assertTrue(all(r['year'] is None for title, r in rows.items() if title != 'DoDonPachi II: Bee Storm'))
+        self.assertTrue(all(r['year'] is None for title, r in rows.items() if title not in {'DoDonPachi II: Bee Storm','Darius Gaiden','Grid Seeker','Twin Cobra II'}))
 
     def test_invalid_orientation_type_and_missing_fields(self):
         for field, value in [('orientation', 'VERTICAL'), ('type', 'T7'), ('canonical_title', ''),

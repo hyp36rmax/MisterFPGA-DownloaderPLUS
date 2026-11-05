@@ -7,7 +7,7 @@ from urllib.parse import quote
 
 from tools.common.database import canonical_json, digest, package, unpack, atomic_write, parse_json
 from tools.common.repository import require, safe_path
-from tools.common.file_types import is_mra
+from tools.common.file_types import is_mra, alternative_directory
 from tools.common.stg_matrix import load_matrix, matrix_counts, title_key
 from tools.common.arcade_systems import ROOT, registry, empty_database
 from tools.common.coinop_families import families
@@ -21,7 +21,7 @@ COLLECTIONS = {
     'arcade-stg-yoko': ('_Arcade/_Arcade STG (YOKO)', ('YOKO',)),
     'arcade-stg-complete': ('_Arcade/_Arcade STG (Complete)', ('TATE', 'YOKO')),
 }
-BASELINE = (222, 203, 19, 221, 202)
+BASELINE = (225, 205, 20, 224, 204)
 
 
 def checked_matrix(root=ROOT):
@@ -117,7 +117,7 @@ def match_rows(matrix, sources, root=ROOT, ownership=None, orientations=('TATE',
             scope = source['approval'].get('scope_tags')
             if scope and not {source['database']['tag_dictionary'].get(t) for t in scope}.intersection(record['tags']):
                 continue
-            if not is_mra(path) or '_alternatives' in path.split('/'):
+            if not is_mra(path) or alternative_directory(path):
                 continue
             proof = source['metadata'].get(path)
             require(proof is not None, 'Missing primary identity evidence: ' + path)
@@ -203,7 +203,7 @@ def public_core(proof, source):
 def alternative_ownership(source, matrix):
     """Resolve authoritative families once; stronger directory identities take precedence."""
     records = inventory(source)
-    primaries = {p: source['metadata'][p] for p in source['database']['files'] if is_mra(p) and '_alternatives' not in p.split('/')}
+    primaries = {p: source['metadata'][p] for p in source['database']['files'] if is_mra(p) and not alternative_directory(p)}
     core_counts = Counter(m['rbf'] for m in primaries.values())
     tag_counts = Counter(t for p in primaries for t in set(records[p].get('tags', [])))
     generic = {'arcade', 'arcadecores', 'arcaderbfsonly'}
@@ -221,9 +221,9 @@ def alternative_ownership(source, matrix):
         classifiers[path] = {t for t in records[path].get('tags', []) if t in arcade_ids and tag_counts[t] == 1}
     groups = {}
     for path in records:
-        if not is_mra(path) or '_alternatives' not in path.split('/'):
+        if not is_mra(path) or not alternative_directory(path):
             continue
-        parts = path.split('/'); index = parts.index('_alternatives')
+        parts = path.split('/'); index = parts.index(alternative_directory(path))
         # A loose alternative has no authoritative family directory; metadata must identify it.
         family = '/'.join(parts[:index + 2]) if len(parts) > index + 2 else path
         groups.setdefault(family, []).append(path)
@@ -260,8 +260,8 @@ def alternative_paths(primary, source, matrix=None):
 
 def destination(path, target=DESTINATION):
     parts = path.split('/')
-    if '_alternatives' in parts:
-        return target + '/' + '/'.join(parts[parts.index('_alternatives'):])
+    if alternative_directory(path):
+        return target + '/' + '/'.join(parts[parts.index(alternative_directory(path)):])
     return target + '/' + parts[-1]
 
 
@@ -305,7 +305,7 @@ class CollectionPolicy:
                 tail = path[len(self.target):].strip('/')
                 require('cores' not in tail.split('/'), 'Collection duplicates core ownership')
                 if category == 'files':
-                    require(is_mra(path) and ('/' not in tail or tail.startswith('_alternatives/')), 'Non-flat primary or non-MRA payload')
+                    require(is_mra(path) and ('/' not in tail or alternative_directory(tail) == tail.split('/')[0]), 'Non-flat primary or non-MRA payload')
                     files.add(path.casefold())
                     require(re.fullmatch('[0-9a-f]{32}', record['hash']) and type(record['size']) is int and record['size'] > 0, 'Invalid MRA record')
                     if 'url' in record:
@@ -348,7 +348,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
             is_parent = any(f.startswith(old_folder + '/') for f in selected_families)
             if old_folder != '_Arcade' and not is_family and not is_parent:
                 continue
-            target_folder = destination(old_folder, target_root) if '_alternatives' in old_folder.split('/') else target_root
+            target_folder = destination(old_folder, target_root) if alternative_directory(old_folder) else target_root
             folder_record = {k: copy.deepcopy(v) for k, v in original_folder.items() if k not in {'arc_id', 'tags'}}
             folder_record['tags'] = [mapping[t] for t in original_folder.get('tags', [])]
             previous_folder = result['folders'].get(target_folder)
@@ -384,7 +384,7 @@ def generate(config, matrix, sources, root=ROOT, require_payloads=True):
                 require(record == old_record, 'Flat destination COLLISION: ' + target + ': ' + old_authority + ' vs ' + authority)
                 continue
             origins[target.casefold()] = (authority, path, record)
-            alternative = '_alternatives' in path.split('/')
+            alternative = alternative_directory(path)
             coverage[authority]['alternatives' if alternative else 'primary_mras'] += 1
             if 'arc_id' in record:
                 result['archives'][record['arc_id']]['summary_inline']['files'][target] = record

@@ -8,11 +8,11 @@ Generated from the [canonical structured master](../data/arcade-stg-master.json)
 
 | Measure | Count |
 |---|---:|
-| Hardware/release rows | 222 |
-| TATE | 203 |
-| YOKO | 19 |
-| Distinct canonical designs | 221 |
-| Distinct TATE designs | 202 |
+| Hardware/release rows | 225 |
+| TATE | 205 |
+| YOKO | 20 |
+| Distinct canonical designs | 224 |
+| Distinct TATE designs | 204 |
 
 ## TATE type legend
 
@@ -205,8 +205,10 @@ YOKO rows have no TATE type. Rows are presented alphabetically by Developer, the
 | Taito | Taito | Balloon Bomber | — | Taito | TATE | T1 | — |
 | Taito | Taito | Bio-Attack | — | Taito | TATE | T2 | — |
 | Taito | Taito | Colony 7 | — | Taito | TATE | T1 | — |
+| Taito | Taito | Darius Gaiden | — | Taito F3 | YOKO | — | — |
 | Taito | Taito | Front Line | — | Taito | TATE | T3 | — |
 | Taito | Taito | Gekirindan | — | Taito F3 | TATE | T2 | — |
+| Taito | Taito | Grid Seeker | — | Taito F3 | TATE | T2 | — |
 | Taito | Taito | Gun Frontier | — | Taito F2 | TATE | T2 | — |
 | Taito | Taito | Halley's Comet | — | Taito | TATE | T2 | — |
 | Taito | Taito | Lunar Rescue | — | 8080/SI | TATE | T1 | — |
@@ -218,6 +220,7 @@ YOKO rows have no TATE type. Rows are presented alphabetically by Developer, the
 | Taito | Taito | Tokio | Scramble Formation | Taito | TATE | T2 | — |
 | Takumi | Capcom | Mars Matrix | Hyper Solid Shooting | CPS-2 | YOKO | — | — |
 | Takumi | Taito | Night Raid | — | Taito G-NET | YOKO | — | — |
+| Takumi | Taito | Twin Cobra II | — | Taito F3 | TATE | T2 | — |
 | Tecmo | Tecmo | Gemini Wing | — | Tecmo | TATE | T2 | — |
 | Tehkan | Tehkan | Pleiads | Pleiades | Tehkan | TATE | T1 | — |
 | Tehkan | Tehkan | Star Force | — | Tehkan | TATE | T2 | — |
@@ -261,6 +264,9 @@ YOKO rows have no TATE type. Rows are presented alphabetically by Developer, the
 | Magical Spot | Universal | — | Magical Spot II is retained as the supplied variant/alternate, not a separate canonical design. |
 | DoDonPachi II: Bee Storm | IGS PGM | 2001 | IGS/CAVE development attribution requires a note; the supplied attribution remains unresolved. |
 | DoDonPachi DaiOuJou Tamashii | IGS PGM2 | — | Separate PGM2 hardware/release row sharing the canonical design of DoDonPachi DaiOuJou. |
+| Darius Gaiden | Taito F3 | 1994 | — |
+| Grid Seeker | Taito F3 | 1992 | — |
+| Twin Cobra II | Taito F3 | 1995 | — |
 
 ## Maintenance
 

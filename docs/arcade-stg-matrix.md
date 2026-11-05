@@ -1,15 +1,15 @@
 # Arcade STG master matrix reconciliation
 
-The approved three-part matrix replaces the earlier incomplete matrix. This report reconciles the supplied dataset only; it does not claim public MiSTer availability.
+The approved three-part matrix replaces the earlier incomplete matrix. The approved versioned Taito F3 expansion appends three rows and preserves the original 222-row prefix. This report reconciles the maintained dataset only; it does not claim public MiSTer availability.
 
 | Measure | Count |
 |---|---:|
-| Total rows | 222 |
-| Distinct designs | 221 |
-| Tate rows | 203 |
-| Distinct tate designs | 202 |
-| Yoko rows | 19 |
-| Hardware resolved rows | 222 |
+| Total rows | 225 |
+| Distinct designs | 224 |
+| Tate rows | 205 |
+| Distinct tate designs | 204 |
+| Yoko rows | 20 |
+| Hardware resolved rows | 225 |
 | Hardware unresolved rows | 0 |
 | Canonical parent rows | 1 |
 
@@ -20,7 +20,7 @@ Hardware values are supplied classifications, including broad family labels. A p
 | Type | Description | Rows |
 |---|---|---:|
 | T1 | Fixed/Gallery | 35 |
-| T2 | Flying/Scrolling | 145 |
+| T2 | Flying/Scrolling | 147 |
 | T3 | Ground/Run-and-Shoot | 7 |
 | T4 | Rotary/Multidirectional | 8 |
 | T5 | Alternative Perspective | 3 |
@@ -71,8 +71,8 @@ Hardware values are supplied classifications, including broad family labels. A p
 | Success | 2 | 2 | 0 | 2 |
 | Sunsoft | 1 | 1 | 0 | 1 |
 | TOSE | 1 | 1 | 0 | 1 |
-| Taito | 14 | 14 | 0 | 14 |
-| Takumi | 2 | 0 | 2 | 0 |
+| Taito | 16 | 15 | 1 | 15 |
+| Takumi | 3 | 1 | 2 | 1 |
 | Tecmo | 1 | 1 | 0 | 1 |
 | Tehkan | 2 | 2 | 0 | 2 |
 | Toaplan | 14 | 12 | 2 | 12 |
@@ -149,7 +149,7 @@ Hardware values are supplied classifications, including broad family labels. A p
 | Taito | 8 | 8 | 0 | 8 |
 | Taito B System | 1 | 1 | 0 | 1 |
 | Taito F2 | 1 | 1 | 0 | 1 |
-| Taito F3 | 2 | 2 | 0 | 2 |
+| Taito F3 | 5 | 4 | 1 | 4 |
 | Taito G-NET | 5 | 4 | 1 | 4 |
 | Taito Type X | 3 | 3 | 0 | 3 |
 | Tecmo | 1 | 1 | 0 | 1 |
@@ -164,7 +164,7 @@ Hardware values are supplied classifications, including broad family labels. A p
 
 DoDonPachi DaiOuJou Tamashii remains an IGS PGM2 hardware/release row with DoDonPachi DaiOuJou as its canonical parent. The two rows count as one design.
 
-The four IGS PGM rows remain separate designs. Bee Storm retains its supplied attribution uncertainty and the explicitly requested year 2001. Other years remain null.
+The four IGS PGM rows remain separate designs. Bee Storm retains its supplied attribution uncertainty and the explicitly requested year 2001. F3 expansion years follow the verified upstream MRAs. Other original years remain null.
 
 Magical Spot II remains the supplied alternate/variant of Magical Spot.
 

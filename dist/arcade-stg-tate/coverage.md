@@ -4,13 +4,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 120 |
-| matched distinct designs | 120 |
-| unavailable rows | 65 |
+| matched rows | 124 |
+| matched distinct designs | 124 |
+| unavailable rows | 63 |
 | authority hold rows | 16 |
 | ambiguous rows | 2 |
-| primary mras | 120 |
-| alternatives | 383 |
+| primary mras | 124 |
+| alternatives | 391 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
 
@@ -23,7 +23,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | hyp36rmax/PGM-Mister-EZIOCHIU | 4 | 36 |
 | jtcores | 15 | 50 |
 | kuzearcade/kuzecores | 1 | 0 |
-| meathax/meatcores | 10 | 7 |
+| meathax/meatcores | 14 | 15 |
 | shmupfan | 4 | 8 |
 | zakk4223/Arcade-SeibuSPI_MiSTer | 4 | 36 |
 
@@ -86,7 +86,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Taito | 8 | 6 | 2 | 0 | 0 |
 | Taito B System | 1 | 0 | 1 | 0 | 0 |
 | Taito F2 | 1 | 1 | 0 | 0 | 0 |
-| Taito F3 | 2 | 0 | 2 | 0 | 0 |
+| Taito F3 | 4 | 4 | 0 | 0 | 0 |
 | Taito G-NET | 4 | 4 | 0 | 0 | 0 |
 | Taito Type X | 3 | 0 | 3 | 0 | 0 |
 | Tecmo | 1 | 1 | 0 | 0 | 0 |
@@ -142,7 +142,8 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Success | 2 | 2 | 0 | 0 | 0 |
 | Sunsoft | 1 | 0 | 1 | 0 | 0 |
 | TOSE | 1 | 1 | 0 | 0 | 0 |
-| Taito | 14 | 10 | 4 | 0 | 0 |
+| Taito | 15 | 13 | 2 | 0 | 0 |
+| Takumi | 1 | 1 | 0 | 0 | 0 |
 | Tecmo | 1 | 1 | 0 | 0 | 0 |
 | Tehkan | 2 | 2 | 0 | 0 | 0 |
 | Toaplan | 12 | 9 | 2 | 1 | 0 |
@@ -307,14 +308,14 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | GunNail | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
 | Thunder Dragon 2 | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
 | Fire Barrel | Irem | MATCHED | distribution_mister | _Arcade/Air Assault (World).mra |
-| RayForce | Taito F3 | UNAVAILABLE |  |  |
+| RayForce | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Gunlock.mra |
 | Shippu Mahou Daisakusen | Raizing | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Shippu Mahou Daisakusen (Japan).mra |
 | Gunbird | Psikyo 68K | MATCHED | distribution_mister | _Arcade/Gunbird (World).mra |
 | Raiden II | Seibu | MATCHED | distribution_mister | _Arcade/Raiden II (US, set 1).mra |
 | Raiden DX | Seibu | MATCHED | distribution_mister | _Arcade/Raiden DX (UK).mra |
 | Rapid Hero | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
 | Twin Eagle II | Seta | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Twin Eagle II - The Rescue Mission.mra |
-| Gekirindan | Taito F3 | UNAVAILABLE |  |  |
+| Gekirindan | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Gekirindan.mra |
 | DonPachi | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
 | Strikers 1945 | Psikyo 68K | MATCHED | distribution_mister | _Arcade/Strikers 1945 (World).mra |
 | Viper Phase 1 | Seibu SPI | MATCHED | zakk4223/Arcade-SeibuSPI_MiSTer | _Arcade/Viper Phase 1 (New Version, World).mra |
@@ -376,14 +377,15 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | DoDonPachi SaiDaiOuJou | CAVE CV1000-D | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
 | Ultra X Weapons | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Ultra X Weapons - Ultra Keibitai.mra |
 | Storm Blade | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Storm Blade.mra |
+| Grid Seeker | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Grid Seeker.mra |
+| Twin Cobra II | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Twin Cobra II.mra |
 
 ## Latest coverage transitions
 
-- NEW TATE MATCH: Arbalester — meathax/meatcores: _Arcade/_MeatCores/Arbalester.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Gondomania — meathax/meatcores: _Arcade/_MeatCores/Gondomania.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Last Mission — meathax/meatcores: _Arcade/_MeatCores/Last Mission.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: Meta Fox — meathax/meatcores: _Arcade/_MeatCores/Meta Fox.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW TATE MATCH: SRD: Super Real Darwin — meathax/meatcores: _Arcade/_MeatCores/SRD - Super Real Darwin.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Gekirindan — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Gekirindan.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Grid Seeker — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Grid Seeker.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: RayForce — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Gunlock.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- NEW TATE MATCH: Twin Cobra II — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Twin Cobra II.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 

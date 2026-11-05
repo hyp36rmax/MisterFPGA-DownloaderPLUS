@@ -66,4 +66,4 @@ Generated artifacts are `dist/<module>/<module>.json.zip` and `dist/<module>/man
 
 ## TAITO F3
 
-The F3 regression verifies exact source selection, primary and regional alternative parity, unchanged payload metadata and upstream core ownership. The versioned STG expansion remains a proposal. Collection publication and its approval-snapshot checks are held for scope review. See [F3 verification](taito-f3-inspection.md).
+The F3 regression verifies exact source selection, primary and regional alternative parity, unchanged payload metadata and upstream core ownership. STG checks prove that only five F3 shooter matches are added, the original master prefix is unchanged, and Complete remains the exact orientation union. The scoped source projection rejects shared default or tag-alias changes. See [F3 verification](taito-f3-inspection.md).

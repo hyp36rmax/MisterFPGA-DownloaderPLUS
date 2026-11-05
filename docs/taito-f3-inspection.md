@@ -26,30 +26,28 @@ All five MRAs reference `Arcade-TaitoF3`. Their source paths and metadata are av
 
 The [MAME F3 driver](https://github.com/mamedev/mame/blob/bfe7b06da696a035ee3421602b379d41093fe852/src/mame/taito/taito_f3.cpp) identifies `dariusg` as ROT0, `gseeker` and `gunlock` as ROT90, and `gekiridn` and `tcobra2` as ROT270. Grid Seeker's upstream MRA also specifies vertical rotation. The maintainer approved TATE (T2) for Grid Seeker on 2026-11-05. Twin Cobra II is credited to Takumi / Taito in the driver; the proposed row records Takumi as developer and Taito as publisher.
 
-## BLOCKED STG publication pending scope review
+## VERIFIED scoped STG integration
 
-The maintainer requested holding STG artifacts when the shared MeatCores refresh exposed unrelated coverage changes. No STG database, manifest, matching report, canonical master or generated master document is changed in this draft.
+This batch adds only the five F3 shooters above. The existing non-F3 source records, effective URLs, core evidence and match states are retained from the preceding pinned collection inventories. The six unrelated changes observed in the broader live MeatCores refresh are excluded.
 
-The versioned proposal is [taito-f3-2026-11-05.json](../data/stg-master-expansions/taito-f3-2026-11-05.json). It records the original master fingerprints, source revisions, MRA records and the three proposed appended rows. Application would preserve the original 222 rows and produce 225 rows: 205 TATE, 20 YOKO, 224 distinct designs and 204 distinct TATE designs.
+The [approved versioned expansion](../data/stg-master-expansions/taito-f3-2026-11-05.json) records baseline fingerprints, source revisions and original MRA evidence. Darius Gaiden, Grid Seeker and Twin Cobra II are appended after the unchanged 222-row prefix. The maintained master now has 225 rows: 205 TATE, 20 YOKO, 224 distinct designs and 204 distinct TATE designs. Existing Gekirindan and RayForce classifications and aliases remain unchanged. Both were previously unavailable, so matching them adds coverage rather than replacing a source.
 
-A trial using the live MeatCores snapshot also matched Bermuda Triangle and World Wars. Gondomania and Caliber .50 became ambiguous because of additional twin-stick MRAs. Arbalester and Meta Fox referenced `jtarblst`, which had no matching core in the supplied inventory. These results were not published; no authority or eligibility rule was relaxed.
+The existing source-snapshot input is projected to refresh only the approved F3 tag. Original records receive explicit upstream URLs when needed to preserve their effective download locations. Numeric tag IDs are reconciled by exact alias groups; tag meaning and shared filter defaults remain unchanged. Changed defaults or alias relationships fail the projection for review. Each collection manifest records the baseline and update revisions and database fingerprints in `scope_update`. Other authorities retain their pinned inventories. Normal live fetching, access checks, authority reservations and inventory-loss safeguards are unchanged.
 
-| STG view | Published primaries before / after | Published alternatives before / after |
+| STG view | Primaries before / after | Alternatives before / after |
 |---|---:|---:|
-| TATE | 120 / 120 | 383 / 383 |
-| YOKO | 7 / 7 | 17 / 17 |
-| Complete | 127 / 127 | 400 / 400 |
+| TATE | 120 / 124 | 383 / 391 |
+| YOKO | 7 / 8 | 17 / 20 |
+| Complete | 127 / 132 | 400 / 411 |
 
-The existing strict STG verifier compares each source approval snapshot to the live registry. Adding F3 makes the old MeatCores approval snapshot stale. Full distribution and collection validation will remain blocked until the shared source scope is reviewed and the three STG views can be regenerated together. This draft must not merge while that dependency remains unresolved.
+Complete is the verified union of TATE and YOKO. All three retain their independent subscription IDs and destinations and own no executable cores. F3 alternatives preserve `_alternative/` and their game-family directories. No additional collection is introduced.
 
 ## NEEDS VALIDATION on hardware
 
 MiSTer game launch, ROM lookup, video rotation, sound, controls and regional behavior have not been tested here. Upstream MRA comments include untested-hardware notes. Verified metadata and a released core do not establish playable compatibility.
 
-## Validation results
+## VERIFIED validation
 
-- VERIFIED: focused F3 regression, live MRA/core hash and size checks, hardware Complete integration, alternatives parity and deterministic hardware rebuilds.
-- VERIFIED: Arcade Systems, filter, alternatives, canonical master, matrix, Coin-Op coverage and documentation encoding audits.
-- BLOCKED: full regression completed 328 tests with two errors at the unchanged STG approval-snapshot guard. The STG orientation class could not run; this is not a full-suite pass.
-- BLOCKED: full distribution, STG collection, module catalog and README documentation validation stop at that same guard. No validator was relaxed or skipped to claim success.
-- VERIFIED: repeat master document generation makes no changes. All previously published STG files and the canonical master are byte-identical to the branch base.
+All 342 regression tests and all 11 repository audits pass, including distribution integrity, STG replay and union, public master parity, module catalog, README documentation and encoding validation. Focused tests compare every non-F3 match and pinned source record with the pre-F3 fixture; no unrelated coverage changes are included.
+
+Repeat F3, Arcade Systems Complete and all three STG builds produce no changes. Repeat master document generation also produces no changes. Hosted results are recorded in the draft PR. Physical compatibility remains unverified.
