@@ -200,3 +200,14 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```
 
 The internal database classification is distinct from the public filter name and dated RBF filename. These views use the existing complete-inventory filter policy and selective official alternatives archive. They do not distribute cores, ROMs or BIOS files, or change existing ownership and Reserve entries.
+
+## TAITO F3
+
+[Meathax / MeatCores](https://github.com/meathax/meatcores) supplies TAITO F3 MRAs and regional alternatives. The individual module installs to `_Arcade/_Arcade Systems/_TAITO F3/` and is included in Complete. Keep MeatCores enabled for the upstream-owned core in `_Arcade/cores/`.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f3]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-f3/taito-f3.json.zip
+```
+
+See [F3 inventory and verification](taito-f3-inspection.md).

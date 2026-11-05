@@ -4,13 +4,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 7 |
-| matched distinct designs | 7 |
+| matched rows | 8 |
+| matched distinct designs | 8 |
 | unavailable rows | 9 |
 | authority hold rows | 3 |
 | ambiguous rows | 0 |
-| primary mras | 7 |
-| alternatives | 17 |
+| primary mras | 8 |
+| alternatives | 20 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
 
@@ -21,6 +21,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Coin-OpCollection/Distribution-MiSTerFPGA | 3 | 7 |
 | distribution_mister | 1 | 1 |
 | jtcores | 2 | 8 |
+| meathax/meatcores | 1 | 3 |
 | shmupfan | 1 | 1 |
 
 ## Hardware/System
@@ -39,6 +40,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | PC-based CAVE hardware | 1 | 0 | 1 | 0 | 0 |
 | Psikyo | 2 | 1 | 1 | 0 | 0 |
 | Sega NAOMI | 1 | 0 | 1 | 0 | 0 |
+| Taito F3 | 1 | 1 | 0 | 0 | 0 |
 | Taito G-NET | 1 | 1 | 0 | 0 | 0 |
 | Toaplan | 2 | 2 | 0 | 0 | 0 |
 
@@ -53,6 +55,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Namco | 1 | 0 | 1 | 0 | 0 |
 | Nichibutsu | 1 | 1 | 0 | 0 | 0 |
 | Psikyo | 2 | 1 | 1 | 0 | 0 |
+| Taito | 1 | 1 | 0 | 0 | 0 |
 | Takumi | 2 | 2 | 0 | 0 | 0 |
 | Toaplan | 2 | 2 | 0 | 0 | 0 |
 
@@ -87,6 +90,7 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Radirgy Noa | Sega NAOMI | UNAVAILABLE |  |  |
 | Deathsmiles II | PC-based CAVE hardware | UNAVAILABLE |  |  |
 | Akai Katana | CAVE CV1000 | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
+| Darius Gaiden | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Darius Gaiden.mra |
 
 ## YOKO availability
 
@@ -111,10 +115,11 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 | Radirgy Noa | BLOCKED | No approved compatible primary MRA and core pair |
 | Deathsmiles II | BLOCKED | No approved compatible primary MRA and core pair |
 | Akai Katana | BLOCKED | Held authority or source eligibility restriction |
+| Darius Gaiden | VERIFIED | _Arcade/_Meatcores/_TaitoF3/Darius Gaiden.mra |
 
 ## Latest coverage transitions
 
-No matched-title additions or removals in this baseline.
+- NEW YOKO MATCH: Darius Gaiden — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Darius Gaiden.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 

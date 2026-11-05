@@ -19,3 +19,7 @@ It contains database metadata only, referencing Coin-Op's authoritative content 
 `mister-2026-09-30.db.json.zip` and `mra_alternatives_summary.json.zip` are unmodified official metadata snapshots used together for ST-V offline reproduction. No content archive, payloads or ROMs are included.
 
 `coinop-family-references-2026-09-30.json` records the verified MRA loader references for the frozen Coin-Op database snapshot, bound to its semantic digest. It contains metadata only. Family-state regression tests use this snapshot to verify public inventory eligibility independently of inherited source filters.
+
+`meatcores-f3-2026-11-05.db.json.zip` is the unchanged authoritative MeatCores metadata snapshot for F3 selection. It contains no core, ROM or BIOS payloads. Credit belongs to Meathax and the upstream contributors.
+
+`stg-before-f3.json` preserves the preceding STG Complete MeatCores snapshot and match records for the scoped F3 regression. It contains source metadata and existing public MRA verification evidence, with no core, ROM or BIOS payloads. It proves that the F3 batch retains non-F3 records and matches.

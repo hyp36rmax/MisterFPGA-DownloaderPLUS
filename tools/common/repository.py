@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from pathlib import PurePosixPath
 from urllib.parse import quote
 
-from tools.common.file_types import is_mra
+from tools.common.file_types import is_mra, alternative_directory
 from tools.common.database import ValidationError, canonical_json, digest, fetch, parse_json
 
 
@@ -266,9 +266,9 @@ def navigation_inventory(database, prefix):
     inventory = expanded_inventory(database)
     files = {path[len(prefix) + 1:]: record for path, record in inventory["files"].items()
              if path.startswith(prefix + "/") and is_mra(path)}
-    alternatives = {path: record for path, record in files.items() if "_alternatives" in path.split("/")}
+    alternatives = {path: record for path, record in files.items() if alternative_directory(path)}
     folders = {path[len(prefix) + 1:]: record for path, record in inventory["folders"].items()
-               if path.startswith(prefix + "/") and "_alternatives" in path[len(prefix) + 1:].split("/")}
+               if path.startswith(prefix + "/") and alternative_directory(path[len(prefix) + 1:])}
     return files, alternatives, folders
 
 

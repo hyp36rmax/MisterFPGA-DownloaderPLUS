@@ -136,7 +136,10 @@ class PublicDistributionTests(unittest.TestCase):
         self.assertFalse(any(r['authority']=='alphanu1' and r['match_state']=='MATCHED' for r in rows))
         self.assertEqual(m['validation']['yoko_published'],0)
         baseline=subprocess.check_output(['git','show','origin/main:data/arcade-stg-master.json'],cwd=ROOT)
-        self.assertEqual((ROOT/'data/arcade-stg-master.json').read_bytes(),baseline)
+        current = parse_json((ROOT/'data/arcade-stg-master.json').read_bytes())
+        previous = parse_json(baseline)
+        self.assertEqual(current['version'],previous['version'])
+        self.assertEqual(current['rows'][:len(previous['rows'])],previous['rows'])
 
     def test_repeat_source_build_and_provenance_replay(self):
         for name in ['taito-gnet','sega-model2','sega-model2a']:

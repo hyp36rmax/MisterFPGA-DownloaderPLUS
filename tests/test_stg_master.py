@@ -21,10 +21,10 @@ class PublicSTGMasterTests(unittest.TestCase):
     def test_complete_exact_row_and_field_parity(self):
         data = load_matrix()
         rows = primary_rows(public_master(data))
-        self.assertEqual(len(rows), 222)
+        self.assertEqual(len(rows), 225)
         self.assertEqual(len(rows), len(data['rows']))
-        self.assertEqual(sum(r[5] == 'TATE' for r in rows), 203)
-        self.assertEqual(sum(r[5] == 'YOKO' for r in rows), 19)
+        self.assertEqual(sum(r[5] == 'TATE' for r in rows), 205)
+        self.assertEqual(sum(r[5] == 'YOKO' for r in rows), 20)
         designs = {r[7] if r[7] != '—' else r[2] for r in rows}
         tate_designs = {r[7] if r[7] != '—' else r[2] for r in rows if r[5] == 'TATE'}
         counts = matrix_counts(data)

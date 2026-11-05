@@ -63,3 +63,7 @@ python tools/validate.py --module coinop-collection --upstream tests/fixtures/co
 Use `--output-dir <directory>` to build elsewhere. Use `python tools/build.py --all` to discover and build all modules from their configured upstream URLs.
 
 Generated artifacts are `dist/<module>/<module>.json.zip` and `dist/<module>/manifest.json`. ZIPs contain exactly one `db.json` and use fixed metadata, sorted JSON keys, and stored compression for deterministic bytes across supported Python platforms. Input object ordering and upstream ZIP timestamps/compression do not produce needless changes. Content bytes are always fetched by MiSTer from upstream, not from DownloaderPLUS.
+
+## TAITO F3
+
+The F3 regression verifies exact source selection, primary and regional alternative parity, unchanged payload metadata and upstream core ownership. STG checks prove that only five F3 shooter matches are added, the original master prefix is unchanged, and Complete remains the exact orientation union. The scoped source projection rejects shared default or tag-alias changes. See [F3 verification](taito-f3-inspection.md).

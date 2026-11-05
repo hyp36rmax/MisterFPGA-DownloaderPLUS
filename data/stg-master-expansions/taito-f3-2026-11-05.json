@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "expansion": "taito-f3-2026-11-05",
+  "status": "approved",
+  "baseline_commit": "04774d7",
+  "baseline_file_sha256": "b45351e3dbdd0e04a2509e68c9a996d9c801ecc85dffef71bc9c0bdb6b6dc119",
+  "baseline_rows_sha256": "7c83da4d2a9d693a4cd3703853be1f5b83409d8caa764ca77d0d9ab88b9c362e",
+  "baseline_counts": {
+    "rows": 222,
+    "tate": 203,
+    "yoko": 19,
+    "designs": 221,
+    "tate_designs": 202
+  },
+  "evidence": [
+    "https://github.com/meathax/meatcores/tree/c565b62e4e1a39e8707bd8dc39a110be99474a38/_Arcade/_Meatcores/_TaitoF3",
+    "https://github.com/mamedev/mame/blob/bfe7b06da696a035ee3421602b379d41093fe852/src/mame/taito/taito_f3.cpp"
+  ],
+  "review_required": "Maintainer approved Grid Seeker TATE (T2) and continuation limited to F3 plus its five STG titles. Unrelated source records remain pinned.",
+  "rows": [
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Darius Gaiden",
+      "alternate_titles": [],
+      "hardware_system": "Taito F3",
+      "orientation": "YOKO",
+      "type": null,
+      "canonical_parent": null,
+      "year": 1994,
+      "notes": null
+    },
+    {
+      "developer": "Taito",
+      "publisher": "Taito",
+      "canonical_title": "Grid Seeker",
+      "alternate_titles": [],
+      "hardware_system": "Taito F3",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": 1992,
+      "notes": null
+    },
+    {
+      "developer": "Takumi",
+      "publisher": "Taito",
+      "canonical_title": "Twin Cobra II",
+      "alternate_titles": [],
+      "hardware_system": "Taito F3",
+      "orientation": "TATE",
+      "type": "T2",
+      "canonical_parent": null,
+      "year": 1995,
+      "notes": null
+    }
+  ],
+  "upstream_database_commit": "17fd7dfd4811c369f4d678d64e367d75dd3c7ce3",
+  "upstream_payload_commit": "c565b62e4e1a39e8707bd8dc39a110be99474a38",
+  "upstream_zip_sha256": "f8c14292701c2a5c1b5a36c47de0049d066d1b17baf98717281e390682c90027",
+  "mra_evidence": {
+    "_Arcade/_Meatcores/_TaitoF3/Darius Gaiden.mra": {
+      "hash": "1a437bd0af9c8d3bfa752ab994fc0fb2",
+      "size": 5733,
+      "tags": [
+        18,
+        22,
+        24,
+        62
+      ]
+    },
+    "_Arcade/_Meatcores/_TaitoF3/Grid Seeker.mra": {
+      "hash": "84518ee3b97f7bddb685853022ab8f31",
+      "size": 6839,
+      "tags": [
+        18,
+        22,
+        24,
+        62
+      ]
+    },
+    "_Arcade/_Meatcores/_TaitoF3/Twin Cobra II.mra": {
+      "hash": "55f11bc0591f91667ca03c48f69a82da",
+      "size": 4290,
+      "tags": [
+        18,
+        22,
+        24,
+        62
+      ]
+    }
+  },
+  "mame_evidence_commit": "bfe7b06da696a035ee3421602b379d41093fe852"
+}

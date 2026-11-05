@@ -11,6 +11,7 @@ import test_stg_collection as fixtures
 from tools.common.database import ValidationError, canonical_json
 from tools.common.engine import ROOT, load_module
 from tools.common.archives import expanded_inventory
+from tools.common.file_types import alternative_directory
 from tools.common.stg_sources import approvals, metadata
 
 from tools.common.stg_collection import (COLLECTIONS, checked_matrix, generate, verify_collection,
@@ -46,6 +47,10 @@ class STGOrientationTests(unittest.TestCase):
         for path, fingerprint in baseline['files'].items():
             if path.startswith('dist/') and current != baseline['source_inventory_sha256']:
                 continue  # Legitimate future source updates are checked by provenance/union tests.
+            if path == 'data/arcade-stg-master.json':
+                expansion = json.loads((ROOT/'data/stg-master-expansions/taito-f3-2026-11-05.json').read_bytes())
+                self.assertEqual(hashlib.sha256(canonical_json(self.matrix['rows'][:222])).hexdigest(), expansion['baseline_rows_sha256'])
+                continue
             self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(), fingerprint, path)
 
     def test_isolation_and_all_canonical_rows_reported_once(self):
@@ -87,8 +92,8 @@ class STGOrientationTests(unittest.TestCase):
                     self.assertIn('payload_zlib', source['metadata'][path])
             files = expanded_inventory(database)['files']
             self.assertFalse(any('/cores/' in p or p.endswith('.rbf') for p in files))
-            self.assertEqual(manifest['validation']['primary_mras'], sum('_alternatives' not in p.split('/') for p in files))
-            self.assertEqual(manifest['validation']['alternatives'], sum('_alternatives' in p.split('/') for p in files))
+            self.assertEqual(manifest['validation']['primary_mras'], sum(not alternative_directory(p) for p in files))
+            self.assertEqual(manifest['validation']['alternatives'], sum(bool(alternative_directory(p)) for p in files))
 
     def test_held_and_uncertain_yoko_implementations_stay_excluded(self):
         rows = {r['canonical_title']: r for r in self.published['arcade-stg-yoko'][1]['match_manifest']['matches']}
