@@ -62,6 +62,7 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | TAITO A85 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TAITO A85/` | `coinop-taito-a85.json.zip` |
 | TAITO ASUKA | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO ASUKA/` | `taito-asuka.json.zip` |
 | TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO F2/` | `taito-f2.json.zip` |
+| TAITO F3 | MeatCores database selection | `_Arcade/_Arcade Systems/_TAITO F3/` | `taito-f3.json.zip` |
 | TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/_TAITO FX1B/` | `taito-fx1b.json.zip` |
 | TAITO G-NET | shmupfan database selection | `_Arcade/_Arcade Systems/_TAITO G-NET/` | `taito-gnet.json.zip` |
 | TAITO SYSTEM SJ | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO SYSTEM SJ/` | `taito-system-sj.json.zip` |

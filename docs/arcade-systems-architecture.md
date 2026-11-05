@@ -55,3 +55,7 @@ Database transformation remains the default. Direct repository generation is per
 ## Independent STG collections
 
 TATE, YOKO and STG Complete share the existing collection matcher, approved sources and deterministic packaging. Each owns a separate navigation root and database ID, outside the Arcade Systems registry and Complete aggregation. No hardware module or Reserve ownership changes. See [STG collection rules](arcade-stg-collections.md).
+
+## TAITO F3
+
+F3 uses the existing MeatCores tagged database selector with upstream core ownership. The hardware navigation audit recognizes the authoritative `_alternative` directory spelling without renaming it. STG matcher integration remains held for scope review. No source authority, subscription identity or downloader mechanism changes. See [F3 verification](taito-f3-inspection.md).

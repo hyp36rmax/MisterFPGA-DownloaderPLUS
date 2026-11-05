@@ -26,6 +26,10 @@ class DatabasePolicy:
             return path
         if path == '_Arcade/cores' or path.startswith('_Arcade/cores/'):
             return path
+        # Nested source roots retain their ancestor metadata at matching target parents.
+        if path != '_Arcade' and self.source_prefix.startswith(path + '/'):
+            depth = len(self.source_prefix.split('/')) - len(path.split('/'))
+            return '/'.join(self.prefix.split('/')[:-depth])
         if path == self.source_prefix:
             return self.prefix
         if path.startswith(self.source_prefix + '/'):

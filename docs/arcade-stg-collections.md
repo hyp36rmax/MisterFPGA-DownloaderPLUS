@@ -25,3 +25,7 @@ Choose STG Complete or the individual orientations to avoid unnecessary duplicat
 Run `python tools/audit_stg_collection.py` for all three views, or add `--module` for one. Run the normal full regression suite and distribution, filter, alternatives, master, catalog, documentation and encoding audits. Repeat builds must be unchanged. The existing five-title/20-percent inventory-loss guard runs independently for every view and prevents writes on a large unexpected loss.
 
 The TATE artifact, manifest, matching report and coverage report must remain byte-for-byte unchanged for these pinned inputs. The canonical master retains all 222 rows, original order and field values. Physical MiSTer game launch, external ROM lookup, display/peripheral compatibility and account/device authorization still need hardware validation. No playable-game guarantee is made from metadata checks alone.
+
+## Proposed TAITO F3 expansion
+
+The [F3 inspection](taito-f3-inspection.md) records five verified shooter identities and a versioned proposal for three appended master rows. STG artifact publication is held for shared MeatCores scope review; current collection inventories and the canonical master remain unchanged.

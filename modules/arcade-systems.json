@@ -566,6 +566,15 @@
         "_Arcade/_Arcade Systems/_SEGA X-BOARD"
       ],
       "include_required_cores": false
+    },
+    "taito-f3": {
+      "authority": "meathax/meatcores",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO F3"
+      ],
+      "include_required_cores": false
     }
   },
   "reserved_authorities": {

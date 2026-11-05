@@ -159,7 +159,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 | SEIBU | SEI-8608, SPI |
 | SNK | 68000, ALPHA-68K |
 | SSV | SSV |
-| TAITO | A54, A78, A85, ASUKA, F2, FX1B, G-NET, SYSTEM SJ |
+| TAITO | A54, A78, A85, ASUKA, F2, F3, FX1B, G-NET, SYSTEM SJ |
 | TECHNOS | TA-0015 & TA-0017 |
 | TECHNOSOFT | TECHNOSOFT |
 | TOAPLAN | TOAPLAN 1, TOAPLAN 2, TOAPLAN MIN16-02 |
@@ -514,6 +514,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-f2/taito-f2.json.zip
 
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f3]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-f3/taito-f3.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1b/taito-fx1b.json.zip
 ```
@@ -644,6 +647,8 @@ Additional core credits: [Martin Donlon](https://github.com/wickerwaka), [Paul P
 BANPRESTO BP964-BP965: core development by [kuzearcade](https://github.com/kuzearcade/Arcade-NMKBP964_MiSTer), distributed through [kuzecores](https://github.com/kuzearcade/kuzecores).
 
 SSV (Sammy / Seta / Visco): MiSTer implementation and distribution by [Meathax](https://github.com/meathax/meatcores).
+
+TAITO F3: [Meathax / MeatCores](https://github.com/meathax/meatcores).
 
 TAITO G-NET: [shmupfan](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer).
 
