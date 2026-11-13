@@ -59,3 +59,7 @@ TATE, YOKO and STG Complete share the existing collection matcher, approved sour
 ## TAITO F3
 
 F3 uses the existing MeatCores tagged database selector with upstream core ownership. The source parsers accept `_alternative` and `_alternatives`. F3 alone maps its destination alternative root to `_alternatives`; upstream source paths and URLs retain their original spelling. The F3 integration uses scoped source-snapshot inputs to retain all non-F3 records. No source authority, subscription identity or downloader mechanism changes. See [F3 verification](taito-f3-inspection.md).
+
+## XelaNotPu Namco database
+
+NAMCO SYSTEM 12/21/22 and SUPER SYSTEM 22 use the existing tagged database selector with upstream core ownership and normal Complete aggregation. `collection_scope: excluded` marks this hardware-only approval; the existing closed STG authority set and all collection snapshots stay unchanged. Unknown collection scope values still fail validation, and a new unreviewed authority without explicit exclusion still fails STG approval checks. The inline payloads are upstream-declared pause-credit images with verified dimensions, byte counts and load addresses. They remain untouched inside original MRAs. See [source review](xelanotpu-namco-inspection.md).

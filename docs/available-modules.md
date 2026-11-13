@@ -37,7 +37,11 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | MIDWAY T-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY T-UNIT/` | `coinop-midway-t-unit.json.zip` |
 | MIDWAY Y-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY Y-UNIT/` | `coinop-midway-y-unit.json.zip` |
 | MIDWAY Z-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY Z-UNIT/` | `coinop-midway-z-unit.json.zip` |
+| NAMCO SUPER SYSTEM 22 | XelaNotPu database selection | `_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22/` | `namco-super-system22.json.zip` |
 | NAMCO SYSTEM 11 | Repository distribution | `_Arcade/_Arcade Systems/_NAMCO SYSTEM 11/` | `namco-system11.json.zip` |
+| NAMCO SYSTEM 12 | XelaNotPu database selection | `_Arcade/_Arcade Systems/_NAMCO SYSTEM 12/` | `namco-system12.json.zip` |
+| NAMCO SYSTEM 21 | XelaNotPu database selection | `_Arcade/_Arcade Systems/_NAMCO SYSTEM 21/` | `namco-system21.json.zip` |
+| NAMCO SYSTEM 22 | XelaNotPu database selection | `_Arcade/_Arcade Systems/_NAMCO SYSTEM 22/` | `namco-system22.json.zip` |
 | NICHIBUTSU TERRA CRESTA | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA/` | `coinop-nichibutsu-terra-cresta.json.zip` |
 | NICHIBUTSU TERRA FORCE | Coin-Op database selection | `_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE/` | `coinop-nichibutsu-terra-force.json.zip` |
 | NMK16 | Coin-Op database selection | `_Arcade/_Arcade Systems/_NMK16/` | `coinop-nmk16.json.zip` |

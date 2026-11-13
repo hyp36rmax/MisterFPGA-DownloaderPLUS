@@ -58,3 +58,7 @@ Authoritative installation/attribution sources:
 - [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer/blob/42afa7b3c17c5e5e76e05c3187916afeef6202a1/README.md).
 
 Credit belongs to XelaNotPu and the contributors named by those projects. DownloaderPLUS claims neither ownership nor affiliation.
+
+## XelaNotPu database comparison
+
+The new database does not replace these repository-derived implementations. System 11, Capcom ZN-1/ZN-2 and Taito FX1B keep their current sources, URLs and core ownership. The [Namco source audit](xelanotpu-namco-inspection.md) records matching path inventories, changed MRA hashes and the distinct System 11 core build.

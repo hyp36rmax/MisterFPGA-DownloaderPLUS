@@ -103,7 +103,7 @@ def load_module(name, root=ROOT):
         if 'filter_policy' in config:validate_filter_policy(config['filter_policy'])
         if type(archives) is not list or not all(isinstance(a, str) and re.fullmatch('[a-z0-9_]+', a) for a in archives) or len(set(archives)) != len(archives):
             raise ValidationError("Invalid archive selection policy")
-        if 'collection_scope' in config and config['collection_scope'] != 'selected':
+        if 'collection_scope' in config and config['collection_scope'] not in ('selected', 'excluded'):
             raise ValidationError('Invalid collection authority scope')
         if 'core_policy' in config:
             cp = config['core_policy']

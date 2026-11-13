@@ -48,7 +48,7 @@ def source_label(config, root):
     if mode == 'database':
         authority = config['upstream_db_id']
         labels = {'jtcores': 'JTCORES', 'meathax/meatcores': 'MeatCores',
-                  'distribution_mister': 'Official MiSTer'}
+                  'distribution_mister': 'Official MiSTer', 'XelaNotPu/XelaNotPu_MiSTer_DB': 'XelaNotPu'}
         return labels.get(authority, authority) + ' database selection'
     raise ValidationError('Unrecognized catalog source mode: ' + mode)
 
