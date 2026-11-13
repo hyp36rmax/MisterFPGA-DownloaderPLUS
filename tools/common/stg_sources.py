@@ -33,6 +33,8 @@ def approvals(root=ROOT):
             continue
         if name not in registered:
             continue
+        if config.get('collection_scope') == 'excluded':
+            continue  # Hardware approval does not grant STG collection authority.
         authority = registered[name]['authority']
         entry = result.setdefault(authority, {'configs': [], 'roots': [], 'selection_tags': []})
         if config.get('collection_scope') == 'selected':

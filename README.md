@@ -150,7 +150,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 | IREM | M107, M62, M72, M90, M92 |
 | JALECO | MEGA SYSTEM 1 |
 | KONAMI | PRE-GX, TMNT2 BASED, XEXEX BASED |
-| NAMCO | SYSTEM 11 |
+| NAMCO | SYSTEM 11, SYSTEM 12, SYSTEM 21, SYSTEM 22, SUPER SYSTEM 22 |
 | NICHIBUTSU | TERRA CRESTA, TERRA FORCE |
 | NMK | NMK16 |
 | PGM | PGM (EZIO) |
@@ -174,14 +174,10 @@ G-NET and Model 2/2A are public beta releases; compatibility varies by game and 
 - MIDWAY T-UNIT
 - MIDWAY Y-UNIT
 - MIDWAY Z-UNIT
-- NAMCO SYSTEM 12
-- NAMCO SYSTEM 21
-- NAMCO SYSTEM 22
-- NAMCO SUPER SYSTEM 22
 - PGM2 (EZIO)
 - TECHNOS16
 
-NAMCO SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are Reserve folders with `_READ ME.txt` guidance identifying the XelaNotPu projects. They are included in Arcade Systems Reserve and Complete. No approved automatic download source exists for their cores or MRAs.
+NAMCO SYSTEM 12, SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are Managed through XelaNotPu’s database. Keep the normal XelaNotPu installation enabled for their cores. See the [Namco source audit](docs/xelanotpu-namco-inspection.md).
 
 Midway Reserve folders use their individual subscriptions below or Arcade Systems Complete. The other Reserve folders use Arcade Systems Reserve.
 
@@ -396,6 +392,18 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```ini
 [hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system11]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system11/namco-system11.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system12]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system12/namco-system12.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system21]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system21/namco-system21.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system22]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system22/namco-system22.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-super-system22]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-super-system22/namco-super-system22.json.zip
 ```
 
 ### NICHIBUTSU

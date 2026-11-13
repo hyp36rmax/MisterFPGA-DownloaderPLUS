@@ -1,0 +1,74 @@
+{
+  "name": "arcade-systems-reserve",
+  "display_name": "Arcade Systems Reserve",
+  "source_mode": "documentation",
+  "authority": "DownloaderPLUS",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/arcade-systems-reserve",
+  "policy_version": 1,
+  "include_required_cores": false,
+  "systems": [
+    {
+      "display_name": "CAVE 68000",
+      "destination": "_Arcade/_Arcade Systems/_CAVE 68000",
+      "state": "reserve"
+    },
+    {
+      "display_name": "CAVE CV1000",
+      "destination": "_Arcade/_Arcade Systems/_CAVE CV1000",
+      "state": "reserve"
+    },
+    {
+      "display_name": "KANEKO SUPER NOVA SYSTEM",
+      "destination": "_Arcade/_Arcade Systems/_KANEKO SUPER NOVA SYSTEM",
+      "state": "reserve"
+    },
+    {
+      "display_name": "NAMCO SYSTEM 12",
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12",
+      "state": "reserve"
+    },
+    {
+      "display_name": "NAMCO SYSTEM 21",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [
+        "XNSYSTEM21",
+        "XNWINRUN"
+      ],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-21-172718008"
+      ],
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SYSTEM 21"
+    },
+    {
+      "display_name": "NAMCO SYSTEM 22",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
+      ],
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SYSTEM 22"
+    },
+    {
+      "display_name": "NAMCO SUPER SYSTEM 22",
+      "state": "reserve",
+      "developer": "XelaNotPu",
+      "core_identities": [],
+      "references": [
+        "https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974"
+      ],
+      "destination": "_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22"
+    },
+    {
+      "display_name": "PGM2 (EZIO)",
+      "destination": "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
+      "state": "reserve"
+    },
+    {
+      "display_name": "TECHNOS16",
+      "destination": "_Arcade/_Arcade Systems/_TECHNOS16",
+      "state": "reserve"
+    }
+  ]
+}

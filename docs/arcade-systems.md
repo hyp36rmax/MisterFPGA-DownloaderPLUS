@@ -30,7 +30,7 @@ Configure an individual subscription using its linked database URL and section `
 
 ## Reserve
 
-Reserve installs `_READ ME.txt` only in `_CAVE 68000`, `_CAVE CV1000`, `_KANEKO SUPER NOVA SYSTEM`, `_NAMCO SYSTEM 12`, `_PGM2 (EZIO)`, and `_TECHNOS16`. These folders are peers of managed systems; no extra navigation category is created. User files remain user-owned. Midway T/Y/Z-Unit Reserve guidance remains under its existing individual subscriptions and Complete, with unchanged database ownership.
+Reserve installs `_READ ME.txt` only in `_CAVE 68000`, `_CAVE CV1000`, `_KANEKO SUPER NOVA SYSTEM`, `_PGM2 (EZIO)`, and `_TECHNOS16`. These folders are peers of managed systems; no extra navigation category is created. User files remain user-owned. Midway T/Y/Z-Unit Reserve guidance remains under its existing individual subscriptions and Complete, with unchanged database ownership.
 
 ## PGM (Ezio)
 
@@ -163,15 +163,16 @@ All three modules verify public payload hashes and sizes before publication. Rep
 
 These are public beta releases. For G-NET, follow the [installation guide](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer/blob/main/docs/INSTALL.md) to prepare your own BIOS and game-card data with the [converter](https://gnet-converter.pages.dev). The documented boot/display checks do not mean every game received gameplay testing. For Model 2/2A, consult the release notes for SDRAM requirements, untested CRT/peripheral combinations, missing link play and other game-specific limitations. DownloaderPLUS supplies database metadata for cores and MRAs, never game data.
 
-### Namco Reserve folders
+### Namco Managed systems
 
-| Hardware | Developer reference | Announced core identities |
+| Hardware | Developer reference | Verified core identities |
 |---|---|---|
+| NAMCO SYSTEM 12 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-12-172302772) | XNSYSTEM12 |
 | NAMCO SYSTEM 21 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-21-172718008) | XNSYSTEM21, XNWINRUN |
-| NAMCO SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | Not used as downloadable inventory |
-| NAMCO SUPER SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | Tracked separately from System 22 |
+| NAMCO SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | XNSYSTEM22 |
+| NAMCO SUPER SYSTEM 22 | [XelaNotPu](https://www.patreon.com/XelaNotPu/posts/namco-system-22-172947974) | XNSUPER22 |
 
-NAMCO SYSTEM 21, NAMCO SYSTEM 22 and NAMCO SUPER SYSTEM 22 use the existing Arcade Systems Reserve subscription. Each creates its own `_Arcade/_Arcade Systems/_<SYSTEM>/` folder containing only `_READ ME.txt`, with the upstream developer/project reference and a notice that no approved automatic download source exists. The same guidance folders are included in Complete. They remain Reserve, with no individual Managed module, payload authority, cores or MRAs. Existing Reserve folders are unchanged. Promotion requires a separately verified and approved public distribution, including a Coin-Op coverage check.
+NAMCO SYSTEM 12, SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 now use their individual Managed modules or Complete. Their former guidance records retire through the normal Reserve/Complete ownership stores. See the [Namco source and licensing review](xelanotpu-namco-inspection.md).
 
 Ray Crisis and Space Invaders Anniversary remain separate historical-master review candidates. Neither is added to the frozen master by this release. Orientation alone does not establish STG eligibility.
 
@@ -211,3 +212,31 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```
 
 See [F3 inventory and verification](taito-f3-inspection.md).
+
+## NAMCO SYSTEM 12
+
+Uses [XelaNotPu’s database](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): 28 primary MRAs and 26 alternatives at `_Arcade/_Arcade Systems/_NAMCO SYSTEM 12/`. The original `_alternatives/` game-family hierarchy and download URLs are preserved. Keep the normal upstream installation enabled for `Arcade-XNSYSTEM12_20261014.rbf` in `_Arcade/cores/`. DownloaderPLUS adds no core ownership.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system12]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system12/namco-system12.json.zip
+```
+
+Complete includes this module. Reserve no longer owns the System 12 guidance file. The other three promoted Namco systems have independent Managed modules at their existing destinations. Existing System 11, Capcom ZN-1/ZN-2 and Taito FX1B sources are unchanged.
+
+## NAMCO SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22
+
+These use the same approved XelaNotPu database and normal Complete integration. System 21 contains both its C67 and Winning Run implementations. Their standard-location cores remain upstream-owned. Original pause-credit image data stays inside the unmodified source MRAs.
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system21]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system21/namco-system21.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system22]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system22/namco-system22.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/namco-super-system22]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-super-system22/namco-super-system22.json.zip
+```
+
+The [source review](xelanotpu-namco-inspection.md) records exact counts, classifiers, core references and licensing evidence. The four pre-existing XelaNotPu Managed modules keep their original sources and core ownership.

@@ -105,24 +105,30 @@ class PublicDistributionTests(unittest.TestCase):
             with patch('tools.common.public_distribution.inspect',return_value=loss),self.assertRaises(ValidationError):build(c,Path(tmp))
             self.assertEqual(before,{p.name:p.read_bytes() for p in Path(tmp).iterdir()})
 
-    def test_complete_exact_contribution_and_namco_reserve_guidance(self):
+    def test_complete_exact_contribution_and_namco_managed_modules(self):
         complete,_=verify_one('arcade-systems-complete',verbose=False)
         for name in ['taito-gnet','sega-model2','sega-model2a']:
             d,_=verify_one(name,verbose=False)
             for p,r in d['files'].items():self.assertEqual(complete['files'][p],r)
         self.assertEqual(registry()['catalog_only_systems'],[])
         config,_=load_module('arcade-systems-reserve')
-        names={'NAMCO SYSTEM 21','NAMCO SYSTEM 22','NAMCO SUPER SYSTEM 22'}
-        catalog=[i for i in config['systems'] if i['display_name'] in names]
-        self.assertEqual({i['display_name'] for i in catalog},names)
-        for item in catalog:
-            self.assertEqual(item['state'],'reserve');self.assertEqual(item['developer'],'XelaNotPu')
-            self.assertTrue(item['references'])
-            self.assertIn(item['destination'],complete['folders'])
-            self.assertEqual([p for p in complete['files'] if p.startswith(item['destination']+'/')],[item['destination']+'/_READ ME.txt'])
+        names={'namco-system21','namco-system22','namco-super-system22'}
+        for name in names:
+            config,_=load_module(name)
+            root='_Arcade/'+config['target_folder']
+            self.assertIn(root,complete['folders'])
+            self.assertNotIn(root+'/_READ ME.txt',complete['files'])
+            self.assertTrue(any(p.startswith(root+'/') and p.lower().endswith('.mra') for p in complete['files']))
+            self.assertEqual(registry()['modules'][name]['management_state'],'managed')
         config,_=load_module('arcade-systems-reserve');db,_=documentation_database(config,config['systems'])
         self.assertEqual(db,unpack((ROOT/'dist/arcade-systems-reserve/arcade-systems-reserve.json.zip').read_bytes()))
-        self.assertFalse(any('namco-system21' in p.name or 'namco-system22' in p.name or 'namco-super-system22' in p.name for p in (ROOT/'dist').iterdir()))
+        for name in names:
+            db,_=verify_one(name,verbose=False)
+            for p,r in db['files'].items():
+                actual=complete['files'][p]
+                self.assertEqual({k:v for k,v in actual.items() if k!='tags'},{k:v for k,v in r.items() if k!='tags'})
+                terms=lambda database,record:{k for k,v in database['tag_dictionary'].items() if v in record['tags']}
+                self.assertEqual(terms(complete,actual),terms(db,r))
 
     def test_tate_replay_source_boundary_and_expected_matches(self):
         m=parse_json((ROOT/'dist/arcade-stg-tate/manifest.json').read_bytes())

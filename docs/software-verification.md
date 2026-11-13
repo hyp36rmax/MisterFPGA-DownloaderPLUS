@@ -67,3 +67,7 @@ Generated artifacts are `dist/<module>/<module>.json.zip` and `dist/<module>/man
 ## TAITO F3
 
 The F3 regression verifies exact source selection, primary and regional alternative parity, unchanged payload metadata and upstream core ownership. STG checks prove that only five F3 shooter matches are added, the original master prefix is unchanged, and Complete remains the exact orientation union. The scoped source projection rejects shared default or tag-alias changes. See [F3 verification](taito-f3-inspection.md).
+
+## XelaNotPu Namco
+
+The Namco regression binds original System 12 XML bytes to upstream hashes and sizes, then checks platform/core classification, exact inventory, recursive alternatives, source metadata, upstream core ownership, Reserve retirement and Complete aggregation. All four systems transition to independent Managed modules after their source and payload checks pass. Existing Managed artifacts and STG authority boundaries remain protected. See [Namco verification](xelanotpu-namco-inspection.md).

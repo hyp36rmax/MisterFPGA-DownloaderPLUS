@@ -20,45 +20,49 @@ NAMES={'NAMCO SYSTEM 21','NAMCO SYSTEM 22','NAMCO SUPER SYSTEM 22'}
 class NamcoReserveTests(unittest.TestCase):
     def config(self):return load_module('arcade-systems-reserve')[0]
 
-    def test_named_reserve_entries_have_no_download_authority(self):
-        c=self.config();entries=[s for s in c['systems'] if s['display_name'] in NAMES]
-        self.assertEqual({s['display_name'] for s in entries},NAMES)
+    def test_promoted_namco_entries_leave_reserve_ownership(self):
+        config=self.config()
+        self.assertFalse(any(s['display_name'] in NAMES for s in config['systems']))
         self.assertEqual(registry()['catalog_only_systems'],[])
+        for name in ('namco-system21','namco-system22','namco-super-system22'):
+            entry=registry()['modules'][name]
+            self.assertEqual(entry['management_state'],'managed')
+            self.assertEqual(entry['authority'],'XelaNotPu/XelaNotPu_MiSTer_DB')
+            self.assertTrue(entry['include_in_arcade_systems_complete'])
+            self.assertFalse(entry['include_required_cores'])
         approval=registry()['modules']['arcade-systems-reserve']
-        self.assertEqual(approval['management_state'],'reserve');self.assertEqual(approval['authority'],'DownloaderPLUS')
-        self.assertTrue(approval['include_in_arcade_systems_complete']);self.assertFalse(approval['include_required_cores'])
-        self.assertEqual(approval['destination_roots'],[s['destination'] for s in c['systems']])
-        for item in entries:
-            self.assertEqual(item['state'],'reserve');self.assertEqual(item['developer'],'XelaNotPu')
-            self.assertEqual(item['destination'],'_Arcade/_Arcade Systems/_'+item['display_name'])
-            self.assertTrue(item['references'])
-            self.assertFalse(any(k in item for k in ['db_url','upstream_url','repository','source_mode']))
+        self.assertEqual(approval['destination_roots'],[s['destination'] for s in config['systems']])
 
-    def test_only_attributed_readme_files_are_installed(self):
-        c=self.config();d,resources=documentation_database(c,c['systems']);complete,_=verify_one('arcade-systems-complete',verbose=False)
-        for item in c['systems']:
-            if item['display_name'] not in NAMES:continue
-            root=item['destination'];path=root+'/_READ ME.txt'
-            self.assertIn(root,d['folders']);self.assertIn(root,complete['folders'])
-            self.assertEqual({p for p in d['files'] if p.startswith(root+'/')},{path})
-            self.assertEqual({p for p in expanded_inventory(complete)['files'] if p.startswith(root+'/')},{path})
-            self.assertEqual(complete['files'][path],d['files'][path])
-            resource=next(p for p in resources if p.endswith('/_'+item['display_name']+'/_READ ME.txt'))
-            payload=resources[resource];text=payload.decode('utf-8')
-            self.assertIn(item['display_name'],text);self.assertIn('XelaNotPu',text)
-            self.assertIn('No approved automatic download source currently exists.',text)
+    def test_remaining_reserve_is_guidance_only(self):
+        config=self.config();database,resources=documentation_database(config,config['systems'])
+        self.assertTrue(all(p.endswith('/_READ ME.txt') for p in database['files']))
+        self.assertFalse(database.get('archives'))
+        self.assertFalse(any('/cores' in p for p in database['folders']))
+        for resource,payload in resources.items():self.assertEqual((ROOT/resource).read_bytes(),payload)
+        # Keep the original attribution/rendering coverage against historical input.
+        import json
+        historical=json.loads((ROOT/'tests/fixtures/xelanotpu-namco-2026-11-12/reserve-config-before.json').read_bytes())
+        entries=[item for item in historical['systems'] if item['display_name'] in NAMES]
+        legacy,rendered=documentation_database(config,entries)
+        for item in entries:
+            record=legacy['files'][item['destination']+'/_READ ME.txt']
+            payload=next(value for path,value in rendered.items() if path.endswith('/_'+item['display_name']+'/_READ ME.txt'))
+            text=payload.decode('utf-8')
+            self.assertIn('XelaNotPu',text)
             for reference in item['references']:self.assertIn(reference,text)
-            self.assertEqual(d['files'][path]['hash'],hashlib.md5(payload).hexdigest())
-            self.assertEqual((ROOT/resource).read_bytes(),payload)
-        self.assertTrue(all(p.endswith('/_READ ME.txt') for p in d['files']))
-        self.assertFalse(d.get('archives'));self.assertFalse(any('/cores' in p for p in d['folders']))
+            self.assertEqual(hashlib.md5(payload).hexdigest(),record['hash'])
+            self.assertEqual(len(payload),record['size'])
 
     def test_original_reserve_entries_and_guidance_are_unchanged(self):
         original=unpack((ROOT/'tests/fixtures/reserve-before-namco-2026-10-22.json.zip').read_bytes())
         c=self.config();current,resources=documentation_database(c,c['systems'])
         for cat in ('files','folders'):
-            for p,r in original[cat].items():self.assertEqual(current[cat][p],r)
+            for p,r in original[cat].items():
+                if any(p == '_Arcade/_Arcade Systems/_'+name or p.startswith('_Arcade/_Arcade Systems/_'+name+'/') for name in NAMES|{'NAMCO SYSTEM 12'}):
+                    self.assertNotIn(p,current[cat])
+                else:self.assertEqual(current[cat][p],r)
         for path,record in original['files'].items():
+            if any(path.startswith('_Arcade/_Arcade Systems/_'+name+'/') for name in NAMES|{'NAMCO SYSTEM 12'}):continue
             relative=unquote(record['url'].split('/main/',1)[1]);payload=resources[relative]
             self.assertEqual(hashlib.md5(payload).hexdigest(),record['hash']);self.assertEqual(len(payload),record['size'])
             self.assertEqual((ROOT/relative).read_bytes(),payload)
@@ -73,7 +77,9 @@ class NamcoReserveTests(unittest.TestCase):
                 self.assertEqual(before,{p.relative_to(directory):p.read_bytes() for p in directory.rglob('*') if p.is_file()})
 
     def test_invalid_attribution_is_rejected_without_resources(self):
-        item=next(s for s in self.config()['systems'] if s['display_name']=='NAMCO SYSTEM 21')
+        import json
+        historical=json.loads((ROOT/'tests/fixtures/xelanotpu-namco-2026-11-12/reserve-config-before.json').read_bytes())
+        item=next(s for s in historical['systems'] if s['display_name']=='NAMCO SYSTEM 21')
         for change in [{'developer':'XelaNotPu\nOther'},{'references':['http://example.org/source']},{'references':[]}]:
             broken={**copy.deepcopy(item),**change}
             with self.assertRaises(ValidationError):documentation_database(self.config(),[broken])

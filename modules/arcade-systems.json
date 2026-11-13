@@ -342,10 +342,6 @@
         "_Arcade/_Arcade Systems/_CAVE 68000",
         "_Arcade/_Arcade Systems/_CAVE CV1000",
         "_Arcade/_Arcade Systems/_KANEKO SUPER NOVA SYSTEM",
-        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12",
-        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 21",
-        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 22",
-        "_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22",
         "_Arcade/_Arcade Systems/_PGM2 (EZIO)",
         "_Arcade/_Arcade Systems/_TECHNOS16"
       ],
@@ -573,6 +569,42 @@
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO F3"
+      ],
+      "include_required_cores": false
+    },
+    "namco-system12": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12"
+      ],
+      "include_required_cores": false
+    },
+    "namco-system21": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 21"
+      ],
+      "include_required_cores": false
+    },
+    "namco-system22": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NAMCO SYSTEM 22"
+      ],
+      "include_required_cores": false
+    },
+    "namco-super-system22": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22"
       ],
       "include_required_cores": false
     }
