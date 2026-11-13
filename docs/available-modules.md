@@ -47,6 +47,7 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | NMK16 | Coin-Op database selection | `_Arcade/_Arcade Systems/_NMK16/` | `coinop-nmk16.json.zip` |
 | PSIKYO | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO/` | `psikyo.json.zip` |
 | PSIKYO SH2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO SH2/` | `psikyo-sh2.json.zip` |
+| SEGA MODEL 1 | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 1/` | `sega-model1.json.zip` |
 | SEGA MODEL 2 | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2/` | `sega-model2.json.zip` |
 | SEGA MODEL 2A | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2A/` | `sega-model2a.json.zip` |
 | SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA ST-V/` | `sega-stv.json.zip` |

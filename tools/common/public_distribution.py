@@ -16,6 +16,7 @@ from tools.common.file_types import is_mra
 # Each source needs an explicit approval; a registry entry alone grants no access.
 APPROVED = {
     'taito-gnet': ('shmupfan', 'shmupfan/Arcade-TaitoGNET_MiSTer', 'TaitoGNET', 'TAITO G-NET', 'plain-json'),
+    'sega-model1': ('alphanu1', 'alphanu1/sega-model1-mister', 'Model1', 'SEGA MODEL 1', 'repository-release'),
     'sega-model2': ('alphanu1', 'alphanu1/sega-model2-mister', 'Model2', 'SEGA MODEL 2', 'repository-release'),
     'sega-model2a': ('alphanu1', 'alphanu1/sega-model2-mister', 'Model2A', 'SEGA MODEL 2A', 'repository-release'),
 }
@@ -26,11 +27,14 @@ MODEL_REPOSITORY = 'alphanu1/sega-model2-mister'
 def validate_config(config):
     fields = {'name', 'display_name', 'source_mode', 'authority', 'repository', 'source_type',
               'ref', 'derived_db_id', 'policy_version', 'include_required_cores', 'core_identity', 'target_folder'}
+    if config.get('name') == 'sega-model1':
+        fields.add('collection_scope')
+        require(config.get('collection_scope') == 'excluded', 'Model 1 has hardware-only approval')
     require(set(config) == fields and config['name'] in APPROVED, 'Unapproved public distribution configuration')
     authority, repository, identity, label, kind = APPROVED[config['name']]
     require((config['authority'], config['repository'], config['core_identity'], config['display_name'], config['source_type']) ==
             (authority, repository, identity, label, kind), 'Public distribution approval mismatch')
-    require(config['ref'] == ('main' if kind == 'plain-json' else 'model2a') and
+    require(config['ref'] == ('main' if kind == 'plain-json' or config['name'] == 'sega-model1' else 'model2a') and
             config['target_folder'] == '_Arcade Systems/_' + label and config['include_required_cores'] is True and
             config['derived_db_id'] == 'hyp36rmax/MisterFPGA-DownloaderPLUS/' + config['name'] and
             config['policy_version'] == 1 and config['source_mode'] == 'public-distribution', 'Invalid public distribution policy')
@@ -90,7 +94,8 @@ def select_snapshot(config, snapshot):
                     re.fullmatch('[0-9a-f]{40}', entry.get('sha', '')) and type(entry.get('size')) is int,
                     'Invalid public release entry')
             if path.endswith('.rbf'):
-                require(re.fullmatch(r'releases/Model2A?_\d{8}\.rbf', path), 'Unknown public core identity/version')
+                pattern = r'releases/Model1_\d{8}\.rbf' if config['name'] == 'sega-model1' else r'releases/Model2A?_\d{8}\.rbf'
+                require(re.fullmatch(pattern, path), 'Unknown public core identity/version')
             target = '_Arcade/' + (path[len('releases/mra/'):] if is_mra(path) else 'cores/' + path.rsplit('/', 1)[-1])
             require(target not in entries, 'Duplicate public release destination')
             entries[target] = entry
@@ -104,7 +109,7 @@ def select_snapshot(config, snapshot):
     cores = {p: r for p, r in selected.items() if p.endswith('.rbf')}
     require(bool(cores), 'Public source lost required cores')
     # Reject unknown identities, rather than accidentally adopting another system.
-    identities = {'TaitoGNET'} if config['source_type'] == 'plain-json' else {'Model2', 'Model2A'}
+    identities = {'TaitoGNET'} if config['source_type'] == 'plain-json' else ({'Model1'} if config['name'] == 'sega-model1' else {'Model2', 'Model2A'})
     for path in cores:
         require(any(re.fullmatch(re.escape(i) + r'_\d{8}\.rbf', path.rsplit('/', 1)[-1]) for i in identities), 'Unapproved core identity')
     chosen = latest_authoritative_cores({p: r for p, r in cores.items() if re.fullmatch(re.escape(config['core_identity']) + r'_\d{8}\.rbf', p.rsplit('/', 1)[-1])}, {'identities': [config['core_identity']],
@@ -185,11 +190,26 @@ def generate(config, snapshot):
     require(not ownership['ambiguous_primaries'] and not ownership['unresolved_families'], 'Unresolved public alternatives ownership')
     result = copy.deepcopy(source); target = '_Arcade/' + config['target_folder']
     def destination(path):
+        if config['name'] == 'sega-model1' and path.endswith('.rbf'):
+            return '_Arcade/cores/Model1.rbf'
+        if config['source_type'] == 'repository-release' and is_mra(path) and '[15kHz CRT]' in path.rsplit('/', 1)[-1] and '/_alternatives/' not in path:
+            parent = path.replace(' [15kHz CRT]', '')
+            require(parent != path and parent in source['files'] and
+                    snapshot['metadata'][path]['rbf'] == snapshot['metadata'][parent]['rbf'] and
+                    snapshot['metadata'][path]['setname'] == snapshot['metadata'][parent]['setname'], 'Unpaired CRT alternative: ' + path)
+            return target + '/_alternatives' + path[len('_Arcade'):]
         return path if path == '_Arcade/cores' or path.startswith('_Arcade/cores/') else target + path[len('_Arcade'):]
     for category in ('files', 'folders'):
-        result[category] = {destination(p): r for p, r in source[category].items()}
-    report = {'state': 'managed', 'primary_mras': sum(is_mra(p) and '/_alternatives/' not in p for p in source['files']),
-              'alternatives': sum(is_mra(p) and '/_alternatives/' in p for p in source['files']),
+        mapped = [(destination(p), r) for p, r in source[category].items()]
+        require(len({p.casefold() for p, _ in mapped}) == len(mapped), 'Public destination collision')
+        result[category] = dict(mapped)
+    if config['source_type'] == 'repository-release':
+        for path in result['files']:
+            for index in range(len(target.split('/')) + 1, len(path.split('/'))):
+                result['folders'].setdefault('/'.join(path.split('/')[:index]), {'tags': []})
+    require(not {p.casefold() for p in result['files']}.intersection(p.casefold() for p in result['folders']), 'Public file/folder collision')
+    report = {'state': 'managed', 'primary_mras': sum(is_mra(p) and '/_alternatives/' not in p for p in result['files']),
+              'alternatives': sum(is_mra(p) and '/_alternatives/' in p for p in result['files']),
               'current_cores': sum(p.endswith('.rbf') for p in source['files']), 'missing_alternatives': 0, 'orphan_alternatives': 0,
               'effective_source_urls_changed': 0, 'hash_size_differences': 0, 'mra_content_differences': 0}
     return result, report

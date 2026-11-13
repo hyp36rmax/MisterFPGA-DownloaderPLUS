@@ -27,3 +27,5 @@ It contains database metadata only, referencing Coin-Op's authoritative content 
 `taito-f3-before-alternatives-normalization.json` records pre-correction database fingerprints, singular paths, source/match fingerprints and the shared alternative parent metadata. It contains metadata only and proves that only F3 destination paths and the necessary shared parent tag unions change.
 
 `xelanotpu-namco-2026-11-12/` contains the unchanged authoritative metadata database, header/part-length review evidence and 54 unchanged System 12 XML MRAs for offline classification and hash verification. It contains no executable cores, game ROMs or BIOS images. Only structural metadata for the large System 21/22 pause-image blocks is included; their pixel data and Patreon release archives are not copied into fixtures. The upstream MIT notice is retained at `modules/namco-system12/UPSTREAM-LICENSE`.
+
+`sega-model1-2026-11-12/` contains original release metadata and compressed original MRA evidence, the previous Model 2/2A source snapshots, verification facts, and pinned MiSTer loader source with its license. No RBF, ROM, BIOS or I/O firmware binaries are included.

@@ -1,0 +1,15 @@
+{
+  "name": "sega-model1",
+  "display_name": "SEGA MODEL 1",
+  "source_mode": "public-distribution",
+  "authority": "alphanu1",
+  "repository": "alphanu1/sega-model1-mister",
+  "source_type": "repository-release",
+  "ref": "main",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model1",
+  "policy_version": 1,
+  "include_required_cores": true,
+  "core_identity": "Model1",
+  "target_folder": "_Arcade Systems/_SEGA MODEL 1",
+  "collection_scope": "excluded"
+}

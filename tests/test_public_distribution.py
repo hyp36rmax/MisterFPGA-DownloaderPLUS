@@ -70,10 +70,11 @@ class PublicDistributionTests(unittest.TestCase):
     def test_separate_model2_core_identities_release_root_and_crt_files(self):
         for name,identity,count in [('sega-model2','Model2',8),('sega-model2a','Model2A',22)]:
             c,_=load_module(name);s=self.snapshot(name);d,r=generate(c,s)
-            self.assertEqual((r['primary_mras'],r['alternatives'],r['current_cores']),(count,0,1))
+            self.assertEqual((r['primary_mras'],r['alternatives'],r['current_cores']),(count//2,count//2,1))
             self.assertIn('_Arcade/cores/'+identity+'_20261022.rbf',d['files'])
             mras=[(p,v) for p,v in d['files'].items() if p.endswith('.mra')]
             self.assertEqual(sum('[15kHz CRT]' in p for p,_ in mras),count//2)
+            self.assertTrue(all(('/_alternatives/' in p)==('[15kHz CRT]' in p) for p,_ in mras))
             self.assertTrue(all('/releases/mra/' in v['url'] for _,v in mras))
             self.assertTrue(all(s['metadata'][p]['rbf']==identity for p in select_snapshot(c,s) if p.endswith('.mra')))
             self.assertFalse(any('/mra/' in p or 'test pattern' in p.casefold() for p in d['files']))

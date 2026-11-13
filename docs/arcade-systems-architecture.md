@@ -63,3 +63,7 @@ F3 uses the existing MeatCores tagged database selector with upstream core owner
 ## XelaNotPu Namco database
 
 NAMCO SYSTEM 12/21/22 and SUPER SYSTEM 22 use the existing tagged database selector with upstream core ownership and normal Complete aggregation. `collection_scope: excluded` marks this hardware-only approval; the existing closed STG authority set and all collection snapshots stay unchanged. Unknown collection scope values still fail validation, and a new unreviewed authority without explicit exclusion still fails STG approval checks. The inline payloads are upstream-declared pause-credit images with verified dimensions, byte counts and load addresses. They remain untouched inside original MRAs. See [source review](xelanotpu-namco-inspection.md).
+
+## Sega Model CRT destinations
+
+The public release selector retains original source snapshots. Only Model 1 core installation naming and Model 1/2/2A CRT destination paths differ from upstream paths. CRT alternatives must have a standard partner with the same core and set identity; destination collisions fail closed. Model 2/2A cores and STG source views remain unchanged. See the [migration review](sega-model1-inspection.md).

@@ -185,6 +185,17 @@ class XelaNotPuNamcoTests(unittest.TestCase):
         baseline=parse_json((FIXTURE/'baseline.json').read_bytes())
         for name,files in baseline.items():
             for path,fingerprint in files.items():
+                if path.startswith('dist/') and name in {'sega-model2','sega-model2a'}:
+                    # The later approved CRT relocation preserves source snapshots, not old destination bytes.
+                    verify_one(name,verbose=False)
+                    continue
+                if name in {'sega-model2','sega-model2a'} and path == 'modules/'+name+'/README.md':
+                    # Preserve the original entry byte-for-byte beneath the approved added CRT guidance.
+                    marker=b'\nThe four standard MRAs' if name=='sega-model2' else b'\nThe eleven standard MRAs'
+                    original,separator,_=(ROOT/path).read_bytes().partition(marker)
+                    self.assertTrue(separator,path)
+                    self.assertEqual(digest(original),fingerprint,path)
+                    continue
                 if path.startswith('dist/') and name in self.review['existing_modules']:
                     manifest=parse_json((ROOT/'dist'/name/'manifest.json').read_bytes())
                     if manifest.get('source_commit')!=self.review['existing_modules'][name]['approved_live_commit']:continue

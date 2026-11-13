@@ -518,6 +518,15 @@
       ],
       "include_required_cores": true
     },
+    "sega-model1": {
+      "authority": "alphanu1",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA MODEL 1"
+      ],
+      "include_required_cores": true
+    },
     "sega-model2": {
       "authority": "alphanu1",
       "management_state": "managed",
