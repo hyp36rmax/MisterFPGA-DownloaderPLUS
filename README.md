@@ -117,6 +117,7 @@ _Arcade/
 │   ├── _NAMCO SYSTEM 21/
 │   ├── _NAMCO SYSTEM 22/
 │   ├── _NAMCO SUPER SYSTEM 22/
+│   ├── _SEGA MODEL 1/
 │   ├── _SEGA MODEL 2/
 │   ├── _SEGA MODEL 2A/
 │   ├── _SEGA SYSTEM 32/
@@ -155,7 +156,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 | NMK | NMK16 |
 | PGM | PGM (EZIO) |
 | PSIKYO | PSIKYO, SH2 |
-| SEGA | MODEL 2, MODEL 2A, ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI, X-BOARD |
+| SEGA | MODEL 1, MODEL 2, MODEL 2A, ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI, X-BOARD |
 | SEIBU | SEI-8608, SPI |
 | SNK | 68000, ALPHA-68K |
 | SSV | SSV |
@@ -165,6 +166,8 @@ The systems below download from their maintained sources. Reserve Systems provid
 | TOAPLAN | TOAPLAN 1, TOAPLAN 2, TOAPLAN MIN16-02 |
 
 G-NET and Model 2/2A are public beta releases; compatibility varies by game and peripheral. G-NET installs the core and MRAs, but needs your own BIOS and converted game-card data. Follow the [G-NET installation guide](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer/blob/main/docs/INSTALL.md) and [game-card converter](https://gnet-converter.pages.dev). See the [Model 2 release notes](https://github.com/alphanu1/sega-model2-mister/tree/model2a/releases) for SDRAM requirements, game status and peripheral limitations.
+
+Model 1 installs six games and needs 64 MB or larger SDRAM, your own ROMs and I/O firmware. Its core installs as `Model1.rbf`; review older manually installed copies to avoid loading the wrong version. Model 1/2/2A CRT MRAs are under `_alternatives/`. See the [Model 1 release instructions](https://github.com/alphanu1/sega-model1-mister/tree/main/releases) and [migration notes](docs/sega-model1-inspection.md).
 
 ### Reserve Systems
 
@@ -446,6 +449,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-xboard]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-xboard/sega-xboard.json.zip
 
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model1/sega-model1.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model2/sega-model2.json.zip
 
@@ -660,7 +666,7 @@ TAITO F3: [Meathax / MeatCores](https://github.com/meathax/meatcores).
 
 TAITO G-NET: [shmupfan](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer).
 
-Sega Model 2 and Model 2A: [alphanu1](https://github.com/alphanu1/sega-model2-mister).
+Sega Model 1: [alphanu1](https://github.com/alphanu1/sega-model1-mister). Sega Model 2 and Model 2A: [alphanu1](https://github.com/alphanu1/sega-model2-mister).
 
 Original licenses and distribution conditions remain in effect. DownloaderPLUS is independent and does not claim affiliation or ownership of upstream projects.
 

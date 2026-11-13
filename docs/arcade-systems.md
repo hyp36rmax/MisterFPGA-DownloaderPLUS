@@ -157,7 +157,7 @@ Arcade Systems folders now require a leading underscore. Existing database IDs a
 
 TAITO G-NET uses [shmupfan's public database](https://raw.githubusercontent.com/shmupfan/Distribution/main/db.json), scoped to the released G-NET repository URLs. Its plain-JSON adapter validates the original records and preserves the effective core filename `TaitoGNET_20261022.rbf`. The adapter adds only the empty tag/folder structure required by the generated database; the original source snapshot remains in the manifest. Other shmupfan systems are not approved by this module.
 
-SEGA MODEL 2 and SEGA MODEL 2A use [alphanu1's `model2a` release directory](https://github.com/alphanu1/sega-model2-mister/tree/model2a/releases). Released MRA core references select the hardware view. Both views preserve flat release filenames, including regional and 15 kHz CRT variants; no artificial alternatives directories are created. Development MRAs and release helpers are excluded. Each core identity selects its latest dated release independently under `_Arcade/cores/`.
+SEGA MODEL 2 and SEGA MODEL 2A use [alphanu1's `model2a` release directory](https://github.com/alphanu1/sega-model2-mister/tree/model2a/releases). Released MRA core references select the hardware view. Standard MRAs remain in each system root; original 15 kHz CRT variants install under `_alternatives/`. Only their destination paths change; filenames, upstream URLs, hashes and payloads remain intact. Development MRAs and release helpers are excluded. Each core identity selects its latest dated release independently under `_Arcade/cores/`.
 
 All three modules verify public payload hashes and sizes before publication. Repository releases also verify Git blob identities. Manifests retain pinned source inventories and verified MRA evidence for offline replay. Invalid source records, unresolved dependencies, ambiguous alternatives and large source losses preserve the last known-good artifacts. A conflicting authority reservation requires review. The existing Coin-Op source decisions remain unchanged.
 
@@ -240,3 +240,12 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```
 
 The [source review](xelanotpu-namco-inspection.md) records exact counts, classifiers, core references and licensing evidence. The four pre-existing XelaNotPu Managed modules keep their original sources and core ownership.
+
+## Sega Model 1
+
+[alphanu1’s Model 1 release](https://github.com/alphanu1/sega-model1-mister/tree/main/releases) supplies six standard and six CRT MRAs at `_Arcade/_Arcade Systems/_SEGA MODEL 1/`. The original core installs as `_Arcade/cores/Model1.rbf`. Requires 64 MB or larger SDRAM and external game ROMs and I/O firmware. See the [module guide](../modules/sega-model1/README.md) and [source/CRT migration review](sega-model1-inspection.md).
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model1/sega-model1.json.zip
+```

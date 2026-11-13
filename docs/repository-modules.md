@@ -62,3 +62,7 @@ Credit belongs to XelaNotPu and the contributors named by those projects. Downlo
 ## XelaNotPu database comparison
 
 The new database does not replace these repository-derived implementations. System 11, Capcom ZN-1/ZN-2 and Taito FX1B keep their current sources, URLs and core ownership. The [Namco source audit](xelanotpu-namco-inspection.md) records matching path inventories, changed MRA hashes and the distinct System 11 core build.
+
+## Sega Model 1 release
+
+Model 1 reuses the pinned public release selector used by Model 2/2A. It accepts only the approved Model 1 repository’s release MRAs and dated core, then installs that core as `Model1.rbf` without changing its payload or source URL. Model 1 has hardware-only approval and does not expand STG source scope. The three Model views place verified CRT pairs under `_alternatives/`. See the [source review](sega-model1-inspection.md).

@@ -71,3 +71,7 @@ The F3 regression verifies exact source selection, primary and regional alternat
 ## XelaNotPu Namco
 
 The Namco regression binds original System 12 XML bytes to upstream hashes and sizes, then checks platform/core classification, exact inventory, recursive alternatives, source metadata, upstream core ownership, Reserve retirement and Complete aggregation. All four systems transition to independent Managed modules after their source and payload checks pass. Existing Managed artifacts and STG authority boundaries remain protected. See [Namco verification](xelanotpu-namco-inspection.md).
+
+## Sega Model 1 and CRT alternatives
+
+Focused regressions verify the six original Model 1 pairs, pinned blob/hash evidence, exact core installation name, CRT pairing and hierarchy, Model 2/2A source parity, collisions, Complete integration, normal tracked-file retirement and deterministic builds. The loader selection predicate is checked against a pinned upstream source fixture. Hardware checks remain outstanding. See the [source review](sega-model1-inspection.md).
