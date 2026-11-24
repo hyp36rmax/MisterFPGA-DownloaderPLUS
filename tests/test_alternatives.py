@@ -5,10 +5,10 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from test_repository import mock_source
+from test_repository import mock_source, historical_module as load_module
 from tools.build import build
 from tools.common.database import ValidationError, package
-from tools.common.engine import load_module, transform, validate_output
+from tools.common.engine import transform, validate_output
 from tools.common.repository import discover, inspect_repository, validate_navigation
 
 MODULES = ('namco-system11', 'taito-fx1b', 'capcom-zn1', 'capcom-zn2', 'seibu-spi', 'pgm-ezio')

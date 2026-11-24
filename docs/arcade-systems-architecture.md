@@ -67,3 +67,7 @@ NAMCO SYSTEM 12/21/22 and SUPER SYSTEM 22 use the existing tagged database selec
 ## Sega Model CRT destinations
 
 The public release selector retains original source snapshots. Only Model 1 core installation naming and Model 1/2/2A CRT destination paths differ from upstream paths. CRT alternatives must have a standard partner with the same core and set identity; destination collisions fail closed. Model 2/2A cores and STG source views remain unchanged. See the [migration review](sega-model1-inspection.md).
+
+## Unified ZN database selection
+
+The twelve reviewed ZN-family groups use XelaNotPu database selection with upstream-owned cores. Required core fingerprints and reviewed MRA counts fail closed on source changes. STG approvals retain their historical repository scopes; the shared database gains no collection authority. See [source verification and deployment limits](sony-zn-unified-integration.md).

@@ -5,7 +5,7 @@ import hashlib
 import re
 from urllib.parse import quote, urlsplit
 
-from tools.common.file_types import is_mra
+from tools.common.file_types import is_mra, alternative_directory
 from tools.common.database import ValidationError, fetch
 from tools.common.repository import require, safe_path, mra_reference, validate_system_navigation
 
@@ -153,6 +153,9 @@ def latest_authoritative_cores(files, core_policy, base_files_url=""):
 def select_database(database, config, policy):
     policy.validate_schema(database, config)
     require(database['db_id'] == config['upstream_db_id'], 'Selection requires authoritative upstream')
+    for path, expected in config.get('required_core_records', {}).items():
+        record = database['files'].get(path, {})
+        require(all(record.get(k) == v for k, v in expected.items()), 'Required upstream core changed or disappeared: ' + path)
     dictionary = database['tag_dictionary']
     groups = config['exclusive_group_tags']
     require(all(tag in dictionary for tag in config['selection_tags']), 'Authoritative classification disappeared')
@@ -176,6 +179,10 @@ def select_database(database, config, policy):
         if path.endswith('.rbf') and config.get('core_ownership') == 'upstream':
             continue
         files[path] = copy.deepcopy(record)
+    if 'expected_mra_counts' in config:
+        counts = {'primary': sum(is_mra(p) and not alternative_directory(p) for p in files),
+                  'alternatives': sum(is_mra(p) and bool(alternative_directory(p)) for p in files)}
+        require(counts == config['expected_mra_counts'], 'Reviewed MRA inventory changed; review before publication')
     if config.get('core_policy'):
         files = latest_authoritative_cores(files, config['core_policy'], database['base_files_url'])
     require(any(is_mra(p) for p in files) and (config.get('core_ownership') == 'upstream' or any(p.endswith('.rbf') for p in files)), 'Classification missing navigation or core')
@@ -205,7 +212,7 @@ def verify_payloads(database, fetcher=fetch, core_database=None, config=None):
     selected_ids = {core_source['tag_dictionary'][tag] for tag in config['selection_tags']} if config else None
     cores = [path.rsplit('/',1)[1] for path, record in core_source['files'].items()
              if path.startswith('_Arcade/cores/') and path.endswith('.rbf')
-             and (selected_ids is None or selected_ids & set(record.get('tags', [])))]
+             and (selected_ids is None or selected_ids & set(record.get('tags', [])) or path in (config or {}).get('required_core_records', {}))]
     def verify(item):
         path, record = item
         url = record.get('url', database['base_files_url'] + quote(path))
@@ -213,11 +220,19 @@ def verify_payloads(database, fetcher=fetch, core_database=None, config=None):
         require(len(payload) == record['size'] and hashlib.md5(payload).hexdigest() == record['hash'], 'Upstream payload hash/size mismatch: '+path)
         if is_mra(path):
             reference = mra_reference(payload, path)
+            if config and config.get('required_core_records'):
+                require('_Arcade/cores/' + reference + '.rbf' in config['required_core_records'], 'MRA outside matching core generation: ' + path)
             if config and config.get('core_policy'):
                 require(reference.removeprefix('Arcade-').casefold() in {i.casefold() for i in config['core_policy']['identities']}, 'MRA core outside approved identity: ' + path)
             require(any(re.fullmatch(r'(?:Arcade-)?'+re.escape(reference)+r'(?:_\d{8})?\.rbf', core, re.I) for core in cores), 'Unresolved selected MRA core: '+path)
+    items = dict(database['files'])
+    if config:
+        for path in config.get('required_core_records', {}):
+            record = copy.deepcopy(core_source['files'][path])
+            record['url'] = record.get('url', core_source['base_files_url'] + quote(path))
+            items[path] = record
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        list(pool.map(verify, database['files'].items()))
+        list(pool.map(verify, items.items()))
     if database.get('archives'):
         from tools.common.archives import verify_archive_payloads
         verify_archive_payloads(database, cores, fetcher)

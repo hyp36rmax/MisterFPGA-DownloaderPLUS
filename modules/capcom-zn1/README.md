@@ -1,14 +1,22 @@
 # CAPCOM ZN-1
 
-Authoritative source: [XelaNotPu/ZN1-Capcom_MiSTer](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer), distributed under `releases/_Arcade/`.
+Selected from [XelaNotPu's official Downloader database](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB). 5 primary MRAs and 12 alternatives retain their original filenames, payloads, tags, URLs and recursive hierarchy.
 
-- Navigation: `_Arcade/_Arcade Systems/_CAPCOM ZN-1/`, preserving MRA suffixes and alternatives recursively.
-- Cores: `_Arcade/cores/`, never beneath the navigation folder.
+- Navigation: `_Arcade/_Arcade Systems/_CAPCOM ZN-1/`.
 - Artifact: `dist/capcom-zn1/capcom-zn1.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1`.
+- Cores: upstream-owned under `_Arcade/cores/`. This module installs no executable cores.
 
-The shared repository adapter discovers MRAs and the newest dated RBF per family, verifies downloaded bytes, and checks all MRA core references. URLs point directly to a verified upstream commit. Only metadata is published; no payloads are copied into DownloaderPLUS. Normal upstream updates are automatic and independent of the other modules.
+Keep the normal XelaNotPu subscription enabled:
 
-The inspected distribution has 17 MRAs and one core referencing `ZN1Capcom`. Users supply required ROMs, board BIOS, and audio microcode as documented upstream. No upstream filter metadata is present, so none is invented. Credit belongs to XelaNotPu and the contributors credited upstream; DownloaderPLUS is independent and unaffiliated.
+```ini
+[XelaNotPu/XelaNotPu_MiSTer_DB]
+db_url = https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip
 
-See the root [README](../../README.md) and [inspection/verification](../../docs/repository-modules.md) for configuration, updates, safeguards, and remaining hardware acceptance.
+[hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/capcom-zn1/capcom-zn1.json.zip
+```
+
+Supply your own required ROMs, BIOS, keys and media. The original MRAs define those dependencies. DownloaderPLUS does not provide or modify them. Specialty controls and saved settings require hardware checks.
+
+See the [source and migration review](../../docs/sony-zn-unified-integration.md) for exact classifiers, core fingerprints, hardware assignments, external dependencies and deployment limits. Upstream attribution and applicable licenses remain with XelaNotPu and the credited contributors. Hardware UAT has not been run; this is a review build.

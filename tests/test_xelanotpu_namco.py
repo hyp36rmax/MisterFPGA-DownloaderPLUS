@@ -183,7 +183,14 @@ class XelaNotPuNamcoTests(unittest.TestCase):
 
     def test_unchanged_managed_and_stg_published_inputs(self):
         baseline=parse_json((FIXTURE/'baseline.json').read_bytes())
+        migrated = {'capcom-zn1', 'capcom-zn2', 'taito-fx1b'}
         for name,files in baseline.items():
+            if name in migrated:
+                # ZN-R03 separately verifies the approved identity-preserving database migration.
+                database, _ = verify_one(name, verbose=False)
+                self.assertFalse(any(p.endswith('.rbf') for p in database['files']))
+                self.assertEqual(load_module(name)[0]['core_ownership'], 'upstream')
+                continue
             for path,fingerprint in files.items():
                 if path.startswith('dist/') and name in {'sega-model2','sega-model2a'}:
                     # The later approved CRT relocation preserves source snapshots, not old destination bytes.
@@ -201,7 +208,12 @@ class XelaNotPuNamcoTests(unittest.TestCase):
                     if manifest.get('source_commit')!=self.review['existing_modules'][name]['approved_live_commit']:continue
                 self.assertEqual(digest((ROOT/path).read_bytes()),fingerprint,path)
         for name,item in self.review['existing_modules'].items():
-            self.assertEqual(load_module(name)[0]['repository'],item['approved_repository'])
+            if name in migrated:
+                historical = parse_json((ROOT/'data/stg-legacy-zn-sources.json').read_bytes())
+                config = historical[item['approved_repository']]['config']
+            else:
+                config = load_module(name)[0]
+            self.assertEqual(config['repository'],item['approved_repository'])
             self.assertFalse(item['existing_only_paths']);self.assertFalse(item['database_only_paths'])
             self.assertEqual(len(item['same_path_changed_hash_or_size']),item['existing_primary_mras']+item['existing_alternative_mras'])
 

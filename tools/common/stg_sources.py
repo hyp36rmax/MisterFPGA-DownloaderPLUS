@@ -26,7 +26,9 @@ APPROVED_AUTHORITIES = ('shmupfan', 'alphanu1', 'Coin-OpCollection/Distribution-
 def approvals(root=ROOT):
     """Reuse the hardware registry/configuration decisions; do not introduce precedence."""
     registered = registry(root)['modules']
-    result = {}
+    # Hardware migrations do not grant replacement authority to STG collections.
+    legacy = parse_json((root / 'data/stg-legacy-zn-sources.json').read_bytes())
+    result = {authority: copy.deepcopy(entry['approval']) for authority, entry in legacy.items()}
     for name in discover_modules(root):
         config, _ = load_module(name, root)
         if config.get('source_module') or config.get('source_mode') in {'coinop-family', 'complete', 'documentation', 'collection'}:
@@ -96,7 +98,12 @@ def current_sources(root=ROOT, fetcher=fetch):
     result = {}
     cache = {}
     for authority, approval in sorted(approvals(root).items()):
-        config, policy = load_module(approval['configs'][0], root)
+        legacy = parse_json((root / 'data/stg-legacy-zn-sources.json').read_bytes())
+        if authority in legacy:
+            config = legacy[authority]['config']
+            policy = None  # Historical repository source; never use the migrated hardware config.
+        else:
+            config, policy = load_module(approval['configs'][0], root)
         if config.get('source_mode') == 'public-distribution':
             from tools.common.public_distribution import collection_source
             result[authority] = collection_source(approval, root, fetcher=fetcher)

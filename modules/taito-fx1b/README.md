@@ -1,14 +1,24 @@
 # TAITO FX1B
 
-Authoritative source: [XelaNotPu/ZN1-TaitoFX1B_MiSTer](https://github.com/XelaNotPu/ZN1-TaitoFX1B_MiSTer), distributed under `releases/_Arcade/`.
+Selected from [XelaNotPu's official Downloader database](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB). 5 primary MRAs and 7 alternatives retain their original filenames, payloads, tags, URLs and recursive hierarchy.
 
-- Navigation: `_Arcade/_Arcade Systems/_TAITO FX1B/`, preserving MRA suffixes and alternatives recursively.
-- Cores: `_Arcade/cores/`, never beneath the navigation folder.
+- Navigation: `_Arcade/_Arcade Systems/_TAITO FX1B/`.
 - Artifact: `dist/taito-fx1b/taito-fx1b.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b`.
+- Cores: upstream-owned under `_Arcade/cores/`. This module installs no executable cores.
 
-The shared repository adapter discovers MRAs and the newest dated RBF per family, verifies downloaded bytes, and checks all MRA core references. URLs point directly to a verified upstream commit. Only metadata is published; no payloads are copied into DownloaderPLUS. Normal upstream updates are automatic and independent of the other modules.
+Keep the normal XelaNotPu subscription enabled:
 
-The inspected distribution has 12 MRAs and one core referencing `XNZN1TaitoFX1B`. Users supply required ROMs and board BIOS as documented upstream. No upstream filter metadata is present, so none is invented. Credit belongs to XelaNotPu and the contributors credited upstream; DownloaderPLUS is independent and unaffiliated.
+```ini
+[XelaNotPu/XelaNotPu_MiSTer_DB]
+db_url = https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip
 
-See the root [README](../../README.md) and [inspection/verification](../../docs/repository-modules.md) for configuration, updates, safeguards, and remaining hardware acceptance.
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1b/taito-fx1b.json.zip
+```
+
+Supply your own required ROMs, BIOS, keys and media. The original MRAs define those dependencies. DownloaderPLUS does not provide or modify them. Specialty controls and saved settings require hardware checks.
+
+See the [source and migration review](../../docs/sony-zn-unified-integration.md) for exact classifiers, core fingerprints, hardware assignments, external dependencies and deployment limits. Upstream attribution and applicable licenses remain with XelaNotPu and the credited contributors. Hardware UAT has not been run; this is a review build.
+
+Refresh this module and Arcade Systems Complete together after the official subscription supplies the required current core. Back up saved settings first. Reverting the MRA database alone does not restore the August runtime. Use a separately validated matching core/MRA recovery environment; never rename or duplicate cores to force selection.

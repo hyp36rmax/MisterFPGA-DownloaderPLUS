@@ -143,14 +143,17 @@ The systems below download from their maintained sources. Reserve Systems provid
 
 | Manufacturer or family | Systems |
 |---|---|
+| ACCLAIM | ZN |
+| ATLUS | ZN |
 | ATARI | SYSTEM 1, SYSTEM 2 |
 | BANPRESTO | BP964-BP965 |
 | CAPCOM | CPS1, CPS1.5, CPS2, CPS3, ZN-1, ZN-2 |
 | DATA EAST | DECO-8, DECO-16, DECO-32 |
-| EIGHTING / RAIZING | EIGHTING RAIZING |
+| EIGHTING / RAIZING | EIGHTING RAIZING, ZN |
 | IREM | M107, M62, M72, M90, M92 |
 | JALECO | MEGA SYSTEM 1 |
-| KONAMI | PRE-GX, TMNT2 BASED, XEXEX BASED |
+| KONAMI | GQ, GV, PRE-GX, TMNT2 BASED, XEXEX BASED |
+| METRO | ZN |
 | NAMCO | SYSTEM 11, SYSTEM 12, SYSTEM 21, SYSTEM 22, SUPER SYSTEM 22 |
 | NICHIBUTSU | TERRA CRESTA, TERRA FORCE |
 | NMK | NMK16 |
@@ -160,14 +163,18 @@ The systems below download from their maintained sources. Reserve Systems provid
 | SEIBU | SEI-8608, SPI |
 | SNK | 68000, ALPHA-68K |
 | SSV | SSV |
-| TAITO | A54, A78, A85, ASUKA, F2, F3, FX1B, G-NET, SYSTEM SJ |
+| TAITO | A54, A78, A85, ASUKA, F2, F3, FX1A, FX1B, G-NET, SYSTEM SJ |
 | TECHNOS | TA-0015 & TA-0017 |
 | TECHNOSOFT | TECHNOSOFT |
+| TECMO / VIDEO SYSTEM | ZN |
+| TIME WARNER | ZN |
 | TOAPLAN | TOAPLAN 1, TOAPLAN 2, TOAPLAN MIN16-02 |
 
 G-NET and Model 2/2A are public beta releases; compatibility varies by game and peripheral. G-NET installs the core and MRAs, but needs your own BIOS and converted game-card data. Follow the [G-NET installation guide](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer/blob/main/docs/INSTALL.md) and [game-card converter](https://gnet-converter.pages.dev). See the [Model 2 release notes](https://github.com/alphanu1/sega-model2-mister/tree/model2a/releases) for SDRAM requirements, game status and peripheral limitations.
 
 Model 1 installs six games and needs 64 MB or larger SDRAM, your own ROMs and I/O firmware. Its core installs as `Model1.rbf`; review older manually installed copies to avoid loading the wrong version. Model 1/2/2A CRT MRAs are under `_alternatives/`. See the [Model 1 release instructions](https://github.com/alphanu1/sega-model1-mister/tree/main/releases) and [migration notes](docs/sega-model1-inspection.md).
+
+Sony ZN-family modules need the normal XelaNotPu Downloader subscription for their cores. See the [ZN deployment notes](docs/sony-zn-unified-integration.md) before updating. Hardware validation is still outstanding. G-NET keeps its existing source and setup.
 
 ### Reserve Systems
 
@@ -336,6 +343,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 ```ini
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-eighting-raizing]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-eighting-raizing/coinop-eighting-raizing.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/raizing-zn]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/raizing-zn/raizing-zn.json.zip
 ```
 
 ### IREM
@@ -375,6 +385,12 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-konami-xexex-based]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-konami-xexex-based/coinop-konami-xexex-based.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/konami-gq]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/konami-gq/konami-gq.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/konami-gv]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/konami-gv/konami-gv.json.zip
 ```
 
 ### MIDWAY
@@ -533,6 +549,9 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1b/taito-fx1b.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1a]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/taito-fx1a/taito-fx1a.json.zip
 ```
 
 ### TECHNOS
@@ -560,6 +579,41 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-toaplan-2]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/coinop-toaplan-2/coinop-toaplan-2.json.zip
+```
+
+### ACCLAIM
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/acclaim-zn]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/acclaim-zn/acclaim-zn.json.zip
+```
+
+### ATLUS
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/atlus-zn]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/atlus-zn/atlus-zn.json.zip
+```
+
+### METRO
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/metro-zn]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/metro-zn/metro-zn.json.zip
+```
+
+### TECMO / VIDEO SYSTEM
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/tecmo-video-system-zn]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/tecmo-video-system-zn/tecmo-video-system-zn.json.zip
+```
+
+### TIME WARNER
+
+```ini
+[hyp36rmax/MisterFPGA-DownloaderPLUS/time-warner-zn]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/time-warner-zn/time-warner-zn.json.zip
 ```
 
 ## Questions & Answers

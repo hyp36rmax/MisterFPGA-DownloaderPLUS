@@ -1,0 +1,1018 @@
+{
+  "mras": {
+    "_Arcade/_XelaNotPu/Crypt Killer (GQ420 UAA).mra": {
+      "rbf": "Arcade-XNKonamiGQ_20261119",
+      "platform": null,
+      "setname": "cryptklr",
+      "tag": "arcadearcadexnkonamigq20261119",
+      "hash": "0cbb596484f840e0e35b2164c7827979",
+      "size": 3264
+    },
+    "_Arcade/_XelaNotPu/Hyper Athlete (GV021 Japan 1.00).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "hyperath",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "7dcc0f6fa3550a56a32e6e4b61627207",
+      "size": 2166
+    },
+    "_Arcade/_XelaNotPu/Hyper Olympic in Nagano (GX720 JAA).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "naganoj",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "ac6f6095efd98bd118b3606bd101b3ee",
+      "size": 2234
+    },
+    "_Arcade/_XelaNotPu/Jikkyou Powerful Pro Yakyuu '96 (GV017 Japan 1.03).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "powyak96",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "347fde6ed10e49e9f3357315a9f95334",
+      "size": 2279
+    },
+    "_Arcade/_XelaNotPu/Let's Attack Crazy Cross (GV027 Asia 1.10).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "lacrazyc",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "3599fbf5a74836b4341a0b7ae5761ddb",
+      "size": 2251
+    },
+    "_Arcade/_XelaNotPu/Nagano Winter Olympics '98 (GX720 EAA).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "nagano98",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "cf5d223cecd99aee20f30f131abef12a",
+      "size": 2263
+    },
+    "_Arcade/_XelaNotPu/Susume! Taisen Puzzle-Dama (GV027 Japan 1.20).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "susume",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "435f1f25d112ad2d3535601b0e6db898",
+      "size": 2312
+    },
+    "_Arcade/_XelaNotPu/Tokimeki Memorial Oshiete Your Heart (GQ673 JAA).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "tmosh",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "5bcfd3cd830e0fd13c58c4fcd692bda6",
+      "size": 2451
+    },
+    "_Arcade/_XelaNotPu/Tokimeki Memorial Oshiete Your Heart Seal Version (GE755 JAA).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "tmoshs",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "f23b060d675860d4017f6a478fa1c062",
+      "size": 2607
+    },
+    "_Arcade/_XelaNotPu/Tokimeki Memorial Oshiete Your Heart Seal Version Plus (GE756 JAA).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "tmoshspa",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "0ca54e609481e014bbb31abfab0fd3c4",
+      "size": 2709
+    },
+    "_Arcade/_XelaNotPu/Tokimeki Memorial Oshiete Your Heart Seal Version Plus (GE756 JAB).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "tmoshsp",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "ca47330ba7baf269547db818098ce905",
+      "size": 2629
+    },
+    "_Arcade/_XelaNotPu/Wedding Rhapsody (GX624 JAA).mra": {
+      "rbf": "Arcade-XNKonamiGV_20261119",
+      "platform": null,
+      "setname": "weddingr",
+      "tag": "arcadearcadexnkonamigv20261119",
+      "hash": "f16aac344dba33e8c616dd950482a628",
+      "size": 2644
+    },
+    "_Arcade/_XelaNotPu/Dead Eye (GV054 UAA01).mra": {
+      "rbf": "Arcade-XNKonamiGVGun_20261119",
+      "platform": null,
+      "setname": "kdeadeye",
+      "tag": "arcadearcadexnkonamigvgun20261119",
+      "hash": "a4b77a4919fdb43baaa27155c5b3811c",
+      "size": 3204
+    },
+    "_Arcade/_XelaNotPu/Beat the Champ (GV053 UAA01).mra": {
+      "rbf": "Arcade-XNKonamiGVTrack_20261119",
+      "platform": null,
+      "setname": "btchamp",
+      "tag": "arcadearcadexnkonamigvtrack20261119",
+      "hash": "4993beb270aed9cd202151ca50acc2ec",
+      "size": 3091
+    },
+    "_Arcade/_XelaNotPu/The Simpsons Bowling (GQ829 UAA).mra": {
+      "rbf": "Arcade-XNKonamiGVTrack_20261119",
+      "platform": null,
+      "setname": "simpbowl",
+      "tag": "arcadearcadexnkonamigvtrack20261119",
+      "hash": "6f4b6f44edaf412eb9f4725ded6bc164",
+      "size": 2895
+    },
+    "_Arcade/_XelaNotPu/NBA Jam Extreme (ver 1.10I).mra": {
+      "rbf": "Arcade-XNZN1Acclaim_20261119",
+      "platform": null,
+      "setname": "nbajamex",
+      "tag": "arcadearcadexnzn1acclaim20261119",
+      "hash": "b2d5e33fac73c8aff4eea06606ea233d",
+      "size": 4435
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_NBA Jam Extreme/NBA Jam Extreme (ver 1.04).mra": {
+      "rbf": "Arcade-XNZN1Acclaim_20261119",
+      "platform": null,
+      "setname": "nbajamexa",
+      "tag": "arcadearcadexnzn1acclaim20261119",
+      "hash": "e225f873721efb58beced7a30c6fb944",
+      "size": 4471
+    },
+    "_Arcade/_XelaNotPu/Judge Dredd (Rev C).mra": {
+      "rbf": "Arcade-XNZN1AcclaimGun_20261119",
+      "platform": null,
+      "setname": "jdredd",
+      "tag": "arcadearcadexnzn1acclaimgun20261119",
+      "hash": "2f9dfe5ebd035fea07c06b50350589a1",
+      "size": 3709
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Judge Dredd/Judge Dredd (Rev B).mra": {
+      "rbf": "Arcade-XNZN1AcclaimGun_20261119",
+      "platform": null,
+      "setname": "jdreddb",
+      "tag": "arcadearcadexnzn1acclaimgun20261119",
+      "hash": "244b377438a9cb8753f296c8bfb7be2d",
+      "size": 3734
+    },
+    "_Arcade/_XelaNotPu/Heaven's Gate.mra": {
+      "rbf": "Arcade-XNZN1Atlus_20261119",
+      "platform": null,
+      "setname": "hvnsgate",
+      "tag": "arcadearcadexnzn1atlus20261119",
+      "hash": "8339b05e178ae4e7da5ce57d4a92ec77",
+      "size": 3159
+    },
+    "_Arcade/_XelaNotPu/Battle Arena Toshinden 2 (USA).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "ts2u",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "292fbc4d36a9003773ddc260add2566c",
+      "size": 2469
+    },
+    "_Arcade/_XelaNotPu/Gallop Racer.mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "glpracr",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "c359b5bb775b52070472a83719e2a577",
+      "size": 2059
+    },
+    "_Arcade/_XelaNotPu/Star Gladiator Episode I - Final Crusade (USA).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "starglad",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "6d952b29c5f236f374aef09b4c0ecf26",
+      "size": 2906
+    },
+    "_Arcade/_XelaNotPu/Street Fighter EX (USA).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfexu",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "907e7dadc0c8023fc368ff515a489107",
+      "size": 2351
+    },
+    "_Arcade/_XelaNotPu/Street Fighter EX Plus (USA 970311).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfexpu1",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "4f88dbeba80778a598e02abdb6ca353e",
+      "size": 2364
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (Europe).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "ts2",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "d0209c0347418a0287a0e874c4ebb4fa",
+      "size": 3069
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (Japan).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "ts2j",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "b71c60dbc8ab1d9edb02a0e154b4ff41",
+      "size": 2473
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (Japan, 32Mb mask ROMs).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "ts2ja",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "3e4ba70c2d32601c36797d1870ad6998",
+      "size": 2434
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (USA, 32Mb mask ROMs).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "ts2ua",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "5d04471a710ed23d3a26c7f250602990",
+      "size": 2430
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Gallop Racer/Gallop Racer (Japan).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "glpracrj",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "80af5fc369aa724bfc59ae1bc97ddb73",
+      "size": 1795
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Star Gladiator Episode I - Final Crusade/Star Gladiator Episode I - Final Crusade (Japan).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "stargladj",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "2a51c52a1976eff01c70f0867d25a074",
+      "size": 2645
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX Plus/Street Fighter EX Plus (Japan 970311).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfexpj1",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "8bbec4c64ed022c35a4399c0b3befe4b",
+      "size": 2368
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX Plus/Street Fighter EX Plus (Japan 970407).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfexpj",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "76a5524fb9b70aab991be88624643901",
+      "size": 2367
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX Plus/Street Fighter EX Plus (USA).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfexp",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "337a902f53daaee4685d78e0d3a628f4",
+      "size": 3018
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX/Street Fighter EX (Asia).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfexa",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "019649b4fbf9e503a5193c8bb80280da",
+      "size": 2353
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX/Street Fighter EX (Europe).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfex",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "693daa6972a061a33720d508f80c8860",
+      "size": 2971
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX/Street Fighter EX (Japan).mra": {
+      "rbf": "Arcade-XNZN1Capcom_20261119",
+      "platform": null,
+      "setname": "sfexj",
+      "tag": "arcadearcadexnzn1capcom20261119",
+      "hash": "6bec735df327234cbc15e3d4e8e81f3a",
+      "size": 2354
+    },
+    "_Arcade/_XelaNotPu/Bust a Move 2 - Dance Tengoku Mix (Japan).mra": {
+      "rbf": "Arcade-XNZN1Metro_20261119",
+      "platform": null,
+      "setname": "bam2",
+      "tag": "arcadearcadexnzn1metro20261119",
+      "hash": "d241154dd162688084bdae522e9d1651",
+      "size": 3355
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Bust a Move 2 - Dance Tengoku Mix/Bust a Move 2 - Dance Tengoku Mix (Japan, CD-ROM).mra": {
+      "rbf": "Arcade-XNZN1Metro_20261119",
+      "platform": null,
+      "setname": "bam2a",
+      "tag": "arcadearcadexnzn1metro20261119",
+      "hash": "516bd3f902f6171ce218d7777f0d50d1",
+      "size": 3211
+    },
+    "_Arcade/_XelaNotPu/Beastorizer (USA).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "beastrzr",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "bb85f8f55c6ba432e64577a4221b5c85",
+      "size": 3245
+    },
+    "_Arcade/_XelaNotPu/Bloody Roar (Japan, Jun 21 1997).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "bldyroar",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "6395f126b13efac16a4a1b8b011446c9",
+      "size": 3301
+    },
+    "_Arcade/_XelaNotPu/Bloody Roar 2 (World).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "bldyror2",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "0ea2c1d89a94f4b95e9bbe789b1aaf6a",
+      "size": 3161
+    },
+    "_Arcade/_XelaNotPu/Brave Blade (World).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "brvblade",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "d57be581230b2b53e91ed0f32e5260fd",
+      "size": 3088
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Beastorizer/Beastorizer USA (Jun 21 1997).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "beastrzra",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "4fff6903efa6df9467d3f874d18ee6b1",
+      "size": 3280
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Bloody Roar 2/Bloody Roar 2 (Asia).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "bldyror2a",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "b428620528f6c5d859f561329bf247f5",
+      "size": 3267
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Bloody Roar 2/Bloody Roar 2 (Japan).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "bldyror2j",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "4adce9826cc9673633e99771407200c4",
+      "size": 3270
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Bloody Roar 2/Bloody Roar 2 (USA).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "bldyror2u",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "7c54323792c9dbb3c0f68a5626f29e51",
+      "size": 3264
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Brave Blade/Brave Blade (Asia).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "brvbladea",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "98d6684b077549962e9dd53821e8f8ba",
+      "size": 3181
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Brave Blade/Brave Blade (Japan).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "brvbladej",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "3018f0e49547421dc78300029c3677e3",
+      "size": 3183
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Brave Blade/Brave Blade (USA).mra": {
+      "rbf": "Arcade-XNZN1Raizing_20261119",
+      "platform": null,
+      "setname": "brvbladeu",
+      "tag": "arcadearcadexnzn1raizing20261119",
+      "hash": "d1055b68e6711a423d610480c1060eac",
+      "size": 3179
+    },
+    "_Arcade/_XelaNotPu/Magical Date (Ver 2.02J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "mgcldate",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "1a2801b36046f7dea78c07bd44dbc475",
+      "size": 3115
+    },
+    "_Arcade/_XelaNotPu/Magical Date EX (Ver 2.01J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "mgcldtex",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "733aa3853055af2a2e2352cbf3c78053",
+      "size": 2815
+    },
+    "_Arcade/_XelaNotPu/Psychic Force (Ver 2.4O).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "psyforce",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "82779986d1f699ed12311ec74e5e5d61",
+      "size": 2823
+    },
+    "_Arcade/_XelaNotPu/Psychic Force EX (Ver 2.0J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "psyforcex",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "10a39220c52fea9f47afb86967f80a61",
+      "size": 2861
+    },
+    "_Arcade/_XelaNotPu/Super Football Champ (Ver 2.5O).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "sfchamp",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "2b6058dea25eba4bacf89679705ce7eb",
+      "size": 2841
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Psychic Force/Psychic Force (Ver 2.4J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "psyforcej",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "12191973135c000d342f48f631a1979d",
+      "size": 2723
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Super Football Champ/Super Football Champ (Ver 2.4A).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "sfchampu",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "b424549ef0faa4896f57207b80d21298",
+      "size": 2917
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Super Football Champ/Super Football Champ (Ver 2.4J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "sfchampj",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "b1a45136a503154bea64f41cf456c6ec",
+      "size": 2918
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Super Football Champ/Super Football Champ (Ver 2.4O).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1A_20261119",
+      "platform": null,
+      "setname": "sfchampo",
+      "tag": "arcadearcadexnzn1taitofx1a20261119",
+      "hash": "fd15f41d92cdb6e3d38fe65e01ccbb7b",
+      "size": 2855
+    },
+    "_Arcade/_XelaNotPu/Fighters Impact A (Ver 2.00J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "ftimpcta",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "b43438dcf177de9e4f80a5304cf0b18b",
+      "size": 2837
+    },
+    "_Arcade/_XelaNotPu/Fighters' Impact (Ver 2.02O).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "ftimpact",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "ea3c7444cd12658b580f6bbe527dafee",
+      "size": 2824
+    },
+    "_Arcade/_XelaNotPu/G-Darius (Ver 2.02O).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "gdarius",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "5f57cfe48c2e68ec891f5fe8f7fd3086",
+      "size": 2770
+    },
+    "_Arcade/_XelaNotPu/G-Darius Ver.2 (Ver 2.03J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "gdarius2",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "37a291e43b81afd829fb74965434cef6",
+      "size": 2789
+    },
+    "_Arcade/_XelaNotPu/Ray Storm (Ver 2.06A).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "raystorm",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "fca791913bc699b96ff03fdcac1e0d14",
+      "size": 3094
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Fighters' Impact/Fighters' Impact (Ver 2.02A).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "ftimpactu",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "7f003eb6299c33bd7cec36d8e6378d04",
+      "size": 2918
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Fighters' Impact/Fighters' Impact (Ver 2.02J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "ftimpactj",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "b4c80ed912ac6bad3a2032cc3ce59f39",
+      "size": 2919
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_G-Darius/G-Darius (Ver 2.01J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "gdariusj",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "ad91052c907af37acf9174ed015ff6b1",
+      "size": 2796
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_G-Darius/G-Darius (Ver 2.02A).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "gdariusu",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "b4dd8652c6d0dd522c975b794670b9ea",
+      "size": 2859
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Ray Storm/Ray Storm (Ver 2.05A).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "raystormu",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "8461ae4e7fa2b081ab916a2dcce347dc",
+      "size": 2621
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Ray Storm/Ray Storm (Ver 2.05J).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "raystormj",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "47fd9a1150b9f86ad249a957cb5f8854",
+      "size": 2622
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Ray Storm/Ray Storm (Ver 2.05O).mra": {
+      "rbf": "Arcade-XNZN1TaitoFX1B_20261119",
+      "platform": null,
+      "setname": "raystormo",
+      "tag": "arcadearcadexnzn1taitofx1b20261119",
+      "hash": "0d913227aa423a44d091582243098c63",
+      "size": 2556
+    },
+    "_Arcade/_XelaNotPu/1 on 1 Government (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "1on1gov",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "371c515327d5ce2c66f8e054137b8178",
+      "size": 2696
+    },
+    "_Arcade/_XelaNotPu/Aero Fighters Special (USA).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "aerofgts",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "4a4506e82713f4af4b0895a77982ca3b",
+      "size": 2096
+    },
+    "_Arcade/_XelaNotPu/Cool Boarders Arcade Jam (Export).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "cbaj",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "5e1305213b6ed0b8ee13e8d63e9b4d9d",
+      "size": 2915
+    },
+    "_Arcade/_XelaNotPu/Dead or Alive ++ (Japan USA Export).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "doapp",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "ef7ee0c28a8948beec5260dfa18f527c",
+      "size": 2937
+    },
+    "_Arcade/_XelaNotPu/Flame Gunner (Export).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "flamegun",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "1be2be0e2e211b8e8c73d61e67a850fb",
+      "size": 3089
+    },
+    "_Arcade/_XelaNotPu/Gallop Racer 2 (Export).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "glpracr2",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "f12d8a8adb9fc7c07c59cdcf1eb3bd6f",
+      "size": 2661
+    },
+    "_Arcade/_XelaNotPu/Gallop Racer 3 (Export).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "glpracr3",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "3e100d9f14effa6a011e9a96ec41225c",
+      "size": 2758
+    },
+    "_Arcade/_XelaNotPu/Logic Pro Adventure (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "lpadv",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "4e59e211797ac23ac73767a4324de6cf",
+      "size": 2254
+    },
+    "_Arcade/_XelaNotPu/Monster Farm Jump (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "mfjump",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "33cfb52d3745edee0daca625f1fd2311",
+      "size": 2013
+    },
+    "_Arcade/_XelaNotPu/Shanghai Matekibuyuu (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "shngmtkb",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "28254179135c93cfd95d7aa7e3f420a2",
+      "size": 2336
+    },
+    "_Arcade/_XelaNotPu/Sonic Wings Limited (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "sncwgltd",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "b62068d8bfbe0a18427b72bb07156e90",
+      "size": 2044
+    },
+    "_Arcade/_XelaNotPu/Tecmo World Cup Millennium (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "twcupmil",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "cda030c1295f45f20ee74a12b0e21566",
+      "size": 2366
+    },
+    "_Arcade/_XelaNotPu/The Block Kuzushi (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "tblkkuzu",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "c46f1ae1006b7b370be645f66a129a0c",
+      "size": 2038
+    },
+    "_Arcade/_XelaNotPu/Tondemo Crisis (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "tondemo",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "6093627559151d5df010e1ddfa22c5f9",
+      "size": 2569
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Aero Fighters Special/Aero Fighters Special (Taiwan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "aerofgtst",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "03ed63f52d783f9cdb34df45a0f7b013",
+      "size": 2047
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Dead or Alive ++/Dead or Alive ++ (Korea).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "doappk",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "94340835f2af9ebb5b1d764894bdd47e",
+      "size": 2990
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Flame Gunner/Flame Gunner (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "flamegunj",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "d9d0496fba3f0b4c6301b5f6ad9ad4b2",
+      "size": 3147
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Gallop Racer 2/Gallop Racer 2 (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "glpracr2j",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "9f310ee66bfea84e8dee4954083eadd1",
+      "size": 2713
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Gallop Racer 3/Gallop Racer 3 (Japan).mra": {
+      "rbf": "Arcade-XNZN1TecmoVSys_20261119",
+      "platform": null,
+      "setname": "glpracr3j",
+      "tag": "arcadearcadexnzn1tecmovsys20261119",
+      "hash": "0b58d0768a8999fbbd94aad08068ce16",
+      "size": 2838
+    },
+    "_Arcade/_XelaNotPu/Primal Rage II (Test Version 0.36a).mra": {
+      "rbf": "Arcade-XNZN1TWarner_20261119",
+      "platform": null,
+      "setname": "primrag2",
+      "tag": "arcadearcadexnzn1twarner20261119",
+      "hash": "ec3c2bb15eb410e71d49edb21ba28d7a",
+      "size": 2844
+    },
+    "_Arcade/_XelaNotPu/Choukou Senki Kikaioh (Japan).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "kikaioh",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "c4106d85766f7fdbcd2c0584d3f2e68f",
+      "size": 1977
+    },
+    "_Arcade/_XelaNotPu/Plasma Sword - Nightmare of Bilstein (USA).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "plsmaswd",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "fa0472580023d76bb5d2020788cff1a9",
+      "size": 1924
+    },
+    "_Arcade/_XelaNotPu/Rival Schools - United By Fate (USA).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "rvschoolu",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "c227370a376437e1f3aae0b87298a7b9",
+      "size": 2107
+    },
+    "_Arcade/_XelaNotPu/Shiritsu Justice Gakuen - Legion of Heroes (Japan 971216).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "jgakuen",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "1627811642cc9922745c33e070785b7e",
+      "size": 2110
+    },
+    "_Arcade/_XelaNotPu/Star Gladiator 2 - Nightmare of Bilstein (Japan).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "stargld2",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "63b8838cf1cc5e943c756d7b0e199b41",
+      "size": 1961
+    },
+    "_Arcade/_XelaNotPu/Street Fighter EX2 (USA 980526).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2u",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "a7bb161058876ea01bd647bfced31b59",
+      "size": 1860
+    },
+    "_Arcade/_XelaNotPu/Street Fighter EX2 Plus (USA).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2pu",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "9506bd4dde3e27f8fac29321bce49ab0",
+      "size": 1960
+    },
+    "_Arcade/_XelaNotPu/Strider 2 (USA).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "strider2u",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "e1648341505a1aa641a4ed79666bb745",
+      "size": 2065
+    },
+    "_Arcade/_XelaNotPu/Strider Hiryu 2 (Japan).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "shiryu2",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "184cabb2c91e2b151229b055ab4d0288",
+      "size": 2061
+    },
+    "_Arcade/_XelaNotPu/Tech Romancer (USA).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "techromnu",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "cc9251854475abdb25ee7c0a4b4302df",
+      "size": 1979
+    },
+    "_Arcade/_XelaNotPu/Tetris - The Grand Master (Japan).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "tgmj",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "fd1375e9d770cadb0245b0026d71d5bc",
+      "size": 1727
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Plasma Sword - Nightmare of Bilstein/Plasma Sword - Nightmare of Bilstein (Asia).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "plsmaswda",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "b2a7595db0dea7ef244ade22671d5175",
+      "size": 1962
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Rival Schools - United By Fate/Rival Schools - United By Fate (Asia).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "rvschoola",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "8e5d588280190bb111ddf2d031f48ab4",
+      "size": 2108
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Rival Schools - United By Fate/Rival Schools - United By Fate (Europe).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "rvschool",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "d965d0a7f7a9db89d8e3b29eaf9ed43d",
+      "size": 2039
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Shiritsu Justice Gakuen - Legion of Heroes/Shiritsu Justice Gakuen - Legion of Heroes (Japan 971117).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "jgakuen1",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "a427770a797c3da2345931768ac0b500",
+      "size": 2115
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Asia).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2pa",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "8f8cd98ffc937eec070feead6355002b",
+      "size": 1961
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Europe).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2p",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "3d8938d924fcb5c0458594cd3de6d840",
+      "size": 1893
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Hispanic).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2ph",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "cfea39d2cfdf5ff3d42d4d734a698700",
+      "size": 1965
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Japan).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2pj",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "78910e4e5493c221ffa367442453d281",
+      "size": 1962
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Asia).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2a",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "d6e7d7fca657153da4c3ce4d680bef33",
+      "size": 1860
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Europe).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "80b45fdb184c3295d98fa508825c1cc5",
+      "size": 1804
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Hispanic).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2h",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "fdb0766f6004d5280f12321143ab6eeb",
+      "size": 1864
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Japan).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2j",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "d780b5f73220d2eb2cd37b7f9f41fdc0",
+      "size": 1861
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Street Fighter EX2/Street Fighter EX2 (USA 980312).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "sfex2u1",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "9de3bf6da62403af0ded975e4253683b",
+      "size": 1865
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Strider 2/Strider 2 (Asia).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "strider2a",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "e5720a436509422f1c8828ab44266a66",
+      "size": 2066
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Strider 2/Strider 2 (Europe).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "strider2",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "23395065611a9770dbc4131f64a00e61",
+      "size": 3050
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Tech Romancer/Tech Romancer (Asia).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "techromna",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "89714dfd74ad69a713add8d768e62c61",
+      "size": 1980
+    },
+    "_Arcade/_XelaNotPu/_alternatives/_Tech Romancer/Tech Romancer (Europe).mra": {
+      "rbf": "Arcade-XNZN2Capcom_20261119",
+      "platform": null,
+      "setname": "techromn",
+      "tag": "arcadearcadexnzn2capcom20261119",
+      "hash": "3cedb036296c964c809646a962bbfcc0",
+      "size": 1911
+    }
+  },
+  "cores": {
+    "_Arcade/cores/Arcade-XNKonamiGQ_20261119.rbf": {
+      "hash": "25415ccc48c8e8be95ae205620ae18bd",
+      "size": 4232344
+    },
+    "_Arcade/cores/Arcade-XNKonamiGVGun_20261119.rbf": {
+      "hash": "f06a08bc5b2dbd16929d97a990908097",
+      "size": 4128224
+    },
+    "_Arcade/cores/Arcade-XNKonamiGVTrack_20261119.rbf": {
+      "hash": "2aeafdcedbf76e11e8416ecf046b4d09",
+      "size": 4161352
+    },
+    "_Arcade/cores/Arcade-XNKonamiGV_20261119.rbf": {
+      "hash": "1fe5b0bb4b7b170f6d39748944cb15bb",
+      "size": 4115520
+    },
+    "_Arcade/cores/Arcade-XNZN1AcclaimGun_20261119.rbf": {
+      "hash": "315c3b7dd4ca9c952b19efefe788d577",
+      "size": 4072736
+    },
+    "_Arcade/cores/Arcade-XNZN1Acclaim_20261119.rbf": {
+      "hash": "dc5fcb35b56612066a7da2ea769b760b",
+      "size": 4234992
+    },
+    "_Arcade/cores/Arcade-XNZN1Atlus_20261119.rbf": {
+      "hash": "d5faabcb4edf5a08929cdf79147e2dd4",
+      "size": 4359160
+    },
+    "_Arcade/cores/Arcade-XNZN1Capcom_20261119.rbf": {
+      "hash": "b65e0d43795987d0df3d033d274cea1d",
+      "size": 4068152
+    },
+    "_Arcade/cores/Arcade-XNZN1Metro_20261119.rbf": {
+      "hash": "5a3b10a5d45e2df210b98eadab10c4f7",
+      "size": 4179072
+    },
+    "_Arcade/cores/Arcade-XNZN1Raizing_20261119.rbf": {
+      "hash": "ff00eb9bfb0d53a160a917cdc94707cd",
+      "size": 4396252
+    },
+    "_Arcade/cores/Arcade-XNZN1TWarner_20261119.rbf": {
+      "hash": "3b148d966a4d81962f3b011a83d02f1e",
+      "size": 4171104
+    },
+    "_Arcade/cores/Arcade-XNZN1TaitoFX1A_20261119.rbf": {
+      "hash": "25fa9583d96a499c4309d2167229a5b5",
+      "size": 4079468
+    },
+    "_Arcade/cores/Arcade-XNZN1TaitoFX1B_20261119.rbf": {
+      "hash": "98c455a097168f18b6ac505ee3258a6c",
+      "size": 4412096
+    },
+    "_Arcade/cores/Arcade-XNZN1TecmoVSys_20261119.rbf": {
+      "hash": "9322c4c5dae523ac2d9abef12454f0af",
+      "size": 4251596
+    },
+    "_Arcade/cores/Arcade-XNZN2Capcom_20261119.rbf": {
+      "hash": "a2cebf632379855e4bd169423722bddf",
+      "size": 4367220
+    }
+  }
+}

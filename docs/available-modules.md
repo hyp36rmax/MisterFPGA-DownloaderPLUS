@@ -9,18 +9,20 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | Arcade Systems Complete | Approved Arcade Systems aggregate | `_Arcade/_Arcade Systems/` | `arcade-systems-complete.json.zip` |
 | Arcade Systems Reserve | Navigation guidance | `_Arcade/_Arcade Systems/` | `arcade-systems-reserve.json.zip` |
 | PGM (Ezio) — Arcade Systems | Shared PGM presentation | `_Arcade/_Arcade Systems/_PGM (EZIO)/` | `pgm-ezio-arcade-systems.json.zip` |
+| ACCLAIM ZN | XelaNotPu database selection | `_Arcade/_Arcade Systems/_ACCLAIM ZN/` | `acclaim-zn.json.zip` |
 | Arcade STG (Complete) | Approved multi-source collection | `_Arcade/_Arcade STG (Complete)/` | `arcade-stg-complete.json.zip` |
 | Arcade STG (TATE) | Approved multi-source collection | `_Arcade/_Arcade STG (TATE)/` | `arcade-stg-tate.json.zip` |
 | Arcade STG (YOKO) | Approved multi-source collection | `_Arcade/_Arcade STG (YOKO)/` | `arcade-stg-yoko.json.zip` |
 | ATARI SYSTEM 1 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 1/` | `atari-system1.json.zip` |
 | ATARI SYSTEM 2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_ATARI SYSTEM 2/` | `atari-system2.json.zip` |
+| ATLUS ZN | XelaNotPu database selection | `_Arcade/_Arcade Systems/_ATLUS ZN/` | `atlus-zn.json.zip` |
 | BANPRESTO BP964-BP965 | kuzearcade/kuzecores database selection | `_Arcade/_Arcade Systems/_BANPRESTO BP964-BP965/` | `banpresto-bp964-bp965.json.zip` |
 | CAPCOM CPS1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1/` | `capcom-cps1.json.zip` |
 | CAPCOM CPS1.5 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS1.5/` | `capcom-cps15.json.zip` |
 | CAPCOM CPS2 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS2/` | `capcom-cps2.json.zip` |
 | CAPCOM CPS3 | JTCORES database selection | `_Arcade/_Arcade Systems/_CAPCOM CPS3/` | `capcom-cps3.json.zip` |
-| CAPCOM ZN-1 | Repository distribution | `_Arcade/_Arcade Systems/_CAPCOM ZN-1/` | `capcom-zn1.json.zip` |
-| CAPCOM ZN-2 | Repository distribution | `_Arcade/_Arcade Systems/_CAPCOM ZN-2/` | `capcom-zn2.json.zip` |
+| CAPCOM ZN-1 | XelaNotPu database selection | `_Arcade/_Arcade Systems/_CAPCOM ZN-1/` | `capcom-zn1.json.zip` |
+| CAPCOM ZN-2 | XelaNotPu database selection | `_Arcade/_Arcade Systems/_CAPCOM ZN-2/` | `capcom-zn2.json.zip` |
 | DATA EAST DECO-16 | Coin-Op database selection | `_Arcade/_Arcade Systems/_DATA EAST DECO-16/` | `coinop-data-east-deco-16.json.zip` |
 | DATA EAST DECO-32 | Coin-Op database selection | `_Arcade/_Arcade Systems/_DATA EAST DECO-32/` | `coinop-data-east-deco-32.json.zip` |
 | DATA EAST DECO-8 | Coin-Op database selection | `_Arcade/_Arcade Systems/_DATA EAST DECO-8/` | `coinop-data-east-deco-8.json.zip` |
@@ -31,9 +33,12 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | IREM M90 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M90/` | `irem-m90.json.zip` |
 | IREM M92 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_IREM M92/` | `irem-m92.json.zip` |
 | JALECO MEGA SYSTEM 1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_JALECO MEGA SYSTEM 1/` | `coinop-jaleco-mega-system-1.json.zip` |
+| KONAMI GQ | XelaNotPu database selection | `_Arcade/_Arcade Systems/_KONAMI GQ/` | `konami-gq.json.zip` |
+| KONAMI GV | XelaNotPu database selection | `_Arcade/_Arcade Systems/_KONAMI GV/` | `konami-gv.json.zip` |
 | KONAMI PRE-GX | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI PRE-GX/` | `coinop-konami-pre-gx.json.zip` |
 | KONAMI TMNT2 BASED | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI TMNT2 BASED/` | `coinop-konami-tmnt2-based.json.zip` |
 | KONAMI XEXEX BASED | Coin-Op database selection | `_Arcade/_Arcade Systems/_KONAMI XEXEX BASED/` | `coinop-konami-xexex-based.json.zip` |
+| METRO ZN | XelaNotPu database selection | `_Arcade/_Arcade Systems/_METRO ZN/` | `metro-zn.json.zip` |
 | MIDWAY T-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY T-UNIT/` | `coinop-midway-t-unit.json.zip` |
 | MIDWAY Y-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY Y-UNIT/` | `coinop-midway-y-unit.json.zip` |
 | MIDWAY Z-UNIT | Coin-Op Reserve guidance | `_Arcade/_Arcade Systems/_MIDWAY Z-UNIT/` | `coinop-midway-z-unit.json.zip` |
@@ -47,6 +52,7 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | NMK16 | Coin-Op database selection | `_Arcade/_Arcade Systems/_NMK16/` | `coinop-nmk16.json.zip` |
 | PSIKYO | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO/` | `psikyo.json.zip` |
 | PSIKYO SH2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_PSIKYO SH2/` | `psikyo-sh2.json.zip` |
+| RAIZING ZN | XelaNotPu database selection | `_Arcade/_Arcade Systems/_RAIZING ZN/` | `raizing-zn.json.zip` |
 | SEGA MODEL 1 | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 1/` | `sega-model1.json.zip` |
 | SEGA MODEL 2 | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2/` | `sega-model2.json.zip` |
 | SEGA MODEL 2A | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2A/` | `sega-model2a.json.zip` |
@@ -68,11 +74,14 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | TAITO ASUKA | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO ASUKA/` | `taito-asuka.json.zip` |
 | TAITO F2 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO F2/` | `taito-f2.json.zip` |
 | TAITO F3 | MeatCores database selection | `_Arcade/_Arcade Systems/_TAITO F3/` | `taito-f3.json.zip` |
-| TAITO FX1B | Repository distribution | `_Arcade/_Arcade Systems/_TAITO FX1B/` | `taito-fx1b.json.zip` |
+| TAITO FX1A | XelaNotPu database selection | `_Arcade/_Arcade Systems/_TAITO FX1A/` | `taito-fx1a.json.zip` |
+| TAITO FX1B | XelaNotPu database selection | `_Arcade/_Arcade Systems/_TAITO FX1B/` | `taito-fx1b.json.zip` |
 | TAITO G-NET | shmupfan database selection | `_Arcade/_Arcade Systems/_TAITO G-NET/` | `taito-gnet.json.zip` |
 | TAITO SYSTEM SJ | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TAITO SYSTEM SJ/` | `taito-system-sj.json.zip` |
 | TECHNOS TA-0015 & TA-0017 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TECHNOS TA-0015 & TA-0017/` | `coinop-technos-ta-0015.json.zip` |
 | TECHNOSOFT | Official MiSTer database selection | `_Arcade/_Arcade Systems/_TECHNOSOFT/` | `technosoft.json.zip` |
+| TECMO VIDEO SYSTEM ZN | XelaNotPu database selection | `_Arcade/_Arcade Systems/_TECMO VIDEO SYSTEM ZN/` | `tecmo-video-system-zn.json.zip` |
+| TIME WARNER ZN | XelaNotPu database selection | `_Arcade/_Arcade Systems/_TIME WARNER ZN/` | `time-warner-zn.json.zip` |
 | TOAPLAN 1 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN 1/` | `coinop-toaplan-1.json.zip` |
 | TOAPLAN 2 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN 2/` | `coinop-toaplan-2.json.zip` |
 | TOAPLAN MIN16-02 | Coin-Op database selection | `_Arcade/_Arcade Systems/_TOAPLAN MIN16-02/` | `coinop-toaplan-min16-02.json.zip` |

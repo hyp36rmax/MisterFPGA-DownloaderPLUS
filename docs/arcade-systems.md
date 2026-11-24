@@ -47,9 +47,9 @@ Arcade cores remain under `_Arcade/cores/`. Keep normal upstream core subscripti
 Authoritative distributions:
 
 - [NAMCO SYSTEM 11](https://github.com/XelaNotPu/SYSTEM11_MiSTer): `releases/_Arcade/`.
-- [TAITO FX1B](https://github.com/XelaNotPu/ZN1-TaitoFX1B_MiSTer): `releases/_Arcade/`.
-- [CAPCOM ZN-1](https://github.com/XelaNotPu/ZN1-Capcom_MiSTer): `releases/_Arcade/`.
-- [CAPCOM ZN-2](https://github.com/XelaNotPu/ZN2-Capcom_MiSTer): `releases/_Arcade/`.
+- [TAITO FX1B](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; executable cores remain upstream-owned.
+- [CAPCOM ZN-1](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; executable cores remain upstream-owned.
+- [CAPCOM ZN-2](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; executable cores remain upstream-owned.
 - [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
 - [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): its hardware classifications supply SEGA ST-V, IREM M62/M72/M90/M92, TECHNOSOFT, TAITO F2 and PSIKYO SH2 navigation, including only their classified archive alternatives.
 - [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies CPS1.5, CPS2, CPS3 and SEGA SYSTEM 16/18 navigation modules.
@@ -222,7 +222,7 @@ Uses [XelaNotPu’s database](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB):
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-system12/namco-system12.json.zip
 ```
 
-Complete includes this module. Reserve no longer owns the System 12 guidance file. The other three promoted Namco systems have independent Managed modules at their existing destinations. Existing System 11, Capcom ZN-1/ZN-2 and Taito FX1B sources are unchanged.
+Complete includes this module. Reserve no longer owns the System 12 guidance file. The other three promoted Namco systems have independent Managed modules at their existing destinations. System 11 retains its repository source. Capcom ZN-1/ZN-2 and Taito FX1B use the official database with upstream core ownership, as described in the ZN-family section below.
 
 ## NAMCO SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22
 
@@ -239,7 +239,7 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/namco-super-system22/namco-super-system22.json.zip
 ```
 
-The [source review](xelanotpu-namco-inspection.md) records exact counts, classifiers, core references and licensing evidence. The four pre-existing XelaNotPu Managed modules keep their original sources and core ownership.
+The [source review](xelanotpu-namco-inspection.md) records exact counts, classifiers, core references and licensing evidence. System 11 keeps its original source and core ownership. The three ZN-family migrations are described below.
 
 ## Sega Model 1
 
@@ -249,3 +249,24 @@ The [source review](xelanotpu-namco-inspection.md) records exact counts, classif
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model1]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model1/sega-model1.json.zip
 ```
+
+## Sony ZN-family systems
+
+Keep the official XelaNotPu subscription enabled for executable cores. These modules select original MRAs only. G-NET remains under its existing shmupfan authority. Review the [source, hardware and migration notes](sony-zn-unified-integration.md), including the FX1B cutover warning and outstanding hardware UAT.
+
+| System | Module | Primary MRAs | Alternatives |
+|---|---|---:|---:|
+| CAPCOM ZN-1 | [capcom-zn1](../modules/capcom-zn1/README.md) | 5 | 12 |
+| CAPCOM ZN-2 | [capcom-zn2](../modules/capcom-zn2/README.md) | 11 | 17 |
+| TAITO FX1B | [taito-fx1b](../modules/taito-fx1b/README.md) | 5 | 7 |
+| TAITO FX1A | [taito-fx1a](../modules/taito-fx1a/README.md) | 5 | 4 |
+| ACCLAIM ZN | [acclaim-zn](../modules/acclaim-zn/README.md) | 2 | 2 |
+| ATLUS ZN | [atlus-zn](../modules/atlus-zn/README.md) | 1 | 0 |
+| RAIZING ZN | [raizing-zn](../modules/raizing-zn/README.md) | 4 | 7 |
+| METRO ZN | [metro-zn](../modules/metro-zn/README.md) | 1 | 1 |
+| TECMO VIDEO SYSTEM ZN | [tecmo-video-system-zn](../modules/tecmo-video-system-zn/README.md) | 14 | 5 |
+| TIME WARNER ZN | [time-warner-zn](../modules/time-warner-zn/README.md) | 1 | 0 |
+| KONAMI GV | [konami-gv](../modules/konami-gv/README.md) | 14 | 0 |
+| KONAMI GQ | [konami-gq](../modules/konami-gq/README.md) | 1 | 0 |
+
+Individual subscription commands are in the [README](../README.md#individual-arcade-systems) and each module guide.

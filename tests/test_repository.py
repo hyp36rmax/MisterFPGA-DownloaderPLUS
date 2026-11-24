@@ -41,13 +41,24 @@ def mock_source(config, payloads=None, head="a" * 40):
     return payloads, tree, fetcher
 
 
+def historical_module(name):
+    config, policy = load_module(name)
+    if config.get('source_mode') == 'repository':
+        return config, policy
+    from tools.common.repository import RepositoryPolicy
+    entries = json.loads((ROOT / 'data/stg-legacy-zn-sources.json').read_bytes())
+    config = copy.deepcopy(next(e['config'] for e in entries.values() if e['config']['name'] == name))
+    config['upstream_db_id'] = config['repository']
+    return config, RepositoryPolicy(config)
+
+
 class RepositoryTests(unittest.TestCase):
     def test_initial_inspection_snapshot(self):
         snapshots = json.loads((ROOT / "tests/fixtures/xela-inspection.json").read_text())
         expected = {"namco-system11": 35, "taito-fx1b": 12, "capcom-zn1": 17}
         for name in MODULES:
             with self.subTest(module=name):
-                config, policy = load_module(name)
+                config, policy = historical_module(name)
                 snapshot = snapshots[name]
                 source = source_database(config, snapshot["source_commit"], snapshot["source_timestamp"], snapshot["source_files"])
                 generated = transform(source, config, policy)
@@ -62,7 +73,7 @@ class RepositoryTests(unittest.TestCase):
     def test_parameterized_discovery_and_mapping(self):
         for name in MODULES:
             with self.subTest(module=name):
-                config, policy = load_module(name)
+                config, policy = historical_module(name)
                 _, _, fetcher = mock_source(config)
                 source, _ = inspect_repository(config, fetcher=fetcher)
                 generated = transform(source, config, policy)
@@ -226,7 +237,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_double_prefix_and_core_misplacement(self):
         for name in MODULES:
-            config, policy = load_module(name)
+            config, policy = historical_module(name)
             prefix = "_Arcade/" + config["target_folder"]
             with self.subTest(module=name), self.assertRaises(ValidationError):
                 policy.destination(prefix + "/" + config["target_folder"] + "/Game.mra", "files")
