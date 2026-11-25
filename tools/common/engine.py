@@ -78,7 +78,7 @@ def load_module(name, root=ROOT):
     if config.get("source_mode") == "database":
         fields = {"name", "display_name", "source_mode", "upstream_url", "upstream_db_id", "derived_db_id", "policy_version",
                   "selection_tags", "exclusive_group_tags", "source_navigation_root", "target_folder"}
-        if set(config) - {"database_member", "core_ownership", "selection_archives", "require_all_group_tags", "filter_policy", "core_policy", "collection_scope"} != fields or config["name"] != name:
+        if set(config) - {"database_member", "core_ownership", "selection_archives", "require_all_group_tags", "filter_policy", "core_policy", "collection_scope", "required_core_records", "expected_mra_counts"} != fields or config["name"] != name:
             raise ValidationError("Unrecognized database-selection configuration")
         if config["derived_db_id"] != "hyp36rmax/MisterFPGA-DownloaderPLUS/" + name or config["derived_db_id"] == config["upstream_db_id"]:
             raise ValidationError("Invalid selected database identity")
@@ -105,6 +105,17 @@ def load_module(name, root=ROOT):
             raise ValidationError("Invalid archive selection policy")
         if 'collection_scope' in config and config['collection_scope'] not in ('selected', 'excluded'):
             raise ValidationError('Invalid collection authority scope')
+        if 'expected_mra_counts' in config:
+            counts = config['expected_mra_counts']
+            if type(counts) is not dict or set(counts) != {'primary', 'alternatives'} or any(type(v) is not int or v < 0 for v in counts.values()) or not counts['primary']:
+                raise ValidationError('Invalid reviewed MRA inventory counts')
+        if 'required_core_records' in config:
+            records = config['required_core_records']
+            if config.get('core_ownership') != 'upstream' or type(records) is not dict or not records:
+                raise ValidationError('Invalid upstream core dependency contract')
+            for path, record in records.items():
+                if not re.fullmatch(r'_Arcade/cores/[A-Za-z0-9_-]+\.rbf', path) or type(record) is not dict or set(record) != {'hash', 'size'} or not re.fullmatch('[0-9a-f]{32}', record['hash']) or type(record['size']) is not int or record['size'] <= 0:
+                    raise ValidationError('Invalid required upstream core record')
         if 'core_policy' in config:
             cp = config['core_policy']
             if type(cp) is not dict or set(cp) != {'identities', 'immutable_url_prefix'} or type(cp['identities']) is not list or not cp['identities'] or len(set(cp['identities'])) != len(cp['identities']) or not all(isinstance(i,str) and re.fullmatch('[A-Za-z0-9_-]+',i) for i in cp['identities']) or not re.fullmatch(r'https://raw\.githubusercontent\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/', cp['immutable_url_prefix']):

@@ -75,3 +75,7 @@ The Namco regression binds original System 12 XML bytes to upstream hashes and s
 ## Sega Model 1 and CRT alternatives
 
 Focused regressions verify the six original Model 1 pairs, pinned blob/hash evidence, exact core installation name, CRT pairing and hierarchy, Model 2/2A source parity, collisions, Complete integration, normal tracked-file retirement and deterministic builds. The loader selection predicate is checked against a pinned upstream source fixture. Hardware checks remain outstanding. See the [source review](sega-model1-inspection.md).
+
+## Unified ZN database selection
+
+The twelve reviewed ZN-family groups use XelaNotPu database selection with upstream-owned cores. Required core fingerprints and reviewed MRA counts fail closed on source changes. STG approvals retain their historical repository scopes; the shared database gains no collection authority. See [source verification and deployment limits](sony-zn-unified-integration.md).

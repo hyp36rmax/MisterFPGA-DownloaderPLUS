@@ -1,0 +1,74 @@
+{
+  "XelaNotPu/ZN1-Capcom_MiSTer": {
+    "config": {
+      "name": "capcom-zn1",
+      "display_name": "CAPCOM ZN-1",
+      "source_mode": "repository",
+      "repository": "XelaNotPu/ZN1-Capcom_MiSTer",
+      "ref": "main",
+      "distribution_root": "releases/_Arcade",
+      "target_folder": "_Arcade Systems/_CAPCOM ZN-1",
+      "preserve_arcade_cores": true,
+      "allow_external_repository": true,
+      "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1",
+      "policy_version": 3
+    },
+    "approval": {
+      "configs": [
+        "capcom-zn1"
+      ],
+      "roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM ZN-1"
+      ],
+      "selection_tags": []
+    }
+  },
+  "XelaNotPu/ZN2-Capcom_MiSTer": {
+    "config": {
+      "name": "capcom-zn2",
+      "display_name": "CAPCOM ZN-2",
+      "source_mode": "repository",
+      "repository": "XelaNotPu/ZN2-Capcom_MiSTer",
+      "ref": "main",
+      "distribution_root": "releases/_Arcade",
+      "target_folder": "_Arcade Systems/_CAPCOM ZN-2",
+      "preserve_arcade_cores": true,
+      "allow_external_repository": true,
+      "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn2",
+      "policy_version": 2
+    },
+    "approval": {
+      "configs": [
+        "capcom-zn2"
+      ],
+      "roots": [
+        "_Arcade/_Arcade Systems/_CAPCOM ZN-2"
+      ],
+      "selection_tags": []
+    }
+  },
+  "XelaNotPu/ZN1-TaitoFX1B_MiSTer": {
+    "config": {
+      "name": "taito-fx1b",
+      "display_name": "TAITO FX1B",
+      "source_mode": "repository",
+      "repository": "XelaNotPu/ZN1-TaitoFX1B_MiSTer",
+      "ref": "main",
+      "distribution_root": "releases/_Arcade",
+      "target_folder": "_Arcade Systems/_TAITO FX1B",
+      "preserve_arcade_cores": true,
+      "allow_external_repository": true,
+      "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/taito-fx1b",
+      "policy_version": 2
+    },
+    "approval": {
+      "configs": [
+        "taito-fx1b"
+      ],
+      "roots": [
+        "_Arcade/_Arcade Systems/_TAITO FX1B"
+      ],
+      "selection_tags": []
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Repository module inspection and software verification
 
+Historical repository inspection follows. Current Capcom ZN-1/ZN-2 and Taito FX1B source and core ownership are documented in the [unified ZN review](sony-zn-unified-integration.md).
+
 This document records the initial three-module inspection. Current Arcade Systems consolidation and recursive alternatives verification are documented in [the alternatives audit](alternatives-audit.md). Current navigation destinations use `_Arcade/_Arcade Systems/_<SYSTEM>/`; the permanent IDs and artifact names remain unchanged.
 
 Inspection on September 30, 2026 found the same authoritative layout in all three sources: `releases/_Arcade/` contains primary MRAs, `_alternatives/` contains alternate MRAs, and `cores/` contains the current dated RBF. No Downloader database/updater metadata or GitHub Release assets were found. No additional distributable runtime files were present. Repository history and README release notes describe older versions, but each inspected current tree contains one core.
@@ -61,7 +63,7 @@ Credit belongs to XelaNotPu and the contributors named by those projects. Downlo
 
 ## XelaNotPu database comparison
 
-The new database does not replace these repository-derived implementations. System 11, Capcom ZN-1/ZN-2 and Taito FX1B keep their current sources, URLs and core ownership. The [Namco source audit](xelanotpu-namco-inspection.md) records matching path inventories, changed MRA hashes and the distinct System 11 core build.
+System 11 retains its repository source. Capcom ZN-1/ZN-2 and Taito FX1B now select original MRAs from the official database, with upstream core ownership; see the [unified ZN migration review](sony-zn-unified-integration.md). The earlier repository snapshots above remain historical evidence. The [Namco source audit](xelanotpu-namco-inspection.md) records matching path inventories, changed MRA hashes and the distinct System 11 core build.
 
 ## Sega Model 1 release
 

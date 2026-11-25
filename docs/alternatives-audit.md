@@ -1,5 +1,7 @@
 # Arcade Systems alternatives audit
 
+This audit records its original source snapshot. Current ZN-family source selection and upstream-only core ownership are documented in the [unified ZN review](sony-zn-unified-integration.md); the migrated systems keep the same MRA and alternative inventories.
+
 Inspected September 30, 2026. Counts below come from authoritative source inventories: commit-pinned repository distributions and tagged MeatCores database records, not README title counts or earlier discussions. Alternative folder counts include the `_alternatives` root and every descendant directory. Development MRAs outside the declared distribution root are excluded. The CPS1 row was updated on October 31 for its Coin-Op migration.
 
 | System | Primary MRAs | Alternative MRAs | Alternative folders | Cores | Total files | Generated alternative MRAs | Status |

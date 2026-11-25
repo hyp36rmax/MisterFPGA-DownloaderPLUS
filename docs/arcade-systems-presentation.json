@@ -108,5 +108,35 @@
     "group": "TOAPLAN",
     "prefix": "TOAPLAN",
     "strip_prefix": false
+  },
+  {
+    "group": "ACCLAIM",
+    "prefix": "ACCLAIM",
+    "strip_prefix": true
+  },
+  {
+    "group": "ATLUS",
+    "prefix": "ATLUS",
+    "strip_prefix": true
+  },
+  {
+    "group": "METRO",
+    "prefix": "METRO",
+    "strip_prefix": true
+  },
+  {
+    "group": "EIGHTING / RAIZING",
+    "prefix": "RAIZING",
+    "strip_prefix": true
+  },
+  {
+    "group": "TECMO / VIDEO SYSTEM",
+    "prefix": "TECMO VIDEO SYSTEM",
+    "strip_prefix": true
+  },
+  {
+    "group": "TIME WARNER",
+    "prefix": "TIME WARNER",
+    "strip_prefix": true
   }
 ]

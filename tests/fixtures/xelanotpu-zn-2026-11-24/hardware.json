@@ -1,0 +1,597 @@
+{
+  "ts2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, ts2,       coh1000c, coh1000c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Takara\",         \"Battle Arena Toshinden 2 (Europe 951124)\",                 MACHINE_SUPPORTS_SAVE )"
+  },
+  "ts2u": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, ts2u,      ts2,      coh1000c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Takara\",         \"Battle Arena Toshinden 2 (USA 951124)\",                    MACHINE_SUPPORTS_SAVE )"
+  },
+  "ts2ua": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, ts2ua,     ts2,      coh1000c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Takara\",         \"Battle Arena Toshinden 2 (USA 951124, 32Mb mask ROMs)\",    MACHINE_SUPPORTS_SAVE )"
+  },
+  "ts2j": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, ts2j,      ts2,      coh1000c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Takara\",         \"Battle Arena Toshinden 2 (Japan 951124)\",                  MACHINE_SUPPORTS_SAVE )"
+  },
+  "ts2ja": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, ts2ja,     ts2,      coh1000c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Takara\",         \"Battle Arena Toshinden 2 (Japan 951124, 32Mb mask ROMs)\",  MACHINE_SUPPORTS_SAVE )"
+  },
+  "starglad": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, starglad,  coh1000c, coh1000c,  capcom4b, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Star Gladiator Episode I: Final Crusade (USA 960627)\",     MACHINE_SUPPORTS_SAVE )"
+  },
+  "stargladj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, stargladj, starglad, coh1000c,  capcom4b, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Star Gladiator Episode I: Final Crusade (Japan 960627)\",   MACHINE_SUPPORTS_SAVE )"
+  },
+  "glpracr": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, glpracr,   coh1000c, coh1000c,  glpracr,  glpracr_state,    empty_init, ROT0, \"Tecmo\",                   \"Gallop Racer (English Ver 10.17.K)\",                       MACHINE_SUPPORTS_SAVE )"
+  },
+  "glpracrj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, glpracrj,  glpracr,  coh1000c,  glpracr,  glpracr_state,    empty_init, ROT0, \"Tecmo\",                   \"Gallop Racer (Japanese Ver 9.01.12)\",                      MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, sfex,      coh1000c, coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX (Europe 961219)\",                        MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfexu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, sfexu,     sfex,     coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX (USA 961219)\",                           MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfexa": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, sfexa,     sfex,     coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX (Asia 961219)\",                          MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfexj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, sfexj,     sfex,     coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX (Japan 961130)\",                         MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfexp": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, sfexp,     coh1000c, coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX Plus (USA 970407)\",                      MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfexpu1": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, sfexpu1,   sfexp,    coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX Plus (USA 970311)\",                      MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfexpj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, sfexpj,    sfexp,    coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX Plus (Japan 970407)\",                    MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfexpj1": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, sfexpj1,   sfexp,    coh1002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX Plus (Japan 970311)\",                    MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfchamp": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, sfchamp,   coh1000t, coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Super Football Champ (Ver 2.5O)\",                          MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfchampo": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, sfchampo,  sfchamp,  coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Super Football Champ (Ver 2.4O)\",                          MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfchampu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, sfchampu,  sfchamp,  coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito America\",           \"Super Football Champ (Ver 2.4A)\",                          MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfchampj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, sfchampj,  sfchamp,  coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Super Football Champ (Ver 2.4J)\",                          MACHINE_SUPPORTS_SAVE )"
+  },
+  "psyforce": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, psyforce,  coh1000t, coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Psychic Force (Ver 2.4O)\",                                 MACHINE_SUPPORTS_SAVE )"
+  },
+  "psyforcej": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, psyforcej, psyforce, coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Psychic Force (Ver 2.4J)\",                                 MACHINE_SUPPORTS_SAVE )"
+  },
+  "psyforcex": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1995, psyforcex, psyforce, coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Psychic Force EX (Ver 2.0J)\",                              MACHINE_SUPPORTS_SAVE )"
+  },
+  "mgcldate": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, mgcldate,  mgcldtex, coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Magical Date / Magical Date - Dokidoki Kokuhaku Daisakusen (Ver 2.02J)\", MACHINE_SUPPORTS_SAVE )"
+  },
+  "mgcldtex": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, mgcldtex,  coh1000t, coh1000ta, znt2p,    taito_fx1s_state, empty_init, ROT0, \"Taito\",                   \"Magical Date EX / Magical Date - Sotsugyou Kokuhaku Daisakusen (Ver 2.01J)\", MACHINE_SUPPORTS_SAVE )"
+  },
+  "raystorm": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, raystorm,  coh1000t, coh1000tb, raystorm, taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"RayStorm (Ver 2.06A)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "raystormo": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, raystormo, raystorm, coh1000tb, raystorm, taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"RayStorm (Ver 2.05O)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "raystormu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, raystormu, raystorm, coh1000tb, raystorm, taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"RayStorm (Ver 2.05A)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "raystormj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, raystormj, raystorm, coh1000tb, raystorm, taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"RayStorm (Ver 2.05J)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "ftimpact": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, ftimpact,  ftimpcta, coh1000tb, znt2p,    taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"Fighters' Impact (Ver 2.02O)\",                             MACHINE_SUPPORTS_SAVE )"
+  },
+  "ftimpactu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, ftimpactu, ftimpcta, coh1000tb, znt2p,    taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"Fighters' Impact (Ver 2.02A)\",                             MACHINE_SUPPORTS_SAVE )"
+  },
+  "ftimpactj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, ftimpactj, ftimpcta, coh1000tb, znt2p,    taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"Fighters' Impact (Ver 2.02J)\",                             MACHINE_SUPPORTS_SAVE )"
+  },
+  "ftimpcta": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, ftimpcta,  coh1000t, coh1000tb, znt2p,    taito_fx1z_state, empty_init, ROT0, \"Taito\",                   \"Fighters' Impact A (Ver 2.00J)\",                           MACHINE_SUPPORTS_SAVE )"
+  },
+  "gdarius": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, gdarius,   gdarius2, coh1002tb, znt2p,    gdarius_state,    empty_init, ROT0, \"Taito\",                   \"G-Darius (Ver 2.02O)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "gdariusu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, gdariusu,  gdarius2, coh1002tb, znt2p,    gdarius_state,    empty_init, ROT0, \"Taito\",                   \"G-Darius (Ver 2.02A)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "gdariusj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, gdariusj,  gdarius2, coh1002tb, znt2p,    gdarius_state,    empty_init, ROT0, \"Taito\",                   \"G-Darius (Ver 2.01J)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "gdarius2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, gdarius2,  coh1000t, coh1002tb, znt2p,    gdarius_state,    empty_init, ROT0, \"Taito\",                   \"G-Darius Ver.2 (Ver 2.03J)\",                               MACHINE_SUPPORTS_SAVE )"
+  },
+  "nbajamex": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, nbajamex,  coh1000a, nbajamex,  nbajamex, nbajamex_state,   empty_init, ROT0, \"Acclaim\",                 \"NBA Jam Extreme (ver. 1.10I)\",                             MACHINE_SUPPORTS_SAVE )"
+  },
+  "nbajamexa": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, nbajamexa, nbajamex, nbajamex,  nbajamex, nbajamex_state,   empty_init, ROT0, \"Acclaim\",                 \"NBA Jam Extreme (ver. 1.04)\",                              MACHINE_SUPPORTS_SAVE )"
+  },
+  "jdredd": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, jdredd,    coh1000a, jdredd,    jdredd,   jdredd_state,     empty_init, ROT0, \"Acclaim\",                 \"Judge Dredd (Rev C Dec. 17 1997)\",                         MACHINE_SUPPORTS_SAVE )"
+  },
+  "jdreddb": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, jdreddb,   jdredd,   jdredd,    jdredd,   jdredd_state,     empty_init, ROT0, \"Acclaim\",                 \"Judge Dredd (Rev B Nov. 26 1997)\",                         MACHINE_SUPPORTS_SAVE )"
+  },
+  "primrag2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, primrag2,  coh1000w, coh1000w,  primrag2, primrag2_state,   empty_init, ROT0, \"Atari\",                   \"Primal Rage II (Test Version 0.36a)\",                      MACHINE_SUPPORTS_SAVE )"
+  },
+  "hvnsgate": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, hvnsgate,  coh1001l, coh1001l,  zn2p,     atlus_zn_state,   empty_init, ROT0, \"Racdym / Atlus\",          \"Heaven's Gate\",                                            MACHINE_SUPPORTS_SAVE )"
+  },
+  "aerofgts": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, aerofgts,  coh1002v, coh1002v,  aerofgts, visco_zn_state,   empty_init, ROT270, \"McO'River, Inc.\",       \"Aero Fighters Special (USA)\",                              MACHINE_SUPPORTS_SAVE ) // McO'River = Video System USA"
+  },
+  "aerofgtst": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, aerofgtst, aerofgts, coh1002v,  aerofgts, visco_zn_state,   empty_init, ROT270, \"Video System Co.\",      \"Aero Fighters Special (Taiwan)\",                           MACHINE_SUPPORTS_SAVE )"
+  },
+  "sncwgltd": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1996, sncwgltd,  aerofgts, coh1002v,  aerofgts, visco_zn_state,   empty_init, ROT270, \"Video System Co.\",      \"Sonic Wings Limited (Japan)\",                              MACHINE_SUPPORTS_SAVE )"
+  },
+  "beastrzr": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, beastrzr,  coh1002e, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT0, \"Eighting / Raizing\",      \"Beastorizer (USA, Sep 22 1997)\",                           MACHINE_SUPPORTS_SAVE )"
+  },
+  "beastrzra": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, beastrzra, beastrzr, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT0, \"Eighting / Raizing\",      \"Beastorizer (USA, Jun 21 1997)\",                           MACHINE_SUPPORTS_SAVE )"
+  },
+  "bldyroar": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, bldyroar,  beastrzr, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT0, \"Eighting / Raizing\",      \"Bloody Roar (Japan, Jun 21 1997)\",                         MACHINE_SUPPORTS_SAVE )"
+  },
+  "bldyror2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, bldyror2,  coh1002e, coh1002e,  bldyror2, raizing_zn_state, empty_init, ROT0, \"Eighting / Raizing\",      \"Bloody Roar 2 (World)\",                                    MACHINE_SUPPORTS_SAVE )"
+  },
+  "bldyror2u": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, bldyror2u, bldyror2, coh1002e,  bldyror2, raizing_zn_state, empty_init, ROT0, \"Eighting / Raizing\",      \"Bloody Roar 2 (USA)\",                                      MACHINE_SUPPORTS_SAVE )"
+  },
+  "bldyror2a": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, bldyror2a, bldyror2, coh1002e,  bldyror2, raizing_zn_state, empty_init, ROT0, \"Eighting / Raizing\",      \"Bloody Roar 2 (Asia)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "bldyror2j": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, bldyror2j, bldyror2, coh1002e,  bldyror2, raizing_zn_state, empty_init, ROT0, \"Eighting / Raizing\",      \"Bloody Roar 2 (Japan)\",                                    MACHINE_SUPPORTS_SAVE )"
+  },
+  "bam2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, bam2,      coh1002e, bam2hdd,   bam2,     bam2_state,       empty_init, ROT0, \"Metro / Enix / Namco\",    \"Bust a Move 2 - Dance Tengoku Mix (HDD Japanese ROM ver. 1999/07/17 10:00:00)\", MACHINE_SUPPORTS_SAVE | MACHINE_IMPERFECT_SOUND | MACHINE_NOT_WORKING )"
+  },
+  "bam2a": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, bam2a,     bam2,     bam2cdrom, bam2,     bam2_state,       empty_init, ROT0, \"Metro / Enix / Namco\",    \"Bust a Move 2 - Dance Tengoku Mix (CDROM Japanese ROM ver. 1999/07/17 10:00:00)\", MACHINE_SUPPORTS_SAVE | MACHINE_IMPERFECT_SOUND | MACHINE_NOT_WORKING )"
+  },
+  "rvschool": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, rvschool,  coh3002c, coh3002c,  capcom4b, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Rival Schools: United By Fate (Europe 971117)\",            MACHINE_SUPPORTS_SAVE )"
+  },
+  "rvschoolu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, rvschoolu, rvschool, coh3002c,  capcom4b, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Rival Schools: United By Fate (USA 971117)\",               MACHINE_SUPPORTS_SAVE )"
+  },
+  "rvschoola": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, rvschoola, rvschool, coh3002c,  capcom4b, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Rival Schools: United By Fate (Asia 971117)\",              MACHINE_SUPPORTS_SAVE )"
+  },
+  "jgakuen": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, jgakuen,   rvschool, coh3002c,  capcom4b, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Shiritsu Justice Gakuen: Legion of Heroes (Japan 971216)\", MACHINE_SUPPORTS_SAVE )"
+  },
+  "jgakuen1": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, jgakuen1,  rvschool, coh3002c,  capcom4b, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Shiritsu Justice Gakuen: Legion of Heroes (Japan 971117)\", MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, sfex2,     coh3002c, coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 (Europe 980312)\",                       MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2u": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, sfex2u,    sfex2,    coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 (USA 980526)\",                          MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2u1": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, sfex2u1,   sfex2,    coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 (USA 980312)\",                          MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2a": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, sfex2a,    sfex2,    coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 (Asia 980312)\",                         MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2h": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, sfex2h,    sfex2,    coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 (Hispanic 980312)\",                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2j": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, sfex2j,    sfex2,    coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 (Japan 980312)\",                        MACHINE_SUPPORTS_SAVE )"
+  },
+  "plsmaswd": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, plsmaswd,  coh3002c, coh3002c,  plsmaswd, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Plasma Sword: Nightmare of Bilstein (USA 980316)\",         MACHINE_SUPPORTS_SAVE )"
+  },
+  "plsmaswda": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, plsmaswda, plsmaswd, coh3002c,  plsmaswd, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Plasma Sword: Nightmare of Bilstein (Asia 980316)\",        MACHINE_SUPPORTS_SAVE )"
+  },
+  "stargld2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, stargld2,  plsmaswd, coh3002c,  plsmaswd, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Star Gladiator 2: Nightmare of Bilstein (Japan 980316)\",   MACHINE_SUPPORTS_SAVE )"
+  },
+  "tgmj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, tgmj,      coh3002c, coh3002c,  tgmj,     capcom_zn_state,  empty_init, ROT0, \"Arika / Capcom\",          \"Tetris: The Grand Master (Japan 980710)\",                  MACHINE_SUPPORTS_SAVE )"
+  },
+  "techromn": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, techromn,  coh3002c, coh3002c,  plsmaswd, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Tech Romancer (Europe 980914)\",                            MACHINE_SUPPORTS_SAVE ) // Font is not uploaded if entering test mode after qsound screen"
+  },
+  "techromnu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, techromnu, techromn, coh3002c,  plsmaswd, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Tech Romancer (USA 980914)\",                               MACHINE_SUPPORTS_SAVE ) // \"\""
+  },
+  "techromna": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, techromna, techromn, coh3002c,  plsmaswd, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Tech Romancer (Asia 980914)\",                              MACHINE_SUPPORTS_SAVE ) // \"\""
+  },
+  "kikaioh": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, kikaioh,   techromn, coh3002c,  plsmaswd, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Choukou Senki Kikaioh (Japan 980914)\",                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2p": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, sfex2p,    coh3002c, coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 Plus (Europe 990611)\",                  MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2pu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, sfex2pu,   sfex2p,   coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 Plus (USA 990611)\",                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2pa": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, sfex2pa,   sfex2p,   coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 Plus (Asia 990611)\",                    MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2ph": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, sfex2ph,   sfex2p,   coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 Plus (Hispanic 990611)\",                MACHINE_SUPPORTS_SAVE )"
+  },
+  "sfex2pj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, sfex2pj,   sfex2p,   coh3002c,  capcom6b, capcom_zn_state,  empty_init, ROT0, \"Capcom / Arika\",          \"Street Fighter EX2 Plus (Japan 990611)\",                   MACHINE_SUPPORTS_SAVE )"
+  },
+  "strider2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, strider2,  coh3002c, coh3002c,  strider2, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Strider 2 (Europe 991213)\",                                MACHINE_SUPPORTS_SAVE )"
+  },
+  "strider2u": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, strider2u, strider2, coh3002c,  strider2, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Strider 2 (USA 991213)\",                                   MACHINE_SUPPORTS_SAVE )"
+  },
+  "strider2a": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, strider2a, strider2, coh3002c,  strider2, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Strider 2 (Asia 991213)\",                                  MACHINE_SUPPORTS_SAVE )"
+  },
+  "shiryu2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, shiryu2,   strider2, coh3002c,  strider2, capcom_zn_state,  empty_init, ROT0, \"Capcom\",                  \"Strider Hiryu 2 (Japan 991213)\",                           MACHINE_SUPPORTS_SAVE )"
+  },
+  "glpracr2": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, glpracr2,  coh1002m, coh1002m,  glpracr2, tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Gallop Racer 2 (Export)\",                                  MACHINE_SUPPORTS_SAVE )"
+  },
+  "glpracr2j": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1997, glpracr2j, glpracr2, coh1002m,  glpracr2, tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Gallop Racer 2 (Japan)\",                                   MACHINE_SUPPORTS_SAVE )"
+  },
+  "doapp": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, doapp,     coh1002m, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Dead Or Alive ++ (Japan/USA/Export)\",                      MACHINE_SUPPORTS_SAVE ) // region set under GAME OPTIONS, then NATION"
+  },
+  "doappk": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, doappk,    doapp,    coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Dead Or Alive ++ (Korea)\",                                 MACHINE_SUPPORTS_SAVE )"
+  },
+  "cbaj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, cbaj,      coh1002m, cbaj,      zn1p,     cbaj_state,       empty_init, ROT0, \"UEP Systems\",             \"Cool Boarders Arcade Jam (Export)\",                        MACHINE_SUPPORTS_SAVE )"
+  },
+  "shngmtkb": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1998, shngmtkb,  coh1002m, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Sunsoft / Activision\",    \"Shanghai Matekibuyuu (Japan)\",                             MACHINE_SUPPORTS_SAVE )"
+  },
+  "tondemo": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, tondemo,   coh1002m, coh1002m,  zn1p,     tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Tondemo Crisis (Japan)\",                                   MACHINE_SUPPORTS_SAVE )"
+  },
+  "glpracr3": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, glpracr3,  coh1002m, coh1002m,  glpracr2, tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Gallop Racer 3 (Export)\",                                  MACHINE_SUPPORTS_SAVE )"
+  },
+  "glpracr3j": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, glpracr3j, glpracr3, coh1002m,  glpracr2, tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Gallop Racer 3 (Japan)\",                                   MACHINE_SUPPORTS_SAVE )"
+  },
+  "flamegun": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, flamegun,  coh1002m, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Gaps Inc.\",               \"Flame Gunner (Export)\",                                    MACHINE_SUPPORTS_SAVE )"
+  },
+  "flamegunj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, flamegunj, flamegun, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Gaps Inc.\",               \"Flame Gunner (Japan)\",                                     MACHINE_SUPPORTS_SAVE )"
+  },
+  "lpadv": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 1999, lpadv,     coh1002m, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Amuse World\",             \"Logic Pro Adventure (Japan)\",                              MACHINE_SUPPORTS_SAVE )"
+  },
+  "tblkkuzu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2000, tblkkuzu,  coh1002m, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Tamsoft / D3 Publisher\",  \"The Block Kuzushi (Japan)\",                                MACHINE_SUPPORTS_SAVE )"
+  },
+  "1on1gov": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2000, 1on1gov,   coh1002m, coh1002m,  zn,       tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"1 on 1 Government (Japan)\",                                MACHINE_SUPPORTS_SAVE )"
+  },
+  "twcupmil": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2000, twcupmil,  coh1002m, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Tecmo World Cup Millennium (Japan)\",                       MACHINE_SUPPORTS_SAVE )"
+  },
+  "mfjump": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2001, mfjump,    coh1002m, coh1002m,  zn2p,     tecmo_zn_state,   empty_init, ROT0, \"Tecmo\",                   \"Monster Farm Jump (Japan)\",                                MACHINE_SUPPORTS_SAVE )"
+  },
+  "brvblade": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2000, brvblade,  coh1002m, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT270, \"Eighting / Raizing\",    \"Brave Blade (World)\",                                      MACHINE_SUPPORTS_SAVE )"
+  },
+  "brvbladeu": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2000, brvbladeu, brvblade, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT270, \"Eighting / Raizing\",    \"Brave Blade (USA)\",                                        MACHINE_SUPPORTS_SAVE )"
+  },
+  "brvbladea": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2000, brvbladea, brvblade, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT270, \"Eighting / Raizing\",    \"Brave Blade (Asia)\",                                       MACHINE_SUPPORTS_SAVE )"
+  },
+  "brvbladej": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/sony/zn.cpp",
+    "source_sha256": "057f373429fead03ea9c455318173b7bea6d31f827757604b89e00a19f335d4d",
+    "declaration": "GAME( 2000, brvbladej, brvblade, coh1002e,  znt2p,    raizing_zn_state, empty_init, ROT270, \"Eighting / Raizing\",    \"Brave Blade (Japan)\",                                      MACHINE_SUPPORTS_SAVE )"
+  },
+  "powyak96": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1996, powyak96, konamigv, konamigv, konamigv, konamigv_state, empty_init,   ROT0, \"Konami\", \"Jikkyou Powerful Pro Yakyuu '96 (GV017 Japan 1.03)\", MACHINE_IMPERFECT_SOUND )"
+  },
+  "hyperath": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1996, hyperath, konamigv, konamigv, konamigv, konamigv_state, empty_init,   ROT0, \"Konami\", \"Hyper Athlete (GV021 Japan 1.00)\", MACHINE_IMPERFECT_SOUND )"
+  },
+  "lacrazyc": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1996, lacrazyc, konamigv, konamigv, konamigv, konamigv_state, empty_init,   ROT0, \"Konami\", \"Let's Attack Crazy Cross (GV027 Asia 1.10)\", MACHINE_IMPERFECT_SOUND )"
+  },
+  "susume": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1996, susume,   lacrazyc, konamigv, konamigv, konamigv_state, empty_init,   ROT0, \"Konami\", \"Susume! Taisen Puzzle-Dama (GV027 Japan 1.20)\", MACHINE_IMPERFECT_SOUND )"
+  },
+  "btchamp": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1996, btchamp,  konamigv, btchamp,  btchamp,  konamigv_state, empty_init,   ROT0, \"Konami\", \"Beat the Champ (GV053 UAA01)\", MACHINE_NOT_WORKING | MACHINE_IMPERFECT_SOUND )"
+  },
+  "kdeadeye": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1996, kdeadeye, konamigv, kdeadeye, kdeadeye, konamigv_state, empty_init,   ROT0, \"Konami\", \"Dead Eye (GV054 UAA01)\", MACHINE_NOT_WORKING | MACHINE_IMPERFECT_GRAPHICS | MACHINE_IMPERFECT_SOUND )"
+  },
+  "weddingr": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1997, weddingr, konamigv, konamigv, weddingr, konamigv_state, empty_init,   ROT0, \"Konami\", \"Wedding Rhapsody (GX624 JAA)\", MACHINE_IMPERFECT_SOUND )"
+  },
+  "tmosh": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1997, tmosh,    konamigv, tmosh,    tmosh,    tokimeki_state, empty_init,   ROT0, \"Konami\", \"Tokimeki Memorial Oshiete Your Heart (GQ673 JAA)\", MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS ) // graphics: picture to be printed is cut off on the left"
+  },
+  "tmoshs": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1997, tmoshs,   konamigv, tmosh,    tmosh,    tokimeki_state, tmoshs_init,  ROT0, \"Konami\", \"Tokimeki Memorial Oshiete Your Heart Seal Version (GE755 JAA)\", MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS )"
+  },
+  "tmoshsp": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1997, tmoshsp,  konamigv, tmosh,    tmosh,    tokimeki_state, tmoshsp_init, ROT0, \"Konami\", \"Tokimeki Memorial Oshiete Your Heart Seal Version Plus (GE756 JAB)\", MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS )"
+  },
+  "tmoshspa": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1997, tmoshspa, tmoshsp,  tmosh,    tmosh,    tokimeki_state, tmoshsp_init, ROT0, \"Konami\", \"Tokimeki Memorial Oshiete Your Heart Seal Version Plus (GE756 JAA)\", MACHINE_NOT_WORKING | MACHINE_IMPERFECT_SOUND | MACHINE_IMPERFECT_GRAPHICS )"
+  },
+  "nagano98": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1998, nagano98, konamigv, konamigv, konamigv, konamigv_state, empty_init,   ROT0, \"Konami\", \"Nagano Winter Olympics '98 (GX720 EAA)\", MACHINE_IMPERFECT_SOUND)"
+  },
+  "naganoj": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 1998, naganoj,  nagano98, konamigv, konamigv, konamigv_state, empty_init,   ROT0, \"Konami\", \"Hyper Olympic in Nagano (GX720 JAA)\", MACHINE_IMPERFECT_SOUND)"
+  },
+  "simpbowl": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigv.cpp",
+    "source_sha256": "743bbd05d99c8f1c72694840911d7246472f11f1577639afab12614daad65a20",
+    "declaration": "GAME( 2000, simpbowl, konamigv, simpbowl, simpbowl, simpbowl_state, empty_init,   ROT0, \"Konami\", \"The Simpsons Bowling (GQ829 UAA)\", MACHINE_IMPERFECT_SOUND)"
+  },
+  "cryptklr": {
+    "source_url": "https://raw.githubusercontent.com/mamedev/mame/da7afddfa5b206bab4bcd4c3b60c4bd411e07f98/src/mame/konami/konamigq.cpp",
+    "source_sha256": "896d3b373e9934219218bdcd3c8aa51b62b7b781fe66275db0eb7a1af14cf43b",
+    "declaration": "GAME( 1995, cryptklr, 0, konamigq, konamigq, konamigq_state, empty_init, ROT0, \"Konami\", \"Crypt Killer (GQ420 UAA)\", 0 )"
+  }
+}

@@ -56,22 +56,22 @@
       "include_required_cores": false
     },
     "capcom-zn1": {
-      "authority": "XelaNotPu/ZN1-Capcom_MiSTer",
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
       "management_state": "managed",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM ZN-1"
       ],
-      "include_required_cores": true
+      "include_required_cores": false
     },
     "capcom-zn2": {
-      "authority": "XelaNotPu/ZN2-Capcom_MiSTer",
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
       "management_state": "managed",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM ZN-2"
       ],
-      "include_required_cores": true
+      "include_required_cores": false
     },
     "coinop-collection": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -209,13 +209,13 @@
       "include_required_cores": false
     },
     "taito-fx1b": {
-      "authority": "XelaNotPu/ZN1-TaitoFX1B_MiSTer",
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
       "management_state": "managed",
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO FX1B"
       ],
-      "include_required_cores": true
+      "include_required_cores": false
     },
     "technosoft": {
       "authority": "distribution_mister",
@@ -614,6 +614,87 @@
       "include_in_arcade_systems_complete": true,
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22"
+      ],
+      "include_required_cores": false
+    },
+    "taito-fx1a": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TAITO FX1A"
+      ],
+      "include_required_cores": false
+    },
+    "acclaim-zn": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_ACCLAIM ZN"
+      ],
+      "include_required_cores": false
+    },
+    "atlus-zn": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_ATLUS ZN"
+      ],
+      "include_required_cores": false
+    },
+    "raizing-zn": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_RAIZING ZN"
+      ],
+      "include_required_cores": false
+    },
+    "metro-zn": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_METRO ZN"
+      ],
+      "include_required_cores": false
+    },
+    "tecmo-video-system-zn": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TECMO VIDEO SYSTEM ZN"
+      ],
+      "include_required_cores": false
+    },
+    "time-warner-zn": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_TIME WARNER ZN"
+      ],
+      "include_required_cores": false
+    },
+    "konami-gv": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_KONAMI GV"
+      ],
+      "include_required_cores": false
+    },
+    "konami-gq": {
+      "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_KONAMI GQ"
       ],
       "include_required_cores": false
     }

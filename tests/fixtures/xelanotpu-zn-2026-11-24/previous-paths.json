@@ -1,0 +1,80 @@
+{
+  "capcom-zn1": {
+    "mras": [
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/Battle Arena Toshinden 2 (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/Gallop Racer.mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/Star Gladiator Episode I - Final Crusade (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/Street Fighter EX (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/Street Fighter EX Plus (USA 970311).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (Europe).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (Japan, 32Mb mask ROMs).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Battle Arena Toshinden 2/Battle Arena Toshinden 2 (USA, 32Mb mask ROMs).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Gallop Racer/Gallop Racer (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Star Gladiator Episode I - Final Crusade/Star Gladiator Episode I - Final Crusade (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Street Fighter EX Plus/Street Fighter EX Plus (Japan 970311).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Street Fighter EX Plus/Street Fighter EX Plus (Japan 970407).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Street Fighter EX Plus/Street Fighter EX Plus (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Street Fighter EX/Street Fighter EX (Asia).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Street Fighter EX/Street Fighter EX (Europe).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-1/_alternatives/_Street Fighter EX/Street Fighter EX (Japan).mra"
+    ],
+    "cores": [
+      "_Arcade/cores/Arcade-ZN1Capcom_20260820.rbf"
+    ]
+  },
+  "capcom-zn2": {
+    "mras": [
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Choukou Senki Kikaioh (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Plasma Sword - Nightmare of Bilstein (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Rival Schools - United By Fate (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Shiritsu Justice Gakuen - Legion of Heroes (Japan 971216).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Star Gladiator 2 - Nightmare of Bilstein (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Street Fighter EX2 (USA 980526).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Street Fighter EX2 Plus (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Strider 2 (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Strider Hiryu 2 (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Tech Romancer (USA).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/Tetris - The Grand Master (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Plasma Sword - Nightmare of Bilstein/Plasma Sword - Nightmare of Bilstein (Asia).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Rival Schools - United By Fate/Rival Schools - United By Fate (Asia).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Rival Schools - United By Fate/Rival Schools - United By Fate (Europe).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Shiritsu Justice Gakuen - Legion of Heroes/Shiritsu Justice Gakuen - Legion of Heroes (Japan 971117).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Asia).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Europe).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Hispanic).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2 Plus/Street Fighter EX2 Plus (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Asia).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Europe).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Hispanic).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2/Street Fighter EX2 (Japan).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Street Fighter EX2/Street Fighter EX2 (USA 980312).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Strider 2/Strider 2 (Asia).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Strider 2/Strider 2 (Europe).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Tech Romancer/Tech Romancer (Asia).mra",
+      "_Arcade/_Arcade Systems/_CAPCOM ZN-2/_alternatives/_Tech Romancer/Tech Romancer (Europe).mra"
+    ],
+    "cores": [
+      "_Arcade/cores/Arcade-ZN2Capcom_20260828.rbf"
+    ]
+  },
+  "taito-fx1b": {
+    "mras": [
+      "_Arcade/_Arcade Systems/_TAITO FX1B/Fighters Impact A (Ver 2.00J).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/Fighters' Impact (Ver 2.02O).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/G-Darius (Ver 2.02O).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/G-Darius Ver.2 (Ver 2.03J).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/Ray Storm (Ver 2.06A).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/_alternatives/_Fighters' Impact/Fighters' Impact (Ver 2.02A).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/_alternatives/_Fighters' Impact/Fighters' Impact (Ver 2.02J).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/_alternatives/_G-Darius/G-Darius (Ver 2.01J).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/_alternatives/_G-Darius/G-Darius (Ver 2.02A).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/_alternatives/_Ray Storm/Ray Storm (Ver 2.05A).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/_alternatives/_Ray Storm/Ray Storm (Ver 2.05J).mra",
+      "_Arcade/_Arcade Systems/_TAITO FX1B/_alternatives/_Ray Storm/Ray Storm (Ver 2.05O).mra"
+    ],
+    "cores": [
+      "_Arcade/cores/Arcade-XNZN1TaitoFX1B_20260814.rbf"
+    ]
+  }
+}
