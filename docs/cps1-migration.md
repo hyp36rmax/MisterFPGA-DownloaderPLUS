@@ -1,5 +1,7 @@
 # CPS1 authority and core ownership migration
 
+Historical source review. The current core repair includes original required core records in the Managed subscriptions and refreshes current source snapshots. See the [current core dependency report](managed-core-dependencies.md) for installation, filter and ownership behavior. The findings below describe the inspected historical snapshot.
+
 ## Verified source
 
 CPS1 uses Coin-Op Collection at revision `709cab401cd4317a025bf0d90be1dbc568873ba6`, database SHA-256 `44a780e010fac5f00e6af42310ec4ca18720947b72f47d751cc0840e0cb043c1`. Public MRA hashes, sizes, `Capcom CP System Hardware` platform metadata and MRA/RBF references establish the 27-primary, 111-alternative inventory. No filename-only hardware inference is used.
