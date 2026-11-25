@@ -1,3 +1,4 @@
+from urllib.parse import quote
 """Official classifications, archive parity and upstream-owned cores for three hardware views."""
 import copy
 import tempfile
@@ -32,19 +33,19 @@ class OfficialArcadeExpansionTests(unittest.TestCase):
             self.assertIsInstance(p,DatabasePolicy)
             self.assertEqual(c['source_mode'],'database');self.assertEqual(c['upstream_db_id'],'distribution_mister')
             self.assertEqual(c['upstream_url'],'https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/main/db.json.zip')
-            self.assertEqual(c['selection_tags'],[tag]);self.assertEqual(c['core_ownership'],'upstream')
+            self.assertEqual(c['selection_tags'],[tag]);self.assertEqual(c['core_ownership'],'included')
             self.assertEqual(c['selection_archives'],['mra_alternatives']);self.assertIs(c['require_all_group_tags'],False)
             self.assertEqual(c['filter_policy'],{'inventory':'complete','remove_conflicting_exclusions':True})
             identifier=source['tag_dictionary'][tag]
             self.assertTrue(all(identifier in r['tags'] for r in expanded_inventory(selected)['files'].values()))
             core_paths=[path for path,record in source['files'].items() if path.startswith('_Arcade/cores/') and identifier in record.get('tags',[])]
             self.assertTrue(core_paths);self.assertTrue(all(Path(path).name.startswith(identity+'_') for path in core_paths))
-            self.assertFalse(any(path.endswith('.rbf') or '/cores/' in path for path in expanded_inventory(selected)['files']))
+            self.assertTrue(any(path.endswith('.rbf') or '/cores/' in path for path in expanded_inventory(selected)['files']))
 
     def test_authoritative_primary_and_recursive_alternatives_parity(self):
         for name,(tag,identity,primary,alternatives) in SYSTEMS.items():
             c,p,source,selected=self.selected(name);generated=transform(selected,c,p);report=validate_output(selected,generated,c,p)
-            self.assertEqual((report['primary_mras'],report['alternative_mras'],report['current_cores']),(primary,alternatives,0))
+            self.assertEqual((report['primary_mras'],report['alternative_mras'],report['current_cores']),(primary,alternatives,1))
             self.assertTrue(report['alternatives_parity']);self.assertEqual(report['hashes_changed'],0)
             self.assertEqual(report['sizes_changed'],0);self.assertEqual(report['tags_changed'],0)
             self.assertEqual(report['effective_source_urls_changed'],0)
@@ -54,7 +55,7 @@ class OfficialArcadeExpansionTests(unittest.TestCase):
                 changed=actual['files'][p.destination(path,'files')]
                 for field in ('hash','size','tags','arc_at'):self.assertEqual(changed.get(field),record.get(field))
                 self.assertEqual(Path(path).name,Path(p.destination(path,'files')).name)
-                self.assertTrue(p.destination(path,'files').startswith('_Arcade/'+c['target_folder']+'/'))
+                self.assertTrue(p.destination(path,'files').startswith('_Arcade/'+c['target_folder']+'/') or path.startswith('_Arcade/cores/'))
             old=selected['archives']['mra_alternatives'];new=generated['archives']['mra_alternatives']
             self.assertEqual(old['archive_file'],new['archive_file']);self.assertEqual(new['extract'],'selective')
             self.assertEqual(new['summary_inline']['files'].keys(),{p.destination(path,'files') for path in old['summary_inline']['files']})
@@ -76,13 +77,14 @@ class OfficialArcadeExpansionTests(unittest.TestCase):
         for name in SYSTEMS:
             c,_=load_module(name);d,m=verify_one(name,verbose=False);entry=registry()['modules'][name]
             self.assertEqual(entry,{'authority':'distribution_mister','management_state':'managed','include_in_arcade_systems_complete':True,
-                'include_required_cores':False,'destination_roots':['_Arcade/'+c['target_folder']]})
+                'include_required_cores':True,'destination_roots':['_Arcade/'+c['target_folder']]})
             self.assertIn(name,eligible_modules());self.assertIn(name,manifest['contributors'])
             expected=expanded_inventory(d)['files'];root='_Arcade/'+c['target_folder']+'/'
-            self.assertEqual({p for p in inventory['files'] if p.startswith(root)},set(expected))
+            self.assertEqual({p for p in inventory['files'] if p.startswith(root)},{p for p in expected if p.startswith(root)})
             for path,record in expected.items():
                 after=inventory['files'][path]
-                for field in ('hash','size','url','arc_at'):self.assertEqual(after.get(field),record.get(field))
+                for field in ('hash','size','arc_at'):self.assertEqual(after.get(field),record.get(field))
+                self.assertEqual(after['url'],record.get('url',d['base_files_url']+quote(path)))
                 old_terms={t for t,i in d['tag_dictionary'].items() if i in record['tags']}
                 new_terms={t for t,i in complete['tag_dictionary'].items() if i in after['tags']}
                 self.assertEqual(old_terms,new_terms)

@@ -1,5 +1,7 @@
 # CAPCOM CPS3
 
+This subscription includes its required downloadable RBF records at `_Arcade/cores/`, using the original developer URLs, filenames and payloads. A separate upstream subscription is optional for these dependencies. Required ROMs, BIOS, keys and media remain user-supplied. See the [core dependency audit](../../docs/managed-core-dependencies.md).
+
 ## Filters
 
 The derived default is `[MiSTer]`, preserving normal global filter configuration while ensuring the selected inventory installs under standard settings. No subscription-specific filter override is required. Upstream tags and classification metadata remain unchanged. See [derived filter policy](../../docs/derived-filter-policy.md).

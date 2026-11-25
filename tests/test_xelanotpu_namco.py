@@ -25,7 +25,7 @@ MODULES=('namco-system12','namco-system21','namco-system22','namco-super-system2
 class XelaNotPuNamcoTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.source=unpack((FIXTURE/'db.json.zip').read_bytes())
+        cls.source=unpack((ROOT/'tests/fixtures/xelanotpu-zn-2026-11-24/db.json.zip').read_bytes())
         cls.review=parse_json((FIXTURE/'review.json').read_bytes())
         cls.headers=parse_json((FIXTURE/'mra-review.json').read_bytes())
         cls.config,cls.policy=load_module('namco-system12')
@@ -49,13 +49,17 @@ class XelaNotPuNamcoTests(unittest.TestCase):
             self.assertEqual(tree.findtext('rbf'),'XNSYSTEM12')
             self.assertTrue(tree.findtext('name'));self.assertTrue(tree.findtext('setname'))
             self.assertEqual(self.headers[path]['hash'],record['hash'])
-        verify_payloads(self.selected,fetcher=self.fetcher,core_database=self.source,config=self.config)
+        selected=copy.deepcopy(self.selected);authoritative=copy.deepcopy(self.source);payloads=dict(self.payloads)
+        for path in self.config['required_core_records']:
+            raw=b'synthetic-core';payloads[path]=raw
+            for database in (selected,authoritative):database['files'][path].update(hash=hashlib.md5(raw).hexdigest(),size=len(raw))
+        verify_payloads(selected,fetcher=lambda url:self.fetcher(url,payloads),core_database=authoritative,config=self.config)
 
     def test_exact_inventory_and_recursive_source_preservation(self):
         tag=self.source['tag_dictionary']['arcadexnsystem12']
         expected={p:r for p,r in self.source['files'].items() if tag in r['tags'] and p.lower().endswith('.mra')}
-        self.assertEqual(self.selected['files'],expected)
-        self.assertEqual(set(expected),set(self.payloads))
+        self.assertEqual({p:r for p,r in self.selected['files'].items() if p.endswith('.mra')},expected)
+        self.assertEqual({p for p in expected if p.endswith('.mra')},set(self.payloads))
         report=validate_output(self.selected,self.generated,self.config,self.policy)
         self.assertEqual((report['primary_mras'],report['alternative_mras'],report['alternative_folders']),(28,26,9))
         self.assertEqual(report['effective_source_urls_changed'],0)
@@ -75,11 +79,11 @@ class XelaNotPuNamcoTests(unittest.TestCase):
         legacy='_Arcade/_XelaNotPu/cores/XNZN1_20260721.rbf'
         self.assertIn(legacy,self.source['files'])
         self.assertEqual(sum(h['rbf']=='XNZN1' for h in self.headers.values()),43)
-        self.assertFalse(any(p.endswith('.rbf') for p in self.generated['files']))
-        self.assertFalse(any('/cores' in p for p in self.generated['folders']))
+        self.assertTrue(any(p.endswith('.rbf') for p in self.generated['files']))
+        self.assertTrue(any('/cores' in p for p in self.generated['folders']))
         entry=registry()['modules']['namco-system12']
-        self.assertFalse(entry['include_required_cores'])
-        self.assertEqual(self.config['core_ownership'],'upstream')
+        self.assertTrue(entry['include_required_cores'])
+        self.assertEqual(self.config['core_ownership'],'included')
 
     def test_ambiguous_tags_and_unrelated_core_references_fail(self):
         broken=copy.deepcopy(self.source)
@@ -91,7 +95,7 @@ class XelaNotPuNamcoTests(unittest.TestCase):
         raw=b'<misterromdescription><rbf>Arcade-XNSYSTEM22_20261021</rbf></misterromdescription>'
         wrong['files'][path]['hash']=hashlib.md5(raw).hexdigest();wrong['files'][path]['size']=len(raw)
         data=dict(self.payloads);data[path]=raw
-        with self.assertRaisesRegex(ValidationError,'Unresolved selected MRA core'):
+        with self.assertRaisesRegex(ValidationError,'Unresolved selected MRA core|matching core generation'):
             verify_payloads(wrong,fetcher=lambda url:self.fetcher(url,data),core_database=self.source,config=self.config)
         nested=copy.deepcopy(self.source)
         nested['files']['_Arcade/_XelaNotPu/cores/XNZN1_20260721.rbf']['tags']=[self.source['tag_dictionary']['arcadexnsystem12']]
@@ -142,24 +146,24 @@ class XelaNotPuNamcoTests(unittest.TestCase):
         for name in MODULES:
             config,policy=load_module(name);generated,report=verify_one(name,verbose=False)
             selected=select_database(self.source,config,policy)
-            self.assertEqual(set(selected['files']),{p for p,h in self.headers.items() if h['rbf'] in self.review['systems'][name]['rbf_references']})
+            self.assertEqual({p for p in selected['files'] if p.endswith('.mra')},{p for p,h in self.headers.items() if h['rbf'] in self.review['systems'][name]['rbf_references']})
             self.assertEqual((report['validation']['primary_mras'],report['validation']['alternative_mras']),counts[name])
             root='_Arcade/'+config['target_folder'];entry=registry()['modules'][name]
             self.assertEqual(root,roots[name])
             self.assertEqual(generated['tag_dictionary'],self.source['tag_dictionary'])
             for source_path,original in selected['files'].items():
-                target=roots[name]+source_path[len('_Arcade/_XelaNotPu'):]
-                self.assertEqual(generated['files'][target],dict(original,url=original.get('url',self.source['base_files_url']+quote(source_path))))
+                target=policy.destination(source_path,'files')
+                self.assertEqual(generated['files'][target],original if target==source_path else dict(original,url=original.get('url',self.source['base_files_url']+quote(source_path))))
             self.assertEqual(entry['management_state'],'managed')
             self.assertIn(name,eligible_modules());self.assertEqual(entry['destination_roots'],[root])
-            self.assertFalse(entry['include_required_cores']);self.assertFalse(any(p.endswith('.rbf') for p in generated['files']))
-            self.assertEqual({p for p in complete['files'] if p.startswith(root+'/')},set(generated['files']))
+            self.assertTrue(entry['include_required_cores']);self.assertTrue(any(p.endswith('.rbf') for p in generated['files']))
+            self.assertEqual({p for p in complete['files'] if p.startswith(root+'/')},{p for p in generated['files'] if p.startswith(root+'/')})
             self.assertEqual(transform(generated,config,policy),generated)
             self.assertEqual(report['validation']['effective_source_urls_changed'],0)
             self.assertEqual(report['validation']['unexpected_metadata_differences'],0)
             for path,record in generated['files'].items():
                 actual=complete['files'][path]
-                self.assertEqual({k:v for k,v in actual.items() if k!='tags'},{k:v for k,v in record.items() if k!='tags'})
+                self.assertEqual({k:v for k,v in actual.items() if k not in {'tags','url'}},{k:v for k,v in record.items() if k not in {'tags','url'}})
                 terms=lambda db,r:{k for k,v in db['tag_dictionary'].items() if v in r['tags']}
                 self.assertEqual(terms(complete,actual),terms(generated,record))
         self.assertEqual(manifest['validation']['conflicts'],0)
@@ -184,12 +188,14 @@ class XelaNotPuNamcoTests(unittest.TestCase):
     def test_unchanged_managed_and_stg_published_inputs(self):
         baseline=parse_json((FIXTURE/'baseline.json').read_bytes())
         migrated = {'capcom-zn1', 'capcom-zn2', 'taito-fx1b'}
+        affected=set(parse_json((ROOT/'tests/fixtures/managed-core-dependencies-2026-11-24/affected-modules.json').read_bytes()))
         for name,files in baseline.items():
+            if name in affected: continue  # Exact non-core preservation is covered by the core-dependency regression fixture.
             if name in migrated:
                 # ZN-R03 separately verifies the approved identity-preserving database migration.
                 database, _ = verify_one(name, verbose=False)
-                self.assertFalse(any(p.endswith('.rbf') for p in database['files']))
-                self.assertEqual(load_module(name)[0]['core_ownership'], 'upstream')
+                self.assertTrue(any(p.endswith('.rbf') for p in database['files']))
+                self.assertEqual(load_module(name)[0]['core_ownership'], 'included')
                 continue
             for path,fingerprint in files.items():
                 if path.startswith('dist/') and name in {'sega-model2','sega-model2a'}:
@@ -232,9 +238,9 @@ class XelaNotPuNamcoTests(unittest.TestCase):
         for name in MODULES:
             with tempfile.TemporaryDirectory() as tmp:
                 directory=Path(tmp)
-                self.assertTrue(build(name,FIXTURE/'db.json.zip',directory)['changed'])
+                self.assertTrue(build(name,ROOT/'tests/fixtures/xelanotpu-zn-2026-11-24/db.json.zip',directory)['changed'])
                 first={p.name:p.read_bytes() for p in directory.iterdir()}
-                self.assertFalse(build(name,FIXTURE/'db.json.zip',directory)['changed'])
+                self.assertFalse(build(name,ROOT/'tests/fixtures/xelanotpu-zn-2026-11-24/db.json.zip',directory)['changed'])
                 self.assertEqual(first,{p.name:p.read_bytes() for p in directory.iterdir()})
                 self.assertEqual(first[name+'.json.zip'],(ROOT/'dist'/name/(name+'.json.zip')).read_bytes())
             command='[hyp36rmax/MisterFPGA-DownloaderPLUS/'+name+']'

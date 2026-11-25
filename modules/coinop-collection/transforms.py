@@ -36,10 +36,8 @@ def safe_url(url):
 
 
 def upstream_owned_core(path, category):
-    """The independently enabled upstream database owns standard-location RBFs."""
-    if category == 'folders':
-        return path == '_Arcade/cores'
-    return path.startswith('_Arcade/cores/') and path.endswith('.rbf')
+    """Declare original standard-location cores in this subscription as well."""
+    return False
 
 
 def destination(path, category):
@@ -82,7 +80,7 @@ def validate_schema(database, config):
             if path.startswith('_Arcade/cores/'):
                 require(category=='files' and path.count('/')==2 and path.endswith('.rbf'), 'Unknown upstream core layout')
             if database['db_id']==config['derived_db_id']:
-                require(not (path=='_Arcade/cores' or path.startswith('_Arcade/cores/') or path==PREFIX+'/cores' or path.startswith(PREFIX+'/cores/')), 'Derived Coin-Op core ownership must remain upstream')
+                require(not (path==PREFIX+'/cores' or path.startswith(PREFIX+'/cores/')), 'Derived Coin-Op cores must use the standard core directory')
             require(type(record) is dict, f"Invalid record: {path}")
             required = {"hash", "size", "tags"} if category == "files" else {"tags"}
             allowed = required | ({"tangle", "url"} if category == "files" else {"path"})

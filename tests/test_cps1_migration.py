@@ -28,13 +28,13 @@ class CPS1MigrationTests(unittest.TestCase):
 
     def test_exact_licensed_inventory_and_metadata(self):
         d,_,r=family_database(self.config,self.source,self.refs)
-        self.assertEqual((r['primary_mras'],r['alternative_mras'],r['alternative_folders'],r['current_cores']),(27,111,26,0))
+        self.assertEqual((r['primary_mras'],r['alternative_mras'],r['alternative_folders'],r['current_cores']),(27,111,26,27))
         self.assertEqual(d['default_options'],self.source['default_options'])
         self.assertEqual(d['tag_dictionary'],self.source['tag_dictionary'])
         evidence=unpack((FIXTURE/'mra-evidence.json.zip').read_bytes())
         expected={p:e for p,e in evidence.items() if e['platform']=='Capcom CP System Hardware'}
         root='_Arcade/_Arcade Systems/_CAPCOM CPS1/'
-        self.assertEqual(set(d['files']),{root+p[len('_Arcade/'):] for p in expected})
+        self.assertEqual({p for p in d['files'] if p.endswith('.mra')},{root+p[len('_Arcade/'):] for p in expected})
         for path,e in expected.items():
             record=self.source['files'][path];after=d['files'][root+path[len('_Arcade/'):]]
             self.assertEqual({k:v for k,v in after.items() if k!='url'},record)
@@ -43,17 +43,27 @@ class CPS1MigrationTests(unittest.TestCase):
             key=tree.find("rom[@index='37']")
             self.assertIsNotNone(key);self.assertEqual(key.attrib['zip'],'coinopkey.zip')
             self.assertEqual(key.find('part').attrib['name'],'coinop.key')
-        self.assertFalse(any(p.endswith('.rbf') or '/cores/' in p for p in d['files']))
+        self.assertEqual(sum(p.endswith('.rbf') for p in d['files']),27)
         self.assertFalse(any('coinopkey' in p for p in d['files']))
 
-    def test_restricted_mra_or_core_blocks_publication(self):
-        for kind in ['mra','core']:
-            source=copy.deepcopy(self.source)
-            prefix='_Arcade/cores/1941_' if kind=='core' else '_Arcade/1941'
-            p=next(p for p in source['files'] if p.startswith(prefix))
-            source['files'][p]['tags'].append(source['tag_dictionary']['coinopcollectionbeta'])
-            with self.subTest(kind=kind),self.assertRaisesRegex(ValidationError,'FILTER CONFLICT'):
-                family_database(self.config,source,self.refs)
+    def test_source_filtered_pairs_are_preserved_and_unfiltered_mra_needs_enabled_core(self):
+        from tools.common.filters import parse_filter,installable
+        source=copy.deepcopy(self.source)
+        mra=next(p for p in source['files'] if p.startswith('_Arcade/1941'))
+        core=next(p for p in source['files'] if p.startswith('_Arcade/cores/1941_'))
+        tag=source['tag_dictionary']['coinopcollectionbeta']
+        source['files'][core]['tags'].append(tag)
+        with self.assertRaisesRegex(ValidationError,'FILTER CONFLICT'):
+            family_database(self.config,source,self.refs)
+        for path in self.refs:
+            if self.refs[path] == self.refs[mra]:
+                source['files'][path]['tags'].append(tag)
+        d,_,report=family_database(self.config,source,self.refs)
+        self.assertEqual(d['default_options'],source['default_options'])
+        target='_Arcade/_Arcade Systems/_CAPCOM CPS1/'+mra[len('_Arcade/'):]
+        for path in (target,core):
+            self.assertFalse(installable(d['files'][path],parse_filter(d['default_options']['filter'],d['tag_dictionary'])))
+            self.assertTrue(installable(d['files'][path],parse_filter('[MiSTer]',d['tag_dictionary'])))
         invalid={**self.config};invalid.pop('preserve_source_filter')
         with patch('tools.common.engine.parse_json',return_value=invalid),self.assertRaises(ValidationError):load_module('capcom-cps1')
 
@@ -63,7 +73,7 @@ class CPS1MigrationTests(unittest.TestCase):
         self.assertEqual(d['db_id'],old['db_id'])
         self.assertFalse(set(old['files'])&set(d['files']))
         root='_Arcade/_Arcade Systems/_CAPCOM CPS1/'
-        self.assertEqual({p for p in complete['files'] if p.startswith(root)},set(d['files']))
+        self.assertEqual({p for p in complete['files'] if p.startswith(root)},{p for p in d['files'] if p.startswith(root)})
         for p,r in d['files'].items():
             for k in ['hash','size','url']:self.assertEqual(complete['files'][p][k],r[k])
             self.assertNotIn('jtcores',r['url'])
@@ -72,12 +82,12 @@ class CPS1MigrationTests(unittest.TestCase):
 
     def test_upstream_core_ownership_and_external_rom_paths(self):
         c,p=load_module('coinop-collection');d=transform(self.source,c,p);r=validate_output(self.source,d,c,p)
-        self.assertEqual(r['upstream_owned_core_files'],83)
-        self.assertFalse(any(path.endswith('.rbf') for path in d['files']))
-        self.assertFalse(any(path.endswith('/cores') for path in d['folders']))
+        self.assertEqual(r['upstream_owned_core_files'],0)
+        self.assertEqual(sum(path.endswith('.rbf') for path in d['files']),83)
+        self.assertIn('_Arcade/cores',d['folders'])
         for folder in ['games','games/mame','games/hbmame']:self.assertEqual(d['folders'][folder],self.source['folders'][folder])
         self.assertEqual(transform(d,c,p),d)
-        bad=copy.deepcopy(d);bad['folders']['_Arcade/cores']={'tags':[]}
+        bad=copy.deepcopy(d);bad['folders']['_Arcade/_Coin-Op Collection/cores']={'tags':[]}
         with self.assertRaises(ValidationError):p.validate_schema(bad,c)
         misplaced=copy.deepcopy(self.source);misplaced['files']['_Arcade/Unexpected.rbf']=next(r for path,r in self.source['files'].items() if path.endswith('.rbf'))
         with self.assertRaises(ValidationError):p.validate_schema(misplaced,c)
@@ -89,7 +99,7 @@ class CPS1MigrationTests(unittest.TestCase):
 
 
 class DownloaderCleanupTests(unittest.TestCase):
-    def run_cleanup(self,allow_delete='all',shared=False,core=False,relative=None,replacement=None):
+    def run_cleanup(self,allow_delete='all',shared=False,core=False,relative=None,replacement=None,failed=False,official=False):
         # Execute the pinned upstream candidate and deletion blocks, not a replacement remover.
         source=ast.parse((FIXTURE/'process_db_index_worker.py.source').read_text(encoding='utf-8'))
         translate=next(n for n in source.body if isinstance(n,ast.FunctionDef) and n.name=='_translate_items')
@@ -101,8 +111,11 @@ class DownloaderCleanupTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);old=root/(relative or ('_Arcade/_Coin-Op Collection/cores/old.rbf' if core else '_Arcade/_Arcade Systems/_CAPCOM CPS1/Old Game.mra'))
             user=old.parent/'User Game.mra';old.parent.mkdir(parents=True);old.write_bytes(b'old managed file');user.write_bytes(b'user data')
+            sentinels=[old.parent/n for n in ('User.dip','User.nvm','User.cfg','User.rom')]
+            for sentinel in sentinels:sentinel.write_bytes(b'synthetic user data')
             rel=old.relative_to(root).as_posix();pkg=SimpleNamespace(rel_path=rel,full_path=str(old),description={'hash':'old','size':16},drive=None,is_pext_external=lambda:False)
             packages={rel:pkg};index={}
+            if failed:pkg.description['tangle']=['required-core']
             if replacement:
                 new=root/replacement;new.parent.mkdir(parents=True,exist_ok=True);new.write_bytes(b'new tracked file')
                 current=SimpleNamespace(rel_path=replacement,full_path=str(new),description={'hash':'new','size':16})
@@ -113,19 +126,24 @@ class DownloaderCleanupTests(unittest.TestCase):
             self.assertEqual(removed,[pkg])
             self.assertNotIn(user.relative_to(root).as_posix(),[p.rel_path for p in removed])
             stores={'downloaderplus':{rel},'jtcores':{rel.upper()} if shared else {'_Arcade/Independent JT.mra'}}
+            if official:stores['official_xela']={rel}
             def reader(name):
                 return SimpleNamespace(matching_paths_ci=lambda cat,paths:{p.lower() for p in stores[name] if p.lower() in paths},list_other_drives_for_file=lambda *a:[])
             reads={name:reader(name) for name in stores}
             writes={name:SimpleNamespace(remove_file=lambda path,n=name:stores[n].discard(path),remove_file_from_zips=lambda path:None) for name in stores}
-            box=SimpleNamespace(consume_files=lambda:[(pkg,{'downloaderplus'})],non_duplicated_files=lambda:[],failed_file_entanglements=lambda:set(),add_removed_files=lambda files:None)
+            box=SimpleNamespace(consume_files=lambda:[(pkg,{'downloaderplus'})],non_duplicated_files=lambda:[],failed_file_entanglements=lambda:{'required-core'} if failed else set(),add_removed_files=lambda files:None)
             removed_paths=[]
             fs=SimpleNamespace(is_file=lambda path,**kw:Path(path).is_file(),unlink=lambda path,**kw:(Path(path).unlink(),removed_paths.append(path))[0])
             runtime={'PathPackage':SimpleNamespace,'box':box,'logger':log,'local_store':SimpleNamespace(db_ids=lambda:list(stores)),'read_stores':reads,'write_stores':writes,
                      'non_current_store':lambda name:SimpleNamespace(read_only=lambda:reads[name]),'defaultdict':__import__('collections').defaultdict,
                      'self':SimpleNamespace(_config={'allow_delete':allow_delete,'base_path':tmp},_logger=log,_file_system=fs,_update_output=SimpleNamespace(file_removed=lambda *a:None)),
                      'AllowDelete':SimpleNamespace(ALL='all',OLD_RBF='old_rbf',NONE='none'),'FILE_PROP_ENTANGLEMENTS':'tangle','is_entangled_with':lambda p,failed:False,'os':os}
+            predicate=next(n for n in importer.body if isinstance(n,ast.FunctionDef) and n.name=='is_entangled_with')
+            exec(compile(ast.fix_missing_locations(ast.Module(body=[ast.ImportFrom(module='__future__',names=[ast.alias(name='annotations')],level=0),predicate],type_ignores=[])),'upstream_entanglements','exec'),runtime)
             exec(compile(ast.Module(body=[block],type_ignores=[]),'upstream_cleanup','exec'),runtime)
             self.assertTrue(user.is_file())
+            for sentinel in sentinels:self.assertEqual(sentinel.read_bytes(),b'synthetic user data')
+            if official:self.assertEqual(stores['official_xela'],{rel})
             if replacement:self.assertEqual(new.read_bytes(),b'new tracked file')
             self.assertEqual(stores['jtcores'],{rel.upper()} if shared else {'_Arcade/Independent JT.mra'})
             return old.is_file(),removed_paths

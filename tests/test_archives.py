@@ -23,14 +23,14 @@ class ArchiveSelectionTests(unittest.TestCase):
         d=unpack(FIXTURE.read_bytes())
         return hydrate_archives(d,self.config,offline_directory=FIXTURE.parent)
 
-    def test_live_snapshot_only_stv_archive_members_and_no_core(self):
+    def test_live_snapshot_only_stv_archive_members_and_required_core(self):
         d=self.source();s=select_database(d,self.config,self.policy);g=transform(s,self.config,self.policy)
         tid=d['tag_dictionary']['arcadestv']
         all_alts=d['archives']['mra_alternatives']['summary_inline']['files']
         expected={p:r for p,r in all_alts.items() if tid in r['tags']}
         self.assertEqual(s['archives']['mra_alternatives']['summary_inline']['files'],expected)
         self.assertLess(len(expected),len(all_alts))
-        self.assertFalse(any(p.endswith('.rbf') for p in expanded_inventory(g)['files']))
+        self.assertTrue(any(p.endswith('.rbf') for p in expanded_inventory(g)['files']))
         self.assertNotIn('linux',g)
         self.assertEqual(set(g['archives']),{'mra_alternatives'})
         report=validate_output(s,g,self.config,self.policy)

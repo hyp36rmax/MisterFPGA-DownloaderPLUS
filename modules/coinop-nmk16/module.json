@@ -5,7 +5,14 @@
   "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
   "family": "nmk16",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-nmk16",
-  "policy_version": 1,
-  "include_required_cores": false,
-  "source_module": "coinop-collection"
+  "policy_version": 2,
+  "include_required_cores": true,
+  "source_module": "coinop-collection",
+  "core_policy": {
+    "identities": [
+      "blkheart_mister",
+      "tdragon_mister"
+    ],
+    "immutable_url_prefix": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/"
+  }
 }

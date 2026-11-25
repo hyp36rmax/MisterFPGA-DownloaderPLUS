@@ -23,9 +23,9 @@ class CoinOpTests(unittest.TestCase):
                          "251c2b9ad771b799754e7c1fa6b1f398a97e9015531ae7c12f3388cb8d1eec57")
         report = validate_output(self.upstream, self.generated, self.config, self.policy)
         self.assertEqual(report, {'upstream_files': 332,
-         'generated_files': 278,
+         'generated_files': 332,
          'upstream_folders': 76,
-         'generated_folders': 75,
+         'generated_folders': 76,
          'file_destinations_changed': 278,
          'folder_destinations_changed': 72,
          'non_arcade_destinations_changed': 0,
@@ -37,8 +37,8 @@ class CoinOpTests(unittest.TestCase):
          'tangles_changed': 0,
          'unexpected_metadata_differences': 0,
          'approved_db_id_changes': 1,
-         'upstream_owned_core_files': 54,
-         'upstream_owned_core_folders': 1})
+         'upstream_owned_core_files': 0,
+         'upstream_owned_core_folders': 0})
 
     def test_exact_paths_and_complete_suffix(self):
         pairs = {
@@ -111,7 +111,7 @@ class CoinOpTests(unittest.TestCase):
             for path in self.generated[category]:
                 if path.startswith("_Arcade/"):
                     self.assertTrue(path == "_Arcade/_Coin-Op Collection"
-                                    or path.startswith("_Arcade/_Coin-Op Collection/"))
+                                    or path.startswith("_Arcade/_Coin-Op Collection/") or path=="_Arcade/cores" or path.startswith("_Arcade/cores/"))
         path = next(iter(self.generated["files"]))
         old_path = path.replace("_Arcade/_Coin-Op Collection/", "_Arcade/Coin-Op Collection/", 1)
         self.generated["files"][old_path] = self.generated["files"].pop(path)
@@ -222,7 +222,7 @@ class CoinOpTests(unittest.TestCase):
     def test_future_counts_not_hardcoded(self):
         self.upstream["files"].pop(next(iter(self.upstream["files"])))
         result = transform(self.upstream, self.config, self.policy)
-        self.assertEqual(validate_output(self.upstream, result, self.config, self.policy)["generated_files"], 277)
+        self.assertEqual(validate_output(self.upstream, result, self.config, self.policy)["generated_files"], 331)
 
     def test_build_no_op_and_failure_preserves_last_good(self):
         with tempfile.TemporaryDirectory() as temporary:

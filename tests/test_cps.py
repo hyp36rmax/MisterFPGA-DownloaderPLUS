@@ -26,12 +26,12 @@ class CpsTests(unittest.TestCase):
             config, policy = load_module(name)
             selected = select_database(database,config,policy)
             tid = database['tag_dictionary'][config['selection_tags'][0]]
-            expected = {p:r for p,r in database['files'].items() if tid in r['tags'] and p.endswith('.mra')}
+            expected = {p:r for p,r in database['files'].items() if tid in r['tags'] and (p.endswith('.mra') or p.endswith('.rbf'))}
             self.assertEqual(expected,selected['files'])
             inventories.append(set(selected['files']))
             generated = transform(selected,config,policy)
             report = validate_output(selected,generated,config,policy)
-            self.assertEqual(report['current_cores'],0)
+            self.assertEqual(report['current_cores'],1)
             self.assertEqual(report['unexpected_metadata_differences'],0)
             self.assertEqual(report['effective_source_urls_changed'],0)
             if name=='capcom-cps3':
@@ -39,7 +39,7 @@ class CpsTests(unittest.TestCase):
             else:
                 self.assertEqual(database['default_options'],generated['default_options'])
             self.assertEqual(database['tag_dictionary'],generated['tag_dictionary'])
-            self.assertFalse(any(p.startswith('_Arcade/cores') for p in generated['folders']))
+            self.assertTrue(any(p.startswith('_Arcade/cores') for p in generated['folders']))
             self.assertEqual(package(generated),package(transform(generated,config,policy)))
         for i, inventory in enumerate(inventories):
             for other in inventories[i+1:]: self.assertFalse(inventory & other)
@@ -78,7 +78,7 @@ class CpsTests(unittest.TestCase):
         self.assertNotIn(primary,source['files'])
         self.assertEqual(validate_output(source,g,config,policy)['alternative_mras'],0)
 
-    def test_external_core_resolution_without_owning_or_fetching_core(self):
+    def test_reference_verification_against_authoritative_inventory(self):
         import hashlib
         config,policy=load_module(MODULES[0]);d=self.source();source=select_database(d,config,policy)
         path=next(iter(source['files']));payload=b'<misterromdescription><rbf>jtcps15</rbf><rom zip="user-supplied.zip"/></misterromdescription>'

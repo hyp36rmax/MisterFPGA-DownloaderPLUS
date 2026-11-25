@@ -189,6 +189,8 @@ def family_database(config,database,reference_map,root=ROOT):
         parsed=parse_filter(database['default_options']['filter'],database['tag_dictionary'])
         source_cores={p.rsplit('/',1)[-1]:r for p,r in database['files'].items() if p.startswith('_Arcade/cores/') and p.endswith('.rbf')}
         for path in selected:
+            if not installable(selected[path], parsed):
+                continue
             reference=reference_map[path]
             require(any(re.match(r'(?:Arcade-)?'+re.escape(reference)+r'[._]',p,re.I) and installable(r,parsed) for p,r in source_cores.items()),
                     'DERIVED FILTER CONFLICT: required upstream core is excluded: '+path)
@@ -219,7 +221,8 @@ def family_database(config,database,reference_map,root=ROOT):
         result['files'].update(docs['files'])
         for path,record in docs['folders'].items():result['folders'].setdefault(path,record)
     counts=filter_counts(result)
-    require(not counts['filtered_selected_files'] and not counts['filtered_selected_folders'],'DERIVED FILTER CONFLICT: Coin-Op family '+config['family'])
+    if not config.get('preserve_source_filter'):
+        require(not counts['filtered_selected_files'] and not counts['filtered_selected_folders'],'DERIVED FILTER CONFLICT: Coin-Op family '+config['family'])
     from tools.common.repository import navigation_inventory
     files,alternatives,folders=navigation_inventory(result,item['destination'])
     report={**audit,**counts,'effective_source_urls_changed':0,'namespace_violations':0,

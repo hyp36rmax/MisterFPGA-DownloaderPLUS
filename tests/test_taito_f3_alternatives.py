@@ -45,6 +45,9 @@ class F3AlternativeTests(unittest.TestCase):
         report=validate_output(self.selected,generated,self.config,self.policy)
         self.assertEqual((report['primary_mras'],report['alternative_mras'],report['alternative_folders']),(33,63,28))
         for path,record in self.selected['files'].items():
+            if path.endswith('.rbf'):
+                self.assertEqual(generated['files'][path],record)
+                continue
             relative=path[len(SOURCE):]
             expected=TARGET+(relative.replace('/_alternative/','/_alternatives/',1))
             self.assertEqual(generated['files'][expected],dict(record,url=record.get('url',self.selected['base_files_url']+quote(path))))

@@ -118,7 +118,8 @@ class ManagedFamilyBatchTests(unittest.TestCase):
             config,policy=load_module(name);source=self.source(name)
             selected=select_database(source,config,policy)
             primary=next(p for p in selected['files'] if p.endswith('.mra'))
-            path=config['source_navigation_root']+'/_alternatives/_Parent/Nested/Clone.MrA'
+            source_root=next(p for p in source['folders'] if p.casefold()==config['source_navigation_root'].casefold())
+            path=source_root+'/_alternatives/_Parent/Nested/Clone.MrA'
             source['files'][path]=copy.deepcopy(source['files'][primary])
             parts=path.split('/')
             for i in range(1,len(parts)):source['folders'].setdefault('/'.join(parts[:i]),{'tags':source['files'][path]['tags']})

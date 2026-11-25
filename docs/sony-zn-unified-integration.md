@@ -1,5 +1,7 @@
 # Unified XelaNotPu ZN integration
 
+Historical ZN-R03 implementation record. CORE-R01 now includes required original core records in the Managed subscriptions; the normal XelaNotPu subscription is optional. The original source and compatibility findings below remain historical evidence. See the [current core dependency audit](managed-core-dependencies.md).
+
 ## Review status
 
 Software verification is separate from hardware acceptance. This draft is not a production release. No MiSTer hardware UAT has been run. Review the implementation and the FX1B deployment/recovery plan before publication.

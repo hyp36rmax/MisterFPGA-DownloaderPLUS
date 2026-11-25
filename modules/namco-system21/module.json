@@ -1,6 +1,6 @@
 {
   "collection_scope": "excluded",
-  "core_ownership": "upstream",
+  "core_ownership": "included",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system21",
   "display_name": "NAMCO SYSTEM 21",
   "exclusive_group_tags": [
@@ -36,7 +36,7 @@
     "arcadezn2capcom"
   ],
   "name": "namco-system21",
-  "policy_version": 1,
+  "policy_version": 2,
   "require_all_group_tags": false,
   "selection_tags": [
     "arcadearcadexnsystem2120261017",
@@ -48,5 +48,15 @@
   "source_navigation_root": "_Arcade/_XelaNotPu",
   "target_folder": "_Arcade Systems/_NAMCO SYSTEM 21",
   "upstream_db_id": "XelaNotPu/XelaNotPu_MiSTer_DB",
-  "upstream_url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip"
+  "upstream_url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip",
+  "required_core_records": {
+    "_Arcade/cores/Arcade-XNSYSTEM21_20261017.rbf": {
+      "hash": "569967a6e405eeafcc557881002cec26",
+      "size": 4543700
+    },
+    "_Arcade/cores/Arcade-XNWINRUN_20261017.rbf": {
+      "hash": "5ec57b5dbfd155ed117fac3f1a69169e",
+      "size": 4046544
+    }
+  }
 }

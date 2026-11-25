@@ -40,16 +40,16 @@ Both optional views use `hyp36rmax/PGM-Mister-EZIOCHIU`: standalone `_Arcade/_PG
 
 Authoritative tags and compatible defaults are preserved. Complete includes the validated public inventory of its approved contributors. Normal user-selected MiSTer Downloader filters remain under the user’s control. CPS3 retains its corrected `[MiSTer]` default.
 
-Arcade cores remain under `_Arcade/cores/`. Keep normal upstream core subscriptions enabled; existing modules that independently provide required core records continue to do so. DownloaderPLUS supplies no ROMs.
+Arcade cores remain under `_Arcade/cores/`. Managed modules include their required original core records; separate upstream subscriptions are optional for these dependencies. DownloaderPLUS supplies no ROMs.
 
 ## Source authorities and individual subscriptions
 
 Authoritative distributions:
 
 - [NAMCO SYSTEM 11](https://github.com/XelaNotPu/SYSTEM11_MiSTer): `releases/_Arcade/`.
-- [TAITO FX1B](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; executable cores remain upstream-owned.
-- [CAPCOM ZN-1](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; executable cores remain upstream-owned.
-- [CAPCOM ZN-2](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; executable cores remain upstream-owned.
+- [TAITO FX1B](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; required original core records are included.
+- [CAPCOM ZN-1](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; required original core records are included.
+- [CAPCOM ZN-2](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB): official database selection; required original core records are included.
 - [SEIBU SPI](https://github.com/zakk4223/Arcade-SeibuSPI_MiSTer): `releases/`.
 - [Official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer): its hardware classifications supply SEGA ST-V, IREM M62/M72/M90/M92, TECHNOSOFT, TAITO F2 and PSIKYO SH2 navigation, including only their classified archive alternatives.
 - [Jotego JTCORES](https://github.com/jotego/jtcores_mister): its authoritative Downloader database supplies CPS1.5, CPS2, CPS3 and SEGA SYSTEM 16/18 navigation modules.
@@ -140,7 +140,7 @@ The existing three modules keep their permanent database IDs and artifact URLs d
 
 See [alternatives audit](alternatives-audit.md) for current counts, hierarchy verification, and authoritative MeatCores selection. The earlier [repository inspection](repository-modules.md) records the initial three-module snapshots.
 
-CPS1 uses the Coin-Op authority and requires its normal installation and account/device authorization. See [CPS1 migration](cps1-migration.md). The remaining CPS modules provide additional navigation only. Keep the normal JTCORES installation enabled: it owns and updates the cores in `_Arcade/cores/`. DownloaderPLUS includes no CPS core records and preserves upstream filter configuration and tags. CPS1.5 remains independent from CPS1. See [CPS inspection](cps-inspection.md). ST-V likewise depends on the normal official MiSTer/Update_All installation for its core. Its alternatives use selective extraction from the unchanged official archive, installing only ST-V members. See [ST-V inspection](stv-inspection.md).
+CPS1 uses the Coin-Op authority and preserves its account/device authorization requirements. See [CPS1 migration](cps1-migration.md). The remaining CPS modules include their required original JTCORES records at `_Arcade/cores/` and preserve upstream filter configuration and tags. CPS1.5 remains independent from CPS1. See [CPS inspection](cps-inspection.md). ST-V includes its required original official MiSTer core record. Its alternatives use selective extraction from the unchanged official archive, installing only ST-V members. See [ST-V inspection](stv-inspection.md).
 
 System 16 combines the authoritative 16 and 16B classifications in one navigation folder. System 18 stays independent. TECHNOSOFT follows the `hyprduel` hardware family, including Magical Error through its classification. These seven modules include no core records; keep their normal JTCORES or official MiSTer installation enabled. System C-2 is not enabled because the current official database has no confirmed authoritative selector. See [batch inspection](next-batch-inspection.md).
 
@@ -252,7 +252,7 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 ## Sony ZN-family systems
 
-Keep the official XelaNotPu subscription enabled for executable cores. These modules select original MRAs only. G-NET remains under its existing shmupfan authority. Review the [source, hardware and migration notes](sony-zn-unified-integration.md), including the FX1B cutover warning and outstanding hardware UAT.
+These modules include the required original executable core records as well as MRAs. The official XelaNotPu subscription is optional for its native view. G-NET remains under its existing shmupfan authority. Review the [source, hardware and migration notes](sony-zn-unified-integration.md), including the FX1B cutover warning and outstanding hardware UAT.
 
 | System | Module | Primary MRAs | Alternatives |
 |---|---|---:|---:|
@@ -270,3 +270,7 @@ Keep the official XelaNotPu subscription enabled for executable cores. These mod
 | KONAMI GQ | [konami-gq](../modules/konami-gq/README.md) | 1 | 0 |
 
 Individual subscription commands are in the [README](../README.md#individual-arcade-systems) and each module guide.
+
+## Required core installation
+
+Complete and individual Managed subscriptions declare the original downloadable cores their MRAs need. Files stay under `_Arcade/cores/` and download directly from the source authority. Identical hash/size/URL records can be shared across subscriptions; conflicting records stop validation. No core is mirrored, renamed or rebuilt. STG and G-NET policies remain unchanged. See the [dependency inventory and reconciliation results](managed-core-dependencies.md).

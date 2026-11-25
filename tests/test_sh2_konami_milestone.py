@@ -27,7 +27,7 @@ class MilestoneTests(unittest.TestCase):
         source_files = {**source['files'], **source['archives']['mra_alternatives']['summary_inline']['files']}
         expected = {p:r for p,r in source_files.items()
                     if p.endswith('.mra') and sh2 in r['tags']}
-        self.assertEqual(expanded_inventory(selected)['files'], expected)
+        self.assertEqual({p:r for p,r in expanded_inventory(selected)['files'].items() if p.endswith('.mra')},expected)
         self.assertTrue(all(earlier not in r['tags'] for r in expected.values()))
         generated = transform(selected, config, policy)
         report = validate_output(selected, generated, config, policy)
@@ -35,7 +35,7 @@ class MilestoneTests(unittest.TestCase):
         self.assertEqual(report['unexpected_metadata_differences'], 0)
         self.assertEqual(filter_counts(generated)['filtered_selected_files'], 0)
         self.assertEqual(generated['archives']['mra_alternatives']['archive_file'], source['archives']['mra_alternatives']['archive_file'])
-        self.assertFalse(any(p.endswith('.rbf') for p in expanded_inventory(generated)['files']))
+        self.assertTrue(any(p.endswith('.rbf') for p in expanded_inventory(generated)['files']))
         for p, r in expected.items():
             new = expanded_inventory(generated)['files'][policy.destination(p, 'files')]
             self.assertEqual(new['hash'], r['hash'])
@@ -63,7 +63,7 @@ class MilestoneTests(unittest.TestCase):
                 self.assertEqual(generated['tag_dictionary'], source['tag_dictionary'])
                 self.assertEqual(report['filtered_selected_files'], 0)
                 self.assertEqual(state,'managed');self.assertFalse(resources)
-                self.assertEqual(len(generated['files']),len(selected))
+                self.assertEqual(sum(p.endswith('.mra') for p in generated['files']),len(selected))
                 if name.endswith('pre-gx'):
                     self.assertEqual(audit['primary_mras'],2)
                     self.assertEqual(audit['public_alternatives'],8)
@@ -97,7 +97,8 @@ class MilestoneTests(unittest.TestCase):
                 individual, _ = verify_one(name, verbose=False)
                 for p,r in expanded_inventory(individual)['files'].items():
                     new = files[p]
-                    self.assertEqual({k:v for k,v in r.items() if k not in {'tags','arc_id'}}, {k:v for k,v in new.items() if k not in {'tags','arc_id'}})
+                    self.assertEqual({k:v for k,v in r.items() if k not in {'tags','arc_id','url'}}, {k:v for k,v in new.items() if k not in {'tags','arc_id','url'}})
+                    self.assertEqual(new.get('url',complete['base_files_url']+quote(p)),r.get('url',individual['base_files_url']+quote(p)))
                     self.assertEqual({k for k,v in individual['tag_dictionary'].items() if v in r['tags']}, {k for k,v in complete['tag_dictionary'].items() if v in new['tags']})
 
 

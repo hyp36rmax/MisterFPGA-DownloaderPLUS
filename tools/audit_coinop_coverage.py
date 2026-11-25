@@ -98,7 +98,10 @@ def coverage(database, reference_map, root=ROOT, verify_published=True):
                 if generated['tag_dictionary'] != database['tag_dictionary']:
                     issues.append('Authoritative tag dictionary differs: '+name)
                 counts = filter_counts(generated)
-                if counts['filtered_primary_mras'] or counts['filtered_alternative_mras']:
+                if config.get('preserve_source_filter'):
+                    if generated['default_options'] != database['default_options']:
+                        issues.append('Authoritative filter configuration differs: '+name)
+                elif counts['filtered_primary_mras'] or counts['filtered_alternative_mras']:
                     issues.append('Mapped public records filtered: '+name)
                 expected = {}
                 for path, record in selected.items():

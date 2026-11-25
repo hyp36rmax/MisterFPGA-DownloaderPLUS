@@ -5,7 +5,7 @@
   "upstream_url": "https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip",
   "upstream_db_id": "meathax/meatcores",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system32-multi",
-  "policy_version": 1,
+  "policy_version": 2,
   "selection_tags": [
     "arcadearcadesegasystem32multi"
   ],
@@ -13,6 +13,6 @@
     "arcadearcadesegasystem32",
     "arcadearcadesegasystem32multi"
   ],
-  "source_navigation_root": "_Arcade/_MeatCores",
+  "source_navigation_root": "_Arcade/_Meatcores",
   "target_folder": "_Arcade Systems/_SEGA SYSTEM 32 MULTI"
 }

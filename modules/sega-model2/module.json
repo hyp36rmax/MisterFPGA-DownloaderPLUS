@@ -7,7 +7,7 @@
   "source_type": "repository-release",
   "ref": "model2a",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2",
-  "policy_version": 1,
+  "policy_version": 2,
   "include_required_cores": true,
   "core_identity": "Model2",
   "target_folder": "_Arcade Systems/_SEGA MODEL 2"

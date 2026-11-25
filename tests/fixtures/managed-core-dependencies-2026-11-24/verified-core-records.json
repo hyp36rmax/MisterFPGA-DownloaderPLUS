@@ -1,0 +1,836 @@
+[
+  {
+    "path": "_Arcade/cores/1941_mister_20261031.rbf",
+    "hash": "6743e2ff98b7b2eeeab5e386c2489884",
+    "size": 4002124,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/1941_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/3wonders_mister_20261031.rbf",
+    "hash": "ac6db81d543e6360adc783f344496549",
+    "size": 4017732,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/3wonders_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Alpha68k_20221223.rbf",
+    "hash": "89e3604b60bca145cc5312ea172353f9",
+    "size": 3359820,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/Alpha68k_20221223.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-NMKBP964_20261015.rbf",
+    "hash": "756d6d1328fdcd4dd7182ae1885805d7",
+    "size": 4541852,
+    "url": "https://raw.githubusercontent.com/kuzearcade/Arcade-NMKBP964_MiSTer/67dea9d4e1f325dcae168af4a0ed1630af1e49fb/releases/Arcade-NMKBP964_20261015.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-SSV_20261016.rbf",
+    "hash": "15e97f8d5ff7b5769d1b59b5e4042ada",
+    "size": 4477924,
+    "url": "https://raw.githubusercontent.com/meathax/meatcores/85cfbbeb6023d4891769dde342994e5268e929a6/_Arcade/cores/Arcade-SSV_20261016.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-SYSTEM11_20260911.rbf",
+    "hash": "e45df158061be23cf35fd37f5630a051",
+    "size": 3965132,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/SYSTEM11_MiSTer/cb0fe4040b9c9479140d9de6ce9ca4015df19549/releases/_Arcade/cores/Arcade-SYSTEM11_20260911.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-SegaSystem32Multi_20261104.rbf",
+    "hash": "ddb52aac60a05b4904114eed594aa900",
+    "size": 4533532,
+    "url": "https://raw.githubusercontent.com/meathax/meatcores/85cfbbeb6023d4891769dde342994e5268e929a6/_Arcade/cores/Arcade-SegaSystem32Multi_20261104.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-SegaSystem32_20261017.rbf",
+    "hash": "94552c972e8ff4402f78ef308dc0aaf2",
+    "size": 4509692,
+    "url": "https://raw.githubusercontent.com/meathax/meatcores/85cfbbeb6023d4891769dde342994e5268e929a6/_Arcade/cores/Arcade-SegaSystem32_20261017.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-TaitoF3_20261105.rbf",
+    "hash": "5c2dd97da5fe3c50aadc9a28ec781c58",
+    "size": 4224200,
+    "url": "https://raw.githubusercontent.com/meathax/meatcores/85cfbbeb6023d4891769dde342994e5268e929a6/_Arcade/cores/Arcade-TaitoF3_20261105.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNKonamiGQ_20261119.rbf",
+    "hash": "25415ccc48c8e8be95ae205620ae18bd",
+    "size": 4232344,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNKonamiGQ_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNKonamiGVGun_20261119.rbf",
+    "hash": "f06a08bc5b2dbd16929d97a990908097",
+    "size": 4128224,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNKonamiGVGun_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNKonamiGVTrack_20261119.rbf",
+    "hash": "2aeafdcedbf76e11e8416ecf046b4d09",
+    "size": 4161352,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNKonamiGVTrack_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNKonamiGV_20261119.rbf",
+    "hash": "1fe5b0bb4b7b170f6d39748944cb15bb",
+    "size": 4115520,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNKonamiGV_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNSUPER22_20261021.rbf",
+    "hash": "750062354c674481b8c06d804e117031",
+    "size": 4509952,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNSUPER22_20261021.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNSYSTEM12_20261014.rbf",
+    "hash": "9e53f5dc7bd8c3cf59aee54a4ba120a0",
+    "size": 4538028,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNSYSTEM12_20261014.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNSYSTEM21_20261017.rbf",
+    "hash": "569967a6e405eeafcc557881002cec26",
+    "size": 4543700,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNSYSTEM21_20261017.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNSYSTEM22_20261021.rbf",
+    "hash": "30da7f88364aa96a86e0db00da97c2d9",
+    "size": 4601892,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNSYSTEM22_20261021.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNWINRUN_20261017.rbf",
+    "hash": "5ec57b5dbfd155ed117fac3f1a69169e",
+    "size": 4046544,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNWINRUN_20261017.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1AcclaimGun_20261119.rbf",
+    "hash": "315c3b7dd4ca9c952b19efefe788d577",
+    "size": 4072736,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1AcclaimGun_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1Acclaim_20261119.rbf",
+    "hash": "dc5fcb35b56612066a7da2ea769b760b",
+    "size": 4234992,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1Acclaim_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1Atlus_20261119.rbf",
+    "hash": "d5faabcb4edf5a08929cdf79147e2dd4",
+    "size": 4359160,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1Atlus_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1Capcom_20261119.rbf",
+    "hash": "b65e0d43795987d0df3d033d274cea1d",
+    "size": 4068152,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1Capcom_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1Metro_20261119.rbf",
+    "hash": "5a3b10a5d45e2df210b98eadab10c4f7",
+    "size": 4179072,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1Metro_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1Raizing_20261119.rbf",
+    "hash": "ff00eb9bfb0d53a160a917cdc94707cd",
+    "size": 4396252,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1Raizing_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1TWarner_20261119.rbf",
+    "hash": "3b148d966a4d81962f3b011a83d02f1e",
+    "size": 4171104,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1TWarner_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1TaitoFX1A_20261119.rbf",
+    "hash": "25fa9583d96a499c4309d2167229a5b5",
+    "size": 4079468,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1TaitoFX1A_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1TaitoFX1B_20261119.rbf",
+    "hash": "98c455a097168f18b6ac505ee3258a6c",
+    "size": 4412096,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1TaitoFX1B_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN1TecmoVSys_20261119.rbf",
+    "hash": "9322c4c5dae523ac2d9abef12454f0af",
+    "size": 4251596,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN1TecmoVSys_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Arcade-XNZN2Capcom_20261119.rbf",
+    "hash": "a2cebf632379855e4bd169423722bddf",
+    "size": 4367220,
+    "url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/37c0b0582fd92127fd08e20cd6e7d6c14450d822/_Arcade/cores/Arcade-XNZN2Capcom_20261119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Hyprduel_20261004.rbf",
+    "hash": "69b75bf9feadc529cd886ee28bf67935",
+    "size": 4335316,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/Hyprduel_20261004.rbf"
+  },
+  {
+    "path": "_Arcade/cores/IremM107_20240519.rbf",
+    "hash": "3f5edabfd3b99ffb448ad8726b1e237f",
+    "size": 4169092,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/IremM107_20240519.rbf"
+  },
+  {
+    "path": "_Arcade/cores/IremM62_20240527.rbf",
+    "hash": "0d8796d72a179af63a7ce57f5d8d1d5f",
+    "size": 3187340,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/IremM62_20240527.rbf"
+  },
+  {
+    "path": "_Arcade/cores/IremM72_20260824.rbf",
+    "hash": "e1afd76d57eed1e129fe105082de00f8",
+    "size": 4257340,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/IremM72_20260824.rbf"
+  },
+  {
+    "path": "_Arcade/cores/IremM90_20241107.rbf",
+    "hash": "928a0f9a27fab961050001a65e3a28ef",
+    "size": 3968264,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/IremM90_20241107.rbf"
+  },
+  {
+    "path": "_Arcade/cores/IremM92_20250222.rbf",
+    "hash": "6c7df662be642f604e278af29e505706",
+    "size": 4276416,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/IremM92_20250222.rbf"
+  },
+  {
+    "path": "_Arcade/cores/MegaSys1_A_20240106.rbf",
+    "hash": "629a8904f9159d832e336980411c892f",
+    "size": 3808644,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/MegaSys1_A_20240106.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Model1.rbf",
+    "hash": "5a612f04e53ceac2c717897d845b7b2e",
+    "size": 4600848,
+    "url": "https://raw.githubusercontent.com/alphanu1/sega-model1-mister/0d062e0ba90146f8c8c97de74559e4e4eb1a12cd/releases/Model1_20261112.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Model2A_20261120.rbf",
+    "hash": "5758a1bd22435e21149aad1a6b68aa3c",
+    "size": 4624156,
+    "url": "https://raw.githubusercontent.com/alphanu1/sega-model2-mister/e2fc2bad63b5786c3fc8bebffc9e43678a387ece/releases/Model2A_20261120.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Model2_20261120.rbf",
+    "hash": "0b691a0237e655bdbaacaca51ab333c3",
+    "size": 4621048,
+    "url": "https://raw.githubusercontent.com/alphanu1/sega-model2-mister/e2fc2bad63b5786c3fc8bebffc9e43678a387ece/releases/Model2_20261120.rbf"
+  },
+  {
+    "path": "_Arcade/cores/NextSpace_20230330.rbf",
+    "hash": "7b9b56617c387d0772795de7923ed766",
+    "size": 3119820,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/NextSpace_20230330.rbf"
+  },
+  {
+    "path": "_Arcade/cores/PGM-027A-BOOTLEG.rbf",
+    "hash": "a4f127d998037954d064a1bccc8c1b1c",
+    "size": 4469200,
+    "url": "https://raw.githubusercontent.com/hyp36rmax/PGM-Mister-EZIOCHIU/82b86f432ad62968752a166032c1324c3a8a8c5f/_PGM/cores/PGM-027A-BOOTLEG.rbf"
+  },
+  {
+    "path": "_Arcade/cores/PGM-027A.rbf",
+    "hash": "4a4a02f9a13e3facf45f6aeb12727e91",
+    "size": 4471348,
+    "url": "https://raw.githubusercontent.com/hyp36rmax/PGM-Mister-EZIOCHIU/82b86f432ad62968752a166032c1324c3a8a8c5f/_PGM/cores/PGM-027A.rbf"
+  },
+  {
+    "path": "_Arcade/cores/PGM.rbf",
+    "hash": "6eac8253f1aa37f0393a0793bd71c753",
+    "size": 4473756,
+    "url": "https://raw.githubusercontent.com/hyp36rmax/PGM-Mister-EZIOCHIU/82b86f432ad62968752a166032c1324c3a8a8c5f/_PGM/cores/PGM.rbf"
+  },
+  {
+    "path": "_Arcade/cores/PsikyoSH2_20260817.rbf",
+    "hash": "04a46dd54f7c93152f5bc37eb2c1ff76",
+    "size": 4013296,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/PsikyoSH2_20260817.rbf"
+  },
+  {
+    "path": "_Arcade/cores/Psikyo_20260926.rbf",
+    "hash": "ae14e44c196179b8e68897ce702876e9",
+    "size": 4000752,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/Psikyo_20260926.rbf"
+  },
+  {
+    "path": "_Arcade/cores/SEGASYS1_20260714.rbf",
+    "hash": "8677a6bd8b60fea92052156b249cf336",
+    "size": 3419348,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/SEGASYS1_20260714.rbf"
+  },
+  {
+    "path": "_Arcade/cores/SNK68_20221019.rbf",
+    "hash": "e965ce5c70c6db786dff2e11a5d4f85f",
+    "size": 3506808,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/SNK68_20221019.rbf"
+  },
+  {
+    "path": "_Arcade/cores/ST-V_20251003.rbf",
+    "hash": "be9bffd1b64242fed5aaf2debe979604",
+    "size": 4635892,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/ST-V_20251003.rbf"
+  },
+  {
+    "path": "_Arcade/cores/SegaXBoard_20261004.rbf",
+    "hash": "26796313c0314113f5bb78ffb1fbd92c",
+    "size": 4244572,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/SegaXBoard_20261004.rbf"
+  },
+  {
+    "path": "_Arcade/cores/SeibuSPI.rbf",
+    "hash": "5a34209141784ba061edfdcf61372870",
+    "size": 4552364,
+    "url": "https://raw.githubusercontent.com/zakk4223/Arcade-SeibuSPI_MiSTer/fd25dd4057547d654c876bc0349698d1c88619e2/releases/SeibuSPI.rbf"
+  },
+  {
+    "path": "_Arcade/cores/TaitoAsuka_20260924.rbf",
+    "hash": "c8253e92e0853cc0dc5128b5582f2f69",
+    "size": 3987148,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/TaitoAsuka_20260924.rbf"
+  },
+  {
+    "path": "_Arcade/cores/TaitoF2_20251027.rbf",
+    "hash": "13d56745169a7f4abc10004ab79ca9d8",
+    "size": 4237276,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/TaitoF2_20251027.rbf"
+  },
+  {
+    "path": "_Arcade/cores/TaitoGNET_20261102.rbf",
+    "hash": "1a7b90cd8d64167a596a1e42023ef63a",
+    "size": 4330796,
+    "url": "https://raw.githubusercontent.com/shmupfan/Arcade-TaitoGNET_MiSTer/6e630c24eb5c725f11eb19dcfdce43c0947e79da/releases/Arcade-TaitoGNET_20261102.rbf"
+  },
+  {
+    "path": "_Arcade/cores/TaitoSJ_20260321.rbf",
+    "hash": "ddeb1e96bfd8456968f152bc3d4a789d",
+    "size": 3258904,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/TaitoSJ_20260321.rbf"
+  },
+  {
+    "path": "_Arcade/cores/armedf_20221013.rbf",
+    "hash": "a94c221b2fe4f01cadb42e72ca4b6f2b",
+    "size": 3987812,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/armedf_20221013.rbf"
+  },
+  {
+    "path": "_Arcade/cores/atarisys1_20240410.rbf",
+    "hash": "6091b1c6717a906f623e9b5f00efb08c",
+    "size": 4094744,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/atarisys1_20240410.rbf"
+  },
+  {
+    "path": "_Arcade/cores/atarisys2_20261117.rbf",
+    "hash": "5c352c75579859f3bd95fe495cd1ddd4",
+    "size": 3851204,
+    "url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/53bfc70ba574850fc9a21a638e3602b8985e2da1/_Arcade/cores/atarisys2_20261117.rbf"
+  },
+  {
+    "path": "_Arcade/cores/batrider_mister_20250330.rbf",
+    "hash": "c9cb89ee8fc798c88ca9d4ca7cc7444a",
+    "size": 3662772,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/batrider_mister_20250330.rbf"
+  },
+  {
+    "path": "_Arcade/cores/bbakraid_mister_20250330.rbf",
+    "hash": "e3c85c0b58241f74b7c0dcbb27d9515c",
+    "size": 3654644,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/bbakraid_mister_20250330.rbf"
+  },
+  {
+    "path": "_Arcade/cores/bgaregga_mister_20250330.rbf",
+    "hash": "c0b0e9a65e7c8c4ff38103d6706ae5b8",
+    "size": 3474272,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/bgaregga_mister_20250330.rbf"
+  },
+  {
+    "path": "_Arcade/cores/blkheart_mister_20260909.rbf",
+    "hash": "69b88cbc8db80b70d632d73bf128adbb",
+    "size": 3998276,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/blkheart_mister_20260909.rbf"
+  },
+  {
+    "path": "_Arcade/cores/boogwing_mister_20260729.rbf",
+    "hash": "46976974419abc47f8cdbaa461a93355",
+    "size": 3866968,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/boogwing_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/bublbobl_mister_20260927.rbf",
+    "hash": "acf5d3716d1804f2e7f8eb9ebc48a5cd",
+    "size": 3131896,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/bublbobl_mister_20260927.rbf"
+  },
+  {
+    "path": "_Arcade/cores/captaven_mister_20260704.rbf",
+    "hash": "9809045c9bc23c17d77ffa5e59e75566",
+    "size": 3768452,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/captaven_mister_20260704.rbf"
+  },
+  {
+    "path": "_Arcade/cores/captcomm_mister_20261031.rbf",
+    "hash": "8335e7c1f2a3533ee6a768751e7cc718",
+    "size": 4027396,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/captcomm_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/cawing_mister_20261031.rbf",
+    "hash": "53a65762a861bf78888ad60028405671",
+    "size": 4002696,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/cawing_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/cbuster_mister_20260729.rbf",
+    "hash": "6c08050590232e90a624b694be023c56",
+    "size": 3436052,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/cbuster_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/cninja_mister_20260729.rbf",
+    "hash": "b5d62d6d9f228c2256a7d64e426e7d51",
+    "size": 3486436,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/cninja_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/cobracom_mister_20260614.rbf",
+    "hash": "cd986eaebd7b5b0e6d81086e2471628f",
+    "size": 3471400,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/cobracom_mister_20260614.rbf"
+  },
+  {
+    "path": "_Arcade/cores/cworld2j_mister_20261031.rbf",
+    "hash": "ac25dafcbbbfb631a12f4ec8346c98e1",
+    "size": 4015300,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/cworld2j_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/darkmist_mister_20261006.rbf",
+    "hash": "d95b96bed0c9cd65a45dd228c9579c1a",
+    "size": 3142220,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/darkmist_mister_20261006.rbf"
+  },
+  {
+    "path": "_Arcade/cores/darkseal_mister_20260729.rbf",
+    "hash": "8db2e4b41d74672fddb6777c46b7c364",
+    "size": 3530180,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/darkseal_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/dblewing_mister_20260731.rbf",
+    "hash": "8643198be0ee5d7067139e31188f627f",
+    "size": 3441304,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/dblewing_mister_20260731.rbf"
+  },
+  {
+    "path": "_Arcade/cores/demonwld_mister_20251119.rbf",
+    "hash": "aeacd813e0f8fa239ea0266529c436f8",
+    "size": 3705060,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/demonwld_mister_20251119.rbf"
+  },
+  {
+    "path": "_Arcade/cores/dietgo_mister_20260801.rbf",
+    "hash": "12ab20801f714a7e46ffab16b0aceb6e",
+    "size": 3567152,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/dietgo_mister_20260801.rbf"
+  },
+  {
+    "path": "_Arcade/cores/dynwar_mister_20261031.rbf",
+    "hash": "b02e6907944876fb9693a56e4a1f2437",
+    "size": 4007248,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/dynwar_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/edrandy_mister_20260729.rbf",
+    "hash": "1ffd7d050b07d70c52b2933150f91896",
+    "size": 3514020,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/edrandy_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/ffight_mister_20261031.rbf",
+    "hash": "197219cc65fd637aa20f03b013dd10c5",
+    "size": 4000460,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/ffight_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/forgottn_mister_20261031.rbf",
+    "hash": "9811d983cbae4bf46cb15bb184c7157d",
+    "size": 4002904,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/forgottn_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/fshark_mister_20260917.rbf",
+    "hash": "788712776b318fb5f1ce2b578a0bd00d",
+    "size": 3267556,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/fshark_mister_20260917.rbf"
+  },
+  {
+    "path": "_Arcade/cores/ghouls_mister_20261031.rbf",
+    "hash": "19eda0233da34e36437817a715c852cd",
+    "size": 3984652,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/ghouls_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/gijoe_mister_20260815.rbf",
+    "hash": "79fbb94b35262ab1b9dcfd47e27633c7",
+    "size": 4202980,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/gijoe_mister_20260815.rbf"
+  },
+  {
+    "path": "_Arcade/cores/jtcps15.rbf",
+    "hash": "bffeeb136923404d19be8922383ef881",
+    "size": 3487496,
+    "url": "https://raw.githubusercontent.com/jotego/jtcores_mister/4ac3c7f8ada9ee447be4e356903e642a160332ac/_Arcade/cores/jtcps15.rbf"
+  },
+  {
+    "path": "_Arcade/cores/jtcps2.rbf",
+    "hash": "aaae30c48ddb5fae668000fca5f3be00",
+    "size": 3584016,
+    "url": "https://raw.githubusercontent.com/jotego/jtcores_mister/4ac3c7f8ada9ee447be4e356903e642a160332ac/_Arcade/cores/jtcps2.rbf"
+  },
+  {
+    "path": "_Arcade/cores/jtcps3.rbf",
+    "hash": "1aa1dda54ccb88ab8671bdce16d4279e",
+    "size": 4122128,
+    "url": "https://raw.githubusercontent.com/jotego/jtcores_mister/4ac3c7f8ada9ee447be4e356903e642a160332ac/_Arcade/cores/jtcps3.rbf"
+  },
+  {
+    "path": "_Arcade/cores/jts16.rbf",
+    "hash": "04f79e095fcd9b55a241f3bf19ef13ef",
+    "size": 3152280,
+    "url": "https://raw.githubusercontent.com/jotego/jtcores_mister/4ac3c7f8ada9ee447be4e356903e642a160332ac/_Arcade/cores/jts16.rbf"
+  },
+  {
+    "path": "_Arcade/cores/jts16b.rbf",
+    "hash": "7a81fbbb6f54db725da5b7c4b800e3ea",
+    "size": 3173428,
+    "url": "https://raw.githubusercontent.com/jotego/jtcores_mister/4ac3c7f8ada9ee447be4e356903e642a160332ac/_Arcade/cores/jts16b.rbf"
+  },
+  {
+    "path": "_Arcade/cores/jts18.rbf",
+    "hash": "d70d5ab4d39e2bf3b6179b1c67d0e5c5",
+    "size": 3901668,
+    "url": "https://raw.githubusercontent.com/jotego/jtcores_mister/4ac3c7f8ada9ee447be4e356903e642a160332ac/_Arcade/cores/jts18.rbf"
+  },
+  {
+    "path": "_Arcade/cores/kikikai_mister_20260927.rbf",
+    "hash": "0d14d06ae82a5a8507f9a74f495d93ef",
+    "size": 2999612,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/kikikai_mister_20260927.rbf"
+  },
+  {
+    "path": "_Arcade/cores/kingdmgp_mister_20250330.rbf",
+    "hash": "541449bf752d35aa9354ff5153e39af5",
+    "size": 3474120,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/kingdmgp_mister_20250330.rbf"
+  },
+  {
+    "path": "_Arcade/cores/knights_mister_20261031.rbf",
+    "hash": "9105dd84f57cd888a3e0a3ffd5a5616a",
+    "size": 3997700,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/knights_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/kod_mister_20261031.rbf",
+    "hash": "620c0d7f1cb506aa4354e6395c7e49bd",
+    "size": 4010532,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/kod_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/lkage_mister_20261006.rbf",
+    "hash": "fa58d18629dc2f8356567a6e4e7d72c2",
+    "size": 3040988,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/lkage_mister_20261006.rbf"
+  },
+  {
+    "path": "_Arcade/cores/maniach_mister_20260331.rbf",
+    "hash": "3e89400202622e63d134934c1621e3c1",
+    "size": 3319452,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/maniach_mister_20260331.rbf"
+  },
+  {
+    "path": "_Arcade/cores/matmania_mister_20260331.rbf",
+    "hash": "6827ddd9b9db372db3fa9b336b834662",
+    "size": 3073896,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/matmania_mister_20260331.rbf"
+  },
+  {
+    "path": "_Arcade/cores/megaman_mister_20261031.rbf",
+    "hash": "3cbd5638bbd7fe6d7dac4a6790809ff2",
+    "size": 3994264,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/megaman_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/mercs_mister_20261031.rbf",
+    "hash": "ba1deeb9c085f606016c9c5e39a4ceff",
+    "size": 4007552,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/mercs_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/metamrph_mister_20260906.rbf",
+    "hash": "c1038c006ed370d5fa4fe2c9c5e1246b",
+    "size": 4333828,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/metamrph_mister_20260906.rbf"
+  },
+  {
+    "path": "_Arcade/cores/msword_mister_20261031.rbf",
+    "hash": "901b3dce60a8a21e414dd1bf421fb0c1",
+    "size": 4018768,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/msword_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/mtwins_mister_20261031.rbf",
+    "hash": "836ce4e56d9d3b3aa054856f1d954d49",
+    "size": 3992792,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/mtwins_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/mutantf_mister_20260731.rbf",
+    "hash": "1192d46bf0944df1e674258e9a147f5c",
+    "size": 3720072,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/mutantf_mister_20260731.rbf"
+  },
+  {
+    "path": "_Arcade/cores/mystwarr_mister_20260906.rbf",
+    "hash": "74f45e6d60deadc5cb443bd3983962fb",
+    "size": 4291300,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/mystwarr_mister_20260906.rbf"
+  },
+  {
+    "path": "_Arcade/cores/nemo_mister_20261031.rbf",
+    "hash": "f9fad443836eb14bc5e47e2b553aee1a",
+    "size": 4008136,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/nemo_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/nitrobal_mister_20260731.rbf",
+    "hash": "aa111d50654fd8025d33470564063599",
+    "size": 3875264,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/nitrobal_mister_20260731.rbf"
+  },
+  {
+    "path": "_Arcade/cores/oscar_mister_20260402.rbf",
+    "hash": "1c5d869f441318edef1132f736694be5",
+    "size": 3565868,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/oscar_mister_20260402.rbf"
+  },
+  {
+    "path": "_Arcade/cores/pang3_mister_20261031.rbf",
+    "hash": "89c76412f1340dfd4e750eccfc726cac",
+    "size": 3979872,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/pang3_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/pipibibs_20240517.rbf",
+    "hash": "f806441dd0ba2f63ded91f2b1999337a",
+    "size": 3129632,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/pipibibs_20240517.rbf"
+  },
+  {
+    "path": "_Arcade/cores/pnickj_mister_20261031.rbf",
+    "hash": "c33507f951f8e4b7b8b18eed0a962131",
+    "size": 4001960,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/pnickj_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/prehisle_20230708.rbf",
+    "hash": "6a44c4dde63543167f8eb6481871f5a7",
+    "size": 3789476,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/prehisle_20230708.rbf"
+  },
+  {
+    "path": "_Arcade/cores/qad_mister_20261031.rbf",
+    "hash": "2af83292bea9600248202af6230c67a8",
+    "size": 3999916,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/qad_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/qtono2j_mister_20261031.rbf",
+    "hash": "85c8c0b342bcae93825a48267c0be874",
+    "size": 4027648,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/qtono2j_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/rallybike_20240405.rbf",
+    "hash": "58ae8bd3baadd766cc63a17d642fd234",
+    "size": 4206932,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/rallybike_20240405.rbf"
+  },
+  {
+    "path": "_Arcade/cores/robocop2_mister_20260729.rbf",
+    "hash": "12a1fbfd6ad6ffb6502d37f9c28be7e5",
+    "size": 3546400,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/robocop2_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/rohga_mister_20260802.rbf",
+    "hash": "099f78e4a2f35bc2ec63be0d0321054c",
+    "size": 3594848,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/rohga_mister_20260802.rbf"
+  },
+  {
+    "path": "_Arcade/cores/sf2_mister_20261031.rbf",
+    "hash": "f863e3af5ee2503f0234803f6b232352",
+    "size": 4033696,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/sf2_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/sf2ce_mister_20261031.rbf",
+    "hash": "81a075082a4ece2898215ae01b8eed94",
+    "size": 4015732,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/sf2ce_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/sf2hf_mister_20261031.rbf",
+    "hash": "06c05970db8842394e7da542bd4b7776",
+    "size": 4015424,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/sf2hf_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/snowbro2_20240817.rbf",
+    "hash": "c08c5a329c9aaa1f1084542deed458dd",
+    "size": 3297012,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/snowbro2_20240817.rbf"
+  },
+  {
+    "path": "_Arcade/cores/snowbros_mister_20260611.rbf",
+    "hash": "41d7e823b7cdcb944038fa1f543278d3",
+    "size": 3335476,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/snowbros_mister_20260611.rbf"
+  },
+  {
+    "path": "_Arcade/cores/sstriker_mister_20250330.rbf",
+    "hash": "5ac6238ab9c31050c68bf4205aeff482",
+    "size": 3435736,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/sstriker_mister_20250330.rbf"
+  },
+  {
+    "path": "_Arcade/cores/strider_mister_20261031.rbf",
+    "hash": "e7dc359995bd815710f982b583af86a4",
+    "size": 4041160,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/strider_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/supbtime_mister_20260801.rbf",
+    "hash": "33f97fce84105b949f35b6697ca9fb50",
+    "size": 3689568,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/supbtime_mister_20260801.rbf"
+  },
+  {
+    "path": "_Arcade/cores/tdragon_mister_20260908.rbf",
+    "hash": "3f319ee7d1f83db2b3d622cb3a825740",
+    "size": 4019204,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/tdragon_mister_20260908.rbf"
+  },
+  {
+    "path": "_Arcade/cores/tekipaki_20240518.rbf",
+    "hash": "0f5aed1355618a9aff3cba8f61f1d0a6",
+    "size": 3151936,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/tekipaki_20240518.rbf"
+  },
+  {
+    "path": "_Arcade/cores/terracresta_20220723.rbf",
+    "hash": "7f27228e5dd047032e98e2e21c5096c7",
+    "size": 3973388,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/terracresta_20220723.rbf"
+  },
+  {
+    "path": "_Arcade/cores/thndzone_mister_20260814.rbf",
+    "hash": "54efb4021fc37b1937f24d784df86c5f",
+    "size": 3746440,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/thndzone_mister_20260814.rbf"
+  },
+  {
+    "path": "_Arcade/cores/tmnt2_mister_20251012.rbf",
+    "hash": "5dfccbf645edcfb89ea7d6450f305a11",
+    "size": 3068648,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/tmnt2_mister_20251012.rbf"
+  },
+  {
+    "path": "_Arcade/cores/truxton2_20240517.rbf",
+    "hash": "43e15044ab2154a733cf89bc177ad1be",
+    "size": 3452396,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/truxton2_20240517.rbf"
+  },
+  {
+    "path": "_Arcade/cores/tumblep_mister_20260729.rbf",
+    "hash": "b487aef3961ecedb6130d6013608f112",
+    "size": 3630180,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/tumblep_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/twincobr_mister_20260917.rbf",
+    "hash": "6474a0ab8fc9bd9293e4a97ad529d6f8",
+    "size": 3273036,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/twincobr_mister_20260917.rbf"
+  },
+  {
+    "path": "_Arcade/cores/unsquad_mister_20261031.rbf",
+    "hash": "d7a478832ed4629f13fdbdf18ff30f60",
+    "size": 4026640,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/unsquad_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/vaportra_mister_20260729.rbf",
+    "hash": "213db5ccb6a31b543e0d99229e4a5808",
+    "size": 3466500,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/vaportra_mister_20260729.rbf"
+  },
+  {
+    "path": "_Arcade/cores/varth_mister_20261031.rbf",
+    "hash": "6aca24830c4d78a3e657df4cda1aaf64",
+    "size": 4001040,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/varth_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/vimana_20240404.rbf",
+    "hash": "737fc2aefd0f3bcf453cf55fb45e579d",
+    "size": 3615072,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/vimana_20240404.rbf"
+  },
+  {
+    "path": "_Arcade/cores/wardner_mister_20260917.rbf",
+    "hash": "3db7814dc4d73b3e1da77e97cd1a432a",
+    "size": 3308536,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/wardner_mister_20260917.rbf"
+  },
+  {
+    "path": "_Arcade/cores/willow_mister_20261031.rbf",
+    "hash": "346efb2b4ed51d98b2fd85f6817eb846",
+    "size": 4008460,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/willow_mister_20261031.rbf"
+  },
+  {
+    "path": "_Arcade/cores/wizdfire_mister_20260801.rbf",
+    "hash": "db7b1b097805bf6adeaad00691437703",
+    "size": 3810972,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/wizdfire_mister_20260801.rbf"
+  },
+  {
+    "path": "_Arcade/cores/zerowing_20240404.rbf",
+    "hash": "c4b2d0bfd8260f134a77103cc7763fc4",
+    "size": 3598616,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/zerowing_20240404.rbf"
+  },
+  {
+    "path": "_Arcade/cores/zerowing_mister_20251119.rbf",
+    "hash": "5e9b6f7247e6d1515b4ac95a6e36779f",
+    "size": 3551608,
+    "url": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/73e3b36d755797c41bae7bc1b75026168eefbcfb/_Arcade/cores/zerowing_mister_20251119.rbf"
+  }
+]

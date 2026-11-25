@@ -56,3 +56,7 @@ Public Coin-Op database records define the managed inventory. Hardware-family vi
 Run `python tools/audit_coinop_coverage.py` to check every public record against reviewed family mappings or explicit unresolved reviews. Use `--live` to refresh and verify public MRA bytes. New games in known classifications are selected automatically; new unknown classifications stop family publication for review.
 
 CPS1 is an explicit exception: its licensed Coin-Op view retains the source default filter exactly. Publication fails if that default excludes a selected MRA, folder, or required upstream core. No release exclusions or authorization requirements are removed. See [CPS1 migration](cps1-migration.md).
+
+## Required core installation
+
+Complete and individual Managed subscriptions declare the original downloadable cores their MRAs need. Files stay under `_Arcade/cores/` and download directly from the source authority. Identical hash/size/URL records can be shared across subscriptions; conflicting records stop validation. No core is mirrored, renamed or rebuilt. STG and G-NET policies remain unchanged. See the [dependency inventory and reconciliation results](managed-core-dependencies.md).

@@ -5,7 +5,13 @@
   "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
   "family": "data-east-deco-32",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-data-east-deco-32",
-  "policy_version": 1,
-  "include_required_cores": false,
-  "source_module": "coinop-collection"
+  "policy_version": 2,
+  "include_required_cores": true,
+  "source_module": "coinop-collection",
+  "core_policy": {
+    "identities": [
+      "captaven_mister"
+    ],
+    "immutable_url_prefix": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/"
+  }
 }

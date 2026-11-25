@@ -19,6 +19,8 @@ class DatabasePolicy:
 
     def destination(self, path, category):
         safe_path(path)
+        if self.config.get('upstream_db_id') == 'meathax/meatcores' and (path.casefold() == self.source_prefix.casefold() or path.casefold().startswith(self.source_prefix.casefold() + '/')):
+            path = self.source_prefix + path[len(self.source_prefix):]
         if self.config.get('name') == 'taito-f3':
             for root in (self.source_prefix, self.prefix):
                 singular = root + '/_alternative'
@@ -117,6 +119,17 @@ class DatabasePolicy:
                     require(not any('/'.join(parts[:i]) in files for i in range(1,len(parts))), 'Archive file used as parent')
 
 
+def core_matches_reference(filename, reference):
+    """Match the loader's case-insensitive identity prefix and boundary."""
+    name = filename.rsplit('/', 1)[-1]
+    if not name.lower().endswith('.rbf'):
+        return False
+    for prefix in (reference, 'Arcade-' + reference):
+        if name.casefold().startswith(prefix.casefold()) and len(name) > len(prefix) and name[len(prefix)] in '._':
+            return True
+    return False
+
+
 def safe_url(url):
     require(isinstance(url,str) and not any(c.isspace() or ord(c)<32 for c in url), 'Invalid URL')
     parsed = urlsplit(url)
@@ -155,7 +168,7 @@ def select_database(database, config, policy):
     require(database['db_id'] == config['upstream_db_id'], 'Selection requires authoritative upstream')
     for path, expected in config.get('required_core_records', {}).items():
         record = database['files'].get(path, {})
-        require(all(record.get(k) == v for k, v in expected.items()), 'Required upstream core changed or disappeared: ' + path)
+        require(all(record.get(k) == expected[k] for k in ('hash', 'size')), 'Required upstream core changed or disappeared: ' + path)
     dictionary = database['tag_dictionary']
     groups = config['exclusive_group_tags']
     require(all(tag in dictionary for tag in config['selection_tags']), 'Authoritative classification disappeared')
@@ -173,12 +186,17 @@ def select_database(database, config, policy):
         if not classifications & selected_ids:
             continue
         if is_mra(path):
-            require(path.startswith(config['source_navigation_root']+'/'), 'MRA outside declared navigation root')
+            require(path.startswith(config['source_navigation_root']+'/') or (config['upstream_db_id']=='meathax/meatcores' and path.casefold().startswith(config['source_navigation_root'].casefold()+'/')), 'MRA outside declared navigation root')
         else:
             require(path.endswith('.rbf') and path.startswith('_Arcade/cores/') and '/' not in path[len('_Arcade/cores/'):], 'Unknown selected payload/core layout')
         if path.endswith('.rbf') and config.get('core_ownership') == 'upstream':
             continue
+        if path.endswith('.rbf') and config.get('required_core_records') and path not in config['required_core_records']:
+            continue
         files[path] = copy.deepcopy(record)
+    if config.get('core_ownership') == 'included':
+        for path in config.get('required_core_records', {}):
+            files[path] = copy.deepcopy(database['files'][path])
     if 'expected_mra_counts' in config:
         counts = {'primary': sum(is_mra(p) and not alternative_directory(p) for p in files),
                   'alternatives': sum(is_mra(p) and bool(alternative_directory(p)) for p in files)}
@@ -192,7 +210,7 @@ def select_database(database, config, policy):
         folder_paths.update('/'.join(parts[:i]) for i in range(1,len(parts)))
     for path, record in database['folders'].items():
         if selected_ids & set(record['tags']) and not (config.get('core_ownership') == 'upstream' and (path == '_Arcade/cores' or path.startswith('_Arcade/cores/'))):
-            require(path == config['source_navigation_root'] or path.startswith(config['source_navigation_root']+'/') or path == '_Arcade/cores', 'Unexpected classified folder')
+            require(path == config['source_navigation_root'] or path.startswith(config['source_navigation_root']+'/') or path == '_Arcade/cores' or (config['upstream_db_id']=='meathax/meatcores' and (path.casefold()==config['source_navigation_root'].casefold() or path.casefold().startswith(config['source_navigation_root'].casefold()+'/'))), 'Unexpected classified folder')
             parts = path.split('/')
             folder_paths.update('/'.join(parts[:i]) for i in range(1,len(parts)+1))
     require(folder_paths <= set(database['folders']), 'Missing authoritative parent folder metadata')
@@ -221,10 +239,11 @@ def verify_payloads(database, fetcher=fetch, core_database=None, config=None):
         if is_mra(path):
             reference = mra_reference(payload, path)
             if config and config.get('required_core_records'):
-                require('_Arcade/cores/' + reference + '.rbf' in config['required_core_records'], 'MRA outside matching core generation: ' + path)
+                expected_references = {r.get('mra_reference', p.rsplit('/', 1)[-1][:-4]) for p, r in config['required_core_records'].items()}
+                require(reference in expected_references, 'MRA outside matching core generation: ' + path)
             if config and config.get('core_policy'):
                 require(reference.removeprefix('Arcade-').casefold() in {i.casefold() for i in config['core_policy']['identities']}, 'MRA core outside approved identity: ' + path)
-            require(any(re.fullmatch(r'(?:Arcade-)?'+re.escape(reference)+r'(?:_\d{8})?\.rbf', core, re.I) for core in cores), 'Unresolved selected MRA core: '+path)
+            require(any(core_matches_reference(core, reference) for core in cores), 'Unresolved selected MRA core: '+path)
     items = dict(database['files'])
     if config:
         for path in config.get('required_core_records', {}):

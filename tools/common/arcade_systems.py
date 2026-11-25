@@ -7,7 +7,7 @@ from urllib.parse import quote
 
 from tools.common.database import ValidationError, canonical_json, digest, parse_json, package, unpack, atomic_write
 from tools.common.repository import require, safe_path, validate_system_navigation
-from tools.common.filters import filter_counts
+from tools.common.filters import filter_counts, parse_filter, installable
 from tools.common.archives import expanded_inventory, validate_archives
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -138,7 +138,11 @@ class AssemblyPolicy:
             validate_archives(database,{'selection_tags':[],'selection_archives':list(database['archives']),'derived_db_id':config['derived_db_id']})
         validate_boundaries(database,config.get('include_required_cores',False))
         counts=filter_counts(database)
-        require(not counts['filtered_selected_files'] and not counts['filtered_selected_folders'],'DERIVED FILTER CONFLICT: assembly suppresses inventory')
+        if not config.get('preserve_source_filter'):
+            require(not counts['filtered_selected_files'] and not counts['filtered_selected_folders'],'DERIVED FILTER CONFLICT: assembly suppresses inventory')
+        else:
+            positive, negative, never = parse_filter(database['default_options']['filter'], dictionary)
+            require(not positive and not never, 'DERIVED FILTER CONFLICT: unsupported preserved assembly default')
 
 
 def validate_boundaries(database, cores=False):
@@ -159,7 +163,7 @@ def validate_boundaries(database, cores=False):
             require(not any('/'.join(key.split('/')[:i]) in files for i in range(1,len(key.split('/')))), 'File used as a directory')
 
 
-def merge_complete(config, contributions, approvals):
+def merge_complete(config, contributions, approvals, root=ROOT):
     """Reconcile dictionary IDs and ownership; preserve effective download sources."""
     result=empty_database(config,max((d['timestamp'] for d in contributions.values()),default=0))
     # Equivalent alias groups must agree across sources; IDs themselves are source-local.
@@ -175,6 +179,9 @@ def merge_complete(config, contributions, approvals):
     unique=sorted(set(groups.values()),key=lambda g:sorted(g))
     dictionary={term:i for i,g in enumerate(unique) for term in sorted(g)}
     result['tag_dictionary']=dictionary
+    # Complete retains its existing default; original tags retain user filter behavior.
+    from tools.common.engine import load_module
+    contributor_configs={name:load_module(name,root)[0] if (Path(root)/'modules'/name/'module.json').is_file() else {} for name in contributions}
     origins={};deduplications=0;archive_claims={}
     def insert(category,path,record,name):
         nonlocal deduplications
@@ -198,7 +205,9 @@ def merge_complete(config, contributions, approvals):
                 if path.startswith(NAMESPACE):
                     require(any(path==root or path.startswith(root+'/') for root in entry['destination_roots']),'Contributor outside approved system: '+name+': '+path)
         counts=filter_counts(d)
-        require(not counts['filtered_selected_files'] and not counts['filtered_selected_folders'],'DERIVED FILTER CONFLICT: contributor '+name)
+        contributor_config = contributor_configs[name]
+        if not contributor_config.get('preserve_source_filter'):
+            require(not counts['filtered_selected_files'] and not counts['filtered_selected_folders'],'DERIVED FILTER CONFLICT: contributor '+name)
         old_ids={v:dictionary[k] for k,v in d.get('tag_dictionary',{}).items()}
         def remap(r):
             r=copy.deepcopy(r);r['tags']=sorted({old_ids[t] for t in r.get('tags',[])});return r
@@ -229,6 +238,20 @@ def merge_complete(config, contributions, approvals):
     # Archive folder associations must agree with the direct directory record.
     for desc in result.get('archives',{}).values():
         for path,r in desc['summary_inline']['folders'].items():r['tags']=result['folders'][path]['tags']
+    # Normal contributors retain default eligibility. Explicit source-filter modules
+    # retain their original tags under Complete's established user-controlled filter.
+    parsed=parse_filter(result['default_options']['filter'],dictionary)
+    merged=expanded_inventory(result)
+    for name, source in contributions.items():
+        source_filter=parse_filter(source.get('default_options',{}).get('filter',''),source.get('tag_dictionary',{}))
+        for category in ('files','folders'):
+            for path, record in expanded_inventory(source)[category].items():
+                before=installable(record,source_filter)
+                after=installable(merged[category][path],parsed)
+                if category=='folders':
+                    require(not before or after,'DERIVED FILTER CONFLICT: shared folder suppressed: '+path)
+                elif not contributor_configs[name].get('preserve_source_filter'):
+                    require(before==after,'DERIVED FILTER CONFLICT: contributor eligibility changed: '+name+': '+path)
     AssemblyPolicy().validate_schema(result,config)
     return result,{'included_modules':sorted(contributions),'safe_deduplications':deduplications,'unique_destinations':len(expanded_inventory(result)['files']), 'conflicts':0,'namespace_violations':0,'effective_source_urls_changed':0,**filter_counts(result)}
 
@@ -260,5 +283,5 @@ def build_complete(config,output_root=None,root=ROOT):
         database,manifest=verify_one(name,root,verbose=False)
         contributions[name]=database
         fingerprints[name]=manifest['generated_semantic_sha256']
-    database,report=merge_complete(config,contributions,registry(root)['modules'])
+    database,report=merge_complete(config,contributions,registry(root)['modules'],root)
     return publish_assembly(config,database,{'source_mode':'complete','contributors':fingerprints,'source_databases':contributions,'registry_snapshot':registry(root)['modules']},report,output_root=output_root)
