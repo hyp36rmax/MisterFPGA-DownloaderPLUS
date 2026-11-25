@@ -4,7 +4,7 @@
 
 Software verification is separate from hardware acceptance. This draft is not a production release. No MiSTer hardware UAT has been run. Review the implementation and the FX1B deployment/recovery plan before publication.
 
-The research PRs [#28](https://github.com/hyp36rmax/MisterFPGA-DownloaderPLUS/pull/28) and [#29](https://github.com/hyp36rmax/MisterFPGA-DownloaderPLUS/pull/29) were unmerged at implementation start; neither was merged or used as an implicit production change. The implementation starts at main `e8b6e627d572b0e1a4bfd8009007af1ce13fd313`.
+The implementation started at main `e8b6e627d572b0e1a4bfd8009007af1ce13fd313`, with both research PRs unmerged. PR #28 has since merged as `d54f97c011dc3bed8881b50b9719cf5d4d5f8010`; this feature branch now includes that approved [source audit](sony-zn-complete-inspection.md). The complete, original [FX1B compatibility report](sony-zn-fx1b-compatibility.md) from PR #29 is consolidated here without changes. Its historical gate conclusions and hardware limitations remain intact; consolidation is not production approval.
 
 ## Verified source
 
@@ -88,7 +88,7 @@ The current upstream database still declares the August FX1B core. Thus removing
 
 1. Back up the installed databases, ownership stores and user settings/media without changing their contents. Preserve previous published artifacts in repository history and keep a separately validated recovery image.
 2. Install/verify the official November core's exact filename, MD5 and size shown above. Refresh the individual module and Complete from the same reviewed generation. Do not launch during a partial update or with stale individual/Complete claims for different bytes at the same paths.
-3. Verify all twelve installed MRA references and hashes against the fixture/manifest. Run the five primary-game and seven regional checks in the [R02 report](https://github.com/hyp36rmax/MisterFPGA-DownloaderPLUS/blob/39841de8ba00c43b2cca78da0bc2031d913fa441/docs/sony-zn-fx1b-compatibility.md).
+3. Verify all twelve installed MRA references and hashes against the fixture/manifest. Run the five primary-game and seven regional checks in the [R02 report](sony-zn-fx1b-compatibility.md).
 4. Check cold boot, selected core identity, attract/gameplay, DIP/service behavior, inputs, audio, video, NVRAM persistence and exit/relaunch. Record settings provenance and hardware details. **All physical checks remain NOT RUN.**
 
 August XML can load November when both cores exist. November XML cannot fall back to August. Reverting database metadata alone is not an August rollback. Do not rename/duplicate an RBF, change MRA references, disable unrelated subscriptions or delete upstream-owned cores to force a result. Recovery requires a separately validated matching core/MRA environment; an image already containing November is not proof of an isolated August baseline.
