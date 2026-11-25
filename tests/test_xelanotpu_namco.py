@@ -1,6 +1,7 @@
 """Reviewed XelaNotPu Namco promotions and original payload boundaries."""
 import copy
 import hashlib
+import json
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
@@ -190,7 +191,7 @@ class XelaNotPuNamcoTests(unittest.TestCase):
         migrated = {'capcom-zn1', 'capcom-zn2', 'taito-fx1b'}
         affected=set(parse_json((ROOT/'tests/fixtures/managed-core-dependencies-2026-11-24/affected-modules.json').read_bytes()))
         for name,files in baseline.items():
-            if name in affected: continue  # Exact non-core preservation is covered by the core-dependency regression fixture.
+            if name in affected: continue  # Current source parity and stable navigation paths are covered by the core-dependency tests.
             if name in migrated:
                 # ZN-R03 separately verifies the approved identity-preserving database migration.
                 database, _ = verify_one(name, verbose=False)
@@ -198,6 +199,18 @@ class XelaNotPuNamcoTests(unittest.TestCase):
                 self.assertEqual(load_module(name)[0]['core_ownership'], 'included')
                 continue
             for path,fingerprint in files.items():
+                if path.startswith('dist/') and name in {'taito-gnet','sega-system32','sega-system32-multi','ssv'}:
+                    verify_one(name,verbose=False)
+                    continue
+                if path == 'modules/'+name+'/module.json' and name in {'sega-model2','sega-model2a','sega-system32','sega-system32-multi','ssv'}:
+                    original=parse_json((ROOT/path).read_bytes())
+                    self.assertEqual(original['policy_version'],2)
+                    original['policy_version']=1
+                    if name in {'sega-system32','sega-system32-multi','ssv'}:
+                        self.assertEqual(original['source_navigation_root'],'_Arcade/_Meatcores')
+                        original['source_navigation_root']='_Arcade/_MeatCores'
+                    self.assertEqual(digest((json.dumps(original,indent=2)+'\n').encode()),fingerprint,path)
+                    continue
                 if path.startswith('dist/') and name in {'sega-model2','sega-model2a'}:
                     # The later approved CRT relocation preserves source snapshots, not old destination bytes.
                     verify_one(name,verbose=False)

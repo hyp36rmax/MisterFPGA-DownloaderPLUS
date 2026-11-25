@@ -1,5 +1,7 @@
 # XelaNotPu Namco source review
 
+Historical source review. The current core repair includes original required core records in the Managed subscriptions and refreshes current source snapshots. See the [current core dependency report](managed-core-dependencies.md) for installation, filter and ownership behavior. The findings below describe the inspected historical snapshot.
+
 ## VERIFIED source snapshot
 
 Inspected 2026-11-12 using the [official XelaNotPu database](https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip). Database branch revision: `8faaf64bc3fdd8236c0c15b03747adce7afde561`. Payload revision: `633a045874a2bc63004122c4d767a2d91f8f9a31`.
