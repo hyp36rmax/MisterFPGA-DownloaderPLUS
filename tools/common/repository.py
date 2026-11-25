@@ -275,6 +275,10 @@ def navigation_inventory(database, prefix):
 def validate_navigation(upstream, generated, config):
     """Prove recursive navigation parity independently of destination mapping."""
     source_prefix = "_Arcade/" + config["target_folder"] if upstream["db_id"] == config["derived_db_id"] else config.get("source_navigation_root", "_Arcade")
+    if config.get('upstream_db_id') == 'meathax/meatcores' and upstream['db_id'] != config['derived_db_id']:
+        roots=[p for p in upstream['folders'] if p.casefold()==source_prefix.casefold()]
+        require(len(roots)==1,'Missing or ambiguous MeatCores navigation root')
+        source_prefix=roots[0]
     before, alternatives, folders = navigation_inventory(upstream, source_prefix)
     after, generated_alternatives, generated_folders = navigation_inventory(generated, "_Arcade/" + config["target_folder"])
     def normalized(files, database, prefix):

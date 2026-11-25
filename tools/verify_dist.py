@@ -39,7 +39,7 @@ def verify_assembly(name,root=ROOT):
     else:
         contributors=manifest['source_databases']
         fingerprints={n:digest(canonical_json(d)) for n,d in contributors.items()}
-        expected,report=merge_complete(config,contributors,manifest['registry_snapshot'])
+        expected,report=merge_complete(config,contributors,manifest['registry_snapshot'],root)
         if fingerprints!=manifest['contributors']:raise ValidationError('Complete contributor snapshot changed')
         if any(manifest['validation'].get(k)!=v for k,v in report.items()):raise ValidationError('Complete validation report mismatch')
     if manifest['module']!=name or manifest['policy_version']!=config['policy_version']:raise ValidationError('Assembly identity/policy mismatch')

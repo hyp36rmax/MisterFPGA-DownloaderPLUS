@@ -5,7 +5,7 @@
   "upstream_url": "https://raw.githubusercontent.com/meathax/meatcores/db/db.json.zip",
   "upstream_db_id": "meathax/meatcores",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f3",
-  "policy_version": 1,
+  "policy_version": 2,
   "selection_tags": [
     "arcadearcadetaitof3"
   ],
@@ -14,5 +14,5 @@
   ],
   "source_navigation_root": "_Arcade/_Meatcores/_TaitoF3",
   "target_folder": "_Arcade Systems/_TAITO F3",
-  "core_ownership": "upstream"
+  "core_ownership": "included"
 }

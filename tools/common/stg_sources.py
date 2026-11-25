@@ -227,6 +227,8 @@ def project_database_update(baseline, update, config):
     require(old.get('default_options') == fresh.get('default_options'),
             'Scoped update changes shared filter defaults; review required')
     selected = select_database(fresh, config, DatabasePolicy(config))
+    # Hardware dependencies must not enter a navigation-only collection source.
+    selected['files'] = {p:r for p,r in selected['files'].items() if is_mra(p)}
     result = copy.deepcopy(baseline)
     database = result['database']
     groups = {}

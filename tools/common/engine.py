@@ -111,11 +111,13 @@ def load_module(name, root=ROOT):
                 raise ValidationError('Invalid reviewed MRA inventory counts')
         if 'required_core_records' in config:
             records = config['required_core_records']
-            if config.get('core_ownership') != 'upstream' or type(records) is not dict or not records:
+            if config.get('core_ownership') not in {'upstream', 'included'} or type(records) is not dict or not records:
                 raise ValidationError('Invalid upstream core dependency contract')
             for path, record in records.items():
-                if not re.fullmatch(r'_Arcade/cores/[A-Za-z0-9_-]+\.rbf', path) or type(record) is not dict or set(record) != {'hash', 'size'} or not re.fullmatch('[0-9a-f]{32}', record['hash']) or type(record['size']) is not int or record['size'] <= 0:
+                if not re.fullmatch(r'_Arcade/cores/[A-Za-z0-9_-]+\.rbf', path) or type(record) is not dict or set(record) not in ({'hash', 'size'}, {'hash', 'size', 'mra_reference'}) or not isinstance(record['hash'], str) or not re.fullmatch('[0-9a-f]{32}', record['hash']) or type(record['size']) is not int or record['size'] <= 0:
                     raise ValidationError('Invalid required upstream core record')
+                if 'mra_reference' in record and (not isinstance(record['mra_reference'], str) or not re.fullmatch('[A-Za-z0-9_-]+', record['mra_reference'])):
+                    raise ValidationError('Invalid required MRA core reference')
         if 'core_policy' in config:
             cp = config['core_policy']
             if type(cp) is not dict or set(cp) != {'identities', 'immutable_url_prefix'} or type(cp['identities']) is not list or not cp['identities'] or len(set(cp['identities'])) != len(cp['identities']) or not all(isinstance(i,str) and re.fullmatch('[A-Za-z0-9_-]+',i) for i in cp['identities']) or not re.fullmatch(r'https://raw\.githubusercontent\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/', cp['immutable_url_prefix']):
@@ -182,6 +184,8 @@ def validate_module_collisions(databases):
         for path, record in inventory["files"].items():
             key = path.casefold()
             identity = (record["hash"], record["size"])
+            if path.lower().endswith('.rbf'):
+                identity += (record.get("url", database.get("base_files_url", "") + quote(path)),)
             if key in files and files[key] != identity:
                 raise ValidationError(f"Conflicting module payload destination: {path}")
             files[key] = identity

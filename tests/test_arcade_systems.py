@@ -187,7 +187,7 @@ class ArcadeSystemsTests(unittest.TestCase):
     def test_identical_archive_members_deduplicate_and_conflicting_members_fail(self):
         d=unpack((ROOT/'dist/sega-stv/sega-stv.json.zip').read_bytes())
         root='_Arcade/_Arcade Systems/_SEGA ST-V'
-        approval={'authority':'official','management_state':'managed','include_in_arcade_systems_complete':True,'destination_roots':[root],'include_required_cores':False}
+        approval={'authority':'official','management_state':'managed','include_in_arcade_systems_complete':True,'destination_roots':[root],'include_required_cores':True}
         result,report=merge_complete(self.config(),{'a':d,'b':copy.deepcopy(d)},{'a':approval,'b':approval})
         from tools.common.archives import expanded_inventory
         self.assertEqual(len(expanded_inventory(result)['files']),len(expanded_inventory(d)['files']))
@@ -244,6 +244,8 @@ class ArcadeSystemsTests(unittest.TestCase):
         from tools.common.coinop_families import URL
         m=self.coinop_fixture();source=m['source_database']
         cache={URL:package(source)}
+        from urllib.parse import quote
+        cache.update({('verified-core',r.get('url',source['base_files_url']+quote(p)),r['hash'],r['size']):True for p,r in source['files'].items() if p.endswith('.rbf')})
         with tempfile.TemporaryDirectory() as tmp,patch('tools.common.coinop_families.references',return_value=m['source_references']) as refs,patch('tools.common.coinop_families.fetch',side_effect=AssertionError('redundant fetch')):
             build('coinop-collection',output_root=Path(tmp)/'standalone',source_cache=cache)
             build('coinop-toaplan-1',output_root=Path(tmp)/'one',source_cache=cache)

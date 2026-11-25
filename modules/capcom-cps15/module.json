@@ -5,7 +5,7 @@
   "upstream_url": "https://raw.githubusercontent.com/jotego/jtcores_mister/main/jtbindb.json.zip",
   "upstream_db_id": "jtcores",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps15",
-  "policy_version": 1,
+  "policy_version": 2,
   "selection_tags": [
     "arcadejtcps15"
   ],
@@ -18,5 +18,5 @@
   "source_navigation_root": "_Arcade",
   "target_folder": "_Arcade Systems/_CAPCOM CPS1.5",
   "database_member": "jtbindb.json",
-  "core_ownership": "upstream"
+  "core_ownership": "included"
 }

@@ -24,7 +24,7 @@ class NextBatchTests(unittest.TestCase):
         inventories={}
         for name in NAMES:
             config,policy=load_module(name);d=self.source(config);selected_ids={d['tag_dictionary'][t] for t in config['selection_tags']}
-            expected={p:r for p,r in d['files'].items() if p.endswith('.mra') and selected_ids & set(r['tags'])}
+            expected={p:r for p,r in d['files'].items() if (p.endswith('.mra') or p.endswith('.rbf')) and selected_ids & set(r['tags'])}
             s=select_database(d,config,policy);g=transform(s,config,policy)
             self.assertEqual(expected,s['files'])
             self.assertEqual(d['tag_dictionary'],g['tag_dictionary'])
@@ -32,8 +32,8 @@ class NextBatchTests(unittest.TestCase):
             report=validate_output(s,g,config,policy)
             self.assertEqual(report['effective_source_urls_changed'],0)
             self.assertEqual(report['unexpected_metadata_differences'],0)
-            self.assertEqual(report['current_cores'],0)
-            self.assertFalse(any(p.startswith('_Arcade/cores') for p in expanded_inventory(g)['files']))
+            self.assertEqual(report['current_cores'],sum(p.endswith('.rbf') for p in s['files']))
+            self.assertTrue(any(p.startswith('_Arcade/cores') for p in expanded_inventory(g)['files']))
             self.assertEqual(package(g),package(transform(g,config,policy)))
             if config.get('selection_archives'):
                 original=d['archives']['mra_alternatives']['summary_inline']['files']
@@ -46,13 +46,13 @@ class NextBatchTests(unittest.TestCase):
     def test_combined_system16_union_and_overlap_not_duplicated(self):
         config,policy=load_module('sega-system16');d=self.source(config)
         a,b=[d['tag_dictionary'][t] for t in config['selection_tags']]
-        expected={p for p,r in d['files'].items() if p.endswith('.mra') and {a,b} & set(r['tags'])}
+        expected={p for p,r in d['files'].items() if (p.endswith('.mra') or p.endswith('.rbf')) and {a,b} & set(r['tags'])}
         s=select_database(d,config,policy);self.assertEqual(set(s['files']),expected)
         p=next(p for p,r in s['files'].items() if a in r['tags']);d['files'][p]['tags'].append(b)
         s=select_database(d,config,policy)
         self.assertEqual(set(s['files']),expected)
         g=transform(s,config,policy)
-        self.assertTrue(all(p.startswith('_Arcade/_Arcade Systems/_SEGA SYSTEM 16/') for p in g['files']))
+        self.assertTrue(all(p.startswith('_Arcade/_Arcade Systems/_SEGA SYSTEM 16/') or p.startswith('_Arcade/cores/') for p in g['files']))
 
     def test_system16_and18_mixed_classification_rejected(self):
         for name in ('sega-system16','sega-system18'):

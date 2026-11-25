@@ -1,5 +1,7 @@
 # TAITO F2
 
+This subscription includes its required downloadable RBF records at `_Arcade/cores/`, using the original developer URLs, filenames and payloads. A separate upstream subscription is optional for these dependencies. Required ROMs, BIOS, keys and media remain user-supplied. See the [core dependency audit](../../docs/managed-core-dependencies.md).
+
 The [official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer) determines the current Taito F2 family through its `arcadetaitof2` classification. Credit belongs to the [Taito F2 MiSTer project](https://github.com/MiSTer-devel/Arcade-TaitoF2_MiSTer) and its developers and contributors.
 
 Classified MRAs and their recursive alternatives install beneath `_Arcade/_Arcade Systems/_TAITO F2/`. Payloads download directly from official sources; MRA contents, hashes, sizes, tags and effective URLs remain unchanged. Keep the normal official MiSTer installation enabled to manage the core in `_Arcade/cores/`. Users supply their own ROMs.

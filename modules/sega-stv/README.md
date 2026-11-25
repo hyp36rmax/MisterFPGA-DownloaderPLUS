@@ -1,5 +1,7 @@
 # SEGA ST-V
 
+This subscription includes its required downloadable RBF records at `_Arcade/cores/`, using the original developer URLs, filenames and payloads. A separate upstream subscription is optional for these dependencies. Required ROMs, BIOS, keys and media remain user-supplied. See the [core dependency audit](../../docs/managed-core-dependencies.md).
+
 Authoritative source: [official MiSTer Distribution](https://github.com/MiSTer-devel/Distribution_MiSTer), selected through its current `arcadestv` classification. Credit belongs to MiSTer-devel and upstream developers.
 
 MRAs and complete alternative hierarchy install in `_Arcade/_Arcade Systems/_SEGA ST-V/`. Keep normal official MiSTer/Update_All enabled to own and update the core. DownloaderPLUS includes no ST-V core records.

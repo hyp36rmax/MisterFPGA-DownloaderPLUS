@@ -30,7 +30,7 @@ class ApprovedMainBatchTests(unittest.TestCase):
                 source_files = {**source['files'], **source['archives']['mra_alternatives']['summary_inline']['files']}
                 expected = {p: r for p, r in source_files.items()
                             if is_mra(p) and identifier in r['tags']}
-                actual = expanded_inventory(generated)['files']
+                actual = {p:r for p,r in expanded_inventory(generated)['files'].items() if is_mra(p)}
                 self.assertEqual(len(expected), len(actual))
                 prefix = '_Arcade/' + config['target_folder']
                 for path, record in expected.items():
@@ -41,7 +41,7 @@ class ApprovedMainBatchTests(unittest.TestCase):
                     base = source['archives'][record['arc_id']]['base_files_url'] if 'arc_id' in record else source['base_files_url']
                     self.assertEqual(new['url'], record.get('url', base + quote(path)))
                 self.assertEqual(source['tag_dictionary'], generated['tag_dictionary'])
-                self.assertFalse(any(p.endswith('.rbf') for p in actual))
+                self.assertTrue(any(p.endswith('.rbf') for p in generated['files']))
                 self.assertEqual(filter_counts(generated)['filtered_selected_files'], 0)
                 self.assertEqual(validate_output(selected, generated, config, policy), manifest['validation'])
                 self.assertEqual(package(transform(selected, config, policy)), package(generated))
@@ -55,8 +55,8 @@ class ApprovedMainBatchTests(unittest.TestCase):
             mapping = {i: complete['tag_dictionary'][term] for term, i in individual['tag_dictionary'].items()}
             for path, record in expanded_inventory(individual)['files'].items():
                 new = inventory[path]
-                self.assertEqual({k: v for k, v in record.items() if k not in {'tags', 'arc_id'}},
-                                 {k: v for k, v in new.items() if k not in {'tags', 'arc_id'}})
+                self.assertEqual({k: v for k, v in record.items() if k not in {'tags', 'arc_id', 'url'}},
+                                 {k: v for k, v in new.items() if k not in {'tags', 'arc_id', 'url'}})
                 self.assertEqual(set(new['tags']), {mapping[i] for i in record['tags']})
 
     def test_mixed_case_primary_and_archived_alternative_paths_survive(self):
@@ -76,7 +76,7 @@ class ApprovedMainBatchTests(unittest.TestCase):
                         inventory['files'][new_path] = record
                         paths.append(new_path)
                     generated = transform(select_database(source, config, policy), config, policy)
-                    actual = expanded_inventory(generated)['files']
+                    actual = {p:r for p,r in expanded_inventory(generated)['files'].items() if is_mra(p)}
                     for path in paths:
                         self.assertIn('_Arcade/' + config['target_folder'] + path[len('_Arcade'):], actual)
 

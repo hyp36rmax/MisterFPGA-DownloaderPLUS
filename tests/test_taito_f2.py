@@ -24,16 +24,16 @@ class TaitoF2Tests(unittest.TestCase):
     def test_authoritative_membership_sources_metadata_and_parallel_navigation(self):
         original=copy.deepcopy(self.source);selected=self.selected()
         expected={p:r for p,r in self.source['files'].items() if p.endswith('.mra') and self.tid in r['tags']}
-        self.assertEqual(selected['files'],expected)
+        self.assertEqual({p:r for p,r in selected['files'].items() if p.lower().endswith('.mra')},expected)
         generated=transform(selected,self.config,self.policy)
         report=validate_output(selected,generated,self.config,self.policy)
         self.assertEqual(report['effective_source_urls_changed'],0)
         self.assertEqual(report['unexpected_metadata_differences'],0)
-        self.assertEqual(report['current_cores'],0)
+        self.assertEqual(report['current_cores'],1)
         self.assertEqual(generated['tag_dictionary'],self.source['tag_dictionary'])
         self.assertEqual(generated['db_id'],'hyp36rmax/MisterFPGA-DownloaderPLUS/taito-f2')
-        self.assertTrue(all(p.startswith('_Arcade/_Arcade Systems/_TAITO F2/') for p in expanded_inventory(generated)['files']))
-        self.assertFalse(any('/cores/' in p for p in expanded_inventory(generated)['files']))
+        self.assertTrue(all(p.startswith(('_Arcade/_Arcade Systems/_TAITO F2/','_Arcade/cores/')) for p in expanded_inventory(generated)['files']))
+        self.assertTrue(any('/cores/' in p for p in expanded_inventory(generated)['files']))
         self.assertEqual(self.source,original)
         self.assertFalse((ROOT/'modules/taito-f1').exists())
 

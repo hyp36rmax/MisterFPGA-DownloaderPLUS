@@ -1,13 +1,15 @@
 # TECMO VIDEO SYSTEM ZN
 
+This subscription includes its required downloadable RBF records at `_Arcade/cores/`, using the original developer URLs, filenames and payloads. A separate upstream subscription is optional for these dependencies. Required ROMs, BIOS, keys and media remain user-supplied. See the [core dependency audit](../../docs/managed-core-dependencies.md).
+
 Selected from [XelaNotPu's official Downloader database](https://github.com/XelaNotPu/XelaNotPu_MiSTer_DB). 14 primary MRAs and 5 alternatives retain their original filenames, payloads, tags, URLs and recursive hierarchy.
 
 - Navigation: `_Arcade/_Arcade Systems/_TECMO VIDEO SYSTEM ZN/`.
 - Artifact: `dist/tecmo-video-system-zn/tecmo-video-system-zn.json.zip`.
 - Permanent ID: `hyp36rmax/MisterFPGA-DownloaderPLUS/tecmo-video-system-zn`.
-- Cores: upstream-owned under `_Arcade/cores/`. This module installs no executable cores.
+- Cores: required original RBF records are included under `_Arcade/cores/`, downloading directly from XelaNotPu.
 
-Keep the normal XelaNotPu subscription enabled:
+The module installs its required cores. The normal XelaNotPu subscription below is optional if you also want its native navigation view:
 
 ```ini
 [XelaNotPu/XelaNotPu_MiSTer_DB]

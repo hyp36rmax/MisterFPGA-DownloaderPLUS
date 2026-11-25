@@ -1,6 +1,6 @@
 {
   "collection_scope": "excluded",
-  "core_ownership": "upstream",
+  "core_ownership": "included",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/namco-system12",
   "display_name": "NAMCO SYSTEM 12",
   "exclusive_group_tags": [
@@ -36,7 +36,7 @@
     "arcadezn2capcom"
   ],
   "name": "namco-system12",
-  "policy_version": 1,
+  "policy_version": 2,
   "require_all_group_tags": false,
   "selection_tags": [
     "arcadexnsystem12",
@@ -46,5 +46,12 @@
   "source_navigation_root": "_Arcade/_XelaNotPu",
   "target_folder": "_Arcade Systems/_NAMCO SYSTEM 12",
   "upstream_db_id": "XelaNotPu/XelaNotPu_MiSTer_DB",
-  "upstream_url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip"
+  "upstream_url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip",
+  "required_core_records": {
+    "_Arcade/cores/Arcade-XNSYSTEM12_20261014.rbf": {
+      "hash": "9e53f5dc7bd8c3cf59aee54a4ba120a0",
+      "size": 4538028,
+      "mra_reference": "XNSYSTEM12"
+    }
+  }
 }

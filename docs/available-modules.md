@@ -1,5 +1,7 @@
 # Available Modules
 
+Managed Arcade Systems and Complete include their required original RBF records at `_Arcade/cores/`. Separate upstream subscriptions are optional for these dependencies. STG collections keep their existing core policy. See the [dependency audit](managed-core-dependencies.md).
+
 Every available DownloaderPLUS module, including its source, destination, and database artifact. See the [README installation commands](../README.md#installation-commands) to configure a subscription.
 
 | Module | Source mode | Navigation destination | Artifact |

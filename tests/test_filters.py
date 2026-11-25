@@ -116,6 +116,10 @@ class DerivedFilterTests(unittest.TestCase):
     def test_all_other_purpose_built_modules_preserve_defaults(self):
         rows=audit()
         for r in rows:
+            if r['module']=='capcom-cps1':
+                self.assertFalse(r['derived_policy_applied'])
+                self.assertEqual(r['source_default_filter'],r['generated_default_filter'])
+                continue
             if r['module']=='capcom-cps3':self.assertTrue(r['derived_policy_applied'])
             elif r['module'].startswith('coinop-'):
                 self.assertEqual(r['generated_default_filter'],'[MiSTer]')

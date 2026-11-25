@@ -127,7 +127,7 @@ class PublicDistributionTests(unittest.TestCase):
             db,_=verify_one(name,verbose=False)
             for p,r in db['files'].items():
                 actual=complete['files'][p]
-                self.assertEqual({k:v for k,v in actual.items() if k!='tags'},{k:v for k,v in r.items() if k!='tags'})
+                self.assertEqual({k:v for k,v in actual.items() if k not in {'tags','url'}},{k:v for k,v in r.items() if k not in {'tags','url'}})
                 terms=lambda database,record:{k for k,v in database['tag_dictionary'].items() if v in record['tags']}
                 self.assertEqual(terms(complete,actual),terms(db,r))
 

@@ -26,7 +26,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM CPS1"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "capcom-cps15": {
       "authority": "jtcores",
@@ -35,7 +35,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM CPS1.5"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "capcom-cps2": {
       "authority": "jtcores",
@@ -44,7 +44,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM CPS2"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "capcom-cps3": {
       "authority": "jtcores",
@@ -53,7 +53,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM CPS3"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "capcom-zn1": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -62,7 +62,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM ZN-1"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "capcom-zn2": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -71,7 +71,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_CAPCOM ZN-2"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-collection": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -80,7 +80,7 @@
       "destination_roots": [
         "_Arcade/_Coin-Op Collection"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "irem-m62": {
       "authority": "distribution_mister",
@@ -89,7 +89,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_IREM M62"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "irem-m72": {
       "authority": "distribution_mister",
@@ -98,7 +98,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_IREM M72"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "irem-m90": {
       "authority": "distribution_mister",
@@ -107,7 +107,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_IREM M90"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "irem-m92": {
       "authority": "distribution_mister",
@@ -116,7 +116,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_IREM M92"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "namco-system11": {
       "authority": "XelaNotPu/SYSTEM11_MiSTer",
@@ -152,7 +152,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_SEGA ST-V"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "sega-system16": {
       "authority": "jtcores",
@@ -161,7 +161,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_SEGA SYSTEM 16"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "sega-system18": {
       "authority": "jtcores",
@@ -170,7 +170,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_SEGA SYSTEM 18"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "sega-system32": {
       "authority": "meathax/meatcores",
@@ -206,7 +206,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO F2"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "taito-fx1b": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -215,7 +215,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO FX1B"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "technosoft": {
       "authority": "distribution_mister",
@@ -224,7 +224,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TECHNOSOFT"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-data-east-deco-8": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -233,7 +233,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_DATA EAST DECO-8"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-data-east-deco-16": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -242,7 +242,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_DATA EAST DECO-16"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-data-east-deco-32": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -251,7 +251,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_DATA EAST DECO-32"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-eighting-raizing": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -260,7 +260,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_EIGHTING RAIZING"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-jaleco-mega-system-1": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -269,7 +269,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_JALECO MEGA SYSTEM 1"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-nichibutsu-terra-cresta": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -278,7 +278,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NICHIBUTSU TERRA CRESTA"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-nichibutsu-terra-force": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -287,7 +287,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NICHIBUTSU TERRA FORCE"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-nmk16": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -296,7 +296,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NMK16"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-snk-alpha-68k": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -305,7 +305,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_SNK ALPHA-68K"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-snk-68000": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -314,7 +314,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_SNK 68000"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-toaplan-1": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -323,7 +323,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TOAPLAN 1"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-toaplan-2": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -332,7 +332,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TOAPLAN 2"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "arcade-systems-reserve": {
       "authority": "DownloaderPLUS",
@@ -381,7 +381,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_KONAMI TMNT2 BASED"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-konami-xexex-based": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -390,7 +390,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_KONAMI XEXEX BASED"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-konami-pre-gx": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -399,7 +399,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_KONAMI PRE-GX"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "psikyo-sh2": {
       "authority": "distribution_mister",
@@ -408,7 +408,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_PSIKYO SH2"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-taito-a78": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -417,7 +417,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO A78"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-taito-a85": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -426,7 +426,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO A85"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-technos-ta-0015": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -435,7 +435,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TECHNOS TA-0015 & TA-0017"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-toaplan-min16-02": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -444,7 +444,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TOAPLAN MIN16-02"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "irem-m107": {
       "authority": "distribution_mister",
@@ -453,7 +453,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_IREM M107"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "psikyo": {
       "authority": "distribution_mister",
@@ -462,7 +462,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_PSIKYO"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "sega-system1": {
       "authority": "distribution_mister",
@@ -471,7 +471,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_SEGA SYSTEM 1"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "taito-asuka": {
       "authority": "distribution_mister",
@@ -480,7 +480,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO ASUKA"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "taito-system-sj": {
       "authority": "distribution_mister",
@@ -489,7 +489,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO SYSTEM SJ"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "coinop-seibu-sei-8608": {
       "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
@@ -552,7 +552,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_ATARI SYSTEM 1"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "atari-system2": {
       "authority": "distribution_mister",
@@ -561,7 +561,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_ATARI SYSTEM 2"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "sega-xboard": {
       "authority": "distribution_mister",
@@ -570,7 +570,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_SEGA X-BOARD"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "taito-f3": {
       "authority": "meathax/meatcores",
@@ -579,7 +579,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO F3"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "namco-system12": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -588,7 +588,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NAMCO SYSTEM 12"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "namco-system21": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -597,7 +597,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NAMCO SYSTEM 21"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "namco-system22": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -606,7 +606,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NAMCO SYSTEM 22"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "namco-super-system22": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -615,7 +615,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_NAMCO SUPER SYSTEM 22"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "taito-fx1a": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -624,7 +624,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TAITO FX1A"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "acclaim-zn": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -633,7 +633,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_ACCLAIM ZN"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "atlus-zn": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -642,7 +642,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_ATLUS ZN"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "raizing-zn": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -651,7 +651,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_RAIZING ZN"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "metro-zn": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -660,7 +660,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_METRO ZN"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "tecmo-video-system-zn": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -669,7 +669,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TECMO VIDEO SYSTEM ZN"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "time-warner-zn": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -678,7 +678,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_TIME WARNER ZN"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "konami-gv": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -687,7 +687,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_KONAMI GV"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     },
     "konami-gq": {
       "authority": "XelaNotPu/XelaNotPu_MiSTer_DB",
@@ -696,7 +696,7 @@
       "destination_roots": [
         "_Arcade/_Arcade Systems/_KONAMI GQ"
       ],
-      "include_required_cores": false
+      "include_required_cores": true
     }
   },
   "reserved_authorities": {

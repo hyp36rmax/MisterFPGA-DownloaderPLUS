@@ -5,7 +5,20 @@
   "authority": "Coin-OpCollection/Distribution-MiSTerFPGA",
   "family": "toaplan-1",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-toaplan-1",
-  "policy_version": 1,
-  "include_required_cores": false,
-  "source_module": "coinop-collection"
+  "policy_version": 2,
+  "include_required_cores": true,
+  "source_module": "coinop-collection",
+  "core_policy": {
+    "identities": [
+      "demonwld_mister",
+      "fshark_mister",
+      "rallybike",
+      "twincobr_mister",
+      "vimana",
+      "wardner_mister",
+      "zerowing",
+      "zerowing_mister"
+    ],
+    "immutable_url_prefix": "https://raw.githubusercontent.com/Coin-OpCollection/Distribution-MiSTerFPGA/"
+  }
 }

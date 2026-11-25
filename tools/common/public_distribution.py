@@ -37,7 +37,7 @@ def validate_config(config):
     require(config['ref'] == ('main' if kind == 'plain-json' or config['name'] == 'sega-model1' else 'model2a') and
             config['target_folder'] == '_Arcade Systems/_' + label and config['include_required_cores'] is True and
             config['derived_db_id'] == 'hyp36rmax/MisterFPGA-DownloaderPLUS/' + config['name'] and
-            config['policy_version'] == 1 and config['source_mode'] == 'public-distribution', 'Invalid public distribution policy')
+            config['policy_version'] == (2 if config['name'] in {'sega-model2','sega-model2a'} else 1) and config['source_mode'] == 'public-distribution', 'Invalid public distribution policy')
 
 
 def checked_record(path, record):
@@ -94,7 +94,7 @@ def select_snapshot(config, snapshot):
                     re.fullmatch('[0-9a-f]{40}', entry.get('sha', '')) and type(entry.get('size')) is int,
                     'Invalid public release entry')
             if path.endswith('.rbf'):
-                pattern = r'releases/Model1_\d{8}\.rbf' if config['name'] == 'sega-model1' else r'releases/Model2A?_\d{8}\.rbf'
+                pattern = r'releases/Model1_\d{8}\.rbf' if config['name'] == 'sega-model1' else r'releases/Model2[AC]?_\d{8}\.rbf'
                 require(re.fullmatch(pattern, path), 'Unknown public core identity/version')
             target = '_Arcade/' + (path[len('releases/mra/'):] if is_mra(path) else 'cores/' + path.rsplit('/', 1)[-1])
             require(target not in entries, 'Duplicate public release destination')
@@ -108,8 +108,9 @@ def select_snapshot(config, snapshot):
         selected = copy.deepcopy(records)
     cores = {p: r for p, r in selected.items() if p.endswith('.rbf')}
     require(bool(cores), 'Public source lost required cores')
-    # Reject unknown identities, rather than accidentally adopting another system.
-    identities = {'TaitoGNET'} if config['source_type'] == 'plain-json' else ({'Model1'} if config['name'] == 'sega-model1' else {'Model2', 'Model2A'})
+    # Model 2C is verified as part of the shared upstream release, but only the
+    # configured Model 2/2A identity can enter a managed module. Unknown identities fail.
+    identities = {'TaitoGNET'} if config['source_type'] == 'plain-json' else ({'Model1'} if config['name'] == 'sega-model1' else {'Model2', 'Model2A', 'Model2C'})
     for path in cores:
         require(any(re.fullmatch(re.escape(i) + r'_\d{8}\.rbf', path.rsplit('/', 1)[-1]) for i in identities), 'Unapproved core identity')
     chosen = latest_authoritative_cores({p: r for p, r in cores.items() if re.fullmatch(re.escape(config['core_identity']) + r'_\d{8}\.rbf', p.rsplit('/', 1)[-1])}, {'identities': [config['core_identity']],

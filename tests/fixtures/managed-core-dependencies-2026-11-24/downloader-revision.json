@@ -1,0 +1,10 @@
+{
+  "revision": "5d0771359ae396aaea64453e6791ac87781d78f4",
+  "source_sha256": {
+    "file_install.py": "34741e59593ba64a8ea58753ee72ed51b1bd3f4a611a3f8543fade42e4758a77",
+    "path_package.py": "e10896a5d0b85042189c31dfcce00375eabc7d63db7c6e4921c18fffea637827",
+    "fetch_file_worker.py": "d9458ec74101d36bcd26133b82134a4549cd02ad3e0c3300238b8ad5e56e3957"
+  },
+  "in_progress_suffix": "._downloader_in_progress",
+  "constants_sha256": "f1a5e3c7046e3633f5624be941117c7d6d1955a7d5758b1f24adfcf558015f70"
+}

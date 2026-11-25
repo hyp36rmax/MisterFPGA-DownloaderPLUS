@@ -1,5 +1,7 @@
 # NAMCO SYSTEM 22
 
+This subscription includes its required downloadable RBF records at `_Arcade/cores/`, using the original developer URLs, filenames and payloads. A separate upstream subscription is optional for these dependencies. Required ROMs, BIOS, keys and media remain user-supplied. See the [core dependency audit](../../docs/managed-core-dependencies.md).
+
 Selects 6 primary MRAs and 11 alternatives from the [XelaNotPu database](https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip) at `_Arcade/_Arcade Systems/_NAMCO SYSTEM 22/`. Original filenames, recursive `_alternatives/` hierarchy, metadata and URLs are preserved.
 
 ```ini

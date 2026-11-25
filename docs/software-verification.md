@@ -1,6 +1,6 @@
 # Software acceptance
 
-The current navigation policy (version 3) uses `_Arcade/_Coin-Op Collection/` and publishes `dist/coinop-collection/coinop-collection.json.zip`. The permanent derived database identity and all upstream sources are unchanged. Standard-location core records now remain upstream-owned rather than being mirrored; see [CPS1 migration](cps1-migration.md).
+The current navigation policy (version 4) uses `_Arcade/_Coin-Op Collection/` and publishes `dist/coinop-collection/coinop-collection.json.zip`. The permanent derived database identity and all upstream sources are unchanged. Required original core records are included at their standard locations; see the [core dependency correction](managed-core-dependencies.md). Original source authority and authorization requirements remain unchanged.
 
 The approved September 30, 2026 upstream fixture is preserved unchanged under `tests/fixtures/` with its SHA-256 checked by an acceptance test.
 
@@ -8,14 +8,14 @@ Independent upstream/output comparison produces:
 
 | Measure | Result |
 |---|---:|
-| Files | 332 → 278 |
-| Folders | 76 → 75 |
+| Files | 332 → 332 |
+| Folders | 76 → 76 |
 | File destinations changed | 278 |
 | Folder destinations changed | 72 |
 | Non-Arcade destinations changed | 0 |
 | Effective source URLs changed | 0 |
 | URL fields materialized | 278 |
-| Core files retained under upstream ownership | 54 |
+| Original core records included at standard locations | 54 |
 | Hashes changed | 0 |
 | Sizes changed | 0 |
 | Tags changed | 0 |
@@ -78,4 +78,8 @@ Focused regressions verify the six original Model 1 pairs, pinned blob/hash evid
 
 ## Unified ZN database selection
 
-The twelve reviewed ZN-family groups use XelaNotPu database selection with upstream-owned cores. Required core fingerprints and reviewed MRA counts fail closed on source changes. STG approvals retain their historical repository scopes; the shared database gains no collection authority. See [source verification and deployment limits](sony-zn-unified-integration.md).
+The twelve reviewed ZN-family groups use XelaNotPu database selection with original required core records. Required core fingerprints and reviewed MRA counts fail closed on source changes. STG approvals retain their historical repository scopes; the shared database gains no collection authority. See [source verification and deployment limits](sony-zn-unified-integration.md).
+
+## Required core installation
+
+Complete and individual Managed subscriptions declare the original downloadable cores their MRAs need. Files stay under `_Arcade/cores/` and download directly from the source authority. Identical hash/size/URL records can be shared across subscriptions; conflicting records stop validation. No core is mirrored, renamed or rebuilt. STG and G-NET policies remain unchanged. See the [dependency inventory and reconciliation results](managed-core-dependencies.md).

@@ -5,7 +5,7 @@
   "upstream_url": "https://raw.githubusercontent.com/MiSTer-devel/Distribution_MiSTer/main/db.json.zip",
   "upstream_db_id": "distribution_mister",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/irem-m72",
-  "policy_version": 1,
+  "policy_version": 2,
   "selection_tags": [
     "arcadeiremm72"
   ],
@@ -18,7 +18,7 @@
   ],
   "source_navigation_root": "_Arcade",
   "target_folder": "_Arcade Systems/_IREM M72",
-  "core_ownership": "upstream",
+  "core_ownership": "included",
   "selection_archives": [
     "mra_alternatives"
   ],

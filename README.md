@@ -87,7 +87,7 @@ Browse the complete [Available Modules](docs/available-modules.md) table for sup
 
 Managed systems use approved upstream sources to download and organize supported files automatically.
 
-Some modules install required FPGA cores. Others rely on the original upstream subscription. Core ownership and original download sources remain intact.
+Managed systems include their required FPGA core records. Downloads still come directly from the original developers. STG collections keep their existing core requirements.
 
 ### Reserve Folders
 
@@ -174,7 +174,7 @@ G-NET and Model 2/2A are public beta releases; compatibility varies by game and 
 
 Model 1 installs six games and needs 64 MB or larger SDRAM, your own ROMs and I/O firmware. Its core installs as `Model1.rbf`; review older manually installed copies to avoid loading the wrong version. Model 1/2/2A CRT MRAs are under `_alternatives/`. See the [Model 1 release instructions](https://github.com/alphanu1/sega-model1-mister/tree/main/releases) and [migration notes](docs/sega-model1-inspection.md).
 
-Sony ZN-family modules need the normal XelaNotPu Downloader subscription for their cores. See the [ZN deployment notes](docs/sony-zn-unified-integration.md) before updating. Hardware validation is still outstanding. G-NET keeps its existing source and setup.
+Arcade Systems Complete and individual Managed modules include their required downloadable cores in `_Arcade/cores/`, directly from the original developers. The normal XelaNotPu subscription is optional for its native view. See the [ZN deployment notes](docs/sony-zn-unified-integration.md) before updating. Hardware validation is still outstanding. G-NET keeps its existing source and setup.
 
 ### Reserve Systems
 
@@ -187,7 +187,7 @@ Sony ZN-family modules need the normal XelaNotPu Downloader subscription for the
 - PGM2 (EZIO)
 - TECHNOS16
 
-NAMCO SYSTEM 12, SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are Managed through XelaNotPu’s database. Keep the normal XelaNotPu installation enabled for their cores. See the [Namco source audit](docs/xelanotpu-namco-inspection.md).
+NAMCO SYSTEM 12, SYSTEM 21, SYSTEM 22 and SUPER SYSTEM 22 are Managed through XelaNotPu’s database. Their required core records are included; the normal XelaNotPu installation is optional for its native view. See the [Namco source audit](docs/xelanotpu-namco-inspection.md).
 
 Midway Reserve folders use their individual subscriptions below or Arcade Systems Complete. The other Reserve folders use Arcade Systems Reserve.
 
@@ -212,7 +212,7 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 Creates a dedicated `_Arcade/_Coin-Op Collection/` folder alongside the original Coin-Op installation.
 
-Keep the normal Coin-Op subscription enabled for required cores and account authorization.
+Required cores are included. Follow Coin-Op’s account and device authorization requirements; they are unchanged.
 
 ```ini
 [hyp36rmax/MisterFPGA-DownloaderPLUS/coinop-collection]
@@ -303,7 +303,7 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 
 ### CAPCOM
 
-CPS1 uses Coin-Op’s licensed implementation. Keep the normal Coin-Op installation enabled and follow its account/device authorization requirements. CPS1.5, CPS2 and CPS3 continue using JTCORES.
+CPS1 uses Coin-Op’s licensed implementation and includes its original core records. Follow Coin-Op’s account/device authorization requirements. CPS1.5, CPS2 and CPS3 continue using JTCORES.
 
 ```ini
 [hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-cps1]

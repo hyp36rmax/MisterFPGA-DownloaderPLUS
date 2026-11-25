@@ -29,7 +29,7 @@ class NamcoReserveTests(unittest.TestCase):
             self.assertEqual(entry['management_state'],'managed')
             self.assertEqual(entry['authority'],'XelaNotPu/XelaNotPu_MiSTer_DB')
             self.assertTrue(entry['include_in_arcade_systems_complete'])
-            self.assertFalse(entry['include_required_cores'])
+            self.assertTrue(entry['include_required_cores'])
         approval=registry()['modules']['arcade-systems-reserve']
         self.assertEqual(approval['destination_roots'],[s['destination'] for s in config['systems']])
 

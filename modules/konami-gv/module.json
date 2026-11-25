@@ -5,7 +5,7 @@
   "upstream_url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip",
   "upstream_db_id": "XelaNotPu/XelaNotPu_MiSTer_DB",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/konami-gv",
-  "policy_version": 1,
+  "policy_version": 2,
   "selection_tags": [
     "arcadearcadexnkonamigv20261119",
     "arcadearcadexnkonamigvgun20261119",
@@ -70,16 +70,16 @@
   "require_all_group_tags": false,
   "source_navigation_root": "_Arcade/_XelaNotPu",
   "target_folder": "_Arcade Systems/_KONAMI GV",
-  "core_ownership": "upstream",
+  "core_ownership": "included",
   "collection_scope": "excluded",
   "required_core_records": {
-    "_Arcade/cores/Arcade-XNKonamiGVGun_20261119.rbf": {
-      "hash": "f06a08bc5b2dbd16929d97a990908097",
-      "size": 4128224
-    },
     "_Arcade/cores/Arcade-XNKonamiGVTrack_20261119.rbf": {
       "hash": "2aeafdcedbf76e11e8416ecf046b4d09",
       "size": 4161352
+    },
+    "_Arcade/cores/Arcade-XNKonamiGVGun_20261119.rbf": {
+      "hash": "f06a08bc5b2dbd16929d97a990908097",
+      "size": 4128224
     },
     "_Arcade/cores/Arcade-XNKonamiGV_20261119.rbf": {
       "hash": "1fe5b0bb4b7b170f6d39748944cb15bb",

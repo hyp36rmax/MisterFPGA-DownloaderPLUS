@@ -16,16 +16,16 @@ class TaitoF3Tests(unittest.TestCase):
         self.source=unpack((ROOT/'tests/fixtures/meatcores-f3-2026-11-05.db.json.zip').read_bytes())
         self.selected=select_database(self.source,self.config,self.policy)
 
-    def test_exact_classified_inventory_and_no_core_ownership(self):
+    def test_exact_classified_inventory_and_required_core(self):
         tag=self.source['tag_dictionary']['arcadearcadetaitof3']
         expected={p:r for p,r in self.source['files'].items() if tag in r['tags'] and p.endswith('.mra')}
-        self.assertEqual(self.selected['files'],expected)
+        self.assertEqual({p:r for p,r in self.selected['files'].items() if p.endswith('.mra')},expected)
         self.assertEqual(len(expected),96)
         self.assertEqual(sum(not alternative_directory(p) for p in expected),33)
         self.assertTrue(all(p.startswith('_Arcade/_Meatcores/_TaitoF3/') for p in expected))
         self.assertIn('_Arcade/cores/Arcade-TaitoF3_20261105.rbf',self.source['files'])
-        self.assertFalse(any(p.endswith('.rbf') for p in self.selected['files']))
-        self.assertFalse(registry()['modules']['taito-f3']['include_required_cores'])
+        self.assertTrue(any(p.endswith('.rbf') for p in self.selected['files']))
+        self.assertTrue(registry()['modules']['taito-f3']['include_required_cores'])
         self.assertIn('taito-f3',eligible_modules())
 
     def test_metadata_urls_recursive_hierarchy_and_determinism(self):
@@ -74,7 +74,7 @@ class TaitoF3Tests(unittest.TestCase):
             self.assertEqual(result['core_records'][name],record,name)
         self.assertEqual(result['database'].get('default_options'),baseline['database'].get('default_options'))
         added=set(result['database']['files'])-set(baseline['database']['files'])
-        self.assertEqual(added,set(self.selected['files']))
+        self.assertEqual(added,{p for p in self.selected['files'] if p.endswith('.mra')})
         fresh=self.source['tag_dictionary']
         needed={t for path,r in self.source['files'].items()
                 if fresh['arcadearcadetaitof3'] in r['tags'] for t in r['tags']}

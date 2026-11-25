@@ -58,12 +58,14 @@ class UnifiedZNTests(unittest.TestCase):
             report = validate_output(selected,generated,config,policy)
             self.assertEqual((report['primary_mras'],report['alternative_mras']),counts)
             expected = {p for p,v in self.review['mras'].items() if v['tag'] in config['selection_tags']}
-            self.assertEqual(set(selected['files']),expected)
+            self.assertEqual({p for p in selected['files'] if p.endswith('.mra')},expected)
+            self.assertEqual({p for p in selected['files'] if p.endswith('.rbf')},set(config['required_core_records']))
             self.assertFalse(seen & expected); seen.update(expected)
             self.assertEqual(config['derived_db_id'],'hyp36rmax/MisterFPGA-DownloaderPLUS/'+name)
             self.assertEqual(config['collection_scope'],'excluded')
             observed = set()
             for path, rec in selected['files'].items():
+                if path.endswith('.rbf'): continue
                 target = policy.destination(path,'files')
                 self.assertEqual(generated['files'][target],dict(rec,url=rec.get('url',self.source['base_files_url']+quote(path))))
                 proof = self.review['mras'][path]
@@ -75,8 +77,8 @@ class UnifiedZNTests(unittest.TestCase):
             self.assertEqual(observed,MACHINES[name])
             self.assertEqual(transform(generated,config,policy),generated)
             self.assertEqual(package(generated),package(transform(selected,config,policy)))
-            self.assertFalse(any('/cores' in p for p in generated['folders']))
-            self.assertTrue(all(p.lower().endswith('.mra') for p in generated['files']))
+            self.assertIn('_Arcade/cores',generated['folders'])
+            self.assertTrue(all(p.lower().endswith(('.mra','.rbf')) for p in generated['files']))
         self.assertEqual(seen,set(self.payloads))
 
     def test_core_loss_hash_size_and_inventory_loss_fail_closed(self):
@@ -121,7 +123,7 @@ class UnifiedZNTests(unittest.TestCase):
         helper = DownloaderCleanupTests()
         for name, paths in previous.items():
             database, _ = verify_one(name, verbose=False)
-            self.assertEqual(sorted(database['files']), paths['mras'])
+            self.assertEqual(sorted(p for p in database['files'] if p.endswith('.mra')),paths['mras'])
             for old in paths['cores']:
                 self.assertTrue(helper.run_cleanup(relative=old, core=True, shared=True)[0])
                 self.assertTrue(helper.run_cleanup(relative=old, core=True, allow_delete='none')[0])
@@ -134,16 +136,16 @@ class UnifiedZNTests(unittest.TestCase):
             cfg,_=load_module(name)
             entry=registry()['modules'][name]
             self.assertEqual(entry['authority'],'XelaNotPu/XelaNotPu_MiSTer_DB')
-            self.assertFalse(entry['include_required_cores'])
+            self.assertTrue(entry['include_required_cores'])
             self.assertTrue(entry['include_in_arcade_systems_complete'])
-            self.assertFalse(any(p.endswith('.rbf') for p in database['files']))
+            self.assertTrue(any(p.endswith('.rbf') for p in database['files']))
             self.assertTrue(set(database['files']) <= set(complete['files']))
             for p,r in database['files'].items():
                 for key in ('hash','size','url'):
-                    self.assertEqual(complete['files'][p][key],r[key])
+                    self.assertEqual(complete['files'][p][key],r.get(key,database['base_files_url']+quote(p)) if key=='url' else r[key])
         old=('Arcade-ZN1Capcom_20260820.rbf','Arcade-ZN2Capcom_20260828.rbf','Arcade-XNZN1TaitoFX1B_20260814.rbf')
         self.assertFalse(any('_Arcade/cores/'+p in complete['files'] for p in old))
-        self.assertFalse(any(p in complete['files'] for p in self.review['cores']))
+        self.assertTrue(all(p in complete['files'] for p in self.review['cores']))
 
     def test_protected_gnet_stg_and_historical_authorities(self):
         for file,expected in json.loads((FIXTURE/'protected-files.json').read_bytes()).items():

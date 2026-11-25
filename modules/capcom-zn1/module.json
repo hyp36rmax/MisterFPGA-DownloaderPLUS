@@ -5,7 +5,7 @@
   "upstream_url": "https://raw.githubusercontent.com/XelaNotPu/XelaNotPu_MiSTer_DB/db/db.json.zip",
   "upstream_db_id": "XelaNotPu/XelaNotPu_MiSTer_DB",
   "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/capcom-zn1",
-  "policy_version": 4,
+  "policy_version": 5,
   "selection_tags": [
     "arcadearcadexnzn1capcom20261119"
   ],
@@ -68,7 +68,7 @@
   "require_all_group_tags": false,
   "source_navigation_root": "_Arcade/_XelaNotPu",
   "target_folder": "_Arcade Systems/_CAPCOM ZN-1",
-  "core_ownership": "upstream",
+  "core_ownership": "included",
   "collection_scope": "excluded",
   "required_core_records": {
     "_Arcade/cores/Arcade-XNZN1Capcom_20261119.rbf": {
