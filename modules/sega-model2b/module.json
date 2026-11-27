@@ -1,0 +1,15 @@
+{
+  "name": "sega-model2b",
+  "display_name": "SEGA MODEL 2B",
+  "source_mode": "public-distribution",
+  "authority": "alphanu1",
+  "repository": "alphanu1/sega-model2-mister",
+  "source_type": "repository-release",
+  "ref": "model2a",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2b",
+  "policy_version": 1,
+  "include_required_cores": true,
+  "core_identity": "Model2B",
+  "target_folder": "_Arcade Systems/_SEGA MODEL 2B",
+  "collection_scope": "excluded"
+}

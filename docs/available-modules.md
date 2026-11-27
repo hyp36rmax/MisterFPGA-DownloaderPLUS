@@ -58,6 +58,8 @@ Every available DownloaderPLUS module, including its source, destination, and da
 | SEGA MODEL 1 | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 1/` | `sega-model1.json.zip` |
 | SEGA MODEL 2 | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2/` | `sega-model2.json.zip` |
 | SEGA MODEL 2A | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2A/` | `sega-model2a.json.zip` |
+| SEGA MODEL 2B | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2B/` | `sega-model2b.json.zip` |
+| SEGA MODEL 2C | alphanu1 release distribution | `_Arcade/_Arcade Systems/_SEGA MODEL 2C/` | `sega-model2c.json.zip` |
 | SEGA ST-V | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA ST-V/` | `sega-stv.json.zip` |
 | SEGA SYSTEM 1 | Official MiSTer database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 1/` | `sega-system1.json.zip` |
 | SEGA SYSTEM 16 | JTCORES database selection | `_Arcade/_Arcade Systems/_SEGA SYSTEM 16/` | `sega-system16.json.zip` |

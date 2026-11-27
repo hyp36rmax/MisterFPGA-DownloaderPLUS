@@ -697,6 +697,24 @@
         "_Arcade/_Arcade Systems/_KONAMI GQ"
       ],
       "include_required_cores": true
+    },
+    "sega-model2c": {
+      "authority": "alphanu1",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA MODEL 2C"
+      ],
+      "include_required_cores": true
+    },
+    "sega-model2b": {
+      "authority": "alphanu1",
+      "management_state": "managed",
+      "include_in_arcade_systems_complete": true,
+      "destination_roots": [
+        "_Arcade/_Arcade Systems/_SEGA MODEL 2B"
+      ],
+      "include_required_cores": true
     }
   },
   "reserved_authorities": {

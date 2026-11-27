@@ -68,3 +68,9 @@ System 11 retains its repository source. Capcom ZN-1/ZN-2 and Taito FX1B now sel
 ## Sega Model 1 release
 
 Model 1 reuses the pinned public release selector used by Model 2/2A. It accepts only the approved Model 1 repository’s release MRAs and dated core, then installs that core as `Model1.rbf` without changing its payload or source URL. Model 1 has hardware-only approval and does not expand STG source scope. The three Model views place verified CRT pairs under `_alternatives/`. See the [source review](sega-model1-inspection.md).
+
+## Model 2B/2C public release modules
+
+The Managed `sega-model2b` and `sega-model2c` modules use alphanu1’s approved `model2a` release directory through the existing public-distribution selector. Original MRA references isolate each hardware family; CRT pairs install under `_alternatives/`. Their original dated core URLs install as `_Arcade/cores/Model2B.rbf` and `_Arcade/cores/Model2C.rbf`. Complete includes the same required executable records through the registry. Existing Model 1/2/2A artifacts and STG inputs remain unchanged. These hardware approvals do not expand STG collection authority.
+
+See the [source inspection, inventories and requirements](sega-model2bc-inspection.md) and the individual [Model 2B](../modules/sega-model2b/README.md) and [Model 2C](../modules/sega-model2c/README.md) subscription instructions. Fresh installation, game launching, controls and CRT configurations still require physical MiSTer UAT.

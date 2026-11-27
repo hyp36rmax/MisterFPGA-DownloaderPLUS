@@ -19,6 +19,8 @@ APPROVED = {
     'sega-model1': ('alphanu1', 'alphanu1/sega-model1-mister', 'Model1', 'SEGA MODEL 1', 'repository-release'),
     'sega-model2': ('alphanu1', 'alphanu1/sega-model2-mister', 'Model2', 'SEGA MODEL 2', 'repository-release'),
     'sega-model2a': ('alphanu1', 'alphanu1/sega-model2-mister', 'Model2A', 'SEGA MODEL 2A', 'repository-release'),
+    'sega-model2b': ('alphanu1', 'alphanu1/sega-model2-mister', 'Model2B', 'SEGA MODEL 2B', 'repository-release'),
+    'sega-model2c': ('alphanu1', 'alphanu1/sega-model2-mister', 'Model2C', 'SEGA MODEL 2C', 'repository-release'),
 }
 DATABASE_URL = 'https://raw.githubusercontent.com/shmupfan/Distribution/main/db.json'
 MODEL_REPOSITORY = 'alphanu1/sega-model2-mister'
@@ -27,9 +29,9 @@ MODEL_REPOSITORY = 'alphanu1/sega-model2-mister'
 def validate_config(config):
     fields = {'name', 'display_name', 'source_mode', 'authority', 'repository', 'source_type',
               'ref', 'derived_db_id', 'policy_version', 'include_required_cores', 'core_identity', 'target_folder'}
-    if config.get('name') == 'sega-model1':
+    if config.get('name') in {'sega-model1','sega-model2b','sega-model2c'}:
         fields.add('collection_scope')
-        require(config.get('collection_scope') == 'excluded', 'Model 1 has hardware-only approval')
+        require(config.get('collection_scope') == 'excluded', 'System has hardware-only approval')
     require(set(config) == fields and config['name'] in APPROVED, 'Unapproved public distribution configuration')
     authority, repository, identity, label, kind = APPROVED[config['name']]
     require((config['authority'], config['repository'], config['core_identity'], config['display_name'], config['source_type']) ==
@@ -94,7 +96,7 @@ def select_snapshot(config, snapshot):
                     re.fullmatch('[0-9a-f]{40}', entry.get('sha', '')) and type(entry.get('size')) is int,
                     'Invalid public release entry')
             if path.endswith('.rbf'):
-                pattern = r'releases/Model1_\d{8}\.rbf' if config['name'] == 'sega-model1' else r'releases/Model2[AC]?_\d{8}\.rbf'
+                pattern = r'releases/Model1_\d{8}\.rbf' if config['name'] == 'sega-model1' else r'releases/Model2[ABC]?_\d{8}\.rbf'
                 require(re.fullmatch(pattern, path), 'Unknown public core identity/version')
             target = '_Arcade/' + (path[len('releases/mra/'):] if is_mra(path) else 'cores/' + path.rsplit('/', 1)[-1])
             require(target not in entries, 'Duplicate public release destination')
@@ -108,9 +110,9 @@ def select_snapshot(config, snapshot):
         selected = copy.deepcopy(records)
     cores = {p: r for p, r in selected.items() if p.endswith('.rbf')}
     require(bool(cores), 'Public source lost required cores')
-    # Model 2C is verified as part of the shared upstream release, but only the
-    # configured Model 2/2A identity can enter a managed module. Unknown identities fail.
-    identities = {'TaitoGNET'} if config['source_type'] == 'plain-json' else ({'Model1'} if config['name'] == 'sega-model1' else {'Model2', 'Model2A', 'Model2C'})
+    # A shared release may contain all four boards; only the configured identity
+    # can enter a managed module. Unknown identities still fail closed.
+    identities = {'TaitoGNET'} if config['source_type'] == 'plain-json' else ({'Model1'} if config['name'] == 'sega-model1' else {'Model2', 'Model2A', 'Model2B', 'Model2C'})
     for path in cores:
         require(any(re.fullmatch(re.escape(i) + r'_\d{8}\.rbf', path.rsplit('/', 1)[-1]) for i in identities), 'Unapproved core identity')
     chosen = latest_authoritative_cores({p: r for p, r in cores.items() if re.fullmatch(re.escape(config['core_identity']) + r'_\d{8}\.rbf', p.rsplit('/', 1)[-1])}, {'identities': [config['core_identity']],
@@ -191,8 +193,8 @@ def generate(config, snapshot):
     require(not ownership['ambiguous_primaries'] and not ownership['unresolved_families'], 'Unresolved public alternatives ownership')
     result = copy.deepcopy(source); target = '_Arcade/' + config['target_folder']
     def destination(path):
-        if config['name'] == 'sega-model1' and path.endswith('.rbf'):
-            return '_Arcade/cores/Model1.rbf'
+        if config['name'] in {'sega-model1','sega-model2b','sega-model2c'} and path.endswith('.rbf'):
+            return '_Arcade/cores/'+config['core_identity']+'.rbf'
         if config['source_type'] == 'repository-release' and is_mra(path) and '[15kHz CRT]' in path.rsplit('/', 1)[-1] and '/_alternatives/' not in path:
             parent = path.replace(' [15kHz CRT]', '')
             require(parent != path and parent in source['files'] and

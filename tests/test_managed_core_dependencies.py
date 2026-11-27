@@ -26,6 +26,14 @@ class ManagedCoreDependencyTests(unittest.TestCase):
     def setUpClass(cls):
         cls.before = json.loads((FIXTURE/'before.json').read_bytes())
         cls.references = json.loads((FIXTURE/'mra-references.json').read_bytes())
+        from tools.common.stg_sources import mra_bytes
+        from tools.common.repository import mra_reference
+        for name in ('sega-model2b','sega-model2c'):
+            manifest=json.loads((ROOT/'dist'/name/'manifest.json').read_bytes())
+            source=manifest['source_snapshot']
+            for path,proof in source['metadata'].items():
+                raw=mra_bytes(proof);record=source['records'][path]
+                cls.references[record['hash']]={'reference':mra_reference(raw,path),'size':len(raw)}
         cls.databases = {n: unpack((ROOT/'dist'/n/(n+'.json.zip')).read_bytes()) for n in cls.before}
         cls.complete = unpack((ROOT/'dist/arcade-systems-complete/arcade-systems-complete.json.zip').read_bytes())
         cls.official = unpack((ROOT/'tests/fixtures/xelanotpu-zn-2026-11-24/db.json.zip').read_bytes())
@@ -55,11 +63,11 @@ class ManagedCoreDependencyTests(unittest.TestCase):
         self.assertEqual(len(self.databases),73)
         for name, database in self.databases.items():
             with self.subTest(module=name): self.check_dependencies(database)
-        self.assertEqual(len(self.check_dependencies(self.complete)),139)
+        self.assertEqual(len(self.check_dependencies(self.complete)),141)
         inventory=expanded_inventory(self.complete)
-        self.assertEqual(sum(is_mra(p) and not any(s in p.split('/') for s in ('_alternative','_alternatives')) for p in inventory['files']),670)
-        self.assertEqual(sum(is_mra(p) and any(s in p.split('/') for s in ('_alternative','_alternatives')) for p in inventory['files']),1341)
-        self.assertEqual(len(inventory['files']),2158)
+        self.assertEqual(sum(is_mra(p) and not any(s in p.split('/') for s in ('_alternative','_alternatives')) for p in inventory['files']),700)
+        self.assertEqual(sum(is_mra(p) and any(s in p.split('/') for s in ('_alternative','_alternatives')) for p in inventory['files']),1371)
+        self.assertEqual(len(inventory['files']),2220)
 
     def test_multiple_individuals_complete_and_official_subscription_can_share(self):
         validate_module_collisions(list(self.databases.values()))
