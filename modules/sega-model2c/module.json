@@ -1,0 +1,15 @@
+{
+  "name": "sega-model2c",
+  "display_name": "SEGA MODEL 2C",
+  "source_mode": "public-distribution",
+  "authority": "alphanu1",
+  "repository": "alphanu1/sega-model2-mister",
+  "source_type": "repository-release",
+  "ref": "model2a",
+  "derived_db_id": "hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2c",
+  "policy_version": 1,
+  "include_required_cores": true,
+  "core_identity": "Model2C",
+  "target_folder": "_Arcade Systems/_SEGA MODEL 2C",
+  "collection_scope": "excluded"
+}

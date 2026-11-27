@@ -79,7 +79,7 @@ class PublicDistributionTests(unittest.TestCase):
             self.assertTrue(all(s['metadata'][p]['rbf']==identity for p in select_snapshot(c,s) if p.endswith('.mra')))
             self.assertFalse(any('/mra/' in p or 'test pattern' in p.casefold() for p in d['files']))
             self.assertEqual(c['ref'],'model2a')
-        self.assertFalse((ROOT/'modules/sega-model2b').exists());self.assertFalse((ROOT/'modules/sega-model2c').exists())
+        self.assertFalse(any('Model2B' in path or 'Model2C' in path for path in select_snapshot(c,s)))
 
     def test_latest_core_per_identity_and_unknown_core_hold(self):
         c,_=load_module('taito-gnet');s=self.snapshot();p='_Arcade/cores/TaitoGNET_20261022.rbf'

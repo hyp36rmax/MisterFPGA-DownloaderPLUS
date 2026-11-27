@@ -120,6 +120,8 @@ _Arcade/
 │   ├── _SEGA MODEL 1/
 │   ├── _SEGA MODEL 2/
 │   ├── _SEGA MODEL 2A/
+│   ├── _SEGA MODEL 2B/
+│   ├── _SEGA MODEL 2C/
 │   ├── _SEGA SYSTEM 32/
 │   ├── _SEGA X-BOARD/
 │   ├── _SSV/
@@ -159,7 +161,7 @@ The systems below download from their maintained sources. Reserve Systems provid
 | NMK | NMK16 |
 | PGM | PGM (EZIO) |
 | PSIKYO | PSIKYO, SH2 |
-| SEGA | MODEL 1, MODEL 2, MODEL 2A, ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI, X-BOARD |
+| SEGA | MODEL 1, MODEL 2, MODEL 2A, MODEL 2B, MODEL 2C, ST-V, SYSTEM 1, SYSTEM 16, SYSTEM 18, SYSTEM 32, SYSTEM 32 MULTI, X-BOARD |
 | SEIBU | SEI-8608, SPI |
 | SNK | 68000, ALPHA-68K |
 | SSV | SSV |
@@ -175,6 +177,8 @@ G-NET and Model 2/2A are public beta releases; compatibility varies by game and 
 Model 1 installs six games and needs 64 MB or larger SDRAM, your own ROMs and I/O firmware. Its core installs as `Model1.rbf`; review older manually installed copies to avoid loading the wrong version. Model 1/2/2A CRT MRAs are under `_alternatives/`. See the [Model 1 release instructions](https://github.com/alphanu1/sega-model1-mister/tree/main/releases) and [migration notes](docs/sega-model1-inspection.md).
 
 Arcade Systems Complete and individual Managed modules include their required downloadable cores in `_Arcade/cores/`, directly from the original developers. The normal XelaNotPu subscription is optional for its native view. See the [ZN deployment notes](docs/sony-zn-unified-integration.md) before updating. Hardware validation is still outstanding. G-NET keeps its existing source and setup.
+
+Model 2B and Model 2C include their required cores automatically. Model 2B has 23 standard MRAs and 23 CRT alternatives; Model 2C has 7 and 7. Several games need 128 MB SDRAM. Use your own ROM sets and required firmware. These early-beta/beta releases still need controller, light-gun and CRT testing. See the [Model 2B/2C requirements and source review](docs/sega-model2bc-inspection.md).
 
 ### Reserve Systems
 
@@ -474,6 +478,12 @@ db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/m
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2a]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model2a/sega-model2a.json.zip
 
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2b]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model2b/sega-model2b.json.zip
+
+[hyp36rmax/MisterFPGA-DownloaderPLUS/sega-model2c]
+db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-model2c/sega-model2c.json.zip
+
 [hyp36rmax/MisterFPGA-DownloaderPLUS/sega-system1]
 db_url = https://raw.githubusercontent.com/hyp36rmax/MisterFPGA-DownloaderPLUS/main/dist/sega-system1/sega-system1.json.zip
 
@@ -722,6 +732,8 @@ TAITO G-NET: [shmupfan](https://github.com/shmupfan/Arcade-TaitoGNET_MiSTer).
 
 Sega Model 1: [alphanu1](https://github.com/alphanu1/sega-model1-mister). Sega Model 2 and Model 2A: [alphanu1](https://github.com/alphanu1/sega-model2-mister).
 
+Sega Model 2B and Model 2C: [alphanu1](https://github.com/alphanu1/sega-model2-mister).
+
 Original licenses and distribution conditions remain in effect. DownloaderPLUS is independent and does not claim affiliation or ownership of upstream projects.
 
 ## Project Documentation
@@ -732,6 +744,7 @@ Original licenses and distribution conditions remain in effect. DownloaderPLUS i
 - [Arcade Systems architecture](docs/arcade-systems-architecture.md)
 - [Coin-Op family mapping](modules/coinop-families.json)
 - [Coin-Op inspection](docs/phase-1.md)
+- [Sega Model 2B/2C source inspection and requirements](docs/sega-model2bc-inspection.md)
 - [Coin-Op module details](modules/coinop-collection/README.md)
 - [PGM inspection and source policy](docs/pgm-inspection.md)
 - [Filter policy](docs/derived-filter-policy.md)

@@ -83,3 +83,9 @@ The twelve reviewed ZN-family groups use XelaNotPu database selection with origi
 ## Required core installation
 
 Complete and individual Managed subscriptions declare the original downloadable cores their MRAs need. Files stay under `_Arcade/cores/` and download directly from the source authority. Identical hash/size/URL records can be shared across subscriptions; conflicting records stop validation. No core is mirrored, renamed or rebuilt. STG and G-NET policies remain unchanged. See the [dependency inventory and reconciliation results](managed-core-dependencies.md).
+
+## Model 2B/2C verification
+
+The Managed `sega-model2b` and `sega-model2c` modules use alphanu1’s approved `model2a` release directory through the existing public-distribution selector. Original MRA references isolate each hardware family; CRT pairs install under `_alternatives/`. Their original dated core URLs install as `_Arcade/cores/Model2B.rbf` and `_Arcade/cores/Model2C.rbf`. Complete includes the same required executable records through the registry. Existing Model 1/2/2A artifacts and STG inputs remain unchanged. These hardware approvals do not expand STG collection authority.
+
+See the [source inspection, inventories and requirements](sega-model2bc-inspection.md) and the individual [Model 2B](../modules/sega-model2b/README.md) and [Model 2C](../modules/sega-model2c/README.md) subscription instructions. Fresh installation, game launching, controls and CRT configurations still require physical MiSTer UAT.
