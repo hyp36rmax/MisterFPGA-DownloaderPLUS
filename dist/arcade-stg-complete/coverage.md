@@ -4,13 +4,13 @@ Generated from the frozen master matrix and pinned approved public inventories. 
 
 | Measure | Count |
 |---|---:|
-| matched rows | 132 |
-| matched distinct designs | 132 |
-| unavailable rows | 72 |
-| authority hold rows | 19 |
-| ambiguous rows | 2 |
-| primary mras | 132 |
-| alternatives | 411 |
+| matched rows | 130 |
+| matched distinct designs | 130 |
+| unavailable rows | 70 |
+| authority hold rows | 21 |
+| ambiguous rows | 4 |
+| primary mras | 130 |
+| alternatives | 403 |
 | missing alternatives | 0 |
 | orphan alternatives | 0 |
 
@@ -20,12 +20,12 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 
 | Authority | Primary MRAs | Alternatives |
 |---|---:|---:|
-| Coin-OpCollection/Distribution-MiSTerFPGA | 23 | 60 |
+| Coin-OpCollection/Distribution-MiSTerFPGA | 21 | 54 |
 | distribution_mister | 63 | 194 |
 | hyp36rmax/PGM-Mister-EZIOCHIU | 4 | 36 |
-| jtcores | 17 | 58 |
+| jtcores | 18 | 58 |
 | kuzearcade/kuzecores | 1 | 0 |
-| meathax/meatcores | 15 | 18 |
+| meathax/meatcores | 14 | 16 |
 | shmupfan | 5 | 9 |
 | zakk4223/Arcade-SeibuSPI_MiSTer | 4 | 36 |
 
@@ -41,11 +41,11 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | CAVE CV1000 | 3 | 0 | 0 | 3 | 0 |
 | CAVE CV1000-B | 6 | 0 | 0 | 6 | 0 |
 | CAVE CV1000-D | 1 | 0 | 0 | 1 | 0 |
-| CPS-1 | 2 | 2 | 0 | 0 | 0 |
+| CPS-1 | 2 | 0 | 0 | 2 | 0 |
 | CPS-2 | 4 | 4 | 0 | 0 | 0 |
 | Capcom | 8 | 7 | 1 | 0 | 0 |
 | Crux/Kyugo family | 1 | 1 | 0 | 0 | 0 |
-| DECO | 9 | 4 | 4 | 0 | 1 |
+| DECO | 9 | 3 | 4 | 0 | 2 |
 | Dedicated | 5 | 0 | 5 | 0 | 0 |
 | Face | 2 | 0 | 2 | 0 | 0 |
 | Galaga | 1 | 1 | 0 | 0 | 0 |
@@ -77,7 +77,7 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Psikyo 68K | 3 | 3 | 0 | 0 | 0 |
 | Psikyo SH-2 | 6 | 6 | 0 | 0 | 0 |
 | Raizing | 5 | 5 | 0 | 0 | 0 |
-| SNK | 7 | 4 | 3 | 0 | 0 |
+| SNK | 7 | 6 | 1 | 0 | 0 |
 | SNK/ADK | 2 | 2 | 0 | 0 | 0 |
 | SSV | 4 | 4 | 0 | 0 | 0 |
 | Sega | 5 | 1 | 4 | 0 | 0 |
@@ -86,7 +86,7 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Sega/Coreland | 1 | 1 | 0 | 0 | 0 |
 | Seibu | 3 | 3 | 0 | 0 | 0 |
 | Seibu SPI | 4 | 4 | 0 | 0 | 0 |
-| Seta | 5 | 4 | 1 | 0 | 0 |
+| Seta | 5 | 3 | 1 | 0 | 1 |
 | Sony ZN-1 | 2 | 0 | 2 | 0 | 0 |
 | System 1 | 3 | 2 | 1 | 0 | 0 |
 | System 2 | 1 | 0 | 1 | 0 | 0 |
@@ -117,10 +117,10 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Banpresto / Tsuburaya Productions | 1 | 1 | 0 | 0 | 0 |
 | CAVE | 20 | 4 | 1 | 15 | 0 |
 | CAVE / IGS | 1 | 0 | 0 | 1 | 0 |
-| Capcom | 11 | 10 | 1 | 0 | 0 |
+| Capcom | 11 | 8 | 1 | 2 | 0 |
 | Coreland | 1 | 1 | 0 | 0 | 0 |
 | Crux | 2 | 2 | 0 | 0 | 0 |
-| Data East | 9 | 4 | 4 | 0 | 1 |
+| Data East | 9 | 3 | 4 | 0 | 2 |
 | Eighting | 1 | 0 | 1 | 0 | 0 |
 | Face | 2 | 0 | 2 | 0 | 0 |
 | G.rev | 1 | 0 | 1 | 0 | 0 |
@@ -142,10 +142,10 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Raizing / Eighting | 1 | 1 | 0 | 0 | 0 |
 | Ryoto Electric | 1 | 0 | 1 | 0 | 0 |
 | SKONEC | 1 | 0 | 1 | 0 | 0 |
-| SNK | 6 | 3 | 3 | 0 | 0 |
+| SNK | 6 | 5 | 1 | 0 | 0 |
 | Sega | 8 | 3 | 5 | 0 | 0 |
 | Seibu Kaihatsu | 7 | 7 | 0 | 0 | 0 |
-| Seta | 5 | 4 | 1 | 0 | 0 |
+| Seta | 5 | 3 | 1 | 0 | 1 |
 | Shoei | 2 | 0 | 2 | 0 | 0 |
 | Success | 2 | 2 | 0 | 0 | 0 |
 | Sunsoft | 1 | 0 | 1 | 0 | 0 |
@@ -175,8 +175,10 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 
 ## Excluded uncertain matches
 
-- Liberation: meathax/meatcores:_Arcade/_MeatCores/Dual Assault.mra; meathax/meatcores:_Arcade/_MeatCores/Liberation.mra
+- Liberation: meathax/meatcores:_Arcade/_Meatcores/Dual Assault.mra; meathax/meatcores:_Arcade/_Meatcores/Liberation.mra
 - TwinBee: distribution_mister:_Arcade/TwinBee (Bubble System).mra; distribution_mister:_Arcade/TwinBee.mra
+- Gondomania: meathax/meatcores:_Arcade/_Meatcores/Gondomania.mra; meathax/meatcores:_Arcade/_Meatcores/_AnalogAim/Gondomania (Twin Stick).mra
+- Caliber .50: jtcores:_Arcade/Caliber 50 (Ver. 1.01).mra; meathax/meatcores:_Arcade/_Meatcores/_AnalogAim/Caliber 50 (Twin Stick).mra
 
 ## Frozen Complete title coverage
 
@@ -258,11 +260,11 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Dragon Spirit | System 1 | UNAVAILABLE |  |  |
 | Gemini Wing | Tecmo | MATCHED | distribution_mister | _Arcade/Gemini Wing.mra |
 | 1943: The Battle of Midway | Capcom | MATCHED | jtcores | _Arcade/1943 The Battle of Midway (Euro).mra |
-| Bermuda Triangle | SNK | UNAVAILABLE |  |  |
-| World Wars | SNK | UNAVAILABLE |  |  |
-| SRD: Super Real Darwin | DECO | MATCHED | meathax/meatcores | _Arcade/_MeatCores/SRD - Super Real Darwin.mra |
-| Last Mission | DECO | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Last Mission.mra |
-| Gondomania | DECO | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Gondomania.mra |
+| Bermuda Triangle | SNK | MATCHED | meathax/meatcores | _Arcade/_Meatcores/Bermuda Triangle World.mra |
+| World Wars | SNK | MATCHED | meathax/meatcores | _Arcade/_Meatcores/World Wars World.mra |
+| SRD: Super Real Darwin | DECO | MATCHED | meathax/meatcores | _Arcade/_Meatcores/SRD - Super Real Darwin.mra |
+| Last Mission | DECO | MATCHED | meathax/meatcores | _Arcade/_Meatcores/Last Mission.mra |
+| Gondomania | DECO | AMBIGUOUS |  |  |
 | Legion | Nichibutsu | MATCHED | distribution_mister | _Arcade/Legend.mra |
 | MX5000 | Konami | MATCHED | jtcores | _Arcade/MX5000.mra |
 | Galaga '88 | System 1 | MATCHED | jtcores | _Arcade/Galaga '88.mra |
@@ -284,8 +286,8 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Hellfire | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Hellfire (2P Set).mra |
 | Zero Wing | Toaplan | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Zero Wing (2P Set).mra |
 | Gun Frontier | Taito F2 | MATCHED | distribution_mister | _Arcade/Gun & Frontier (World).mra |
-| 1941: Counter Attack | CPS-1 | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/1941 - Counter Attack (World 900227) [CoC].mra |
-| Mercs | CPS-1 | MATCHED | Coin-OpCollection/Distribution-MiSTerFPGA | _Arcade/Mercs (World 900302) [CoC].mra |
+| 1941: Counter Attack | CPS-1 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
+| Mercs | CPS-1 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
 | Air Duel | Irem M72 | MATCHED | distribution_mister | _Arcade/Air Duel (World, M72 hardware).mra |
 | Dragon Saber | System 2 | UNAVAILABLE |  |  |
 | Ashura Blaster | Taito B System | UNAVAILABLE |  |  |
@@ -309,9 +311,9 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | F/A | NA-1 | UNAVAILABLE |  |  |
 | Aero Fighters | Video System | UNAVAILABLE |  |  |
 | Twin Eagle | Seta | UNAVAILABLE |  |  |
-| Arbalester | Seta | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Arbalester.mra |
-| Meta Fox | Seta | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Meta Fox.mra |
-| Caliber .50 | Seta | MATCHED | jtcores | _Arcade/Caliber 50 (Ver. 1.01).mra |
+| Arbalester | Seta | MATCHED | jtcores | _Arcade/Arbalester.mra |
+| Meta Fox | Seta | MATCHED | jtcores | _Arcade/Meta Fox.mra |
+| Caliber .50 | Seta | AMBIGUOUS |  |  |
 | Nostradamus | Face | UNAVAILABLE |  |  |
 | Daioh | Athena | UNAVAILABLE |  |  |
 | Cybattler | Mega System 1 | UNAVAILABLE |  |  |
@@ -327,7 +329,7 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Raiden II | Seibu | MATCHED | distribution_mister | _Arcade/Raiden II (US, set 1).mra |
 | Raiden DX | Seibu | MATCHED | distribution_mister | _Arcade/Raiden DX (UK).mra |
 | Rapid Hero | NMK16 | UNAVAILABLE | Coin-OpCollection/Distribution-MiSTerFPGA |  |
-| Twin Eagle II | Seta | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Twin Eagle II - The Rescue Mission.mra |
+| Twin Eagle II | Seta | MATCHED | meathax/meatcores | _Arcade/_Meatcores/Twin Eagle II - The Rescue Mission.mra |
 | Gekirindan | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Gekirindan.mra |
 | DonPachi | CAVE 68000 | AUTHORITY HOLD | Coin-OpCollection/Distribution-MiSTerFPGA |  |
 | Strikers 1945 | Psikyo 68K | MATCHED | distribution_mister | _Arcade/Strikers 1945 (World).mra |
@@ -365,10 +367,10 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Dragon Blaze | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Dragon Blaze.mra |
 | Psyvariar: Medium Unit | Taito G-NET | MATCHED | shmupfan | _Arcade/Psyvariar -Medium Unit- (V2.02O).mra |
 | Psyvariar Revision | Taito G-NET | MATCHED | shmupfan | _Arcade/Psyvariar -Revision- (V2.04J).mra |
-| Vasara | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Vasara.mra |
+| Vasara | SSV | MATCHED | meathax/meatcores | _Arcade/_Meatcores/Vasara.mra |
 | Mars Matrix | CPS-2 | MATCHED | jtcores | _Arcade/Mars Matrix Hyper Solid Shooting (USA 000412).mra |
 | Progear | CPS-2 | MATCHED | jtcores | _Arcade/Progear (USA 010117).mra |
-| Vasara 2 | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Vasara 2.mra |
+| Vasara 2 | SSV | MATCHED | meathax/meatcores | _Arcade/_Meatcores/Vasara 2.mra |
 | Night Raid | Taito G-NET | MATCHED | shmupfan | _Arcade/Night Raid (V2.03J).mra |
 | Shikigami no Shiro | Taito G-NET | MATCHED | shmupfan | _Arcade/Shikigami no Shiro (V2.03J).mra |
 | Gunbarich | Psikyo SH-2 | MATCHED | distribution_mister | _Arcade/Gunbarich.mra |
@@ -402,8 +404,8 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 | Deathsmiles II | PC-based CAVE hardware | UNAVAILABLE |  |  |
 | Akai Katana | CAVE CV1000 | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
 | DoDonPachi SaiDaiOuJou | CAVE CV1000-D | AUTHORITY HOLD | reserve:CAVE CV1000 |  |
-| Ultra X Weapons | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Ultra X Weapons - Ultra Keibitai.mra |
-| Storm Blade | SSV | MATCHED | meathax/meatcores | _Arcade/_MeatCores/Storm Blade.mra |
+| Ultra X Weapons | SSV | MATCHED | meathax/meatcores | _Arcade/_Meatcores/Ultra X Weapons - Ultra Keibitai.mra |
+| Storm Blade | SSV | MATCHED | meathax/meatcores | _Arcade/_Meatcores/Storm Blade.mra |
 | Darius Gaiden | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Darius Gaiden.mra |
 | Grid Seeker | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Grid Seeker.mra |
 | Twin Cobra II | Taito F3 | MATCHED | meathax/meatcores | _Arcade/_Meatcores/_TaitoF3/Twin Cobra II.mra |
@@ -435,11 +437,12 @@ Taito F3 alternative destinations use `_alternatives/`. Original upstream `_alte
 
 ## Latest coverage transitions
 
-- NEW Complete MATCH: Darius Gaiden — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Darius Gaiden.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
-- NEW Complete MATCH: Gekirindan — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Gekirindan.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW Complete MATCH: Grid Seeker — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Grid Seeker.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
-- NEW Complete MATCH: RayForce — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Gunlock.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
-- NEW Complete MATCH: Twin Cobra II — meathax/meatcores: _Arcade/_Meatcores/_TaitoF3/Twin Cobra II.mra (NOT IN MASTER → MATCHED). Approved source or master eligibility changed
+- REMOVED Complete MATCH: 1941: Counter Attack — Coin-OpCollection/Distribution-MiSTerFPGA: _Arcade/1941 - Counter Attack (World 900227) [CoC].mra (MATCHED → AUTHORITY HOLD). Approved source or master eligibility changed
+- NEW Complete MATCH: Bermuda Triangle — meathax/meatcores: _Arcade/_Meatcores/Bermuda Triangle World.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
+- REMOVED Complete MATCH: Caliber .50 — jtcores: _Arcade/Caliber 50 (Ver. 1.01).mra (MATCHED → AMBIGUOUS). Approved source or master eligibility changed
+- REMOVED Complete MATCH: Gondomania — meathax/meatcores: _Arcade/_MeatCores/Gondomania.mra (MATCHED → AMBIGUOUS). Approved source or master eligibility changed
+- REMOVED Complete MATCH: Mercs — Coin-OpCollection/Distribution-MiSTerFPGA: _Arcade/Mercs (World 900302) [CoC].mra (MATCHED → AUTHORITY HOLD). Approved source or master eligibility changed
+- NEW Complete MATCH: World Wars — meathax/meatcores: _Arcade/_Meatcores/World Wars World.mra (UNAVAILABLE → MATCHED). Approved source or master eligibility changed
 
 ## Preservation
 
